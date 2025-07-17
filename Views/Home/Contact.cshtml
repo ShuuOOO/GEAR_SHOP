@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Liên hệ";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Liên hệ</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Contact</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Contact Start -->
+<div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Liên hệ để được giải đáp mọi thắc mắc</span></h2>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5">
+            <div class="contact-form">
+                <div id="success"></div>
+                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="name" placeholder="Tên của bạn"
+                               required="required" data-validation-required-message="Vui lòng nhập tên của bạn" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input type="email" class="form-control" id="email" placeholder="Email của bạn"
+                               required="required" data-validation-required-message="Vui lòng nhập email của bạn" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="subject" placeholder="Chủ đề"
+                               required="required" data-validation-required-message="Vui lòng nhập chủ đề" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="control-group">
+                        <textarea class="form-control" rows="6" id="message" placeholder="Quý khách vui lòng mô tả chi tiết"
+                                  required="required"
+                                  data-validation-required-message="Quý khách vui lòng nhập tin nhắn"></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
+                            Gửi liên hệ
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-5 mb-5">
+            <h5 class="font-weight-semi-bold mb-3">Liên hệ (8:00 - 21:00)</h5>
+            <p>Mọi thắc mắc sẽ được nhân viên hỗ trợ online sau 5 phút gửi tin nhắn. Cảm ơn quý khách đã gửi liên hệ.</p>
+            <div class="d-flex flex-column mb-3">
+                <h5 class="font-weight-semi-bold mb-3">4TL-SHOP Quận 7</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>458/3F Đ. Nguyễn Hữu Thọ, Tân Hưng, Quận 7, Hồ Chí Minh</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>nhattan@gmail.com</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 74567890</p>
+            </div>
+            <div class="d-flex flex-column">
+                <h5 class="font-weight-semi-bold mb-3">4TL-SHOP Quận 8</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>411 Liên Tỉnh 5, P. 5, Quận 8, TP. HCM</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>minhdang@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 95867890</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
