@@ -1,0 +1,57 @@
+﻿@model TL4_SHOP.Models.UserAccount
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Đăng nhập tài khoản</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Login" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label">Tên đăng nhập</label>
+                            <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập..." />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Mật khẩu</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label">Ghi nhớ đăng nhập</label>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a class="btn btn-outline-danger" href="/Account/ExternalLogin?provider=Google">
+                                <i class="fab fa-google"></i> Đăng nhập bằng Google
+                            </a>
+                            
+                            <a class="btn btn-outline-primary ms-2" href="/Account/ExternalLogin?provider=Facebook">
+                                <i class="fab fa-facebook-f"></i> Đăng nhập bằng Facebook
+                            </a>
+                        </div>
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="text-danger text-center mt-3">
+                                @ViewBag.Message
+                            </div>
+                        }
+                        @if (ViewBag.Message != null)
+                        {
+                            <div class="alert alert-success">@ViewBag.Message</div>
+                        }
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <span>Chưa có tài khoản? <a href="/Account/Register">Đăng ký</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

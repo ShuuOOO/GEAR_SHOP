@@ -15,8 +15,10 @@ namespace TL4_SHOP.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Message = TempData["Message"];
             return View();
         }
+
 
         public IActionResult Privacy()
         {

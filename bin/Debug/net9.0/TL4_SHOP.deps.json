@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v9.0": {
       "TL4_SHOP/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Facebook": "9.0.7",
+          "Microsoft.AspNetCore.Authentication.Google": "9.0.7",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
@@ -589,6 +591,22 @@
         "resources": {
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/9.0.7": {
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "9.0.7.0",
+            "fileVersion": "9.0.725.31702"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/9.0.7": {
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "9.0.7.0",
+            "fileVersion": "9.0.725.31702"
           }
         }
       },
@@ -2364,6 +2382,20 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/9.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8j7i6LIIjNGrMa3xruTMqMY4tP5M9gixzjFRx3ZgS+083NRlQW06IEJdb6L60APfOQAqVDDr0sxl8TIYUIP7JQ==",
+      "path": "microsoft.aspnetcore.authentication.facebook/9.0.7",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.9.0.7.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/9.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HfUw7wfN+m4o+8z5tbuhRzTQKyjq5ofW3PhaujI3G6/oWWXvjNueY521NR2R6jhKOztVCW5SCykq+XidK3EfKg==",
+      "path": "microsoft.aspnetcore.authentication.google/9.0.7",
+      "hashPath": "microsoft.aspnetcore.authentication.google.9.0.7.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",

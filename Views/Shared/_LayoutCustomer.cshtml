@@ -44,7 +44,7 @@
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a class="text-dark px-2" href="">
-                        <i class="fab fa-x-twitter"></i>
+                        <i class="fab fa-x-twitterwwwwwwwwwwwww"></i>
                     </a>
                     <a class="text-dark px-2" href="">
                         <i class="fab fa-linkedin-in"></i>
@@ -61,7 +61,7 @@
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">4TL</span>SHOP</h1>
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">4TL</span></h1>
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
@@ -146,8 +146,8 @@
                             <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(currentAction == "Contact" ? "active" : "")">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="" class="nav-item nav-link">Đăng nhập</a>
-                            <a href="" class="nav-item nav-link">Đăng ký</a>
+                            <a class="nav-item nav-link" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                            <a class="nav-item nav-link" asp-controller="Account" asp-action="Register">Đăng ký</a>
                         </div>
                     </div>
                 </nav>
@@ -176,5 +176,7 @@
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

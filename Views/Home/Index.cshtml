@@ -1,6 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Trang chủ";
 }
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["Message"]
+    </div>
+}
+
 <!-- Khung hình ảnh -->
 <div class="col-lg-9" style="margin-left: 25.9%; width: 71.4%">
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
