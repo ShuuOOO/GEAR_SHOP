@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\wwwroot\\mail\\contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\mail\\contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\home\\shopdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -51,25 +55,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "contact.php",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\wwwroot\\mail\\contact.php",
+              "RelativeDocumentMoniker": "wwwroot\\mail\\contact.php",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\wwwroot\\mail\\contact.php",
+              "RelativeToolTip": "wwwroot\\mail\\contact.php",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002338|",
+              "WhenOpened": "2025-07-31T07:45:51.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Contact.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Contact.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
               "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Contact.cshtml",
               "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAEIAAAB8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAB8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T10:05:42.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T10:05:42.131Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Checkout.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Checkout.cshtml",
               "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Checkout.cshtml",
               "RelativeToolTip": "Views\\Home\\Checkout.cshtml",
-              "ViewState": "AgIAALAAAAAAAAAAAAAIwMwAAAB7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMwAAAB7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-16T09:41:24.69Z"
             },
@@ -81,25 +97,26 @@
               "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
               "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Shop.cshtml",
               "RelativeToolTip": "Views\\Home\\Shop.cshtml",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAAABoBAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoBAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-16T09:25:02.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAAAKIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T10:59:23.441Z"
+              "WhenOpened": "2025-07-14T10:59:23.441Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ShopDetail.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Home\\ShopDetail.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\ShopDetail.cshtml",
@@ -111,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_footer.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Shared\\_footer.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_footer.cshtml",
@@ -123,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "style.css",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\style.css",
@@ -135,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "_LayoutCustomer.cshtml",
               "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Shared\\_LayoutCustomer.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LayoutCustomer.cshtml",
