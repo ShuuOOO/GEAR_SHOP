@@ -1,0 +1,60 @@
+﻿@model TL4_SHOP.Models.SanPham
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm mới";
+}
+
+<h2>Thêm sản phẩm mới</h2>
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="TenSanPham" class="control-label"></label>
+        <input asp-for="TenSanPham" class="form-control" />
+        <span asp-validation-for="TenSanPham" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MoTa" class="control-label"></label>
+        <textarea asp-for="MoTa" class="form-control"></textarea>
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Gia" class="control-label"></label>
+        <input asp-for="Gia" class="form-control" />
+        <span asp-validation-for="Gia" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SoLuongTon" class="control-label"></label>
+        <input asp-for="SoLuongTon" class="form-control" />
+        <span asp-validation-for="SoLuongTon" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HinhAnhFile" class="control-label">Chọn ảnh</label>
+        <input asp-for="HinhAnhFile" type="file" class="form-control-file" />
+        <span asp-validation-for="HinhAnhFile" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Danh mục</label>
+        <select asp-for="DanhMucId" asp-items="ViewBag.DanhMucs" class="form-control"></select>
+        <span asp-validation-for="DanhMucId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Nhà cung cấp</label>
+        <select asp-for="NhaCungCapId" asp-items="ViewBag.NhaCungCaps" class="form-control"></select>
+        <span asp-validation-for="NhaCungCapId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tạo mới</button>
+    <a asp-action="Index" class="btn btn-secondary">Trở lại</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

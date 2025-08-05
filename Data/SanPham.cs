@@ -9,13 +9,13 @@ public partial class SanPham
 
     public string TenSanPham { get; set; } = null!;
 
-    public string MoTa { get; set; } = null!;
+    public string? MoTa { get; set; } = null!;
 
     public decimal Gia { get; set; }
 
     public int SoLuongTon { get; set; }
 
-    public string HinhAnh { get; set; } = null!;
+    public string? HinhAnh { get; set; } = null!;
 
     public int? DanhMucId { get; set; }
 

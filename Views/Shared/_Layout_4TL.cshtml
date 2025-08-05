@@ -65,23 +65,24 @@
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
-                <form action="">
+                <form action="@Url.Action("Shop", "Home")" method="get" class="position-relative" autocomplete="off">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <input type="text" id="live-search-bar" name="searchTerm" class="form-control" placeholder="Tìm kiếm sản phẩm..." />
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
+                            <button type="submit" class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
-                            </span>
+                            </button>
                         </div>
                     </div>
+                    <div id="live-search-results" class="live-search-dropdown"></div>
                 </form>
             </div>
             <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
+                <a asp-area="" asp-controller="Home" asp-action="Wishlist" class="btn border">
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a href="" class="btn border">
+                <a asp-area="" asp-controller="Home" asp-action="ShoppingCart" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
@@ -133,17 +134,17 @@
                             @{
                                 var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
                             }
-                            <a asp-controller="Home" asp-action="Index" class="nav-item nav-link @(currentAction == "Index" ? "active" : "")">Trang chủ</a>
-                            <a asp-controller="Home" asp-action="Shop" class="nav-item nav-link @(currentAction == "Shop" ? "active" : "")">Mua Sắm</a>
-                            <a asp-controller="Home" asp-action="ShopDetail" class="nav-item nav-link @(currentAction == "ShopDetail" ? "active" : "")">Chi tiết Sản Phẩm</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-item nav-link @(currentAction == "Index" ? "active" : "")">Trang chủ</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Shop" class="nav-item nav-link @(currentAction == "Shop" ? "active" : "")">Mua Sắm</a>
+                            <a asp-area="" asp-controller="Home" asp-action="ShopDetail" class="nav-item nav-link @(currentAction == "ShopDetail" ? "active" : "")">Chi tiết Sản Phẩm</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a asp-controller="Home" asp-action="ShoppingCart" class="dropdown-item @(currentAction == "ShoppingCart" ? "active" : "")">Giỏ hàng</a>
-                                    <a asp-controller="Home" asp-action="Checkout" class="dropdown-item @(currentAction == "Checkout" ? "active" : "")">Thanh Toán</a>
+                                    <a asp-area="" asp-controller="Home" asp-action="ShoppingCart" class="dropdown-item @(currentAction == "ShoppingCart" ? "active" : "")">Giỏ hàng</a>
+                                    <a asp-area="" asp-controller="Home" asp-action="Checkout" class="dropdown-item @(currentAction == "Checkout" ? "active" : "")">Thanh Toán</a>
                                 </div>
                             </div>
-                            <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(currentAction == "Contact" ? "active" : "")">Liên hệ</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(currentAction == "Contact" ? "active" : "")">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             @if (User.Identity.IsAuthenticated)
@@ -184,6 +185,89 @@
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#live-search-bar').on('keyup', function () {
+                    const term = $(this).val();
+                    if (term.length >= 2) {
+                        $.get('/Home/SearchSuggestions', { term: term }, function (data) {
+                            let html = '';
+                            data.forEach(item => {
+                                html += `
+                                <a href="/Home/ShopDetail/${item.sanPhamId}" class="live-search-item">
+                                    <img src="/images/products/${item.hinhAnh}" />
+                                    <div class="info">
+                                        <h6>${item.tenSanPham}</h6>
+                                        <p>${item.gia > 0 ? item.gia.toLocaleString() + ' ₫' : 'Liên hệ'}</p>
+                                    </div>
+                                </a>`;
+                            });
+                            $('#live-search-results').html(html).show();
+                        });
+                    } else {
+                        $('#live-search-results').hide();
+                    }
+                });
+
+                $(document).click(function (e) {
+                    if (!$(e.target).closest('#live-search-bar, #live-search-results').length) {
+                        $('#live-search-results').hide();
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .live-search-dropdown {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border: 1px solid #ddd;
+                max-height: 350px;
+                overflow-y: auto;
+                z-index: 9999;
+                display: none;
+                border-radius: 4px;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .live-search-item {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                gap: 10px;
+                text-decoration: none;
+                color: #000;
+                border-bottom: 1px solid #eee;
+            }
+
+                .live-search-item img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                    border-radius: 4px;
+                }
+
+                .live-search-item:hover {
+                    background-color: #f1f1f1;
+                }
+
+                .live-search-item .info h6 {
+                    margin: 0;
+                    font-size: 14px;
+                }
+
+                .live-search-item .info p {
+                    margin: 0;
+                    font-size: 13px;
+                    color: #d00;
+                }
+        </style>
+    
+
 
     @RenderSection("Scripts", required: false)
 </body>

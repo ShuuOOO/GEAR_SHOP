@@ -4,61 +4,143 @@ using TL4_SHOP.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Add services to the container
-builder.Services.AddSession();
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
+// Configure services
+ConfigureServices(builder.Services, builder.Configuration);
 
-builder.Services.AddDbContext<_4tlShopContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("4TL_SHOP"));
-});
-//2.Add authentication providers(Google, Facebook) và phần của thầy Hiển
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-})
-.AddCookie(options =>
-{
-    options.LoginPath = "/Account/Login";
-    options.LogoutPath = "/Account/Logout";
-    options.ExpireTimeSpan = TimeSpan.FromDays(7);
-})
-.AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = "115282379706-...";
-    googleOptions.ClientSecret = "GOCSPX-...";
-})
-.AddFacebook(facebookOptions =>
-{
-    facebookOptions.AppId = "FACEBOOK_APP_ID";
-    facebookOptions.AppSecret = "FACEBOOK_APP_SECRET";
-});
-
-// 3. Build the app
+// Build the application
 var app = builder.Build();
 
-// 4. Configure the HTTP request pipeline
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles(); 
-
-app.UseRouting();
-
-app.UseSession();
-
-app.UseAuthentication(); 
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-);
+// Configure the HTTP request pipeline
+ConfigurePipeline(app);
 
 app.Run();
+
+// Service configuration method
+static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+{
+    // Core services
+    services.AddControllersWithViews();
+    services.AddHttpContextAccessor();
+
+    // Session configuration
+    services.AddSession(options =>
+    {
+        options.IdleTimeout = TimeSpan.FromMinutes(30);
+        options.Cookie.HttpOnly = true;
+        options.Cookie.IsEssential = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    });
+
+    // Database configuration
+    services.AddDbContext<_4tlShopContext>(options =>
+    {
+        var connectionString = configuration.GetConnectionString("4TL_SHOP");
+        options.UseSqlServer(connectionString, sqlOptions =>
+        {
+            sqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 3,
+                maxRetryDelay: TimeSpan.FromSeconds(30),
+                errorNumbersToAdd: null);
+        });
+    });
+
+    // Authentication configuration
+    ConfigureAuthentication(services, configuration);
+
+    // Authorization configuration
+    ConfigureAuthorization(services);
+}
+
+// Authentication configuration method
+static void ConfigureAuthentication(IServiceCollection services, IConfiguration configuration)
+{
+    services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    })
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);
+        options.SlidingExpiration = true;
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        options.Cookie.SameSite = SameSiteMode.Lax;
+    })
+    .AddGoogle(googleOptions =>
+    {
+        googleOptions.ClientId = configuration["Authentication:Google:ClientId"] ?? "115282379706-...";
+        googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"] ?? "GOCSPX-...";
+        googleOptions.SaveTokens = true;
+    })
+    .AddFacebook(facebookOptions =>
+    {
+        facebookOptions.AppId = configuration["Authentication:Facebook:AppId"] ?? "FACEBOOK_APP_ID";
+        facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"] ?? "FACEBOOK_APP_SECRET";
+        facebookOptions.SaveTokens = true;
+    });
+}
+
+// Authorization configuration method
+static void ConfigureAuthorization(IServiceCollection services)
+{
+    services.AddAuthorization(options =>
+    {
+        // Admin policy
+        options.AddPolicy("AdminOnly", policy =>
+            policy.RequireRole("Admin"));
+
+        // Customer policy
+        options.AddPolicy("CustomerOnly", policy =>
+            policy.RequireRole("Customer"));
+
+        // Authenticated user policy
+        options.AddPolicy("AuthenticatedUser", policy =>
+            policy.RequireAuthenticatedUser());
+    });
+}
+
+// Pipeline configuration method
+static void ConfigurePipeline(WebApplication app)
+{
+    // Error handling
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+        app.UseHsts();
+    }
+    else
+    {
+        app.UseDeveloperExceptionPage();
+    }
+
+    // Security headers
+    app.UseHttpsRedirection();
+
+    // Static files
+    app.UseStaticFiles();
+
+    // Routing
+    app.UseRouting();
+
+    // Session
+    app.UseSession();
+
+    // Authentication & Authorization
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    // Route mapping
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    app.MapControllerRoute(
+        name: "admin",
+        pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
+        defaults: new { area = "Admin" });
+}

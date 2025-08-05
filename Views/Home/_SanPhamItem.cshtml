@@ -1,0 +1,6 @@
+﻿@model dynamic
+<div class="search-result-item">
+    <img src="~/images/products/@Model.HinhAnh" width="50" height="50" />
+    <span>@Model.TenSanPham</span>
+    <span>@Model.Gia.ToString("N0") ₫</span>
+</div>

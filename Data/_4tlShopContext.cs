@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using TL4_SHOP.Models;
 
 namespace TL4_SHOP.Data;
 
@@ -47,9 +48,11 @@ public partial class _4tlShopContext : DbContext
 
     public virtual DbSet<TrangThaiDonHang> TrangThaiDonHangs { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
+    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -352,6 +355,30 @@ public partial class _4tlShopContext : DbContext
         });
 
         OnModelCreatingPartial(modelBuilder);
+
+        modelBuilder.Entity<PasswordResetToken>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(e => e.ExpiryDate)
+                .IsRequired();
+
+            entity.Property(e => e.IsUsed)
+                .HasDefaultValue(false);
+
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("GETDATE()");
+
+            entity.HasOne(d => d.TaiKhoan)
+                .WithMany()
+                .HasForeignKey(d => d.TaiKhoanId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PasswordResetToken_TaiKhoan");
+        });
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

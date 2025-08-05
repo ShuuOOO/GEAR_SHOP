@@ -585,7 +585,6 @@ D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\9mqg26mi5a-m7fznzp2n
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\sikl4q7syp-8ho8weanaw.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\2qupiohrsi-9dp9gal4ep.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\p6mvu4chwn-b9sayid5wm.gz
-D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-g84lq3vjje.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\2h7fhiqr28-tolfu9ombn.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\928900q75p-61n19gt1b8.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\oqftlcrlrm-kgr6hqw5na.gz
@@ -1106,3 +1105,5 @@ C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.pdb
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.genruntimeconfig.cache
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\ref\TL4_SHOP.dll
+D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\ivza7tft7d-3yuzo8kc19.gz
+D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-0kxtuocncu.gz
