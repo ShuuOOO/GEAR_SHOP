@@ -25,6 +25,12 @@
                         </div>
 
                         <div class="mb-3">
+                            <label asp-for="Phone" class="form-label">Phone</label>
+                            <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại..." />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
                             <label asp-for="Password" class="form-label">Mật khẩu</label>
                             <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
                             <span asp-validation-for="Password" class="text-danger"></span>

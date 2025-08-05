@@ -7743,11 +7743,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\TL4_SHOP.csproj",
+      "projectUniqueName": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-&-Logout\\TL4_SHOP\\TL4_SHOP.csproj",
       "projectName": "TL4_SHOP",
-      "projectPath": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\TL4_SHOP.csproj",
+      "projectPath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-&-Logout\\TL4_SHOP\\TL4_SHOP.csproj",
       "packagesPath": "C:\\Users\\tanle\\.nuget\\packages\\",
-      "outputPath": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\obj\\",
+      "outputPath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-&-Logout\\TL4_SHOP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TL4_SHOP.Models;
 
@@ -12,9 +13,9 @@ namespace TL4_SHOP.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
+            var username = User.Identity.Name;
             ViewBag.Message = TempData["Message"];
             return View();
         }

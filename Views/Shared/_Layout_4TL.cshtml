@@ -146,8 +146,16 @@
                             <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link @(currentAction == "Contact" ? "active" : "")">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a class="nav-item nav-link" asp-controller="Account" asp-action="Login">Đăng nhập</a>
-                            <a class="nav-item nav-link" asp-controller="Account" asp-action="Register">Đăng ký</a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="nav-item nav-link" href="#">Xin chào, @User.Identity.Name</a>
+                                <a class="nav-item nav-link" asp-controller="Account" asp-action="Logout">Đăng xuất</a>
+                            }
+                            else
+                            {
+                                <a class="nav-item nav-link" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+                                <a class="nav-item nav-link" asp-controller="Account" asp-action="Register">Đăng ký</a>
+                            }
                         </div>
                     </div>
                 </nav>

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
 
@@ -9,26 +9,29 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<Tl4ShopContext>(options =>
+builder.Services.AddDbContext<_4tlShopContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TL4_SHOP"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("4TL_SHOP"));
 });
+//2.Add authentication providers(Google, Facebook) và phần của thầy Hiển
 
-// 2. Add authentication providers (Google, Facebook)
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 })
-.AddCookie()
+.AddCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+})
 .AddGoogle(googleOptions =>
 {
-    // TODO: Replace with your real Google API keys
-    googleOptions.ClientId = "115282379706-5u2q3s4nuakf0f6ljs1fjuu9nu1nk04n.apps.googleusercontent.com";
-    googleOptions.ClientSecret = "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";
+    googleOptions.ClientId = "115282379706-...";
+    googleOptions.ClientSecret = "GOCSPX-...";
 })
 .AddFacebook(facebookOptions =>
 {
-    // TODO: Replace with your real Facebook App credentials
     facebookOptions.AppId = "FACEBOOK_APP_ID";
     facebookOptions.AppSecret = "FACEBOOK_APP_SECRET";
 });
