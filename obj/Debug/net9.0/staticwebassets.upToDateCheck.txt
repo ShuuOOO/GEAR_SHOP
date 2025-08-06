@@ -62,6 +62,7 @@ D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\bootstrap-shop-template\lib\owlcarousel\
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\jquery\dist\jquery.js
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\easing\easing.min.js
+D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\css\mega-menu.css
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\jquery\dist\jquery.slim.js
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\bootstrap-shop-template\css\style.css
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\jquery-validation\dist\additional-methods.js
@@ -72,6 +73,7 @@ D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\bootstrap-shop-template\LICENSE.txt
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\owlcarousel\assets\owl.carousel.css
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\css\shop.css
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\easing\easing.js
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\js\main.js
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
@@ -247,6 +249,8 @@ wwwroot\bootstrap-shop-template\scss\bootstrap\scss\vendor\_rfs.scss
 wwwroot\bootstrap-shop-template\scss\style.scss
 wwwroot\bootstrap-shop-template\shop.html
 wwwroot\css\admin.css
+wwwroot\css\mega-menu.css
+wwwroot\css\shop.css
 wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\style.min.css

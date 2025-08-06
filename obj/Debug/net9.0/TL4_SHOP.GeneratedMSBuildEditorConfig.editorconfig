@@ -120,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/Components/DanhMucMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFuaE11Y01lbnVcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,6 +134,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_Layout_4TL.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfNFRMLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_MenuDanhMuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51RGFuaE11Yy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -118,7 +118,19 @@ public partial class _4tlShopContext : DbContext
             entity.Property(e => e.DanhMucId)
                 .ValueGeneratedNever()
                 .HasColumnName("DanhMucID");
+
             entity.Property(e => e.TenDanhMuc).HasMaxLength(100);
+
+            entity.Property(e => e.MoTa).IsRequired();
+
+            entity.Property(e => e.DanhMucChaId).HasColumnName("DanhMucChaId"); 
+
+            // Quan hệ cha – con
+            entity.HasOne(d => d.DanhMucCha)
+                .WithMany(p => p.DanhMucCon)
+                .HasForeignKey(d => d.DanhMucChaId)
+                .HasConstraintName("FK_DanhMuc_ChaCon")
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<DiaChi>(entity =>

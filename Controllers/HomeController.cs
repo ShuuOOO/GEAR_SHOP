@@ -4,23 +4,17 @@ using System.Diagnostics;
 using TL4_SHOP.Data;
 using TL4_SHOP.Models;
 using TL4_SHOP.Models.ViewModels;
-using SanPhamModel = TL4_SHOP.Models.SanPham;
-
 
 namespace TL4_SHOP.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly _4tlShopContext _context;
-
-        public HomeController(_4tlShopContext context)
+        public HomeController(_4tlShopContext context) : base(context)
         {
-            _context = context;
         }
 
         public IActionResult Index()
         {
-            var username = User.Identity.Name;
             ViewBag.Message = TempData["Message"];
             return View();
         }
@@ -37,7 +31,7 @@ namespace TL4_SHOP.Controllers
         }
 
         public async Task<IActionResult> Shop(string searchTerm, int? danhMucId, int? nhaCungCapId,
-    decimal? minPrice, decimal? maxPrice, string sortBy, int page = 1)
+            decimal? minPrice, decimal? maxPrice, string sortBy, int page = 1)
         {
             var viewModel = new ShopViewModel
             {
@@ -50,79 +44,46 @@ namespace TL4_SHOP.Controllers
                 CurrentPage = page
             };
 
-            // Lấy tất cả sản phẩm
+            // Lọc sản phẩm
             var query = _context.SanPhams
                 .Include(s => s.DanhMuc)
                 .Include(s => s.NhaCungCap)
                 .AsQueryable();
 
-            // Áp dụng bộ lọc tìm kiếm
             if (!string.IsNullOrEmpty(searchTerm))
-            {
                 query = query.Where(s => s.TenSanPham.Contains(searchTerm));
-            }
 
-            // Áp dụng bộ lọc danh mục
             if (danhMucId.HasValue)
-            {
                 query = query.Where(s => s.DanhMucId == danhMucId.Value);
-            }
 
-            // Áp dụng bộ lọc nhà cung cấp
             if (nhaCungCapId.HasValue)
-            {
                 query = query.Where(s => s.NhaCungCapId == nhaCungCapId.Value);
-            }
 
-            // Áp dụng bộ lọc giá
             if (minPrice.HasValue)
-            {
                 query = query.Where(s => s.Gia >= minPrice.Value);
-            }
+
             if (maxPrice.HasValue)
-            {
                 query = query.Where(s => s.Gia <= maxPrice.Value);
-            }
 
             // Sắp xếp
-            switch (sortBy)
+            query = sortBy switch
             {
-                case "price_asc":
-                    query = query.OrderBy(s => s.Gia);
-                    break;
-                case "price_desc":
-                    query = query.OrderByDescending(s => s.Gia);
-                    break;
-                case "name_asc":
-                    query = query.OrderBy(s => s.TenSanPham);
-                    break;
-                default:
-                    query = query.OrderBy(s => s.TenSanPham);
-                    break;
-            }
-
-            // Tính tổng số sản phẩm
-            viewModel.TotalItems = await query.CountAsync();
+                "price_asc" => query.OrderBy(s => s.Gia),
+                "price_desc" => query.OrderByDescending(s => s.Gia),
+                "name_asc" => query.OrderBy(s => s.TenSanPham),
+                _ => query.OrderBy(s => s.TenSanPham)
+            };
 
             // Phân trang
+            viewModel.TotalItems = await query.CountAsync();
             viewModel.SanPhams = await query
                 .Skip((page - 1) * viewModel.PageSize)
                 .Take(viewModel.PageSize)
                 .ToListAsync();
 
-            // Load dữ liệu cho bộ lọc
+            // Gán danh mục và nhà cung cấp cho filter
             viewModel.DanhMucs = await _context.DanhMucSanPhams.ToListAsync();
-
-            // Chuyển đổi từ Data.NhaCungCap sang Models.NhaCungCap
-            var dataNhaCungCaps = await _context.NhaCungCaps.ToListAsync();
-            viewModel.NhaCungCaps = dataNhaCungCaps.Select(ncc => new TL4_SHOP.Models.NhaCungCap
-            {
-                NhaCungCapId = ncc.NhaCungCapId,
-                TenNhaCungCap = ncc.TenNhaCungCap,
-                DiaChi = ncc.DiaChi,
-                Phone = ncc.Phone,
-                Email = ncc.Email
-            }).ToList();
+            viewModel.NhaCungCaps = await _context.NhaCungCaps.ToListAsync();
 
             return View(viewModel);
         }
@@ -130,13 +91,12 @@ namespace TL4_SHOP.Controllers
         public async Task<IActionResult> SearchSuggestions(string term)
         {
             if (string.IsNullOrEmpty(term) || term.Length < 2)
-            {
                 return Json(new List<object>());
-            }
 
             var suggestions = await _context.SanPhams
                 .Where(s => s.TenSanPham.Contains(term))
-                .Select(s => new {
+                .Select(s => new
+                {
                     s.SanPhamId,
                     s.TenSanPham,
                     s.Gia,
@@ -147,36 +107,16 @@ namespace TL4_SHOP.Controllers
             return Json(suggestions);
         }
 
+        public IActionResult ShopDetail() => View();
+        public IActionResult ShoppingCart() => View();
+        public IActionResult Checkout() => View();
+        public IActionResult Contact() => View();
 
-
-        public IActionResult ShopDetail()
-        {
-            return View();
-        }
-
-        public IActionResult ShoppingCart()
-        {
-            return View();
-        }
-
-        public IActionResult Checkout()
-        {
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            return View();
-        }
-
-        // API endpoint cho tìm kiếm AJAX
         [HttpGet]
         public async Task<IActionResult> SearchProducts(string term)
         {
             if (string.IsNullOrEmpty(term))
-            {
                 return Json(new List<object>());
-            }
 
             var products = await _context.SanPhams
                 .Where(s => s.TenSanPham.Contains(term))

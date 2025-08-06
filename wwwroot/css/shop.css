@@ -1,0 +1,84 @@
+﻿.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+    .suggestion-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+.search-form {
+    position: relative;
+}
+
+.thongTinSanPham {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+}
+
+    .thongTinSanPham p {
+        margin: 2px 0;
+    }
+
+.product-item:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.product-img img {
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-img img {
+    transform: scale(1.05);
+}
+
+<style >
+.search-result-box {
+    border: 1px solid #ddd;
+    background: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fa-shopping-cart + .badge {
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    padding: 3px 6px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+

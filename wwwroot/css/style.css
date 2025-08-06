@@ -1,3 +1,88 @@
+﻿/* Fix menu danh mục bị tràn và che khuất nội dung */
+#navbar-vertical {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    width: calc(100% - 30px) !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    z-index: 1050 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0 0 8px 8px !important;
+    display: none !important; /* Ẩn mặc định */
+}
+
+    /* Hiển thị menu khi có class show */
+    #navbar-vertical.show {
+        display: block !important;
+    }
+
+/* Container của menu phải có position relative */
+.col-lg-3.d-none.d-lg-block {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Đảm bảo button danh mục không bị ảnh hưởng */
+.btn.shadow-none.d-flex.align-items-center.justify-content-between.bg-primary {
+    position: relative !important;
+    z-index: 1051 !important;
+}
+
+/* Style cho các item trong menu */
+#navbar-vertical .nav-link {
+    padding: 12px 20px !important;
+    border-bottom: 1px solid #eee !important;
+    transition: all 0.2s ease !important;
+    color: #333 !important;
+}
+
+    #navbar-vertical .nav-link:hover {
+        background-color: #f8f9fa !important;
+        color: #D19C97 !important;
+        padding-left: 25px !important;
+    }
+
+/* Đảm bảo nội dung chính không bị che */
+.col-lg-9 {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Fix cho carousel và nội dung khác */
+.carousel,
+.container-fluid {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Thêm backdrop mờ khi menu mở */
+.navbar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1040;
+    display: none;
+}
+
+    .navbar-backdrop.show {
+        display: block;
+    }
+
+/* Responsive cho mobile */
+@media (max-width: 991.98px) {
+    #navbar-vertical {
+        position: static !important;
+        width: 100% !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+}
+
 /******* Bootstrap Theming ********/
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -6,357 +91,351 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #D19C97;
-  --secondary: #EDF1FF;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #FFFFFF;
-  --dark: #1C1C1C;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Poppins", sans-serif;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #D19C97;
+    --secondary: #EDF1FF;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #FFFFFF;
+    --dark: #1C1C1C;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Poppins", sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-  display: block;
+    display: block;
 }
 
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #6F6F6F;
-  text-align: left;
-  background-color: #fff;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6F6F6F;
+    text-align: left;
+    background-color: #fff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
-  outline: 0 !important;
+    outline: 0 !important;
 }
 
 hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: underline;
-  text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: 0;
-  text-decoration-skip-ink: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+    cursor: help;
+    border-bottom: 0;
+    text-decoration-skip-ink: none;
 }
 
 address {
-  margin-bottom: 1rem;
-  font-style: normal;
-  line-height: inherit;
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
 }
 
 ol,
 ul,
 dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-bottom: 0;
-}
+    ol ol,
+    ul ul,
+    ol ul,
+    ul ol {
+        margin-bottom: 0;
+    }
 
 dt {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 dd {
-  margin-bottom: .5rem;
-  margin-left: 0;
+    margin-bottom: .5rem;
+    margin-left: 0;
 }
 
 blockquote {
-  margin: 0 0 1rem;
+    margin: 0 0 1rem;
 }
 
 b,
 strong {
-  font-weight: bolder;
+    font-weight: bolder;
 }
 
 small {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 sub,
 sup {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
 }
 
 sub {
-  bottom: -.25em;
+    bottom: -.25em;
 }
 
 sup {
-  top: -.5em;
+    top: -.5em;
 }
 
 a {
-  color: #D19C97;
-  text-decoration: none;
-  background-color: transparent;
+    color: #D19C97;
+    text-decoration: none;
+    background-color: transparent;
 }
 
-a:hover {
-  color: #ba6a62;
-  text-decoration: underline;
-}
+    a:hover {
+        color: #ba6a62;
+        text-decoration: underline;
+    }
 
-a:not([href]):not([class]) {
-  color: inherit;
-  text-decoration: none;
-}
+    a:not([href]):not([class]) {
+        color: inherit;
+        text-decoration: none;
+    }
 
-a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none;
-}
+        a:not([href]):not([class]):hover {
+            color: inherit;
+            text-decoration: none;
+        }
 
 pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1em;
 }
 
 pre {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  -ms-overflow-style: scrollbar;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
 }
 
 figure {
-  margin: 0 0 1rem;
+    margin: 0 0 1rem;
 }
 
 img {
-  vertical-align: middle;
-  border-style: none;
+    vertical-align: middle;
+    border-style: none;
 }
 
 svg {
-  overflow: hidden;
-  vertical-align: middle;
+    overflow: hidden;
+    vertical-align: middle;
 }
 
 table {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 caption {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: #6c757d;
-  text-align: left;
-  caption-side: bottom;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #6c757d;
+    text-align: left;
+    caption-side: bottom;
 }
 
 th {
-  text-align: inherit;
-  text-align: -webkit-match-parent;
+    text-align: inherit;
+    text-align: -webkit-match-parent;
 }
 
 label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 button {
-  border-radius: 0;
+    border-radius: 0;
 }
 
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-}
+    button:focus {
+        outline: 1px dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+    }
 
 input,
 button,
 select,
 optgroup,
 textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 button,
 input {
-  overflow: visible;
+    overflow: visible;
 }
 
 button,
 select {
-  text-transform: none;
+    text-transform: none;
 }
 
 [role="button"] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 select {
-  word-wrap: normal;
+    word-wrap: normal;
 }
 
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
+    -webkit-appearance: button;
 }
 
-button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
-  cursor: pointer;
-}
+    button:not(:disabled),
+    [type="button"]:not(:disabled),
+    [type="reset"]:not(:disabled),
+    [type="submit"]:not(:disabled) {
+        cursor: pointer;
+    }
 
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+    }
 
 input[type="radio"],
 input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
+    box-sizing: border-box;
+    padding: 0;
 }
 
 textarea {
-  overflow: auto;
-  resize: vertical;
+    overflow: auto;
+    resize: vertical;
 }
 
 fieldset {
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 legend {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  margin-bottom: .5rem;
-  font-size: 1.5rem;
-  line-height: inherit;
-  color: inherit;
-  white-space: normal;
-}
-
-@media (max-width: 1200px) {
-  legend {
-    font-size: calc(1.275rem + 0.3vw) ;
-  }
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
 }
 
 progress {
-  vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
+    height: auto;
 }
 
 [type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: none;
+    outline-offset: -2px;
+    -webkit-appearance: none;
 }
 
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
+    [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
 
 ::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
+    font: inherit;
+    -webkit-appearance: button;
 }
 
 output {
-  display: inline-block;
+    display: inline-block;
 }
 
 summary {
-  display: list-item;
-  cursor: pointer;
+    display: list-item;
+    cursor: pointer;
 }
 
 template {
-  display: none;
+    display: none;
 }
 
 [hidden] {
-  display: none !important;
+    display: none !important;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -9772,3 +9851,5 @@ a.text-dark:hover, a.text-dark:focus {
         color: #999;
         font-style: italic;
     }
+
+   

@@ -1,5 +1,10 @@
 ﻿@model TL4_SHOP.Models.ViewModels.ShopViewModel
 
+<link rel="stylesheet" href="~/css/shop.css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
         <!-- Shop Sidebar Start -->
@@ -95,9 +100,9 @@
                 </div>
 
                 <!-- Products Grid -->
-                @if (Model.SanPhams.Any())
+                @if (Model.SanPhams != null && Model.SanPhams.Any())
                 {
-                    @foreach (var product in Model.SanPhams)
+                    foreach (var product in Model.SanPhams)
                     {
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                             <div class="card product-item border-0 mb-4">
@@ -107,7 +112,7 @@
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">@product.TenSanPham</h6>
                                     <div class="d-flex justify-content-center">
-                                        <h6>@product.Gia.ToString("N0")đ</h6>
+                                        <h6>@product.Gia.ToString("N0")₫</h6>
                                     </div>
                                     @if (!string.IsNullOrEmpty(product.MoTa))
                                     {
@@ -118,10 +123,10 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <a href="@Url.Action("ShopDetail", "Home", new { id = product.SanPhamId })" class="btn btn-sm text-dark p-0">
-                                        <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
+                                        <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
                                     </a>
                                     <a href="#" class="btn btn-sm text-dark p-0" onclick="addToCart(@product.SanPhamId)">
-                                        <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng
+                                        <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ
                                     </a>
                                 </div>
                             </div>
@@ -137,6 +142,7 @@
                         </div>
                     </div>
                 }
+
 
                 <!-- Pagination -->
                 @if (Model.TotalPages > 1)
@@ -304,7 +310,7 @@
         });
 
         // Add to cart function
-        function addToCart(productId) {
+                function addToCart(productId) {
             $.ajax({
                 url: '@Url.Action("AddToCart", "Cart")',
                 type: 'POST',
@@ -314,97 +320,41 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        // Update cart count in header
                         $('.fa-shopping-cart').next('.badge').text(response.cartCount);
 
-                        // Show success message
-                        alert('Đã thêm sản phẩm vào giỏ hàng!');
+                        Toastify({
+                            text: "🎉 Đã thêm sản phẩm vào giỏ hàng!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#28a745",
+                            close: true,
+                            stopOnFocus: true
+                        }).showToast();
                     } else {
-                        alert('Có lỗi xảy ra: ' + response.message);
+                        Toastify({
+                            text: "❌ Lỗi: " + response.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            close: true
+                        }).showToast();
                     }
                 },
                 error: function() {
-                    alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!');
+                    Toastify({
+                        text: "❌ Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#dc3545",
+                        close: true
+                    }).showToast();
                 }
             });
         }
+
     </script>
 
-    <style>
-        .search-suggestions {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #ddd;
-            border-top: none;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 1000;
-            display: none;
-        }
-
-        .suggestion-item {
-            padding: 10px;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
-
-            .suggestion-item:hover {
-                background-color: #f8f9fa;
-            }
-
-            .suggestion-item:last-child {
-                border-bottom: none;
-            }
-
-        .search-form {
-            position: relative;
-        }
-
-        .thongTinSanPham {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 10px;
-        }
-
-            .thongTinSanPham p {
-                margin: 2px 0;
-            }
-
-        .product-item:hover {
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .product-img img {
-            transition: transform 0.3s ease;
-        }
-
-        .product-item:hover .product-img img {
-            transform: scale(1.05);
-        }
-
-        <style >
-        .search-result-box {
-            border: 1px solid #ddd;
-            background: #fff;
-            max-height: 300px;
-            overflow-y: auto;
-            display: none;
-            position: absolute;
-            z-index: 1000;
-            width: 100%;
-        }
-
-        .search-result-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-    </style>
-        </style>
-}
+    }
