@@ -6,12 +6,13 @@
     background: #fff;
     border: 1px solid #ddd;
     position: relative;
-    z-index: 100;
+    z-index: 1000;
 }
 
     .vertical-menu .menu-item {
         position: relative;
         border-bottom: 1px solid #eee;
+        background-color: white;
     }
 
         .vertical-menu .menu-item > a {
@@ -28,42 +29,57 @@
             background: #f5f5f5;
         }
 
+    /* Mega Menu cấp 2 hiển thị bên phải */
     .vertical-menu .mega-menu {
+        display: none;
         position: absolute;
         left: 100%;
         top: 0;
-        background: #fff;
         width: 750px;
-        border: 1px solid #ddd;
+        background: #fff;
         padding: 20px;
-        display: none;
-        z-index: 999;
-        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1050;
     }
 
+    /* Hiển thị mega menu khi hover */
     .vertical-menu .menu-item:hover .mega-menu {
         display: block;
     }
 
+/* Nội dung trong mega-menu */
+.mega-menu .col-md-4 {
+    padding: 0 10px;
+}
+
 .mega-menu h6 {
     font-size: 15px;
+    font-weight: bold;
     margin-bottom: 10px;
     color: #b30000;
 }
 
-.mega-menu ul li a {
-    display: block;
-    padding: 5px 0;
-    font-size: 14px;
-    color: #333;
-    text-decoration: none;
+.mega-menu ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
-    .mega-menu ul li a:hover {
-        color: #d00;
-        text-decoration: underline;
+    .mega-menu ul li a {
+        display: block;
+        padding: 5px 0;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
     }
 
+        .mega-menu ul li a:hover {
+            color: #d00;
+            text-decoration: underline;
+        }
+
+/* Mobile - Chuyển sang full màn hình */
 @media (max-width: 1024px) {
     .vertical-menu {
         width: 100%;
@@ -73,8 +89,9 @@
             width: 100vw;
             left: 0;
             top: 100%;
-            position: fixed;
+            position: absolute;
             max-height: 90vh;
             overflow-y: auto;
+            z-index: 1050;
         }
 }

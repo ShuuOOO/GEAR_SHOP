@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<TL4_SHOP.Models.ViewModels.DanhMucViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="~/css/mega-menu.css" />
 
 @if (Model != null && Model.Any())
 {
@@ -6,7 +8,7 @@
         @foreach (var cha in Model.Where(d => d.DanhMucChaId == null))
         {
             <li class="menu-item">
-                <a href="/Home/Shop?danhMucId=@cha.Id">
+                <a asp-controller="Home" asp-action="Shop" asp-route-danhMucId="@cha.Id">
                     <i class="fas fa-folder me-2"></i>@cha.TenDanhMuc
                     <i class="fas fa-angle-right float-right"></i>
                 </a>
@@ -18,14 +20,17 @@
                             @foreach (var cap2 in cha.DanhMucCon)
                             {
                                 <div class="col-md-4">
-                                    <h6 class="fw-bold">
+                                    <a asp-controller="Home" asp-action="Shop" asp-route-danhMucId="@cap2.Id" class="fw-bold d-block mb-2 text-danger">
                                         <i class="fas fa-tags me-1"></i> @cap2.TenDanhMuc
-                                    </h6>
+                                    </a>
                                     <ul class="list-unstyled">
                                         @foreach (var cap3 in cap2.DanhMucCon ?? Enumerable.Empty<TL4_SHOP.Models.ViewModels.DanhMucViewModel>())
                                         {
                                             <li>
-                                                <a href="/shop?danhMucId=@cap3.Id">
+                                                <a asp-controller="Home"
+                                                   asp-action="Shop"
+                                                   asp-route-danhMucId="@cap3.Id"
+                                                   asp-route-nhaCungCapId="@cap3.NhaCungCapId">
                                                     @cap3.TenDanhMuc (@cap3.SoLuongSanPham)
                                                 </a>
                                             </li>
