@@ -62,20 +62,30 @@ namespace TL4_SHOP.Controllers
         {
             var hashedPassword = HashPassword(account.Password);
 
-            // Tìm user với username hoặc email và mật khẩu đã hash hoặc plain text
             var user = _context.TaoTaiKhoans
-                .FirstOrDefault(u => (u.HoTen == account.Username || u.Email == account.Username) &&
-                                    (u.MatKhau == hashedPassword || u.MatKhau == account.Password));
+                .FirstOrDefault(u => u.HoTen == account.Username || u.Email == account.Username);
 
             if (user != null)
             {
-                // Nếu mật khẩu trong DB là plain text, hash nó và cập nhật
-                if (user.MatKhau == account.Password)
+                // Kiểm tra mật khẩu
+                bool isPasswordValid = user.MatKhau == hashedPassword;
+
+                // Nếu mật khẩu trong DB chưa được hash, kiểm tra plain text và hash nó
+                if (!isPasswordValid && user.MatKhau == account.Password)
                 {
                     user.MatKhau = hashedPassword;
                     _context.SaveChanges();
+                    isPasswordValid = true;
                 }
 
+                if (!isPasswordValid)
+                {
+                    user = null; // Đặt user = null nếu mật khẩu không đúng
+                }
+            }
+
+            if (user != null)
+            {
                 var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.HoTen),
