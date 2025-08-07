@@ -19,5 +19,5 @@ public partial class KhachHang
 
     public virtual ICollection<DonHang> DonHangs { get; set; } = new List<DonHang>();
 
-    public virtual ICollection<TaoTaiKhoan> TaoTaiKhoans { get; set; } = new List<TaoTaiKhoan>();
+    public virtual TaoTaiKhoan? TaiKhoan { get; set; }
 }

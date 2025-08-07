@@ -124,9 +124,9 @@
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a asp-controller="Home" asp-action="ShoppingCart" class="btn border mx-1">
+                <a href="/Cart/Index" class="btn border mx-1">
                     <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
+                    <span id="cart-count" class="badge badge-pill badge-danger">0</span>
                 </a>
             </div>
         </div>
@@ -170,6 +170,15 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="nav-item nav-link" href="#">Xin chào, @User.Identity.Name</a>
+                        <a asp-action="Profile" asp-controller="Account" class="nav-item nav-link">Tài khoản của tôi</a>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-controller="AdminDonHang" asp-action="Index" class="nav-item nav-link text-danger font-weight-bold">
+                                QL Đơn hàng
+                            </a>
+                        }
+
                         <a asp-action="Logout" asp-controller="Account" class="nav-item nav-link">Đăng xuất</a>
                     }
                     else

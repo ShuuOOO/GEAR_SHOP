@@ -1,0 +1,239 @@
+﻿@model TL4_SHOP.Data.DonHang
+@using TL4_SHOP.Extensions
+@{
+    ViewData["Title"] = "Thanh toán";
+    var cart = Context.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new();
+    var tongTien = cart.Sum(x => x.ThanhTien);
+    var phiVanChuyen = 15000;
+    var tongCong = tongTien + phiVanChuyen;
+}
+
+
+ <!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Thanh toán</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Checkout</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Checkout Start -->
+<form asp-action="Checkout" method="post">
+    @Html.AntiForgeryToken()
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+    <input type="hidden" name="phiVanChuyen" value="@phiVanChuyen" />
+    <input type="hidden" name="tongTien" value="@tongTien" />
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4" style="font-family: Tahoma;">Địa chỉ thanh toán</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Tên khách hàng</label>
+                            <input class="form-control" type="text" name="tenKhachHang" placeholder="Nguyễn Văn A" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Số điện thoại</label>
+                            <input class="form-control" type="text" name="soDienThoai" placeholder="0987654321" required />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Địa chỉ giao hàng</label>
+                            <input class="form-control" type="text" name="diaChiGiaoHang" placeholder="123 Đường ABC, Phường XYZ, TP.HCM" required />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Ghi chú (nếu có)</label>
+                            <input class="form-control" type="text" name="ghiChu" placeholder="Giao giờ hành chính" />
+                        </div>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="col-md-12 form-group">
+                                <label for="emailKhach">Email nhận đơn hàng</label>
+                                <input class="form-control" type="email" name="emailKhach" placeholder="example@email.com" required />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Tổng đơn hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="font-weight-medium mb-3">Sản phẩm</h5>
+
+                        @foreach (var item in cart)
+                        {
+                            <div class="d-flex justify-content-between">
+                                <p>@item.TenSanPham</p>
+                                <p>@item.ThanhTien.ToString("N0")đ</p>
+                            </div>
+                        }
+
+                        <hr class="mt-0" />
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Tổng tiền</h6>
+                            <h6 class="font-weight-medium">@tongTien.ToString("N0")đ</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Phí vận chuyển</h6>
+                            <h6 class="font-weight-medium">@phiVanChuyen.ToString("N0")đ</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Tổng cộng</h5>
+                            <h5 class="font-weight-bold">@tongCong.ToString("N0")đ</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Phương thức thanh toán</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_cod" value="TienMat" checked />
+                            <label class="form-check-label" for="pttt_cod">Thanh toán khi nhận hàng (COD)</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_bank" value="ChuyenKhoan" />
+                            <label class="form-check-label" for="pttt_bank">Chuyển khoản ngân hàng</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_momo" value="Momo" />
+                            <label class="form-check-label" for="pttt_momo">Momo</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_visa" value="Visa" />
+                            <label class="form-check-label" for="pttt_visa">Visa / MasterCard</label>
+                        </div>
+
+                        <!-- QR chuyển khoản -->
+                        <div id="qr-container" class="border rounded p-3 mt-3" style="display: none;">
+                            <p><strong>Quét mã QR để thanh toán:</strong></p>
+                            <img id="qr-image" src="" alt="QR Thanh toán" width="250" />
+                            <p class="mt-2 mb-0">
+                                💬 <strong>Nội dung chuyển khoản:</strong>
+                                <span id="ma-don-tu-sinh" data-ma-don="@TempData["MaDonHang"]">Đang tạo...</span>
+                            </p>
+                            <p class="text-muted" style="font-size: 0.9em;">* Vui lòng ghi đúng nội dung để xác nhận đơn hàng.</p>
+                        </div>
+
+                        <!-- FORM THẺ VISA GIẢ LẬP -->
+                        <div id="visa-container" class="border rounded p-3 mt-3" style="display: none;">
+                            <h6 class="mb-3"><strong>Nhập thông tin thẻ</strong></h6>
+                            <div class="form-group">
+                                <label>Số thẻ</label>
+                                <div style="position: relative;">
+                                    <input id="cardNumber" class="form-control pr-5" placeholder="1234 5678 9012 3456" />
+                                    <img id="cardLogo" src="" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); height:24px; display:none;" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label>Ngày hết hạn</label>
+                                    <input class="form-control" placeholder="MM/YY" />
+                                </div>
+                                <div class="form-group col-6">
+                                    <label>Mã CVV</label>
+                                    <input class="form-control" placeholder="123" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tên chủ thẻ</label>
+                                <input class="form-control" placeholder="Nguyễn Văn A" />
+                            </div>
+                            <div class="text-right mt-3">
+                                <button type="button" class="btn btn-success" onclick="alert('💳 Giao dịch thành công! (mô phỏng)')">Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <button type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" style="font-family: Tahoma;">
+                            Đặt hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Checkout End -->
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radios = document.querySelectorAll('input[name="phuongThucThanhToan"]');
+            const qrContainer = document.getElementById('qr-container');
+            const visaContainer = document.getElementById('visa-container');
+            const qrImage = document.getElementById('qr-image');
+
+            const maDonElement = document.getElementById('ma-don-tu-sinh');
+            let maDon = maDonElement?.dataset.maDon;
+
+            if (!maDon || maDon === "") {
+                maDon = 'DH_TamThoi_' + Math.floor(100000 + Math.random() * 900000);
+                maDonElement.innerText = maDon;
+            } else {
+                maDonElement.innerText = maDon;
+            }
+
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    switch (this.value) {
+                        case 'ChuyenKhoan':
+                            qrContainer.style.display = 'block';
+                            visaContainer.style.display = 'none';
+                            qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent("Chuyen khoan don hang " + maDon) + '&size=250x250';
+                            break;
+                        case 'Momo':
+                            qrContainer.style.display = 'block';
+                            visaContainer.style.display = 'none';
+                            qrImage.src = '/images/payment/qr-momo.png';
+                            break;
+                        case 'Visa':
+                            qrContainer.style.display = 'none';
+                            visaContainer.style.display = 'block';
+                            break;
+                        default:
+                            qrContainer.style.display = 'none';
+                            visaContainer.style.display = 'none';
+                            break;
+                    }
+                });
+            });
+
+            const cardInput = document.getElementById("cardNumber");
+            const cardLogo = document.getElementById("cardLogo");
+
+            cardInput?.addEventListener("input", function () {
+                const value = cardInput.value.replace(/\s/g, "");
+                if (value.startsWith("4")) {
+                    cardLogo.src = "/images/payment/visa.png";
+                    cardLogo.style.display = "block";
+                } else if (/^5[1-5]/.test(value)) {
+                    cardLogo.src = "/images/payment/mastercard.png";
+                    cardLogo.style.display = "block";
+                } else {
+                    cardLogo.style.display = "none";
+                }
+            });
+        });
+    </script>
+}
+}
+

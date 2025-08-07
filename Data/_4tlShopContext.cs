@@ -50,6 +50,8 @@ public partial class _4tlShopContext : DbContext
 
     public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
+
+
     //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
     //        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
@@ -345,9 +347,11 @@ public partial class _4tlShopContext : DbContext
             entity.Property(e => e.NhanVienId).HasColumnName("NhanVienID");
             entity.Property(e => e.Phone).HasMaxLength(20);
 
-            entity.HasOne(d => d.KhachHang).WithMany(p => p.TaoTaiKhoans)
-                .HasForeignKey(d => d.KhachHangId)
-                .HasConstraintName("FK__TaoTaiKho__Khach__3F466844");
+            entity.HasOne(d => d.KhachHang)
+              .WithOne(p => p.TaiKhoan)
+              .HasForeignKey<TaoTaiKhoan>(d => d.KhachHangId)
+              .HasConstraintName("FK__TaoTaiKho__Khach__3F466844");
+               
 
             entity.HasOne(d => d.NhanVien).WithMany(p => p.TaoTaiKhoans)
                 .HasForeignKey(d => d.NhanVienId)

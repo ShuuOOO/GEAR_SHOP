@@ -1,14 +1,39 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+QuestPDF.Settings.License = LicenseType.Community;
+
+
+builder.Services.AddSession();
+
 
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);
 
 // Build the application
 var app = builder.Build();
+
+// seed data
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<_4tlShopContext>();
+
+    if (!context.TrangThaiDonHangs.Any())
+    {
+        context.TrangThaiDonHangs.AddRange(
+            new TrangThaiDonHang { TrangThaiId = 1, TenTrangThai = "Chờ xác nhận" },
+            new TrangThaiDonHang { TrangThaiId = 2, TenTrangThai = "Đã xác nhận" },
+            new TrangThaiDonHang { TrangThaiId = 3, TenTrangThai = "Đang giao" },
+            new TrangThaiDonHang { TrangThaiId = 4, TenTrangThai = "Giao thành công" },
+            new TrangThaiDonHang { TrangThaiId = 5, TenTrangThai = "Đã hủy" }
+        );
+        context.SaveChanges();
+    }
+}
 
 // Configure the HTTP request pipeline
 ConfigurePipeline(app);
@@ -133,6 +158,9 @@ static void ConfigurePipeline(WebApplication app)
     // Authentication & Authorization
     app.UseAuthentication();
     app.UseAuthorization();
+
+    app.UseSession();
+
 
     // Route mapping
     app.MapControllerRoute(

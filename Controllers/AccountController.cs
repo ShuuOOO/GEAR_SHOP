@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
 using TL4_SHOP.Models;
+using TL4_SHOP.Models.ViewModels;
 
 namespace TL4_SHOP.Controllers
 {
@@ -156,17 +157,34 @@ namespace TL4_SHOP.Controllers
                     return View(account);
                 }
 
-                var newUser = new TaoTaiKhoan
-                {
-                    HoTen = account.Username,
-                    Email = account.Email,
-                    Phone = account.Phone,
-                    MatKhau = HashPassword(account.Password), // Hash password
-                    LoaiTaiKhoan = "KhachHang"
-                };
+                // Hash password
+                var hashedPassword = HashPassword(account.Password);
 
                 try
                 {
+                    // 👉 Tạo Khách hàng trước
+                    var khachHang = new KhachHang
+                    {
+                        HoTen = account.Username,
+                        Email = account.Email,
+                        Phone = account.Phone,
+                        MatKhau = hashedPassword
+                    };
+
+                    _context.KhachHangs.Add(khachHang);
+                    _context.SaveChanges(); // để có được KhachHangId
+
+                   
+                    var newUser = new TaoTaiKhoan
+                    {
+                        HoTen = account.Username,
+                        Email = account.Email,
+                        Phone = account.Phone,
+                        MatKhau = hashedPassword,
+                        LoaiTaiKhoan = "KhachHang",
+                        KhachHangId = khachHang.KhachHangId
+                    };
+
                     _context.TaoTaiKhoans.Add(newUser);
                     _context.SaveChanges();
 
@@ -182,6 +200,7 @@ namespace TL4_SHOP.Controllers
 
             return View(account);
         }
+
 
         public async Task<IActionResult> Logout()
         {
@@ -559,6 +578,25 @@ namespace TL4_SHOP.Controllers
                     Message = "Lỗi: " + ex.Message
                 });
             }
+        }
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            var email = User.FindFirstValue(ClaimTypes.Email);
+            if (email == null) return RedirectToAction("Login");
+
+            var taiKhoan = _context.TaoTaiKhoans.FirstOrDefault(t => t.Email == email);
+            if (taiKhoan == null) return NotFound();
+
+            var viewModel = new TaiKhoanViewModel
+            {
+                HoTen = taiKhoan.HoTen,
+                Email = taiKhoan.Email,
+                Phone = taiKhoan.Phone,
+                LoaiTaiKhoan = taiKhoan.LoaiTaiKhoan
+            };
+
+            return View(viewModel);
         }
         [HttpGet]
         public IActionResult AccessDenied()

@@ -320,6 +320,7 @@
                 },
                 success: function(response) {
                     if (response.success) {
+                        $('#cart-count').text(response.cartCount);
                         $('.fa-shopping-cart').next('.badge').text(response.cartCount);
 
                         Toastify({

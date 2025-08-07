@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using TL4_SHOP.Data;
+using TL4_SHOP.Extensions;
 using TL4_SHOP.Models;
 using TL4_SHOP.Models.ViewModels;
+using TL4_SHOP.Extensions;
 
 namespace TL4_SHOP.Controllers
 {
@@ -108,7 +110,11 @@ namespace TL4_SHOP.Controllers
         }
 
         public IActionResult ShopDetail() => View();
-        public IActionResult ShoppingCart() => View();
+        public IActionResult ShoppingCart()
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new List<CartItem>();
+            return View("~/Views/Cart/ShoppingCart.cshtml", cart); // dùng đường dẫn tuyệt đối
+        }
         public IActionResult Checkout() => View();
         public IActionResult Contact() => View();
 

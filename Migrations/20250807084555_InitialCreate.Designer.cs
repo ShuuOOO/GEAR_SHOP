@@ -12,8 +12,8 @@ using TL4_SHOP.Data;
 namespace TL4_SHOP.Migrations
 {
     [DbContext(typeof(_4tlShopContext))]
-    [Migration("20250805082107_AddPasswordResetToken")]
-    partial class AddPasswordResetToken
+    [Migration("20250807084555_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -119,6 +119,10 @@ namespace TL4_SHOP.Migrations
                         .HasColumnType("int")
                         .HasColumnName("DanhMucID");
 
+                    b.Property<int?>("DanhMucChaId")
+                        .HasColumnType("int")
+                        .HasColumnName("DanhMucChaId");
+
                     b.Property<string>("MoTa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -130,6 +134,8 @@ namespace TL4_SHOP.Migrations
 
                     b.HasKey("DanhMucId")
                         .HasName("PK__DanhMucS__1C53BA7B81C69B93");
+
+                    b.HasIndex("DanhMucChaId");
 
                     b.ToTable("DanhMucSanPham", (string)null);
                 });
@@ -284,9 +290,17 @@ namespace TL4_SHOP.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DonHangId"));
 
+                    b.Property<string>("DiaChiGiaoHang")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("DiaChiId")
                         .HasColumnType("int")
                         .HasColumnName("DiaChiID");
+
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("KhachHangId")
                         .HasColumnType("int")
@@ -298,8 +312,24 @@ namespace TL4_SHOP.Migrations
                     b.Property<decimal>("PhiVanChuyen")
                         .HasColumnType("decimal(18, 3)");
 
+                    b.Property<string>("PhuongThucThanhToan")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SoDienThoai")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenKhachHang")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("TongTien")
                         .HasColumnType("decimal(18, 3)");
+
+                    b.Property<string>("TrangThaiDonHangText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TrangThaiId")
                         .HasColumnType("int")
@@ -490,12 +520,10 @@ namespace TL4_SHOP.Migrations
                         .HasColumnType("decimal(18, 3)");
 
                     b.Property<string>("HinhAnh")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("MoTa")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NhaCungCapId")
@@ -681,6 +709,17 @@ namespace TL4_SHOP.Migrations
                     b.Navigation("SanPham");
                 });
 
+            modelBuilder.Entity("TL4_SHOP.Data.DanhMucSanPham", b =>
+                {
+                    b.HasOne("TL4_SHOP.Data.DanhMucSanPham", "DanhMucCha")
+                        .WithMany("DanhMucCon")
+                        .HasForeignKey("DanhMucChaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("FK_DanhMuc_ChaCon");
+
+                    b.Navigation("DanhMucCha");
+                });
+
             modelBuilder.Entity("TL4_SHOP.Data.DiaChi", b =>
                 {
                     b.HasOne("TL4_SHOP.Data.KhachHang", "KhachHang")
@@ -793,6 +832,8 @@ namespace TL4_SHOP.Migrations
 
             modelBuilder.Entity("TL4_SHOP.Data.DanhMucSanPham", b =>
                 {
+                    b.Navigation("DanhMucCon");
+
                     b.Navigation("SanPhams");
                 });
 

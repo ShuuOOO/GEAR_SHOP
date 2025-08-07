@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TL4_SHOP.Data.DonHang>
+@{
+    ViewData["Title"] = "Quản lý đơn hàng";
+    var danhSachTrangThai = ViewBag.TrangThais as List<TL4_SHOP.Data.TrangThaiDonHang>;
+}
+
+<h2 class="mb-3">Danh sách đơn hàng</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã Đơn</th>
+            <th>Khách hàng</th>
+            <th>Ngày đặt</th>
+            <th>Trạng thái</th>
+            <th>Cập nhật</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DonHangId</td>
+                <td>@item.KhachHang?.HoTen</td>
+                <td>@item.NgayDatHang.ToString("dd/MM/yyyy")</td>
+                <td>@item.TrangThai?.TenTrangThai</td>
+                <td>
+                    <form asp-action="UpdateStatus" method="post" class="d-flex gap-2">
+                        <input type="hidden" name="id" value="@item.DonHangId" />
+                        <select name="newStatus" class="form-select">
+                            @foreach (var trangThai in danhSachTrangThai)
+                            {
+                                var selectedAttr = item.TrangThaiId == trangThai.TrangThaiId ? "selected" : "";
+                                var htmlOption = $"<option value='{trangThai.TrangThaiId}' {selectedAttr}>{trangThai.TenTrangThai}</option>";
+                                @Html.Raw(htmlOption)
+                            }
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

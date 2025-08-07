@@ -26,4 +26,12 @@ public partial class DonHang
     public virtual KhachHang? KhachHang { get; set; }
 
     public virtual TrangThaiDonHang TrangThai { get; set; } = null!;
+
+    public string? TenKhachHang { get; set; }
+    public string? SoDienThoai { get; set; }
+    public string? DiaChiGiaoHang { get; set; }
+    public string? GhiChu { get; set; }
+    public string? PhuongThucThanhToan { get; set; }
+    public string? TrangThaiDonHangText { get; set; } = "Chờ xác nhận";
+    public string? EmailNguoiDat { get; set; }
 }

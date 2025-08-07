@@ -1,0 +1,60 @@
+﻿@model TL4_SHOP.Models.ViewModels.DonHangDetailViewModel
+@{
+    ViewData["Title"] = "Kết quả tra cứu đơn hàng";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Kết quả tra cứu đơn hàng</h2>
+
+    @if (Model == null)
+    {
+        <div class="alert alert-danger text-center">
+            Không tìm thấy đơn hàng hoặc email không khớp. Vui lòng kiểm tra lại thông tin trong email.
+        </div>
+    }
+    else
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Đơn hàng #@Model.DonHangId</h4>
+            </div>
+            <div class="card-body">
+                <p><strong>Tên khách hàng:</strong> @Model.TenKhachHang</p>
+                <p><strong>Địa chỉ giao hàng:</strong> @Model.DiaChiGiaoHang</p>
+                <p><strong>Số điện thoại:</strong> @Model.SoDienThoai</p>
+                <p><strong>Ngày đặt hàng:</strong> @Model.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</p>
+                <p><strong>Trạng thái đơn hàng:</strong> <span class="text-warning">@Model.TrangThai</span></p>
+                <p><strong>Tổng tiền:</strong> <span class="text-success">@Model.TongTien.ToString("N0")đ</span></p>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0">Chi tiết sản phẩm</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-bordered mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ChiTiet)
+                        {
+                            <tr>
+                                <td>@item.TenSanPham</td>
+                                <td>@item.SoLuong</td>
+                                <td>@item.DonGia.ToString("N0")đ</td>
+                                <td>@item.ThanhTien.ToString("N0")đ</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
