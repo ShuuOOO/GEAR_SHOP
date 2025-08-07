@@ -1014,8 +1014,6 @@ C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\9mqg26mi5a-m7fznzp2nq.gz
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\sikl4q7syp-8ho8weanaw.gz
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\2qupiohrsi-9dp9gal4ep.gz
-C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\p6mvu4chwn-b9sayid5wm.gz
-C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-g84lq3vjje.gz
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\2h7fhiqr28-tolfu9ombn.gz
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\928900q75p-61n19gt1b8.gz
 C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\oqftlcrlrm-kgr6hqw5na.gz
@@ -1109,3 +1107,8 @@ D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\oe5p9j6q9y-0maew9stc
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\p6mvu4chwn-3y8m7uxm6z.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-9ful8zsumr.gz
 D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\obj\Debug\net9.0\compressed\n1xsp3t4ai-fqgmsybw2a.gz
+C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\ivza7tft7d-yem8pg0w7j.gz
+C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\n1xsp3t4ai-fqgmsybw2a.gz
+C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\oe5p9j6q9y-0maew9stcq.gz
+C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\p6mvu4chwn-3y8m7uxm6z.gz
+C:\Users\tanle\Documents\Zalo Received Files\phat_Trien_Ung_Dung\Final_exam\Code\Login-&-Logout\TL4_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-9ful8zsumr.gz
