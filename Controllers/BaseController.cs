@@ -17,10 +17,18 @@ namespace TL4_SHOP.Controllers
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            //  ÉP KHỞI TẠO SESSION SỚM
+            var session = context.HttpContext.Session;
+            if (string.IsNullOrEmpty(session.GetString("Initialized")))
+            {
+                session.SetString("Initialized", "true");
+            }
+
+            // Danh mục menu như cũ
             var danhMuc = _context.DanhMucSanPhams
-    .Include(d => d.DanhMucCon)
-    .ThenInclude(d => d.DanhMucCon)
-    .ToList();
+                .Include(d => d.DanhMucCon)
+                .ThenInclude(d => d.DanhMucCon)
+                .ToList();
 
             var danhMucViewModels = danhMuc.Select(d => new DanhMucViewModel
             {

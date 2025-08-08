@@ -50,6 +50,10 @@ public partial class _4tlShopContext : DbContext
 
     public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
 
+    public virtual DbSet<Wishlist> Wishlists { get; set; }
+    public virtual DbSet<WishlistItem> WishlistItems { get; set; }
+
+
 
 
     //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

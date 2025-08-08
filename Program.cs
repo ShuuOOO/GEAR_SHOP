@@ -50,7 +50,7 @@ static void ConfigureServices(IServiceCollection services, IConfiguration config
     // Session configuration
     services.AddSession(options =>
     {
-        options.IdleTimeout = TimeSpan.FromMinutes(30);
+        options.IdleTimeout = TimeSpan.FromDays(7); // giữ session 7 ngày
         options.Cookie.HttpOnly = true;
         options.Cookie.IsEssential = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;

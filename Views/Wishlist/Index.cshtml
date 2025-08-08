@@ -1,0 +1,33 @@
+﻿@model List<TL4_SHOP.Data.WishlistItem>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Bạn chưa có sản phẩm nào trong danh sách yêu thích.
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 border">
+                    <img class="card-img-top" src="~/img/@item.SanPham.HinhAnh" alt="@item.SanPham.TenSanPham" />
+                    <div class="card-body text-center">
+                        <h6 class="card-title">@item.SanPham.TenSanPham</h6>
+                        <p class="text-danger font-weight-bold">
+                            @item.SanPham.Gia.ToString("N0")₫
+                        </p>
+                        <form method="post" asp-action="RemoveFromWishlist" asp-controller="Wishlist">
+                            <input type="hidden" name="itemId" value="@item.WishlistItemId" />
+                            <button class="btn btn-sm btn-outline-danger" type="submit">
+                                <i class="fa fa-trash"></i> Xóa
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

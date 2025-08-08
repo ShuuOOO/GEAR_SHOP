@@ -120,9 +120,11 @@
             </div>
 
             <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0">
-                <a asp-controller="Home" asp-action="Wishlist" class="btn border mx-1">
+                <a href="/Wishlist" class="btn border mx-1 position-relative">
                     <i class="fas fa-heart text-primary"></i>
-                    <span class="badge">0</span>
+                    <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        0
+                    </span>
                 </a>
                 <a href="/Cart/Index" class="btn border mx-1">
                     <i class="fas fa-shopping-cart text-primary"></i>
@@ -271,6 +273,16 @@
                     $('#megaMenuContent').hide();
                 }
             });
+        });
+    </script>
+
+    <script>
+               $(document).ready(function () {
+            // Gọi lại Component WishlistCount để khởi tạo session
+                   $.get("/Wishlist/WishlistCount", function (data) {
+            $("#wishlist-count").text(data.count);
+        });
+
         });
     </script>
 
