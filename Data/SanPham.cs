@@ -30,4 +30,5 @@ public partial class SanPham
     public virtual KhoHang? KhoHang { get; set; }
 
     public virtual NhaCungCap NhaCungCap { get; set; } = null!;
+    public string? ChiTiet { get; set; }
 }

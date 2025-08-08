@@ -91,6 +91,7 @@ namespace TL4_SHOP.Controllers
             return RedirectToAction("Index", "Cart");
         }
         [HttpPost]
+        [Route("Cart/AddToCartAjax")]
         public JsonResult AddToCart(int productId, int quantity = 1)
         {
             var product = _context.SanPhams.FirstOrDefault(p => p.SanPhamId == productId);
@@ -116,11 +117,12 @@ namespace TL4_SHOP.Controllers
                 item.SoLuong += quantity;
             }
 
-            HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
+            HttpContext.Session.SetObjectAsJson("GioHang", cart);
 
             return Json(new { success = true, cartCount = cart.Sum(i => i.SoLuong) });
         }
-        
+
+
         [HttpGet]
         public IActionResult CartCount()
         {

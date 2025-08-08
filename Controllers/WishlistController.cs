@@ -5,11 +5,11 @@ using TL4_SHOP.Data;
 
 namespace TL4_SHOP.Controllers
 {
-    public class WishlistController : Controller
+    public class WishlistController : BaseController
     {
         private readonly _4tlShopContext _context;
 
-        public WishlistController(_4tlShopContext context)
+        public WishlistController(_4tlShopContext context) : base(context)
         {
             _context = context;
         }
