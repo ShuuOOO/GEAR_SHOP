@@ -128,5 +128,11 @@ namespace TL4_SHOP.Controllers
             int count = cart?.Sum(x => x.SoLuong) ?? 0;
             return Json(new { count });
         }
+
+        public IActionResult MiniCart()
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new();
+            return PartialView("_MiniCart", cart);
+        }
     }
 }

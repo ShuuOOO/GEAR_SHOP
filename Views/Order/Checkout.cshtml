@@ -146,19 +146,36 @@
                             <div class="form-row">
                                 <div class="form-group col-6">
                                     <label>Ngày hết hạn</label>
-                                    <input class="form-control" placeholder="MM/YY" />
+                                    <div class="d-flex">
+                                        <input id="expiryInput" type="text" class="form-control mr-2" placeholder="MM/YY" maxlength="5" style="max-width: 100px;" />
+                                        <select id="expiryMonth" class="form-control mr-2" style="max-width: 80px;">
+                                            <option value="">MM</option>
+                                            @for (int m = 1; m <= 12; m++)
+                                            {
+                                                <option value="@m.ToString("D2")">@m.ToString("D2")</option>
+                                            }
+                                        </select>
+                                        <select id="expiryYear" class="form-control" style="max-width: 90px;">
+                                            <option value="">YY</option>
+                                            @for (int y = DateTime.Now.Year; y <= DateTime.Now.Year + 10; y++)
+                                            {
+                                                <option value="@y.ToString().Substring(2)">@y</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="visaExpiry" id="visaExpiryHidden" />
                                 </div>
                                 <div class="form-group col-6">
                                     <label>Mã CVV</label>
-                                    <input class="form-control" placeholder="123" />
+                                    <input name="visaCVV" class="form-control" placeholder="123" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Tên chủ thẻ</label>
-                                <input class="form-control" placeholder="Nguyễn Văn A" />
+                                <input name="cardHolder" class="form-control" placeholder="NGUYEN VAN A" required />
                             </div>
                             <div class="text-right mt-3">
-                                <button type="button" class="btn btn-success" onclick="alert('💳 Giao dịch thành công! (mô phỏng)')">Xác nhận</button>
+                                <button type="button" class="btn btn-success" onclick="hienThongBaoVisa()">Xác nhận</button>
                             </div>
                         </div>
                     </div>
@@ -234,6 +251,112 @@
             });
         });
     </script>
+    <script>
+        function isValidExpiryDate(expiry) {
+            const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!regex.test(expiry)) return false;
+
+            const [month, year] = expiry.split('/').map(Number);
+            const now = new Date();
+            const currentMonth = now.getMonth() + 1;
+            const currentYear = now.getFullYear() % 100;
+
+            return (year > currentYear) || (year === currentYear && month >= currentMonth);
+        }
+
+        function isValidCVV(cvv) {
+            return /^[0-9]{3,4}$/.test(cvv);
+        }
+
+        function isValidCardNumber(number) {
+            return /^[0-9]{13,19}$/.test(number.replace(/\s/g, ""));
+        }
+
+        function isValidCardHolder(name) {
+            return /^[A-Z ]+$/.test(name.toUpperCase());
+        }
+
+        function hienThongBaoVisa() {
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const expiry = document.querySelector('[name="visaExpiry"]').value.trim();
+            const cvv = document.querySelector('[name="visaCVV"]').value.trim();
+            const holder = document.querySelector('[name="cardHolder"]').value.trim();
+
+            if (!cardNumber || !expiry || !cvv || !holder) {
+                Swal.fire({ icon: 'warning', title: 'Thiếu thông tin', text: 'Vui lòng điền đầy đủ thông tin thẻ.' });
+                return;
+            }
+
+            if (!isValidCardNumber(cardNumber)) {
+                Swal.fire({ icon: 'error', title: 'Số thẻ không hợp lệ', text: 'Số thẻ phải gồm 13-19 chữ số.' });
+                return;
+            }
+
+            if (!isValidExpiryDate(expiry)) {
+                Swal.fire({ icon: 'error', title: 'Sai định dạng ngày', text: 'Ngày hết hạn không hợp lệ. Ví dụ: 08/26' });
+                return;
+            }
+
+            if (!isValidCVV(cvv)) {
+                Swal.fire({ icon: 'error', title: 'Sai CVV', text: 'CVV phải gồm 3 hoặc 4 chữ số.' });
+                return;
+            }
+
+            if (!isValidCardHolder(holder)) {
+                Swal.fire({ icon: 'error', title: 'Tên chủ thẻ không hợp lệ', text: 'Tên không được chứa số hoặc ký tự đặc biệt.' });
+                return;
+            }
+
+            // Nếu mọi thứ đều hợp lệ
+            Swal.fire({
+                icon: 'success',
+                title: 'Giao dịch thành công!',
+                text: 'LOVE YOU ♥♥♥',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = '/';
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const input = document.getElementById("expiryInput");
+            const monthSelect = document.getElementById("expiryMonth");
+            const yearSelect = document.getElementById("expiryYear");
+            const hidden = document.getElementById("visaExpiryHidden");
+
+            // Auto format MM/YY khi nhập tay
+            input.addEventListener("input", function () {
+                let value = input.value.replace(/[^\d]/g, '');
+                if (value.length >= 3) {
+                    value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                }
+                input.value = value;
+
+                // Sync với dropdown
+                const [mm, yy] = input.value.split('/');
+                if (mm && yy) {
+                    monthSelect.value = mm;
+                    yearSelect.value = yy;
+                    hidden.value = mm + '/' + yy;
+                }
+            });
+
+            // Nếu chọn dropdown → sync ngược lên input + hidden
+            function syncFromSelect() {
+                const mm = monthSelect.value;
+                const yy = yearSelect.value;
+                if (mm && yy) {
+                    input.value = mm + '/' + yy;
+                    hidden.value = mm + '/' + yy;
+                }
+            }
+
+            monthSelect.addEventListener("change", syncFromSelect);
+            yearSelect.addEventListener("change", syncFromSelect);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
 }
 

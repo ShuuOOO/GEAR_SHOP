@@ -119,22 +119,35 @@
                 </form>
             </div>
 
-            <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0">
+            <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0 d-flex justify-content-end">
+
+                <!-- Wishlist -->
                 <a href="/Wishlist" class="btn border mx-1 p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
                     <i class="fas fa-heart text-primary"></i>
                     <span id="wishlist-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
                         0
                     </span>
                 </a>
-                <a href="/Cart/Index" class="btn border mx-1 p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
-                    <i class="fas fa-shopping-cart text-primary"></i>
-                    <span id="cart-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
-                        0
-                    </span>
-                </a>
+
+                <!-- Cart + Mini-cart -->
+                <div id="cart-hover-wrapper" class="position-relative mx-1">
+                    <a href="/Cart/Index" class="btn border p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                        <i class="fas fa-shopping-cart text-primary"></i>
+                        <span id="cart-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
+                            0
+                        </span>
+                    </a>
+
+                    <!-- Mini-cart dropdown -->
+                    <div id="mini-cart-wrapper" class="position-absolute bg-white border shadow-sm" style="display:none; right: 0; top: 100%; z-index:1000; min-width: 250px;">
+                        <div id="mini-cart-content" class="p-2 text-sm"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+
 
 
     <!-- NAVBAR -->
@@ -292,6 +305,21 @@
         });
     </script>
 
+    <script>
+        $(document).ready(function () {
+            $('#cart-hover-wrapper').hover(
+                function () {
+                    $.get("/Cart/MiniCart", function (data) {
+                        $('#mini-cart-content').html(data);
+                        $('#mini-cart-wrapper').fadeIn(100);
+                    });
+                },
+                function () {
+                    $('#mini-cart-wrapper').fadeOut(100);
+                }
+            );
+        });
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
