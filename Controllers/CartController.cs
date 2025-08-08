@@ -120,5 +120,13 @@ namespace TL4_SHOP.Controllers
 
             return Json(new { success = true, cartCount = cart.Sum(i => i.SoLuong) });
         }
+        
+        [HttpGet]
+        public IActionResult CartCount()
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang");
+            int count = cart?.Sum(x => x.SoLuong) ?? 0;
+            return Json(new { count });
+        }
     }
 }

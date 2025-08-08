@@ -120,15 +120,17 @@
             </div>
 
             <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0">
-                <a href="/Wishlist" class="btn border mx-1 position-relative">
+                <a href="/Wishlist" class="btn border mx-1 p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
                     <i class="fas fa-heart text-primary"></i>
-                    <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span id="wishlist-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
                         0
                     </span>
                 </a>
-                <a href="/Cart/Index" class="btn border mx-1">
+                <a href="/Cart/Index" class="btn border mx-1 p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
                     <i class="fas fa-shopping-cart text-primary"></i>
-                    <span id="cart-count" class="badge badge-pill badge-danger">0</span>
+                    <span id="cart-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
+                        0
+                    </span>
                 </a>
             </div>
         </div>
@@ -281,6 +283,10 @@
             // Gọi lại Component WishlistCount để khởi tạo session
                    $.get("/Wishlist/WishlistCount", function (data) {
             $("#wishlist-count").text(data.count);
+        });
+         // Khởi tạo số lượng giỏ hàng
+        $.get("/Cart/CartCount", function (data) {
+            $("#cart-count").text(data.count);
         });
 
         });

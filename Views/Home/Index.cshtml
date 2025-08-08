@@ -202,12 +202,12 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <!-- Nút Xem chi tiết -->
                             <a href="@Url.Action("ShopDetail", "Home", new { id = sp.SanPhamId })" class="btn btn-sm text-dark p-0">
                                 <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
                             </a>
-
-                            <!-- Nút Thêm vào giỏ hàng -->
+                            <a href="javascript:void(0);" onclick="addToWishlist(@sp.SanPhamId)" class="btn btn-sm text-dark p-0">
+                                <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
+                            </a>
                             <a href="javascript:void(0);" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@sp.SanPhamId">
                                 <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
                             </a>
@@ -387,6 +387,48 @@
                 });
             });
         });
+    </script>
+    <script>
+                function addToWishlist(productId) {
+            $.ajax({
+                url: '/Wishlist/AddToWishlistAjax',
+                type: 'POST',
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        $('#wishlist-count').text(response.wishlistCount);
+                        Toastify({
+                            text: "💖 " + response.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#ff4081",
+                            close: true,
+                            stopOnFocus: true
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "⚠️ " + response.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#ffc107",
+                            close: true
+                        }).showToast();
+                    }
+                },
+                error: function () {
+                    Toastify({
+                        text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#dc3545",
+                        close: true
+                    }).showToast();
+                }
+            });
+        }
     </script>
 }
 
