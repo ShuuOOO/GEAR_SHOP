@@ -13,42 +13,46 @@
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 <!-- Khung hình ảnh -->
-<div class="col-lg-9" style="margin-left: 25.9%; width: 71.4%">
-    <div id="header-carousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item" style="height: 410px;">
-                <img class="img-fluid" src="~/img/quang_Cao.jpg" alt="Quảng cáo phím cơ không dây">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 700px;">
-                        <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
-                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Phím Cơ Không Dây</h3>
-                        <a href="" class="btn btn-light py-2 px-3">Xem Ngay</a>
+<div class="container-fluid px-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" style="height: 410px;">
+                        <img class="img-fluid" src="~/img/quang_Cao.jpg" alt="Quảng cáo phím cơ không dây">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Phím Cơ Không Dây</h3>
+                                <a asp-controller="Home" asp-action="Shop" class="btn btn-light py-2 px-3">Xem Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item active" style="height: 410px;">
+                        <img class="img-fluid" src="~/img/quang_cao_laptop.jpg" alt="Quảng cáo màn hình">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Màn Hình Chính Hãng</h3>
+                                <a asp-controller="Home" asp-action="Shop" class="btn btn-light py-2 px-3">Xem Ngay</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item active" style="height: 410px;">
-                <img class="img-fluid" src="~/img/quang_cao_laptop.jpg" alt="Quảng cáo màn hình">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <div class="p-3" style="max-width: 700px;">
-                        <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
-                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Màn Hình Chính Hãng</h3>
-                        <a href="" class="btn btn-light py-2 px-3">Xem Ngay</a>
+                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-prev-icon mb-n2"></span>
                     </div>
-                </div>
+                </a>
+                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-next-icon mb-n2"></span>
+                    </div>
+                </a>
             </div>
-        </div>
-        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-            <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                <span class="carousel-control-prev-icon mb-n2"></span>
-            </div>
-        </a>
-        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-            <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                <span class="carousel-control-next-icon mb-n2"></span>
-            </div>
-        </a>
-    </div>
-</div>
+        </div> <!-- đóng col-lg-10 -->
+    </div> <!-- đóng row -->
+</div> <!-- đóng container-fluid -->
 <!-- Khung hình ảnh -->
 
 <!-- Featured Start -->
@@ -89,7 +93,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">3 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/Chuot_Faker.jpg" alt="Chuột Faker">
+                    <img class="img-fluid w-100" src="~/img/Chuot_Faker.jpg" alt="Chuột Faker" style="height: 220px; object-fit: contain;" />
                 </a>
                 <h5 class="font-weight-semi-bold m-0">Chuột Razer Viper V3 Pro Faker Edition</h5>
             </div>
@@ -98,7 +102,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">10 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/BanPhimLogitech.jpg" alt="Bàn phím Logitech G915">
+                    <img class="img-fluid w-100" src="~/img/BanPhimLogitech.jpg" alt="Bàn phím Logitech G915" style="height: 220px; object-fit: contain;" />
                 </a>
                 <h5 class="font-weight-semi-bold m-0">Bàn phím gaming không dây Logitech G915 X Lightspeed TKL Low Profile</h5>
             </div>
@@ -107,7 +111,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">5 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/iphone-16-pro.jpg" alt="Iphone 16 Pro Max">
+                    <img class="img-fluid w-100" src="~/img/iphone-16-pro.jpg" alt="Iphone 16 Pro Max" style="height: 220px; object-fit: contain;" />
                 </a>
                 <h5 class="font-weight-semi-bold m-0">iPhone 16 Pro Max 256GB | Chính hãng VN/A</h5>
             </div>
@@ -116,7 +120,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">10 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/IpadPro.jpg" alt="Ipad Pro Max">
+                    <img class="img-fluid w-100" src="~/img/IpadPro.jpg" alt="Ipad Pro Max" style="height: 220px; object-fit: contain;" />
                 </a>
                 <h5 class="font-weight-semi-bold m-0">iPad Pro M4 13 inch 5G 2TB I Chính hãng Apple Việt Nam</h5>
             </div>
@@ -125,7 +129,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">15 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/ManHinhASUS.jpg" alt="Màn hình ASUS Gaming">
+                    <img class="img-fluid w-100" src="~/img/ManHinhASUS.jpg" alt="Màn hình ASUS Gaming" style="height: 220px; object-fit: contain;" />>
                 </a>
                 <h5 class="font-weight-semi-bold m-0">PC CPS X ASUS Gaming Intel i3 Gen 12 Kèm màn hình</h5>
             </div>
@@ -134,7 +138,7 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right">15 Sản phẩm</p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="~/img/TaiNgheRazer.jpg" alt="Tai Nghe Razer">
+                    <img class="img-fluid w-100" src="~/img/TaiNgheRazer.jpg" alt="Tai Nghe Razer" style="height: 220px; object-fit: contain;" />
                 </a>
                 <h5 class="font-weight-semi-bold m-0">Tai nghe Razer Kraken V3 X USB</h5>
             </div>
@@ -142,37 +146,43 @@
     </div>
 </div>
 <!-- Categories End -->
-
-<!-- Offer Start -->
-<div class="container-fluid offer pt-5">
-    <div class="row px-xl-5">
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
-                <img src="~/img/Advertisement_Summer.jpg" alt="Quảng cáo mùa hè">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">Giảm tới 70% cho đơn hàng</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Mùa hè siêu phẩm</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem Ngay</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
-                <img src="~/img/Advertisement_Tet.jpg" alt="Quảng cáo tết">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">Giảm 20% cho tất cả đơn hàng</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Tết rực rỡ săn sale</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem Ngay</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Flash Sale Start -->
+<div class="container-fluid bg-danger text-white text-center py-5 mb-5">
+    <h3 class="mb-3">⚡ FLASH SALE HÔM NAY ⚡</h3>
+    <p class="mb-2">Giảm giá sốc đến 50% - Chỉ còn:</p>
+    <div id="countdown" style="font-size: 32px; font-weight: bold;"></div>
+    <a asp-controller="Home" asp-action="Shop" class="btn btn-light mt-3 px-4 py-2 font-weight-bold">
+        Xem Sản Phẩm
+    </a>
 </div>
-<!-- Offer End -->
+
+<script>
+    // Đặt thời gian kết thúc lúc 23:59:59 hôm nay
+    const now = new Date();
+    const countDownDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
+
+    const x = setInterval(function () {
+        const nowTime = new Date().getTime();
+        const distance = countDownDate - nowTime;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Đã hết giờ!";
+        } else {
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        }
+    }, 1000);
+</script>
+<!-- Flash Sale End -->
 <!-- Products Start -->
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">ĐIỆN THOẠI NỔI BẬT NHẤT</span></h2>
+        <h2 class="section-title px-5">
+            <span class="px-2" style="font-family: Tahoma">ĐIỆN THOẠI NỔI BẬT NHẤT</span>
+        </h2>
     </div>
     <div class="row px-xl-5 pb-3">
         @if (ViewBag.FeaturedProducts != null)
@@ -184,26 +194,24 @@
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                             <img class="img-fluid w-100" src="~/img/@sp.HinhAnh" alt="@sp.TenSanPham" />
                         </div>
+
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">@sp.TenSanPham</h6>
+                            <h6 class="text-truncate mb-2" style="min-height: 48px;">@sp.TenSanPham</h6>
 
-                            @* Nếu có mô tả (dùng cho hàng đặt trước hoặc ghi chú) *@
-                            @if (!string.IsNullOrEmpty(sp.MoTa))
-                            {
-                                <div class="hangDatTruoc">
-                                    <p style="font-family: Tahoma;">@sp.MoTa</p>
-                                </div>
-                            }
-
-                            <div class="d-flex justify-content-center">
-                                <h6>@sp.Gia.ToString("N0")đ</h6>
-                                @* Nếu có giảm giá thì hiển thị giá gốc gạch ngang *@
-                                @* <h6 class="text-muted ml-2"><del>@sp.GiamGia?.ToString("N0")đ</del></h6> *@
+                            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 60px;">
+                                @if (!string.IsNullOrEmpty(sp.MoTa))
+                                {
+                                    <span class="badge badge-danger mb-2 px-3 py-1" style="background-color: #f8cdd3; color: #a94442; font-size: 13px;">
+                                        @sp.MoTa
+                                    </span>
+                                }
+                                <h6 class="m-0">@sp.Gia.ToString("N0")đ</h6>
                             </div>
                         </div>
+
                         <div class="card-footer d-flex justify-content-between bg-light border">
                             <a asp-controller="SanPham" asp-action="Details" asp-route-id="@sp.SanPhamId" class="btn btn-sm text-dark p-0">
-                                <i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết
+                                <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
                             </a>
                             <a href="javascript:void(0);" onclick="addToWishlist(@sp.SanPhamId)" class="btn btn-sm text-dark p-0">
                                 <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
@@ -222,6 +230,7 @@
         }
     </div>
 </div>
+
 <!-- Products End -->
 
 <!-- Products Start -->
@@ -263,7 +272,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-center bg-light border">
                         <span class="btn btn-sm text-muted p-0" style="cursor: not-allowed;">
-                            <i class="fas fa-times text-danger mr-1"></i> Chưa có hàng
+                            <i class="fas fa-times text-danger mr-1"></i> Đã hết hàng
                         </span>
                     </div>
                 </div>

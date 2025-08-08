@@ -1,0 +1,43 @@
+﻿@model TL4_SHOP.Data.SanPham
+
+<div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+    <div class="card product-item border-0 mb-4">
+        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+            <img class="img-fluid w-100" src="~/img/@Model.HinhAnh" alt="@Model.TenSanPham">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+            <h6 class="text-truncate mb-3">@Model.TenSanPham</h6>
+            <div class="d-flex justify-content-center flex-column align-items-center position-relative">
+                @if (Model.GiaSauGiam != null && Model.GiaSauGiam < Model.Gia)
+                {
+                    <h6 class="text-muted"><del>@Model.Gia.ToString("N0")₫</del></h6>
+                    <h5 class="text-danger">@Model.GiaSauGiam?.ToString("N0")₫</h5>
+                    <span class="badge badge-danger position-absolute" style="top: 0; right: 0; font-size: 0.8rem;">
+                        -@Math.Round((1 - (Model.GiaSauGiam.Value / Model.Gia)) * 100)%
+                    </span>
+                }
+                else
+                {
+                    <h5>@Model.Gia.ToString("N0")₫</h5>
+                }
+            </div>
+            @if (!string.IsNullOrEmpty(Model.MoTa))
+            {
+                <div class="thongTinSanPham">
+                    <p>@Model.MoTa</p>
+                </div>
+            }
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+            <a href="@Url.Action("Details", "SanPham", new { id = Model.SanPhamId })" class="btn btn-sm text-dark p-0">
+                <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
+            </a>
+            <a href="javascript:void(0);" class="btn btn-sm text-dark p-0" onclick="addToCart(@Model.SanPhamId)">
+                <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
+            </a>
+            <a href="javascript:void(0);" onclick="addToWishlist(@Model.SanPhamId)" class="btn btn-sm text-dark p-0">
+                <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
+            </a>
+        </div>
+    </div>
+</div>

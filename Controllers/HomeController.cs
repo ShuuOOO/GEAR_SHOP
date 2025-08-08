@@ -78,13 +78,8 @@ namespace TL4_SHOP.Controllers
                 query = query.Where(s => s.Gia <= maxPrice.Value);
 
             // Sắp xếp
-            query = sortBy switch
-            {
-                "price_asc" => query.OrderBy(s => s.Gia),
-                "price_desc" => query.OrderByDescending(s => s.Gia),
-                "name_asc" => query.OrderBy(s => s.TenSanPham),
-                _ => query.OrderBy(s => s.TenSanPham)
-            };
+            query = query.OrderByDescending(sp => sp.GiaSauGiam < sp.Gia)
+             .ThenBy(sp => sp.TenSanPham);
 
             // Phân trang
             viewModel.TotalItems = await query.CountAsync();

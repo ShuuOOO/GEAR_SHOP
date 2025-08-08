@@ -203,7 +203,7 @@
             let maDon = maDonElement?.dataset.maDon;
 
             if (!maDon || maDon === "") {
-                maDon = 'DH_TamThoi_' + Math.floor(100000 + Math.random() * 900000);
+                maDon = 'DH_' + Math.floor(100000 + Math.random() * 900000);
                 maDonElement.innerText = maDon;
             } else {
                 maDonElement.innerText = maDon;

@@ -14,11 +14,11 @@ namespace TL4_SHOP.Controllers
 {
     public class AccountController : BaseController
     {
-        private readonly _4tlShopContext _context;
+        // private readonly _4tlShopContext _context;
 
         public AccountController(_4tlShopContext context) : base(context)
         {
-            _context = context;
+            // _context = context;
         }
 
         // Hash password
