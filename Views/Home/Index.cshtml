@@ -9,6 +9,9 @@
     </div>
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <!-- Khung hình ảnh -->
 <div class="col-lg-9" style="margin-left: 25.9%; width: 71.4%">
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -166,298 +169,108 @@
     </div>
 </div>
 <!-- Offer End -->
-
 <!-- Products Start -->
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
         <h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">ĐIỆN THOẠI NỔI BẬT NHẤT</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/SamSung_Galaxy_Z_Fold_7.jpg" alt="SamSung Galaxy Z Fold7">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Samsung Galaxy Z Fold7 12GB 256BG</h6>
-                    <div class="hangDatTruoc">
-                        <p style="font-family: Tahoma;">Hàng đặt trước</p>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <h6>46.990.000đ</h6><h6 class="text-muted ml-2"></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Samsung Galaxy Z Fold7*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/iphone-16-pro-max.jpg" alt="Iphone 16 Pro Max">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">IPhone 16 Pro Max 256GB | Chính hãng VN/A</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>30.290.000đ</h6><h6 class="text-muted ml-2"><del>34.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết </a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*IPhone 16 Pro Max*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/xiaomi_14t_pro_1_.jpg" alt="Xiaomi 14T Pro">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Xiaomi 14T Pro 12GB 512GB</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>14.890.000đ</h6><h6 class="text-muted ml-2"><del>17.670.000đ</del></h6>
+        @if (ViewBag.FeaturedProducts != null)
+        {
+            @foreach (var sp in ViewBag.FeaturedProducts)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="~/img/@sp.HinhAnh" alt="@sp.TenSanPham" />
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">@sp.TenSanPham</h6>
+
+                            @* Nếu có mô tả (dùng cho hàng đặt trước hoặc ghi chú) *@
+                            @if (!string.IsNullOrEmpty(sp.MoTa))
+                            {
+                                <div class="hangDatTruoc">
+                                    <p style="font-family: Tahoma;">@sp.MoTa</p>
+                                </div>
+                            }
+
+                            <div class="d-flex justify-content-center">
+                                <h6>@sp.Gia.ToString("N0")đ</h6>
+                                @* Nếu có giảm giá thì hiển thị giá gốc gạch ngang *@
+                                @* <h6 class="text-muted ml-2"><del>@sp.GiamGia?.ToString("N0")đ</del></h6> *@
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <!-- Nút Xem chi tiết -->
+                            <a href="@Url.Action("ShopDetail", "Home", new { id = sp.SanPhamId })" class="btn btn-sm text-dark p-0">
+                                <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
+                            </a>
+
+                            <!-- Nút Thêm vào giỏ hàng -->
+                            <a href="javascript:void(0);" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@sp.SanPhamId">
+                                <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Xiaomi 14T Pro*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/dien-thoai-samsung-galaxy-s25_1__2.jpg" alt="Samsung Galaxy S25">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Samsung Galaxy S25 256GB</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>19.690.000đ</h6><h6 class="text-muted ml-2"><del>22.580.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Samsung Galaxy S25*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/dien-thoai-samsung-galaxy-s25-ultra_3__3.jpg" alt="Samsung Galaxy S25 Ultra">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Samsung Galaxy S25 Ultra 12GB 256GB</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>28.490.000đ</h6><h6 class="text-muted ml-2"><del>33.380.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Samsung Galaxy S25 Ultra*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/iphone-15-plus_1__1.jpg" alt="IPhone 15">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">IPhone 15 128GB | Chính hãng VN/A</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>15.390.000đ</h6><h6 class="text-muted ml-2"><del>19.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*IPhone 15 128GB*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Samsung_Galaxy_Z_Flip6.jpg" alt="Samsung Galaxy Z Flip6">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Samsung Galaxy Z Flip6 12GB 256GB</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>21.990.000đ</h6><h6 class="text-muted ml-2"><del>28.470.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Samsung Galaxy Z Flip6*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/dien-thoai-samsung-galaxy-a56.1_1.jpg" alt="Samsung Galaxy A56">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Samsung Galaxy A56 5G 8GB 128Gb</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>9.310.000đ</h6><h6 class="text-muted ml-2"><del>9.810.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Samsung Galaxy A56 5G*@
+            }
+        }
+        else
+        {
+            <p>Chưa có sản phẩm nổi bật.</p>
+        }
     </div>
 </div>
 <!-- Products End -->
 
 <!-- Products Start -->
+@{
+    var laptopProducts = new List<dynamic>
+    {
+        new { Id = 109, Ten = "Apple MacBook Air M2 2024 8CPU 8GPU 16GB 256GB", Gia = 19790000, GiamGia = 24990000, Hinh = "Apple_MacBook_Air_M2.jpg" },
+        new { Id = 110, Ten = "MacBook Air M4 13 inch 2025 10CPU 8GPU 16GB 256GB", Gia = 25390000, GiamGia = 26990000, Hinh = "MacBook_Air_M4.jpg" },
+        new { Id = 111, Ten = "Laptop HP Gaming Victus 15-FA1139TX", Gia = 16490000, GiamGia = 24590000, Hinh = "Laptop_HP_Gaming_Victus_15.jpg" },
+        new { Id = 112, Ten = "Laptop ASUS Vivobook 15 X1502VA-BQ885W", Gia = 13990000, GiamGia = 15990000, Hinh = "Laptop_ASUS_Vivobook_15.jpg" },
+        new { Id = 113, Ten = "Laptop ASUS Gaming Vivobook 16X K3605VC-RP431W", Gia = 18490000, GiamGia = 20990000, Hinh = "Laptop_ASUS_Gaming_Vivobook_16X.jpg" },
+        new { Id = 114, Ten = "Laptop Acer Aspire Lite 15 AL15-41P-R3U5", Gia = 12590000, GiamGia = 12990000, Hinh = "Laptop Acer Aspire Lite 15.jpg" },
+        new { Id = 115, Ten = "Laptop Acer Gaming Nitro Lite 16 NL16-71G-71UJ", Gia = 22590000, GiamGia = 23990000, Hinh = "Laptop Acer Gaming Nitro Lite 16.jpg" },
+        new { Id = 116, Ten = "Laptop HP 245 G10 B8PF8AT", Gia = 11690000, GiamGia = 15590000, Hinh = "Laptop HP 245 G10.jpg" }
+    };
+}
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">Laptop</span></h2>
+        <h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">LAPTOP</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Apple_MacBook_Air_M2.jpg" alt="Apple MacBook Air M2">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Apple MacBook Air M2 2024 8CPU 8GPU 16GB 256GB I Chính hãng Apple Việt Nam</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>19.790.000đ</h6><h6 class="text-muted ml-2"><del>24.990.000đ</del></h6>
+        @foreach (var sp in laptopProducts)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="~/img/@sp.Hinh" alt="@sp.Ten" />
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">@sp.Ten</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>@sp.Gia.ToString("N0")đ</h6>
+                            @if (sp.GiamGia > sp.Gia)
+                            {
+                                <h6 class="text-muted ml-2"><del>@sp.GiamGia.ToString("N0")đ</del></h6>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="#" class="btn btn-sm text-dark p-0">
+                            <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@sp.Id">
+                            <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
+                        </a>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
             </div>
-        </div> @*Apple MacBook Air M2*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/MacBook_Air_M4.jpg" alt="MacBook Air M4 13">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">MacBook Air M4 13 inch 2025 10CPU 8GPU 16GB 256GB | Chính hãng Apple Việt Nam</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>25.390.000đ</h6><h6 class="text-muted ml-2"><del>26.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*MackBook Air M4*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop_HP_Gaming_Victus_15.jpg" alt="Laptop HP Gaming Victus 15-FA1139TX">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop HP Gaming Victus 15-FA1139TX 8Y6W3PA</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>16.490.000đ</h6><h6 class="text-muted ml-2"><del>24.590.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop HP Gaming Victus*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop_ASUS_Vivobook_15.jpg" alt="Laptop ASUS Vivobook 15">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop ASUS Vivobook 15 X1502VA-BQ885W</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>13.990.000đ</h6><h6 class="text-muted ml-2"><del>15.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop ASUS Vivobook 15*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop_ASUS_Gaming_Vivobook_16X.jpg" alt="Laptop ASUS Gaming Vivobook 16X">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop ASUS Gaming Vivobook 16X K3605VC-RP431W</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>18.490.000đ</h6><h6 class="text-muted ml-2"><del>20.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop ASUS Gaming Vivobook 16X*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop Acer Aspire Lite 15.jpg" alt="Laptop Acer Aspire Lite 15">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop Acer Aspire Lite 15 AL15-41P-R3U5 NX.J53SV.001</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>12.590.000đ</h6><h6 class="text-muted ml-2"><del>12.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop Acer Aspire Lite 15*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop Acer Gaming Nitro Lite 16.jpg" alt="Laptop Acer Gaming Nitro Lite 16">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop Acer Gaming Nitro Lite 16 NL16-71G-71UJ</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>22.590.000đ</h6><h6 class="text-muted ml-2"><del>23.990.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop Acer Gaming Nitro Lite 16*@
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="~/img/Laptop HP 245 G10.jpg" alt="Laptop HP 245">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Laptop HP 245 G10 B8PF8AT</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>11.690.000đ</h6><h6 class="text-muted ml-2"><del>15.590.000đ</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div> @*Laptop HP 245 G10*@
+        }
     </div>
 </div>
 <!-- Products End -->
@@ -528,7 +341,54 @@
     </div>
 </div>
 <!-- Vendor End -->
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $(".btn-add-to-cart").click(function (e) {
+                e.preventDefault(); // 🛑 Quan trọng: chặn reload khi click vào <a>
+
+                const productId = $(this).data("product-id");
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    method: 'POST',
+                    data: { productId: productId, quantity: 1 },
+                    success: function (result) {
+                        if (result.success) {
+                            Toastify({
+                                text: "🎉 Đã thêm vào giỏ hàng!",
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#28a745"
+                            }).showToast();
+
+                            $("#cart-count").text(result.cartCount);
+                        } else {
+                            Toastify({
+                                text: "❌ " + result.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#dc3545"
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Lỗi hệ thống khi thêm sản phẩm!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545"
+                        }).showToast();
+                    }
+                });
+            });
+        });
+    </script>
+}
 
 
 

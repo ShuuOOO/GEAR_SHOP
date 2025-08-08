@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TL4_SHOP.Controllers
 {
-    public class OrderController : Controller
+    public class OrderController : BaseController
     {
         private readonly _4tlShopContext _context;
 
-        public OrderController(_4tlShopContext context)
+        public OrderController(_4tlShopContext context) : base(context)
         {
             _context = context;
         }

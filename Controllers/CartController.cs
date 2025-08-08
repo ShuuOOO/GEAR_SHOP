@@ -6,12 +6,12 @@ using TL4_SHOP.Extensions;
 
 namespace TL4_SHOP.Controllers
 {
-    public class CartController : Controller
+    public class CartController : BaseController
     {
         private readonly _4tlShopContext _context;
         private const string CART_KEY = "GioHang";
 
-        public CartController(_4tlShopContext context)
+        public CartController(_4tlShopContext context) : base(context)
         {
             _context = context;
         }
@@ -88,7 +88,7 @@ namespace TL4_SHOP.Controllers
                 item.SoLuong = quantity;
                 HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Cart");
         }
         [HttpPost]
         public JsonResult AddToCart(int productId, int quantity = 1)

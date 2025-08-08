@@ -12,11 +12,11 @@ using TL4_SHOP.Models.ViewModels;
 
 namespace TL4_SHOP.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly _4tlShopContext _context;
 
-        public AccountController(_4tlShopContext context)
+        public AccountController(_4tlShopContext context) : base(context)
         {
             _context = context;
         }

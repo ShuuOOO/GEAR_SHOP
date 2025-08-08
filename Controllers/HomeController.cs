@@ -18,6 +18,16 @@ namespace TL4_SHOP.Controllers
         public IActionResult Index()
         {
             ViewBag.Message = TempData["Message"];
+
+            // Lấy danh sách sản phẩm nổi bật từ DB
+            var featuredProducts = _context.SanPhams
+                .Where(sp => sp.LaNoiBat == true)
+                .OrderByDescending(sp => sp.SanPhamId)
+                .Take(8) // Hiển thị tối đa 8 sản phẩm
+                .ToList();
+
+            ViewBag.FeaturedProducts = featuredProducts;
+
             return View();
         }
 

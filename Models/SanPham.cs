@@ -38,5 +38,7 @@ namespace TL4_SHOP.Models
         [ForeignKey("NhaCungCapId")]
         public virtual NhaCungCap? NhaCungCap { get; set; }
 
+        public bool? LaNoiBat { get; set; }
+
     }
 }
