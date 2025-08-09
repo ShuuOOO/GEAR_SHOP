@@ -143,5 +143,19 @@ namespace TL4_SHOP.Controllers
 
             return Json(products);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Contact(ContactFormModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO: xử lý — ví dụ lưu vào DB hoặc gửi email
+                ViewBag.Success = "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm.";
+                return View();
+            }
+
+            return View(model);
+        }
     }
 }

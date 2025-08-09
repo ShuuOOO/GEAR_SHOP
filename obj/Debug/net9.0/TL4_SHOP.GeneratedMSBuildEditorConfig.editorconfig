@@ -17,181 +17,181 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TL4_SHOP
 build_property.RootNamespace = TL4_SHOP
-build_property.ProjectDir = D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP\
+build_property.ProjectDir = C:\Users\NAM\Documents\GitHub\4TL_SHOP\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\HK3_Nam3\PTUD\DO_AN\4TL_SHOP
+build_property.MSBuildProjectDirectory = C:\Users\NAM\Documents\GitHub\4TL_SHOP
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/AccessDenied.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/ForgotPassword.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/Login.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/Profile.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/Register.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Account/ResetPassword.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminDonHang/Index.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminDonHang/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Eb25IYW5nXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminSanPham/Create.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminSanPham/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TYW5QaGFtXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminSanPham/Delete.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminSanPham/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TYW5QaGFtXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminSanPham/Details.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminSanPham/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TYW5QaGFtXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminSanPham/Edit.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminSanPham/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TYW5QaGFtXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/AdminSanPham/Index.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/AdminSanPham/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5TYW5QaGFtXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Cart/ShoppingCart.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Cart/ShoppingCart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxTaG9wcGluZ0NhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Cart/_MiniCart.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Cart/_MiniCart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfTWluaUNhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Home/Contact.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Home/Index.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Home/Privacy.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Home/Shop.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Home/Shop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Home/_SanPhamItem.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Home/_SanPhamItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfU2FuUGhhbUl0ZW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Order/Checkout.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Order/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Order/Complete.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Order/Complete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ29tcGxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Order/Detail.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Order/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Order/LichSu.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Order/LichSu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGljaFN1LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Order/TrackResult.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Order/TrackResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVHJhY2tSZXN1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/SanPhams/Create.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/SanPhams/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/SanPhams/Delete.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/SanPhams/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/SanPhams/Details.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/SanPhams/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/SanPhams/Edit.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/SanPhams/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/SanPhams/Index.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/SanPhams/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/Components/DanhMucMenu/Default.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/Components/DanhMucMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFuaE11Y01lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/Components/WishlistCount/Default.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/Components/WishlistCount/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcV2lzaGxpc3RDb3VudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/Error.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_footer.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9mb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_Layout_4TL.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_Layout_4TL.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfNFRMLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_MenuDanhMuc.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_MenuDanhMuc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51RGFuaE11Yy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_SanPhamCard.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_SanPhamCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TYW5QaGFtQ2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_WishlistCount.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_WishlistCount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9XaXNobGlzdENvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Wishlist/Index.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Wishlist/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/_ViewImports.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/_ViewStart.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/HK3_Nam3/PTUD/DO_AN/4TL_SHOP/Views/Shared/_Layout.cshtml]
+[C:/Users/NAM/Documents/GitHub/4TL_SHOP/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-olvhp874uu

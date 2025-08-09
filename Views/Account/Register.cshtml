@@ -3,66 +3,56 @@
     ViewData["Title"] = "Đăng ký";
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white text-center">
-                    <h4>Đăng ký tài khoản</h4>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Register" method="post">
-                        <div class="mb-3">
-                            <label asp-for="Username" class="form-label">Tên đăng nhập</label>
-                            <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập..." />
-                            <span asp-validation-for="Username" class="text-danger"></span>
-                        </div>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="max-width: 450px; width: 100%; border-radius: 15px;">
+        <h2 class="text-center mb-4"> Đăng ký tài khoản</h2>
 
-                        <div class="mb-3">
-                            <label asp-for="Email" class="form-label">Email</label>
-                            <input asp-for="Email" class="form-control" placeholder="Nhập email..." />
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Phone" class="form-label">Phone</label>
-                            <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại..." />
-                            <span asp-validation-for="Phone" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="Password" class="form-label">Mật khẩu</label>
-                            <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="ConfirmPassword" class="form-label">Xác nhận mật khẩu</label>
-                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Nhập lại mật khẩu..." />
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-user-plus"></i> Đăng ký
-                            </button>
-                        </div>
-
-                        <div class="text-center mt-3">
-                            Đã có tài khoản?
-                            <a asp-area="" asp-controller="Account" asp-action="Login">Đăng nhập</a>
-                        </div>
-
-                        @if (ViewBag.Message != null)
-                        {
-                            <div class="text-danger text-center mt-3">
-                                @ViewBag.Message
-                            </div>
-                        }
-                    </form>
-                </div>
+        <form asp-action="Register" method="post">
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label"> Tên đăng nhập</label>
+                <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập..." />
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
-        </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"> Email</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email..." />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label"> Số điện thoại</label>
+                <input asp-for="Phone" class="form-control" placeholder="Nhập số điện thoại..." />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"> Mật khẩu</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu..." />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"> Xác nhận mật khẩu</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Nhập lại mật khẩu..." />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 mb-3">
+                <i class="fa fa-user-plus"></i> Đăng ký
+            </button>
+
+            <p class="text-center mb-0">
+                Đã có tài khoản? <a asp-controller="Account" asp-action="Login">Đăng nhập ngay</a>
+            </p>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center mt-3">
+                    @ViewBag.Message
+                </div>
+            }
+        </form>
     </div>
 </div>
 

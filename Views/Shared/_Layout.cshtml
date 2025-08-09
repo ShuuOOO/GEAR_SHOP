@@ -4,12 +4,59 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] - TL4_SHOP</title>
+
+    <!-- Import map có thể thêm nội dung hoặc bỏ nếu chưa dùng -->
     <script type="importmap"></script>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Site custom styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TL4_SHOP.styles.css" asp-append-version="true" />
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Áp dụng font Roboto cho toàn bộ trang */
+        html, body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Tiêu đề đẹp, đậm, màu tối */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        /* Văn bản bình thường */
+        p, a, span, li {
+            font-weight: 400;
+            color: #444;
+        }
+
+        a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            a:hover {
+                color: #007bff; /* Bootstrap primary color */
+                text-decoration: underline;
+            }
+    </style>
+
 </head>
 <body>
     <header>

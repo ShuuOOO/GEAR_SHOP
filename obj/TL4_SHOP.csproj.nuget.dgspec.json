@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\TL4_SHOP.csproj": {}
+    "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj": {}
   },
   "projects": {
-    "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\TL4_SHOP.csproj": {
+    "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\TL4_SHOP.csproj",
+        "projectUniqueName": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj",
         "projectName": "TL4_SHOP",
-        "projectPath": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\TL4_SHOP.csproj",
-        "packagesPath": "C:\\Users\\VICTUS\\.nuget\\packages\\",
-        "outputPath": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\obj\\",
+        "projectPath": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj",
+        "packagesPath": "C:\\Users\\NAM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\VICTUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

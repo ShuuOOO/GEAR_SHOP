@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TL4_SHOP.Models.ContactFormModel
+@{
     ViewData["Title"] = "Liên hệ";
 }
 
@@ -7,9 +8,9 @@
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">Liên hệ</h1>
         <div class="d-inline-flex">
-            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0"><a asp-controller="Home" asp-action="Index">Trang chủ</a></p>
             <p class="m-0 px-2">-</p>
-            <p class="m-0">Contact</p>
+            <p class="m-0">Liên hệ</p>
         </div>
     </div>
 </div>
@@ -22,34 +23,29 @@
     <div class="row px-xl-5">
         <div class="col-lg-7 mb-5">
             <div class="contact-form">
-                <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Tên của bạn"
-                               required="required" data-validation-required-message="Vui lòng nhập tên của bạn" />
-                        <p class="help-block text-danger"></p>
+                @if (ViewBag.Success != null)
+                {
+                    <div class="alert alert-success">@ViewBag.Success</div>
+                }
+                <form asp-action="Contact" asp-controller="Home" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <input asp-for="Name" class="form-control" placeholder="Tên của bạn" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-                    <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email của bạn"
-                               required="required" data-validation-required-message="Vui lòng nhập email của bạn" />
-                        <p class="help-block text-danger"></p>
+                    <div class="form-group">
+                        <input asp-for="Email" class="form-control" placeholder="Email của bạn" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Chủ đề"
-                               required="required" data-validation-required-message="Vui lòng nhập chủ đề" />
-                        <p class="help-block text-danger"></p>
+                    <div class="form-group">
+                        <input asp-for="Subject" class="form-control" placeholder="Chủ đề" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
                     </div>
-                    <div class="control-group">
-                        <textarea class="form-control" rows="6" id="message" placeholder="Quý khách vui lòng mô tả chi tiết"
-                                  required="required"
-                                  data-validation-required-message="Quý khách vui lòng nhập tin nhắn"></textarea>
-                        <p class="help-block text-danger"></p>
+                    <div class="form-group">
+                        <textarea asp-for="Message" class="form-control" rows="6" placeholder="Quý khách vui lòng mô tả chi tiết"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
                     </div>
-                    <div>
-                        <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">
-                            Gửi liên hệ
-                        </button>
-                    </div>
+                    <button type="submit" class="btn btn-primary py-2 px-4">Gửi liên hệ</button>
                 </form>
             </div>
         </div>
@@ -72,3 +68,6 @@
     </div>
 </div>
 <!-- Contact End -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

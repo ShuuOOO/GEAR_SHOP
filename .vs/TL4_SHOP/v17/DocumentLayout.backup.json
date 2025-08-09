@@ -1,42 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\",
+  "WorkspaceRootPath": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\cart\\shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\cart\\shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\models\\contactformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:models\\contactformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\wwwroot\\css\\shop.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\shop.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\nam\\documents\\github\\4tl_shop\\tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,131 +54,146 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a5174402-226b-48da-aa5c-91376ed45871}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
-              "ViewState": "AgIAALcAAAAAAAAAAIAwwNIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T12:59:10.076Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-09T10:32:04.11Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-08T12:57:40.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ShoppingCart.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Cart\\ShoppingCart.cshtml",
-              "RelativeDocumentMoniker": "Views\\Cart\\ShoppingCart.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Cart\\ShoppingCart.cshtml",
-              "RelativeToolTip": "Views\\Cart\\ShoppingCart.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAFAAAAAGAAAAAAAAAA==",
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAACMAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T12:54:38.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_footer.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_footer.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_footer.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_footer.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_footer.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAiwCsAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T12:36:42.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_Layout_4TL.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ViewState": "AgIAABsBAAAAAAAAAADwv0QBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T12:36:31.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "shop.css",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\css\\shop.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\shop.css",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\css\\shop.css",
-              "RelativeToolTip": "wwwroot\\css\\shop.css",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAowKAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-08T12:22:56.572Z",
+              "WhenOpened": "2025-08-09T10:30:32.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T12:11:25.637Z",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T10:21:31.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T10:16:27.078Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Shop.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Shop.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Shop.cshtml",
-              "RelativeToolTip": "Views\\Home\\Shop.cshtml",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAAAH4AAAA4AAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T07:42:37.359Z",
+              "WhenOpened": "2025-08-09T09:34:16.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T09:33:31.616Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAiwBMBAAAfAAAAAAAAAA==",
+              "Title": "ContactFormModel.cs",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Models\\ContactFormModel.cs",
+              "RelativeDocumentMoniker": "Models\\ContactFormModel.cs",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Models\\ContactFormModel.cs",
+              "RelativeToolTip": "Models\\ContactFormModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T09:23:47.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TL4_SHOP.csproj",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj",
+              "RelativeDocumentMoniker": "TL4_SHOP.csproj",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\TL4_SHOP.csproj",
+              "RelativeToolTip": "TL4_SHOP.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-09T08:19:49.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T08:15:29.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shop.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Shop.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Shop.cshtml",
+              "RelativeToolTip": "Views\\Home\\Shop.cshtml",
+              "ViewState": "AgIAAKoCAAAAAAAAAAAQwLQCAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-08T04:22:16.913Z",
+              "WhenOpened": "2025-08-09T08:15:29.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\NAM\\Documents\\GitHub\\4TL_SHOP\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAlwMoCAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T08:15:29.829Z",
               "EditorCaption": ""
             }
           ]
