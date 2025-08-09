@@ -1,0 +1,203 @@
+﻿@model List<TL4_SHOP.Data.TaoTaiKhoan>
+
+@{
+    ViewData["Title"] = "Quản lý nhân viên - 4TL";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+<link rel="stylesheet" href="~/css/admin.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Sidebar mặc định */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+            /* Khi ẩn sidebar */
+            .sidebar.hidden {
+                left: -250px;
+            }
+
+            .sidebar a {
+                display: flex;
+                align-items: center;
+                padding: 15px 20px;
+                color: white;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                }
+
+                .sidebar a i {
+                    margin-right: 10px;
+                }
+
+        /* Nút toggle (☰) */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+            .toggle-btn:hover {
+                background-color: #1c638f;
+            }
+
+        /* Nội dung chính */
+        .content {
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        /* Khi sidebar đang hiện, dịch nội dung chính sang phải */
+        .sidebar-shown .content {
+            margin-left: 270px;
+            transition: margin 0.3s;
+        }
+        /* Vô hiệu hóa mục sidebar */
+        .disabled-link {
+            pointer-events: none; /* Không cho click */
+            opacity: 0.4; /* Làm mờ */
+            cursor: not-allowed; /* Hiển thị dấu cấm */
+        }
+
+            /* Làm mờ icon */
+            .disabled-link i {
+                color: #7f8c8d !important;
+            }
+
+    </style>
+
+    <!--Thanh cuộn-->
+</head>
+<body>
+
+    <!-- Nút toggle -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar hidden" id="sidebar">
+        <div style="margin-top: 60px">
+            <a asp-action="Index" asp-controller="Admin"><i class="fas fa-home disabled-link"></i> Home</a>
+            <a asp-action="Index" asp-controller="QuanLySanPham"><i class="fas fa-box disabled-link"></i> Quản lý sản phẩm</a>
+            <a asp-action="Index" asp-controller="NhapHang"><i class="fas fa-truck-loading disabled-link"></i> Nhập hàng</a>
+            <a asp-action="Index" asp-controller="NhaCungCap"><i class="fas fa-truck disabled-link"></i> Nhà cung cấp</a>
+            <a asp-action="Index" asp-controller="ChamSocKhachHang"><i class="fas fa-headset disabled-link"></i> Chăm sóc khách hàng</a>
+            <a href="#"><i class="fas fa-box disabled-link"></i> Quản lý đơn hàng</a>
+            <a href="#"><i class="fas fa-shopping-cart disabled-link"></i> Đơn hàng</a>
+            <a asp-action="ThongKeDoanhThu" asp-controller="ThongKeDoanhThu"><i class="fas fa-chart-bar disabled-link"></i>Thống kê doanh thu</a>
+            <a asp-action="QuanLyNhanVien" asp-controller="QuanLyNhanVien"><i class="fas fa-users-cog" style="color: orange"></i>Quản lý nhân viên</a>
+            <a asp-action="KhachHang" asp-controller="KhachHang"><i class="fas fa-user-friends" style="color: orange"></i>Khách hàng</a>
+        </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content" id="mainContent">
+        <h1>Chào mừng đến trang quản lý nhân viên</h1>
+    </div>
+
+    <!-- JavaScript Toggle -->
+    <script>
+        function toggleSidebar() {
+          const sidebar = document.getElementById("sidebar");
+          const content = document.getElementById("mainContent");
+          sidebar.classList.toggle("hidden");
+          document.body.classList.toggle("sidebar-shown");
+        }
+    </script>
+</body>
+
+
+<style>
+    .chart-wrapper {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    canvas {
+        max-height: 400px;
+        width: 100%;
+    }
+
+    .admin-container {
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="admin-header text-center mb-4">
+    <div class="container">
+        <h1><i class="fas fa-users-cog me-3"></i> Quản lý nhân viên</h1>
+        <p>Quản lý nhân viên để làm việc tốt hơn và năng xuất nhất 4TL Shop</p>
+    </div>
+</div>
+
+<a asp-action="Create" class="btn btn-success mb-3" style="border-radius: 30px;">
+    + Thêm Nhân Viên
+</a>
+<table class="table table-bordered">
+    <thead class="table-dark text-center table-hover">
+        <tr>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Điện thoại</th>
+            <th>Loại tài khoản</th>
+            <th>Vai trò</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var nv in Model.Where(x => x.NhanVienId != null))
+        {
+            <tr>
+                <td>@nv.HoTen</td>
+                <td>@nv.Email</td>
+                <td>@nv.Phone</td>
+                <td>@nv.LoaiTaiKhoan</td>
+                <td>@nv.VaiTro</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@nv.TaiKhoanId" class="btn btn-sm btn-warning me-1" style="border-radius: 30px;">
+                        <i class="bi bi-pencil-square"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@nv.TaiKhoanId" class="btn btn-sm btn-danger" style="border-radius: 30px;"
+                       onclick="return confirm('Bạn có chắc chắn muốn xóa nhân viên này?');">
+                        <i class="bi bi-trash"></i> Xóa
+                    </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

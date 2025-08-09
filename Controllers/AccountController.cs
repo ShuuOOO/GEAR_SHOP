@@ -60,6 +60,14 @@ namespace TL4_SHOP.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserAccount account)
         {
+
+            // Kiểm tra rỗng trước
+            if (string.IsNullOrEmpty(account?.Username) || string.IsNullOrEmpty(account?.Password))
+            {
+                ViewBag.Message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.";
+                return View(account);
+            }
+
             var hashedPassword = HashPassword(account.Password);
 
             var user = _context.TaoTaiKhoans
@@ -77,22 +85,34 @@ namespace TL4_SHOP.Controllers
                     _context.SaveChanges();
                     isPasswordValid = true;
                 }
-
                 if (!isPasswordValid)
                 {
                     user = null; // Đặt user = null nếu mật khẩu không đúng
                 }
             }
-
             if (user != null)
             {
-                var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, user.HoTen),
-            new Claim("TaiKhoanId", user.TaiKhoanId.ToString()),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.LoaiTaiKhoan)
-        };
+                var claims = new List<Claim>();
+
+                if (!string.IsNullOrEmpty(user.HoTen))
+                    claims.Add(new Claim(ClaimTypes.Name, user.HoTen));
+
+                claims.Add(new Claim("TaiKhoanId", user.TaiKhoanId.ToString()));
+
+                if (!string.IsNullOrEmpty(user.Email))
+                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
+
+                if (!string.IsNullOrEmpty(user.VaiTro))
+                    claims.Add(new Claim(ClaimTypes.Role, user.VaiTro));
+
+
+                // Tìm NhanVien tương ứng để lấy NhanVienId
+                var nhanVien = _context.NhanViens.FirstOrDefault(nv => nv.Email == user.Email);
+                if (nhanVien != null)
+                {
+                    claims.Add(new Claim("NhanVienId", nhanVien.NhanVienId.ToString()));
+                    HttpContext.Session.SetInt32("NhanVienId", nhanVien.NhanVienId);
+                }
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
@@ -108,11 +128,12 @@ namespace TL4_SHOP.Controllers
 
                 TempData["Message"] = "Đăng nhập thành công!";
 
-                // Redirect dựa trên loại tài khoản
-                if (user.LoaiTaiKhoan == "Admin")
-                {
-                    return RedirectToAction("Index", "AdminSanPham"); // Hoặc trang admin của bạn
-                }
+                // Redirect
+                if (user.VaiTro == "Admin") return RedirectToAction("Index", "Admin");
+                if (user.VaiTro == "Nhân viên quản lý sản phẩm") return RedirectToAction("Index", "QuanLySanPham");
+                if (user.VaiTro == "Nhân viên quản lý đơn hàng") return RedirectToAction("ThongKeDoanhThu", "ThongKeDoanhThu");
+                if (user.VaiTro == "Nhân viên quản lý nhân sự") return RedirectToAction("QuanLyNhanVien", "QuanLyNhanVien");
+                if (user.VaiTro == "Nhân viên chăm sóc khách hàng") return RedirectToAction("Index", "ChamSocKhachHang");
 
                 return RedirectToAction("Index", "Home");
             }
@@ -162,7 +183,7 @@ namespace TL4_SHOP.Controllers
                     Email = account.Email,
                     Phone = account.Phone,
                     MatKhau = HashPassword(account.Password), // Hash password
-                    LoaiTaiKhoan = "KhachHang"
+                    LoaiTaiKhoan = "KhachHang",
                 };
 
                 try
@@ -282,7 +303,7 @@ namespace TL4_SHOP.Controllers
             {
                 // Tạo reset token
                 var token = GenerateResetToken();
-                var resetToken = new PasswordResetToken
+                var resetToken = new TL4_SHOP.Data.PasswordResetToken
                 {
                     TaiKhoanId = user.TaiKhoanId,
                     Token = token,
@@ -318,7 +339,7 @@ namespace TL4_SHOP.Controllers
 
             // Kiểm tra token có hợp lệ không
             var resetToken = _context.PasswordResetTokens
-                .FirstOrDefault(t => t.Token == token && !t.IsUsed && t.ExpiryDate > DateTime.Now);
+                 .FirstOrDefault(t => t.Token == token && t.IsUsed == false && t.ExpiryDate > DateTime.Now);
 
             if (resetToken == null)
             {
@@ -359,7 +380,7 @@ namespace TL4_SHOP.Controllers
                 // Kiểm tra token
                 var resetToken = _context.PasswordResetTokens
                     .Include(t => t.TaiKhoan)
-                    .FirstOrDefault(t => t.Token == token && !t.IsUsed && t.ExpiryDate > DateTime.Now);
+                     .FirstOrDefault(t => t.Token == token && t.IsUsed == false && t.ExpiryDate > DateTime.Now);
 
                 if (resetToken == null)
                 {

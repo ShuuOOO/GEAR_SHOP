@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Access Denied";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
 }
 
-<h2>Truy cập bị từ chối</h2>
+<h2 style="font-family: Tahoma">Truy cập bị từ chối</h2>
 <p>Bạn không có quyền truy cập trang này.</p>
-<a href="@Url.Action("Login", "Account")">Quay lại đăng nhập</a>
+<a href="javascript:history.back()" class="btn btn-secondary" style="border-radius: 10px"> <i class="fas fa-arrow-left me-2"></i> Quay lại</a>

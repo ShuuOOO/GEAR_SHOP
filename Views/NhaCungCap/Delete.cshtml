@@ -1,0 +1,38 @@
+﻿@model TL4_SHOP.Data.NhaCungCap
+@{
+    ViewData["Title"] = " Xóa nhà cung cấp";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<div class="container-fluid">
+    <h2 class="text-danger"><i class="fas fa-trash-alt me-2"></i>@ViewData["Title"]</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card border-danger shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    <h5 style="font-family: Tahoma">Xác nhận xóa nhà cung cấp</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">Bạn có chắc chắn muốn xóa nhà cung cấp sau?</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item"><strong>Tên:</strong> @Model.TenNhaCungCap</li>
+                        <li class="list-group-item"><strong>Địa chỉ:</strong> @Model.DiaChi</li>
+                        <li class="list-group-item"><strong>Điện thoại:</strong> @Model.Phone</li>
+                        <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+                    </ul>
+
+                    <form asp-action="Delete" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa nhà cung cấp này?');">
+                        <input type="hidden" asp-for="NhaCungCapId" />
+                        <button type="submit" class="btn btn-danger me-2" style="border-radius: 10px">
+                            <i class="fas fa-trash me-1"></i> Xóa
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary" style="border-radius: 10px; margin-left: 10px;">
+                            <i class="fas fa-arrow-left me-1"></i> Hủy
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

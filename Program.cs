@@ -1,14 +1,27 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
+using TL4_SHOP.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<_4tlShopContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("4TL_SHOP"));
+});
+builder.Services.AddSignalR();
+builder.Services.AddControllersWithViews();
 
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);
 
 // Build the application
 var app = builder.Build();
+
+app.MapHub<ChatHub>("/chatHub");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 // Configure the HTTP request pipeline
 ConfigurePipeline(app);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using TL4_SHOP.Models;
 
 namespace TL4_SHOP.Data;
 
@@ -42,23 +41,23 @@ public partial class _4tlShopContext : DbContext
 
     public virtual DbSet<NhapHang> NhapHangs { get; set; }
 
+    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+
     public virtual DbSet<SanPham> SanPhams { get; set; }
 
     public virtual DbSet<TaoTaiKhoan> TaoTaiKhoans { get; set; }
 
     public virtual DbSet<TrangThaiDonHang> TrangThaiDonHangs { get; set; }
 
-    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
-
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-    //        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ChiTietDonHang>(entity =>
         {
-            entity.HasKey(e => e.ChiTietId).HasName("PK__ChiTietD__B117E9EA30C44B1F");
+            entity.HasKey(e => e.ChiTietId).HasName("PK__ChiTietD__B117E9EA50949C7C");
 
             entity.ToTable("ChiTietDonHang", tb =>
                 {
@@ -76,17 +75,17 @@ public partial class _4tlShopContext : DbContext
             entity.HasOne(d => d.DonHang).WithMany(p => p.ChiTietDonHangs)
                 .HasForeignKey(d => d.DonHangId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietDo__DonHa__5FB337D6");
+                .HasConstraintName("FK__ChiTietDo__DonHa__60A75C0F");
 
             entity.HasOne(d => d.SanPham).WithMany(p => p.ChiTietDonHangs)
                 .HasForeignKey(d => d.SanPhamId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietDo__SanPh__60A75C0F");
+                .HasConstraintName("FK__ChiTietDo__SanPh__619B8048");
         });
 
         modelBuilder.Entity<ChiTietNhapHang>(entity =>
         {
-            entity.HasKey(e => e.ChiTietNhapHangId).HasName("PK__ChiTietN__D9FE8A9035A9ABF3");
+            entity.HasKey(e => e.ChiTietNhapHangId).HasName("PK__ChiTietN__D9FE8A9053B4BCD7");
 
             entity.ToTable("ChiTietNhapHang", tb =>
                 {
@@ -102,40 +101,32 @@ public partial class _4tlShopContext : DbContext
 
             entity.HasOne(d => d.PhieuNhap).WithMany(p => p.ChiTietNhapHangs)
                 .HasForeignKey(d => d.PhieuNhapId)
-                .HasConstraintName("FK__ChiTietNh__Phieu__6383C8BA");
+                .HasConstraintName("FK__ChiTietNh__Phieu__628FA481");
 
             entity.HasOne(d => d.SanPham).WithMany(p => p.ChiTietNhapHangs)
                 .HasForeignKey(d => d.SanPhamId)
-                .HasConstraintName("FK__ChiTietNh__SanPh__6477ECF3");
+                .HasConstraintName("FK__ChiTietNh__SanPh__6383C8BA");
         });
 
         modelBuilder.Entity<DanhMucSanPham>(entity =>
         {
-            entity.HasKey(e => e.DanhMucId).HasName("PK__DanhMucS__1C53BA7B81C69B93");
+            entity.HasKey(e => e.DanhMucId).HasName("PK__DanhMucS__1C53BA7B8B6327AC");
 
             entity.ToTable("DanhMucSanPham");
 
             entity.Property(e => e.DanhMucId)
                 .ValueGeneratedNever()
                 .HasColumnName("DanhMucID");
-
             entity.Property(e => e.TenDanhMuc).HasMaxLength(100);
 
-            entity.Property(e => e.MoTa).IsRequired();
-
-            entity.Property(e => e.DanhMucChaId).HasColumnName("DanhMucChaId"); 
-
-            // Quan hệ cha – con
-            entity.HasOne(d => d.DanhMucCha)
-                .WithMany(p => p.DanhMucCon)
+            entity.HasOne(d => d.DanhMucCha).WithMany(p => p.DanhMucCon)
                 .HasForeignKey(d => d.DanhMucChaId)
-                .HasConstraintName("FK_DanhMuc_ChaCon")
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasConstraintName("FK_DanhMuc_ChaCon");
         });
 
         modelBuilder.Entity<DiaChi>(entity =>
         {
-            entity.HasKey(e => e.DiaChiId).HasName("PK__DiaChi__94E668E6FB309DBC");
+            entity.HasKey(e => e.DiaChiId).HasName("PK__DiaChi__94E668E6D6F2D27A");
 
             entity.ToTable("DiaChi", tb => tb.HasTrigger("trg_AutoFill_DiaChi"));
 
@@ -154,12 +145,12 @@ public partial class _4tlShopContext : DbContext
             entity.HasOne(d => d.KhachHang).WithMany(p => p.DiaChis)
                 .HasForeignKey(d => d.KhachHangId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__DiaChi__KhachHan__4222D4EF");
+                .HasConstraintName("FK__DiaChi__KhachHan__656C112C");
         });
 
         modelBuilder.Entity<DoanhThuTheoNam>(entity =>
         {
-            entity.HasKey(e => e.Nam).HasName("PK__DoanhThu__C7D111C2525ECDB1");
+            entity.HasKey(e => e.Nam).HasName("PK__DoanhThu__C7D111C2793E2876");
 
             entity.ToTable("DoanhThuTheoNam");
 
@@ -170,7 +161,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<DoanhThuTheoNgay>(entity =>
         {
-            entity.HasKey(e => e.Ngay).HasName("PK__DoanhThu__6BCCE7B21837C0EC");
+            entity.HasKey(e => e.Ngay).HasName("PK__DoanhThu__6BCCE7B2ED197CB4");
 
             entity.ToTable("DoanhThuTheoNgay", tb =>
                 {
@@ -184,7 +175,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<DoanhThuTheoThang>(entity =>
         {
-            entity.HasKey(e => new { e.Nam, e.Thang }).HasName("PK__DoanhThu__750C5E9697939130");
+            entity.HasKey(e => new { e.Nam, e.Thang }).HasName("PK__DoanhThu__750C5E96759CC1EB");
 
             entity.ToTable("DoanhThuTheoThang");
 
@@ -194,7 +185,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<DonHang>(entity =>
         {
-            entity.HasKey(e => e.DonHangId).HasName("PK__DonHang__D159F4DEB7BCC682");
+            entity.HasKey(e => e.DonHangId).HasName("PK__DonHang__D159F4DE3796CDE3");
 
             entity.ToTable("DonHang", tb => tb.HasTrigger("trg_CapNhatDoanhThuTheoNgay"));
 
@@ -208,21 +199,21 @@ public partial class _4tlShopContext : DbContext
 
             entity.HasOne(d => d.DiaChi).WithMany(p => p.DonHangs)
                 .HasForeignKey(d => d.DiaChiId)
-                .HasConstraintName("FK__DonHang__DiaChiI__5BE2A6F2");
+                .HasConstraintName("FK__DonHang__DiaChiI__66603565");
 
             entity.HasOne(d => d.KhachHang).WithMany(p => p.DonHangs)
                 .HasForeignKey(d => d.KhachHangId)
-                .HasConstraintName("FK__DonHang__KhachHa__5AEE82B9");
+                .HasConstraintName("FK__DonHang__KhachHa__6754599E");
 
             entity.HasOne(d => d.TrangThai).WithMany(p => p.DonHangs)
                 .HasForeignKey(d => d.TrangThaiId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__DonHang__TrangTh__5CD6CB2B");
+                .HasConstraintName("FK__DonHang__TrangTh__68487DD7");
         });
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
-            entity.HasKey(e => e.KhachHangId).HasName("PK__KhachHan__880F211B510C2C99");
+            entity.HasKey(e => e.KhachHangId).HasName("PK__KhachHan__880F211B41F09C6E");
 
             entity.ToTable("KhachHang");
 
@@ -235,7 +226,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<KhoHang>(entity =>
         {
-            entity.HasKey(e => e.SanPhamId).HasName("PK__KhoHang__05180FF49CC24F5D");
+            entity.HasKey(e => e.SanPhamId).HasName("PK__KhoHang__05180FF4E7AB4178");
 
             entity.ToTable("KhoHang");
 
@@ -246,12 +237,12 @@ public partial class _4tlShopContext : DbContext
             entity.HasOne(d => d.SanPham).WithOne(p => p.KhoHang)
                 .HasForeignKey<KhoHang>(d => d.SanPhamId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__KhoHang__SanPham__5070F446");
+                .HasConstraintName("FK__KhoHang__SanPham__693CA210");
         });
 
         modelBuilder.Entity<NhaCungCap>(entity =>
         {
-            entity.HasKey(e => e.NhaCungCapId).HasName("PK__NhaCungC__8B8917276F4C76AB");
+            entity.HasKey(e => e.NhaCungCapId).HasName("PK__NhaCungC__8B891727D8688635");
 
             entity.ToTable("NhaCungCap");
 
@@ -266,7 +257,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
-            entity.HasKey(e => e.NhanVienId).HasName("PK__NhanVien__E27FD7EAB3185254");
+            entity.HasKey(e => e.NhanVienId).HasName("PK__NhanVien__E27FD7EAC5136076");
 
             entity.ToTable("NhanVien");
 
@@ -280,7 +271,7 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<NhapHang>(entity =>
         {
-            entity.HasKey(e => e.PhieuNhapId).HasName("PK__NhapHang__DE3A388261A47F8B");
+            entity.HasKey(e => e.PhieuNhapId).HasName("PK__NhapHang__DE3A38829CA86A16");
 
             entity.ToTable("NhapHang");
 
@@ -291,16 +282,33 @@ public partial class _4tlShopContext : DbContext
 
             entity.HasOne(d => d.NhaCungCap).WithMany(p => p.NhapHangs)
                 .HasForeignKey(d => d.NhaCungCapId)
-                .HasConstraintName("FK__NhapHang__NhaCun__48CFD27E");
+                .HasConstraintName("FK__NhapHang__NhaCun__6A30C649");
 
             entity.HasOne(d => d.NhanVien).WithMany(p => p.NhapHangs)
                 .HasForeignKey(d => d.NhanVienId)
-                .HasConstraintName("FK__NhapHang__NhanVi__49C3F6B7");
+                .HasConstraintName("FK__NhapHang__NhanVi__6B24EA82");
+        });
+
+        modelBuilder.Entity<PasswordResetToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Password__3214EC072F89B9F3");
+
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
+            entity.Property(e => e.IsUsed).HasDefaultValue(false);
+            entity.Property(e => e.Token).HasMaxLength(255);
+
+            entity.HasOne(d => d.TaiKhoan).WithMany(p => p.PasswordResetTokens)
+                .HasForeignKey(d => d.TaiKhoanId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__PasswordR__TaiKh__6C190EBB");
         });
 
         modelBuilder.Entity<SanPham>(entity =>
         {
-            entity.HasKey(e => e.SanPhamId).HasName("PK__SanPham__05180FF40BA47994");
+            entity.HasKey(e => e.SanPhamId).HasName("PK__SanPham__05180FF4E70E3D27");
 
             entity.ToTable("SanPham", tb => tb.HasTrigger("trg_InsertKhoHang"));
 
@@ -313,17 +321,17 @@ public partial class _4tlShopContext : DbContext
 
             entity.HasOne(d => d.DanhMuc).WithMany(p => p.SanPhams)
                 .HasForeignKey(d => d.DanhMucId)
-                .HasConstraintName("FK__SanPham__DanhMuc__4CA06362");
+                .HasConstraintName("FK__SanPham__DanhMuc__6D0D32F4");
 
             entity.HasOne(d => d.NhaCungCap).WithMany(p => p.SanPhams)
                 .HasForeignKey(d => d.NhaCungCapId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__SanPham__NhaCung__4D94879B");
+                .HasConstraintName("FK__SanPham__NhaCung__6E01572D");
         });
 
         modelBuilder.Entity<TaoTaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.TaiKhoanId).HasName("PK__TaoTaiKh__9A124B658F6EA8E5");
+            entity.HasKey(e => e.TaiKhoanId).HasName("PK__TaoTaiKh__9A124B6593140946");
 
             entity.ToTable("TaoTaiKhoan", tb =>
                 {
@@ -332,9 +340,9 @@ public partial class _4tlShopContext : DbContext
                     tb.HasTrigger("trg_UpdateIDs_AfterInsert");
                 });
 
-            entity.HasIndex(e => e.Phone, "UQ__TaoTaiKh__5C7E359EDB66121B").IsUnique();
+            entity.HasIndex(e => e.Phone, "UQ__TaoTaiKh__5C7E359EF27B5B54").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__TaoTaiKh__A9D1053486347588").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__TaoTaiKh__A9D105347AAB0C0F").IsUnique();
 
             entity.Property(e => e.TaiKhoanId).HasColumnName("TaiKhoanID");
             entity.Property(e => e.Email).HasMaxLength(100);
@@ -344,19 +352,20 @@ public partial class _4tlShopContext : DbContext
             entity.Property(e => e.MatKhau).HasMaxLength(255);
             entity.Property(e => e.NhanVienId).HasColumnName("NhanVienID");
             entity.Property(e => e.Phone).HasMaxLength(20);
+            entity.Property(e => e.VaiTro).HasMaxLength(20);
 
             entity.HasOne(d => d.KhachHang).WithMany(p => p.TaoTaiKhoans)
                 .HasForeignKey(d => d.KhachHangId)
-                .HasConstraintName("FK__TaoTaiKho__Khach__3F466844");
+                .HasConstraintName("FK__TaoTaiKho__Khach__6EF57B66");
 
             entity.HasOne(d => d.NhanVien).WithMany(p => p.TaoTaiKhoans)
                 .HasForeignKey(d => d.NhanVienId)
-                .HasConstraintName("FK__TaoTaiKho__NhanV__3E52440B");
+                .HasConstraintName("FK__TaoTaiKho__NhanV__6FE99F9F");
         });
 
         modelBuilder.Entity<TrangThaiDonHang>(entity =>
         {
-            entity.HasKey(e => e.TrangThaiId).HasName("PK__TrangTha__D5BF1E850C628B11");
+            entity.HasKey(e => e.TrangThaiId).HasName("PK__TrangTha__D5BF1E85805ED97D");
 
             entity.ToTable("TrangThaiDonHang");
 
@@ -367,30 +376,6 @@ public partial class _4tlShopContext : DbContext
         });
 
         OnModelCreatingPartial(modelBuilder);
-
-        modelBuilder.Entity<PasswordResetToken>(entity =>
-        {
-            entity.HasKey(e => e.Id);
-
-            entity.Property(e => e.Token)
-                .IsRequired()
-                .HasMaxLength(255);
-
-            entity.Property(e => e.ExpiryDate)
-                .IsRequired();
-
-            entity.Property(e => e.IsUsed)
-                .HasDefaultValue(false);
-
-            entity.Property(e => e.CreatedDate)
-                .HasDefaultValueSql("GETDATE()");
-
-            entity.HasOne(d => d.TaiKhoan)
-                .WithMany()
-                .HasForeignKey(d => d.TaiKhoanId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_PasswordResetToken_TaiKhoan");
-        });
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<TL4_SHOP.Data.SanPham>
 @{
-    ViewData["Title"] = "Quản lý sản phẩm - 4TL Admin";
-    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+    ViewData["Title"] = "Quản lý sản phẩm - 4TL";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
 }
-
 <!-- Sửa lại phần CSS và font -->
 <link rel="stylesheet" href="~/css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -162,18 +161,148 @@
     }
 </style>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar Thu Gọn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Sidebar mặc định */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      padding-top: 20px;
+      transition: left 0.3s ease;
+      z-index: 999;
+    }
+
+    /* Khi ẩn sidebar */
+    .sidebar.hidden {
+      left: -250px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+
+    .sidebar a i {
+      margin-right: 10px;
+    }
+
+    /* Nút toggle (☰) */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #2980b9;
+      color: white;
+      padding: 10px 15px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 4px;
+    }
+
+    .toggle-btn:hover {
+      background-color: #1c638f;
+    }
+
+    /* Nội dung chính */
+    .content {
+      margin-left: 20px;
+      padding: 20px;
+    }
+
+    /* Khi sidebar đang hiện, dịch nội dung chính sang phải */
+    .sidebar-shown .content {
+      margin-left: 270px;
+      transition: margin 0.3s;
+    }
+
+    /* Vô hiệu hóa mục sidebar */
+    .disabled-link {
+      pointer-events: none;       /* Không cho click */
+      opacity: 0.4;               /* Làm mờ */
+      cursor: not-allowed;        /* Hiển thị dấu cấm */
+    }
+
+    /* Làm mờ icon */
+    .disabled-link i {
+      color: #7f8c8d !important;
+    }
+
+  </style>
+
+  <!--Thanh cuộn-->
+</head>
+<body>
+
+  <!-- Nút toggle -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Sidebar -->
+   <div class="sidebar hidden" id="sidebar">
+      <div style="margin-top: 60px">
+        <a asp-action="Index" asp-controller="Admin"><i class="fas fa-home disabled-link"></i> Home</a>
+        <a asp-action="Index" asp-controller="QuanLySanPham"><i class="fas fa-box" style="color: orange"></i> Quản lý sản phẩm</a>
+        <a asp-action="Index" asp-controller="NhapHang"><i class="fas fa-truck-loading" style="color: orange"></i> Nhập hàng</a>
+        <a asp-action="Index" asp-controller="NhaCungCap"><i class="fas fa-truck" style="color: orange"></i> Nhà cung cấp</a>
+        <a asp-action="Index" asp-controller="ChamSocKhachHang"><i class="fas fa-headset disabled-link"></i> Chăm sóc khách hàng</a>
+        <a href="#"><i class="fas fa-shopping-cart disabled-link"></i> Đơn hàng</a>
+        <a href="#"><i class="fas fa-box disabled-link"></i> Quản lý đơn hàng</a>
+        <a asp-action="ThongKeDoanhThu" asp-controller="ThongKeDoanhThu"><i class="fas fa-chart-bar disabled-link"></i>Thống kê doanh thu</a>
+        <a asp-action="QuanLyNhanVien" asp-controller="QuanLyNhanVien"><i class="fas fa-users-cog disabled-link"></i>Quản lý nhân viên</a>
+         <a asp-action="KhachHang" asp-controller="KhachHang"><i class="fas fa-user-friends disabled-link"></i>Khách hàng</a>
+      </div>
+  </div>
+
+  <!-- Nội dung chính -->
+  <div class="content" id="mainContent">
+    <h1>Chào mừng đến trang quản lý sản phẩm</h1>
+  </div>
+
+  <!-- JavaScript Toggle -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const content = document.getElementById("mainContent");
+      sidebar.classList.toggle("hidden");
+      document.body.classList.toggle("sidebar-shown");
+    }
+  </script>
+</body>
+
+
 <div class="admin-container">
     <div class="container-fluid px-xl-5">
         <!-- Admin Header -->
         <div class="admin-header text-center mb-4">
             <div class="container">
-                <h1><i class="fas fa-cogs me-3"></i>Quản lý sản phẩm</h1>
+                <h1><i class="fas fa-box me-3"></i> Quản lý sản phẩm</h1>
                 <p>Hệ thống quản lý toàn bộ sản phẩm trong cửa hàng 4TL Shop</p>
             </div>
         </div>
 
         <!-- Statistics Cards -->
-        <div class="row mb-4">
+        <div class="row mb-4 text-nowrap">
             <div class="col-lg-3 col-md-6 mb-3">
                 <div class="stats-card text-center">
                     <i class="fas fa-box stats-icon"></i>
@@ -207,13 +336,13 @@
         <!-- Action Section -->
         <div class="action-section mb-4">
             <div class="d-flex justify-content-between align-items-center">
-                <h5><i class="fas fa-tools me-2"></i>Thao tác nhanh</h5>
+                <h5><i class="fas fa-tools me-2"></i> Thao tác nhanh</h5>
                 <div>
-                    <a asp-action="Create" class="btn btn-success">
-                        <i class="fas fa-plus me-2"></i>Thêm sản phẩm
+                    <a asp-action="Create" class="btn btn-success" style="border-radius: 100px">
+                        <i class="fas fa-plus me-2"></i> Thêm sản phẩm
                     </a>
-                    <button class="btn btn-info" onclick="exportToExcel()">
-                        <i class="fas fa-file-excel me-2"></i>Xuất Excel
+                    <button style="border-radius: 100px" class="btn btn-info" onclick="exportToExcel()">
+                        <i class="fas fa-file-excel me-2"></i> Xuất Excel
                     </button>
                 </div>
             </div>
@@ -221,7 +350,7 @@
 
         <!-- Search and Filter Section với Live Search -->
         <div class="search-filter-section mb-4">
-            <h5><i class="fas fa-search me-2"></i>Tìm kiếm & Lọc</h5>
+            <h5><i class="fas fa-search me-2"></i> Tìm kiếm & Lọc</h5>
             <form method="get" asp-action="Index" id="filterForm">
                 <div class="row">
                     <div class="col-md-4 mb-3">
@@ -237,7 +366,7 @@
                         @Html.DropDownList("categoryId",
                                  ViewBag.DanhMucs as SelectList,
                                  "Tất cả danh mục",
-                                 new { @class = "form-select", id = "categoryFilter" })
+                                 new { @class = "form-select", id = "categoryFilter"})
                     </div>
                     <div class="col-md-3 mb-3">
                         <label class="form-label">Trạng thái kho</label>
@@ -247,15 +376,15 @@
                     </div>
                     <div class="col-md-2 mb-3">
                         <label class="form-label">&nbsp;</label>
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-filter me-1"></i>Lọc
+                        <button type="submit" class="btn btn-primary w-100" style="border-radius: 100px">
+                            <i class="fas fa-filter me-1"></i> Lọc
                         </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <a href="@Url.Action("Index")" class="btn btn-secondary">
-                            <i class="fas fa-times me-1"></i>Xóa bộ lọc
+                        <a href="@Url.Action("Index")" class="btn btn-secondary" style="border-radius: 100px">
+                            <i class="fas fa-times me-1"></i> Xóa bộ lọc
                         </a>
                     </div>
                 </div>
@@ -268,26 +397,26 @@
             {
                 <div class="table-responsive">
                     <table class="table table-hover" id="productsTable">
-                        <thead class="table-light">
+                        <thead class="table-light text-center align-middle">
                             <tr>
-                                <th>Hình ảnh</th>
-                                <th>Thông tin sản phẩm</th>
-                                <th>Danh mục</th>
-                                <th>Nhà cung cấp</th>
-                                <th>Giá bán</th>
-                                <th>Số lượng</th>
-                                <th>Trạng thái</th>
-                                <th>Thao tác</th>
+                                 <th class="text-nowrap">Hình ảnh</th>
+                                 <th class="text-nowrap">Thông tin sản phẩm</th>
+                                 <th class="text-nowrap">Danh mục</th>
+                                 <th class="text-nowrap">Nhà cung cấp</th>
+                                 <th class="text-nowrap">Giá bán</th>
+                                 <th class="text-nowrap">Số lượng</th>
+                                 <th class="text-nowrap">Trạng thái</th>
+                                 <th class="text-nowrap">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>
+                                    <td class="text-center align-middle">
                                         @if (!string.IsNullOrEmpty(item.HinhAnh))
                                         {
-                                            <img src="~/images/products/@item.HinhAnh" alt="@item.TenSanPham" class="product-image" />
+                                            <img style="width:40%; height:40%" src="~/images/products/@item.HinhAnh" alt="@item.TenSanPham" class="product-image" />
                                         }
                                         else
                                         {
@@ -307,10 +436,10 @@
                                         }
                                     </td>
                                     <td>
-                                        <span class="badge bg-primary">@(item.DanhMuc?.TenDanhMuc ?? "Chưa phân loại")</span>
+                                        <b><span class="badge bg-primary" style="font-size:16px">@(item.DanhMuc?.TenDanhMuc ?? "Chưa phân loại")</span></b>
                                     </td>
                                     <td>
-                                        <span class="text-muted">@(item.NhaCungCap?.TenNhaCungCap ?? "Chưa có")</span>
+                                        <b><span class="text-muted" style="font-size:16px">@(item.NhaCungCap?.TenNhaCungCap ?? "Chưa có")</span></b>
                                     </td>
                                     <td>
                                         <div class="product-price">
@@ -332,7 +461,7 @@
                                     <td>
                                         @if (item.SoLuongTon > 5)
                                         {
-                                            <span class="status-badge status-active">CÒN HÀNG</span>
+                                            <span class="status-badge status-active text-nowrap">CÒN HÀNG</span>
                                         }
                                         else if (item.SoLuongTon > 0)
                                         {
@@ -340,18 +469,18 @@
                                         }
                                         else
                                         {
-                                            <span class="status-badge status-inactive">HẾT HÀNG</span>
+                                            <span class="status-badge status-inactive text-nowrap">HẾT HÀNG</span>
                                         }
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a asp-action="Details" asp-route-id="@item.SanPhamId" class="action-btn btn-view" title="Xem chi tiết">
+                                            <a asp-action="Details" asp-route-id="@item.SanPhamId" class="action-btn btn-view" title="Xem chi tiết"  style="border-radius: 50px">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a asp-action="Edit" asp-route-id="@item.SanPhamId" class="action-btn btn-edit" title="Chỉnh sửa">
+                                            <a asp-action="Edit" asp-route-id="@item.SanPhamId" class="action-btn btn-edit" title="Chỉnh sửa" style="border-radius: 50px">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a asp-action="Delete" asp-route-id="@item.SanPhamId" class="action-btn btn-delete" title="Xóa"
+                                            <a asp-action="Delete" asp-route-id="@item.SanPhamId" class="action-btn btn-delete" title="Xóa" style="border-radius: 50px"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">
                                                 <i class="fas fa-trash"></i>
                                             </a>

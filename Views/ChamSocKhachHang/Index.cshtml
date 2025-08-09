@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Chăm sóc khách hàng";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="~/css/admin.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Sidebar mặc định */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+            /* Khi ẩn sidebar */
+            .sidebar.hidden {
+                left: -250px;
+            }
+
+            .sidebar a {
+                display: flex;
+                align-items: center;
+                padding: 15px 20px;
+                color: white;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover {
+                    background-color: #34495e;
+                }
+
+                .sidebar a i {
+                    margin-right: 10px;
+                }
+
+        /* Nút toggle (☰) */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+            .toggle-btn:hover {
+                background-color: #1c638f;
+            }
+
+        /* Nội dung chính */
+        .content {
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        /* Khi sidebar đang hiện, dịch nội dung chính sang phải */
+        .sidebar-shown .content {
+            margin-left: 270px;
+            transition: margin 0.3s;
+        }
+        /* Vô hiệu hóa mục sidebar */
+        .disabled-link {
+            pointer-events: none; /* Không cho click */
+            opacity: 0.4; /* Làm mờ */
+            cursor: not-allowed; /* Hiển thị dấu cấm */
+        }
+
+            /* Làm mờ icon */
+            .disabled-link i {
+                color: #7f8c8d !important;
+            }
+
+    </style>
+
+    <!--Thanh cuộn-->
+</head>
+<body>
+
+    <!-- Nút toggle -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar hidden" id="sidebar">
+        <div style="margin-top: 60px">
+            <a asp-action="Index" asp-controller="Admin"><i class="fas fa-home disabled-link"></i> Home</a>
+            <a asp-action="Index" asp-controller="QuanLySanPham"><i class="fas fa-box disabled-link"></i> Quản lý sản phẩm</a>
+            <a asp-action="Index" asp-controller="NhapHang"><i class="fas fa-truck-loading disabled-link"></i> Nhập hàng</a>
+            <a asp-action="Index" asp-controller="NhaCungCap"><i class="fas fa-truck disabled-link"></i> Nhà cung cấp</a>
+            <a asp-action="Index" asp-controller="ChamSocKhachHang"><i class="fas fa-headset" style="color: orange"></i> Chăm sóc khách hàng</a>
+            <a href="#"><i class="fas fa-box disabled-link"></i> Quản lý đơn hàng</a>
+            <a href="#"><i class="fas fa-shopping-cart disabled-link"></i> Đơn hàng</a>
+            <a asp-action="ThongKeDoanhThu" asp-controller="ThongKeDoanhThu"><i class="fas fa-chart-bar disabled-link"></i>Thống kê doanh thu</a>
+            <a asp-action="QuanLyNhanVien" asp-controller="QuanLyNhanVien"><i class="fas fa-users-cog disabled-link"></i>Quản lý nhân viên</a>
+            <a asp-action="KhachHang" asp-controller="KhachHang"><i class="fas fa-user-friends disabled-link"></i>Khách hàng</a>
+        </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="content" id="mainContent">
+        <h1>Chào mừng đến trang chăm sóc khách hàng</h1>
+    </div>
+
+    <!-- JavaScript Toggle -->
+    <script>
+        function toggleSidebar() {
+          const sidebar = document.getElementById("sidebar");
+          const content = document.getElementById("mainContent");
+          sidebar.classList.toggle("hidden");
+          document.body.classList.toggle("sidebar-shown");
+        }
+    </script>
+</body>
+
+<style>
+    .chart-wrapper {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    canvas {
+        max-height: 400px;
+        width: 100%;
+    }
+
+    .admin-container {
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<div class="admin-header text-center mb-4">
+    <div class="container">
+        <h1><i class="fas fa-user-friends me-3"></i> Chăm sóc khách hàng</h1>
+        <p>Khách hàng là một nhân vật quan trọng</p>
+    </div>
+</div>
+
+
+<h2 style="text-align: center; font-family: sans-serif;">💬 Chat với khách hàng</h2>
+
+<div id="chatContainer">
+    <div id="messagesList"></div>
+    <div id="inputArea">
+        <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." />
+        <button id="sendButton">Gửi</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        const msg = document.createElement("div");
+        msg.className = "message";
+        msg.innerHTML = `<strong>${user}</strong>: ${message}`;
+        document.getElementById("messagesList").appendChild(msg);
+        document.getElementById("messagesList").scrollTop = messagesList.scrollHeight;
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    document.getElementById("sendButton").addEventListener("click", function () {
+        const input = document.getElementById("messageInput");
+        const message = input.value.trim();
+        if (message) {
+            connection.invoke("SendMessage", "Admin", message);
+            input.value = "";
+        }
+    });
+</script>
+
+<style>
+    #chatContainer {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 20px;
+        background-color: #f9f9f9;
+        font-family: 'Segoe UI', sans-serif;
+        margin-bottom: 15px;
+    }
+
+    #messagesList {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 12px;
+    }
+
+    .message {
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        background-color: #e6f3ff;
+        border-radius: 6px;
+    }
+
+    #inputArea {
+        display: flex;
+        gap: 8px;
+    }
+
+    #messageInput {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    #sendButton {
+        padding: 10px 16px;
+        background-color: #0078d4;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        #sendButton:hover {
+            background-color: #005fa3;
+        }
+</style>

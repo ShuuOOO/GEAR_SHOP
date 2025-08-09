@@ -1,54 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\",
+  "WorkspaceRootPath": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\views\\shared\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\models\\viewmodels\\danhmucviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:models\\viewmodels\\danhmucviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\thongkedoanhthu\\thongkedoanhthu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\thongkedoanhthu\\thongkedoanhthu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\quanlynhanvien\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\quanlynhanvien\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\wwwroot\\css\\mega-menu.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\mega-menu.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\nhaphang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\nhaphang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\nhacungcap\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\nhacungcap\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\khachhang\\khachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\khachhang\\khachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\viewcomponents\\danhmucmenuviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:viewcomponents\\danhmucmenuviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\chamsockhachhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\chamsockhachhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\views\\shared\\components\\danhmucmenu\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\components\\danhmucmenu\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\phat_trien_ung_dung\\final_exam\\code\\login-\u0026-logout\\tl4_shop\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\nhung_bai_hoc_ve_mvc\\tl4_shop\\controllers\\chamsockhachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\chamsockhachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,148 +62,133 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Default.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\Components\\DanhMucMenu\\Default.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Components\\DanhMucMenu\\Default.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\Components\\DanhMucMenu\\Default.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Components\\DanhMucMenu\\Default.cshtml",
-              "ViewState": "AgIAABwAAAAAAAAAAAAmwD0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T13:19:18.638Z"
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAswHcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T09:41:55.808Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DanhMucSanPham.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Data\\DanhMucSanPham.cs",
-              "RelativeDocumentMoniker": "Data\\DanhMucSanPham.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Data\\DanhMucSanPham.cs",
-              "RelativeToolTip": "Data\\DanhMucSanPham.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:13:14.923Z"
+              "DocumentIndex": 1,
+              "Title": "ThongKeDoanhThu.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\ThongKeDoanhThu\\ThongKeDoanhThu.cshtml",
+              "RelativeDocumentMoniker": "Views\\ThongKeDoanhThu\\ThongKeDoanhThu.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\ThongKeDoanhThu\\ThongKeDoanhThu.cshtml",
+              "RelativeToolTip": "Views\\ThongKeDoanhThu\\ThongKeDoanhThu.cshtml",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAlwHIAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:40:31.982Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAEwDcAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:12:04.192Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\QuanLySanPham\\Index.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeToolTip": "Views\\QuanLySanPham\\Index.cshtml",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAAAAsBAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:39:55.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuanLyNhanVien.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\QuanLyNhanVien\\QuanLyNhanVien.cshtml",
+              "RelativeDocumentMoniker": "Views\\QuanLyNhanVien\\QuanLyNhanVien.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\QuanLyNhanVien\\QuanLyNhanVien.cshtml",
+              "RelativeToolTip": "Views\\QuanLyNhanVien\\QuanLyNhanVien.cshtml",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAHEAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:39:33.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\NhapHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\NhapHang\\Index.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\NhapHang\\Index.cshtml",
+              "RelativeToolTip": "Views\\NhapHang\\Index.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHIAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:39:08.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\NhaCungCap\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\NhaCungCap\\Index.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\NhaCungCap\\Index.cshtml",
+              "RelativeToolTip": "Views\\NhaCungCap\\Index.cshtml",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAAAA0BAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:38:37.867Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Title": "KhachHang.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\KhachHang\\KhachHang.cshtml",
+              "RelativeDocumentMoniker": "Views\\KhachHang\\KhachHang.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\KhachHang\\KhachHang.cshtml",
+              "RelativeToolTip": "Views\\KhachHang\\KhachHang.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHcAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T13:06:47.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-06T13:06:34.671Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_MenuDanhMuc.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_MenuDanhMuc.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_MenuDanhMuc.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_MenuDanhMuc.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_MenuDanhMuc.cshtml",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwB8AAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T13:04:42.228Z",
+              "WhenOpened": "2025-08-09T09:37:48.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "BaseController.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Controllers\\BaseController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BaseController.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Controllers\\BaseController.cs",
-              "RelativeToolTip": "Controllers\\BaseController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCoAAAAfAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T09:37:24.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ChamSocKhachHangController.cs",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Controllers\\ChamSocKhachHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ChamSocKhachHangController.cs",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Controllers\\ChamSocKhachHangController.cs",
+              "RelativeToolTip": "Controllers\\ChamSocKhachHangController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T14:15:06.496Z"
+              "WhenOpened": "2025-08-09T09:30:54.376Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "DanhMucMenuViewComponent.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\ViewComponents\\DanhMucMenuViewComponent.cs",
-              "RelativeDocumentMoniker": "ViewComponents\\DanhMucMenuViewComponent.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\ViewComponents\\DanhMucMenuViewComponent.cs",
-              "RelativeToolTip": "ViewComponents\\DanhMucMenuViewComponent.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAmwDQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:44:54.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "mega-menu.css",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\mega-menu.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\mega-menu.css",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\mega-menu.css",
-              "RelativeToolTip": "wwwroot\\css\\mega-menu.css",
-              "ViewState": "AgIAADkAAAAAAAAAAAAQwGEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-06T13:46:27.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout_4TL.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAUwG4AAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\ChamSocKhachHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\ChamSocKhachHang\\Index.cshtml",
+              "ToolTip": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\Views\\ChamSocKhachHang\\Index.cshtml",
+              "RelativeToolTip": "Views\\ChamSocKhachHang\\Index.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHUAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T16:00:02.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DanhMucViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Models\\ViewModels\\DanhMucViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\ViewModels\\DanhMucViewModel.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\Models\\ViewModels\\DanhMucViewModel.cs",
-              "RelativeToolTip": "Models\\ViewModels\\DanhMucViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T13:37:04.911Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\style.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\style.css",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code\\Login-\u0026-Logout\\TL4_SHOP\\wwwroot\\css\\style.css",
-              "RelativeToolTip": "wwwroot\\css\\style.css",
-              "ViewState": "AgIAACUmAAAAAAAAAAAQwC8mAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-06T14:45:01.003Z"
+              "WhenOpened": "2025-08-09T09:20:25.988Z",
+              "EditorCaption": ""
             }
           ]
         }

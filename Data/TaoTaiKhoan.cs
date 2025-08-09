@@ -21,7 +21,11 @@ public partial class TaoTaiKhoan
 
     public int? KhachHangId { get; set; }
 
+    public string? VaiTro { get; set; }
+
     public virtual KhachHang? KhachHang { get; set; }
 
     public virtual NhanVien? NhanVien { get; set; }
+
+    public virtual ICollection<PasswordResetToken> PasswordResetTokens { get; set; } = new List<PasswordResetToken>();
 }
