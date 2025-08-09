@@ -1,6 +1,11 @@
 ﻿@model TL4_SHOP.Models.ViewModels.ThongKeViewModel
 @using Newtonsoft.Json
 
+@model TL4_SHOP.ViewModels.ThongKeViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @{
     ViewData["Title"] = "Thống kê doanh thu - 4TL";
     Layout = "~/Views/Shared/Layout_Admin.cshtml";
@@ -95,7 +100,6 @@
             .disabled-link i {
                 color: #7f8c8d !important;
             }
-
     </style>
 
     <!--Thanh cuộn-->
@@ -129,10 +133,10 @@
     <!-- JavaScript Toggle -->
     <script>
         function toggleSidebar() {
-          const sidebar = document.getElementById("sidebar");
-          const content = document.getElementById("mainContent");
-          sidebar.classList.toggle("hidden");
-          document.body.classList.toggle("sidebar-shown");
+            const sidebar = document.getElementById("sidebar");
+            const content = document.getElementById("mainContent");
+            sidebar.classList.toggle("hidden");
+            document.body.classList.toggle("sidebar-shown");
         }
     </script>
 </body>
@@ -209,13 +213,13 @@
     <tbody>
         @foreach (var item in Model.DoanhThuNgay)
         {
-            <tr>
-                <td>@item.Ngay.ToString("dd/MM/yyyy")</td>
-                <td>@item.TongSoDonHang</td>
-                <td>@item.TongSoLuong</td>
-                <td>@item.TongDoanhThu?.ToString("N0") đ</td>
-                <td>@item.LoiNhuan?.ToString("N0") đ</td>
-            </tr>
+        <tr>
+            <td>@item.Ngay.ToString("dd/MM/yyyy")</td>
+            <td>@item.TongSoDonHang</td>
+            <td>@item.TongSoLuong</td>
+            <td>@item.TongDoanhThu?.ToString("N0") đ</td>
+            <td>@item.LoiNhuan?.ToString("N0") đ</td>
+        </tr>
         }
     </tbody>
 </table>
@@ -241,13 +245,13 @@
     <tbody>
         @foreach (var item in Model.DoanhThuThang)
         {
-            <tr>
-                <td>@item.Thang/@item.Nam</td>
-                <td>@item.TongSoDonHang</td>
-                <td>@item.TongSoLuong</td>
-                <td>@item.TongDoanhThu?.ToString("N0") đ</td>
-                <td>@item.LoiNhuan?.ToString("N0") đ</td>
-            </tr>
+        <tr>
+            <td>@item.Thang/@item.Nam</td>
+            <td>@item.TongSoDonHang</td>
+            <td>@item.TongSoLuong</td>
+            <td>@item.TongDoanhThu?.ToString("N0") đ</td>
+            <td>@item.LoiNhuan?.ToString("N0") đ</td>
+        </tr>
         }
     </tbody>
 </table>
@@ -273,13 +277,13 @@
     <tbody>
         @foreach (var item in Model.DoanhThuNam)
         {
-            <tr>
-                <td>@item.Nam</td>
-                <td>@item.TongSoDonHang</td>
-                <td>@item.TongSoLuong</td>
-                <td>@item.TongDoanhThu?.ToString("N0") đ</td>
-                <td>@item.LoiNhuan?.ToString("N0") đ</td>
-            </tr>
+        <tr>
+            <td>@item.Nam</td>
+            <td>@item.TongSoDonHang</td>
+            <td>@item.TongSoLuong</td>
+            <td>@item.TongDoanhThu?.ToString("N0") đ</td>
+            <td>@item.LoiNhuan?.ToString("N0") đ</td>
+        </tr>
         }
     </tbody>
 </table>
@@ -411,6 +415,4 @@
             }
         }
     });
-
-
 </script>

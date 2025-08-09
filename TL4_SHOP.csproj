@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Remove="ViewModels\**" />
     <Content Remove="ViewModels\**" />
     <EmbeddedResource Remove="ViewModels\**" />
@@ -15,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-=======
     <PackageReference Include="MailKit" Version="4.13.0" />
->>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="9.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.2.0" />
@@ -28,15 +25,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="QuestPDF" Version="2025.7.0" />
   </ItemGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
->>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 </Project>

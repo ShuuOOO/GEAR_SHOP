@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
-<<<<<<< HEAD
 using TL4_SHOP.Hubs;
-=======
 using QuestPDF.Infrastructure;
->>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<_4tlShopContext>(options =>
@@ -27,13 +24,11 @@ ConfigureServices(builder.Services, builder.Configuration);
 // Build the application
 var app = builder.Build();
 
-<<<<<<< HEAD
 app.MapHub<ChatHub>("/chatHub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
-=======
 // seed data
 using (var scope = app.Services.CreateScope())
 {
@@ -51,7 +46,6 @@ using (var scope = app.Services.CreateScope())
         context.SaveChanges();
     }
 }
->>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 
 // Configure the HTTP request pipeline
 ConfigurePipeline(app);
