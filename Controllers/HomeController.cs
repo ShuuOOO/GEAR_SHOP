@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using TL4_SHOP.Data;
+using TL4_SHOP.Extensions;
 using TL4_SHOP.Models;
 using TL4_SHOP.Models.ViewModels;
+using TL4_SHOP.Extensions;
 
 namespace TL4_SHOP.Controllers
 {
@@ -16,6 +18,16 @@ namespace TL4_SHOP.Controllers
         public IActionResult Index()
         {
             ViewBag.Message = TempData["Message"];
+
+            // Lấy danh sách sản phẩm nổi bật từ DB
+            var featuredProducts = _context.SanPhams
+                .Where(sp => sp.LaNoiBat == true)
+                .OrderByDescending(sp => sp.SanPhamId)
+                .Take(8) // Hiển thị tối đa 8 sản phẩm
+                .ToList();
+
+            ViewBag.FeaturedProducts = featuredProducts;
+
             return View();
         }
 
@@ -66,13 +78,8 @@ namespace TL4_SHOP.Controllers
                 query = query.Where(s => s.Gia <= maxPrice.Value);
 
             // Sắp xếp
-            query = sortBy switch
-            {
-                "price_asc" => query.OrderBy(s => s.Gia),
-                "price_desc" => query.OrderByDescending(s => s.Gia),
-                "name_asc" => query.OrderBy(s => s.TenSanPham),
-                _ => query.OrderBy(s => s.TenSanPham)
-            };
+            query = query.OrderByDescending(sp => sp.GiaSauGiam < sp.Gia)
+             .ThenBy(sp => sp.TenSanPham);
 
             // Phân trang
             viewModel.TotalItems = await query.CountAsync();
@@ -108,7 +115,11 @@ namespace TL4_SHOP.Controllers
         }
 
         public IActionResult ShopDetail() => View();
-        public IActionResult ShoppingCart() => View();
+        public IActionResult ShoppingCart()
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new List<CartItem>();
+            return View("~/Views/Cart/ShoppingCart.cshtml", cart); // dùng đường dẫn tuyệt đối
+        }
         public IActionResult Checkout() => View();
         public IActionResult Contact() => View();
 

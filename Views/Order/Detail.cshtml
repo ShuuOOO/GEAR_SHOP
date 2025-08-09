@@ -1,0 +1,50 @@
+﻿@model TL4_SHOP.Models.ViewModels.DonHangDetailViewModel
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+<h2>Chi tiết đơn hàng #@Model.DonHangId</h2>
+<p><strong>Khách hàng:</strong> @Model.TenKhachHang</p>
+<p><strong>SDT:</strong> @Model.SoDienThoai</p>
+<p><strong>Địa chỉ giao hàng:</strong> @Model.DiaChiGiaoHang</p>
+<p><strong>Ngày đặt:</strong> @Model.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Trạng thái:</strong> @Model.TrangThai</p>
+<p><strong>Tổng tiền:</strong> @Model.TongTien.ToString("N0") đ</p>
+
+<h4>Chi tiết sản phẩm:</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ChiTiet)
+        {
+            <tr>
+                <td>@item.TenSanPham</td>
+                <td>@item.SoLuong</td>
+                <td>@item.DonGia.ToString("N0") đ</td>
+                <td>@item.ThanhTien.ToString("N0") đ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="TaiHoaDon" asp-route-id="@Model.DonHangId" class="btn btn-success">
+    <i class="fa fa-download"></i> Tải hóa đơn PDF
+</a>
+@if (Model.TrangThai != 3 && Model.TrangThai != 4 && Model.TrangThai != 5)
+{
+    <form asp-action="Cancel" asp-controller="Order" method="post">
+        <input type="hidden" name="id" value="@Model.DonHangId" />
+        <button type="submit" class="btn btn-danger mt-3">
+            <i class="fa fa-times-circle"></i> Hủy đơn hàng
+        </button>
+    </form>
+}
+

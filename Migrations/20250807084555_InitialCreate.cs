@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TL4_SHOP.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPasswordResetToken : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,11 +17,18 @@ namespace TL4_SHOP.Migrations
                 {
                     DanhMucID = table.Column<int>(type: "int", nullable: false),
                     TenDanhMuc = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DanhMucChaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__DanhMucS__1C53BA7B81C69B93", x => x.DanhMucID);
+                    table.ForeignKey(
+                        name: "FK_DanhMuc_ChaCon",
+                        column: x => x.DanhMucChaId,
+                        principalTable: "DanhMucSanPham",
+                        principalColumn: "DanhMucID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,10 +171,10 @@ namespace TL4_SHOP.Migrations
                     SanPhamID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenSanPham = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gia = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
                     SoLuongTon = table.Column<int>(type: "int", nullable: false),
-                    HinhAnh = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    HinhAnh = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     DanhMucID = table.Column<int>(type: "int", nullable: true),
                     NhaCungCapID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -251,7 +258,13 @@ namespace TL4_SHOP.Migrations
                     PhiVanChuyen = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
                     TongTien = table.Column<decimal>(type: "decimal(18,3)", nullable: false),
                     DiaChiID = table.Column<int>(type: "int", nullable: true),
-                    TrangThaiID = table.Column<int>(type: "int", nullable: false)
+                    TrangThaiID = table.Column<int>(type: "int", nullable: false),
+                    TenKhachHang = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SoDienThoai = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiaChiGiaoHang = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhuongThucThanhToan = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TrangThaiDonHangText = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -385,6 +398,11 @@ namespace TL4_SHOP.Migrations
                 name: "IX_ChiTietNhapHang_SanPhamID",
                 table: "ChiTietNhapHang",
                 column: "SanPhamID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DanhMucSanPham_DanhMucChaId",
+                table: "DanhMucSanPham",
+                column: "DanhMucChaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DiaChi_KhachHangID",

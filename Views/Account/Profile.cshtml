@@ -1,0 +1,23 @@
+﻿@model TL4_SHOP.Models.ViewModels.TaiKhoanViewModel
+
+<h2>Thông tin tài khoản</h2>
+<table class="table">
+    <tr>
+        <th>Họ tên</th>
+        <td>@Model.HoTen</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Số điện thoại</th>
+        <td>@Model.Phone</td>
+    </tr>
+    <tr>
+        <th>Loại tài khoản</th>
+        <td>@Model.LoaiTaiKhoan</td>
+    </tr>
+</table>
+
+<a asp-controller="Order" asp-action="LichSu" class="nav-item nav-link">Lịch sử đơn hàng</a>

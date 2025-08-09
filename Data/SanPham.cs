@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TL4_SHOP.Data;
 
@@ -30,4 +31,19 @@ public partial class SanPham
     public virtual KhoHang? KhoHang { get; set; }
 
     public virtual NhaCungCap NhaCungCap { get; set; } = null!;
+    public string? ChiTiet { get; set; }
+    public decimal? GiaSauGiam { get; set; }
+
+    [NotMapped]
+    public int? PhanTramGiamGia
+    {
+        get
+        {
+            if (GiaSauGiam.HasValue && GiaSauGiam.Value < Gia)
+            {
+                return (int)(100 - (GiaSauGiam.Value / Gia) * 100);
+            }
+            return null;
+        }
+    }
 }

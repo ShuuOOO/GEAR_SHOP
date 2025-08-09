@@ -1,19 +1,11 @@
 is_global = true
 build_property.TargetFramework = net9.0
-build_property.TargetFramework = net9.0
-build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TL4_SHOP
 build_property.RootNamespace = TL4_SHOP
@@ -40,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,8 +44,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/AdminDonHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Eb25IYW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Cart/ShoppingCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxTaG9wcGluZ0NhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Cart/_MiniCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfTWluaUNhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/ChamSocKhachHang/Index.cshtml]
@@ -112,6 +120,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhcEhhbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Order/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Order/Complete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ29tcGxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Order/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Order/LichSu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcTGljaFN1LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Order/TrackResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVHJhY2tSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/QuanLyNhanVien/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5TmhhblZpZW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -172,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFuaE11Y01lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Shared/Components/WishlistCount/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcV2lzaGxpc3RDb3VudFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -192,12 +224,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51RGFuaE11Yy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Shared/_SanPhamCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TYW5QaGFtQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Shared/_WishlistCount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9XaXNobGlzdENvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/ThongKeDoanhThu/ThongKeDoanhThu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGhvbmdLZURvYW5oVGh1XFRob25nS2VEb2FuaFRodS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/Wishlist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2lzaGxpc3RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Nhung_bai_hoc_ve_MVC/TL4_SHOP/Views/_ViewImports.cshtml]

@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
+<<<<<<< HEAD
 using TL4_SHOP.Hubs;
+=======
+using QuestPDF.Infrastructure;
+>>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<_4tlShopContext>(options =>
@@ -11,17 +15,43 @@ builder.Services.AddDbContext<_4tlShopContext>(options =>
 builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
 
+QuestPDF.Settings.License = LicenseType.Community;
+
+
+builder.Services.AddSession();
+
+
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);
 
 // Build the application
 var app = builder.Build();
 
+<<<<<<< HEAD
 app.MapHub<ChatHub>("/chatHub");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
+=======
+// seed data
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<_4tlShopContext>();
+
+    if (!context.TrangThaiDonHangs.Any())
+    {
+        context.TrangThaiDonHangs.AddRange(
+            new TrangThaiDonHang { TrangThaiId = 1, TenTrangThai = "Chờ xác nhận" },
+            new TrangThaiDonHang { TrangThaiId = 2, TenTrangThai = "Đã xác nhận" },
+            new TrangThaiDonHang { TrangThaiId = 3, TenTrangThai = "Đang giao" },
+            new TrangThaiDonHang { TrangThaiId = 4, TenTrangThai = "Giao thành công" },
+            new TrangThaiDonHang { TrangThaiId = 5, TenTrangThai = "Đã hủy" }
+        );
+        context.SaveChanges();
+    }
+}
+>>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 
 // Configure the HTTP request pipeline
 ConfigurePipeline(app);
@@ -38,7 +68,7 @@ static void ConfigureServices(IServiceCollection services, IConfiguration config
     // Session configuration
     services.AddSession(options =>
     {
-        options.IdleTimeout = TimeSpan.FromMinutes(30);
+        options.IdleTimeout = TimeSpan.FromDays(7); // giữ session 7 ngày
         options.Cookie.HttpOnly = true;
         options.Cookie.IsEssential = true;
         options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
@@ -146,6 +176,9 @@ static void ConfigurePipeline(WebApplication app)
     // Authentication & Authorization
     app.UseAuthentication();
     app.UseAuthorization();
+
+    app.UseSession();
+
 
     // Route mapping
     app.MapControllerRoute(

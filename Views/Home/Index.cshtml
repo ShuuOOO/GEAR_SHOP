@@ -168,6 +168,9 @@
 	});
 </script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 <!-- Khung hình ảnh -->
 <div class="col-lg-9" style="margin-left: 25.9%; width: 71.4%">
 	<div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -205,6 +208,46 @@
 		</a>
 	</div>
 </div>
+<div class="container-fluid px-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" style="height: 410px;">
+                        <img class="img-fluid" src="~/img/quang_Cao.jpg" alt="Quảng cáo phím cơ không dây">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Phím Cơ Không Dây</h3>
+                                <a asp-controller="Home" asp-action="Shop" class="btn btn-light py-2 px-3">Xem Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item active" style="height: 410px;">
+                        <img class="img-fluid" src="~/img/quang_cao_laptop.jpg" alt="Quảng cáo màn hình">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h4 class="text-light text-uppercase font-weight-medium mb-3">Giảm ngay 10% cho đơn hàng đầu tiên</h4>
+                                <h3 class="display-4 text-white font-weight-semi-bold mb-4">Màn Hình Chính Hãng</h3>
+                                <a asp-controller="Home" asp-action="Shop" class="btn btn-light py-2 px-3">Xem Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-prev-icon mb-n2"></span>
+                    </div>
+                </a>
+                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                        <span class="carousel-control-next-icon mb-n2"></span>
+                    </div>
+                </a>
+            </div>
+        </div> <!-- đóng col-lg-10 -->
+    </div> <!-- đóng row -->
+</div> <!-- đóng container-fluid -->
 <!-- Khung hình ảnh -->
 <!-- Featured Start -->
 <div class="container-fluid pt-5">
@@ -468,9 +511,165 @@
 			</div>
 		</div> @*Samsung Galaxy A56 5G*@
 	</div>
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">3 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/Chuot_Faker.jpg" alt="Chuột Faker" style="height: 220px; object-fit: contain;" />
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Chuột Razer Viper V3 Pro Faker Edition</h5>
+            </div>
+        </div> @*Chuột Faker*@
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">10 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/BanPhimLogitech.jpg" alt="Bàn phím Logitech G915" style="height: 220px; object-fit: contain;" />
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Bàn phím gaming không dây Logitech G915 X Lightspeed TKL Low Profile</h5>
+            </div>
+        </div> @*Bàn phím Logitech*@
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">5 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/iphone-16-pro.jpg" alt="Iphone 16 Pro Max" style="height: 220px; object-fit: contain;" />
+                </a>
+                <h5 class="font-weight-semi-bold m-0">iPhone 16 Pro Max 256GB | Chính hãng VN/A</h5>
+            </div>
+        </div> @*Iphone 16 pro Max*@
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">10 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/IpadPro.jpg" alt="Ipad Pro Max" style="height: 220px; object-fit: contain;" />
+                </a>
+                <h5 class="font-weight-semi-bold m-0">iPad Pro M4 13 inch 5G 2TB I Chính hãng Apple Việt Nam</h5>
+            </div>
+        </div> @*Ipad Pro*@
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">15 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/ManHinhASUS.jpg" alt="Màn hình ASUS Gaming" style="height: 220px; object-fit: contain;" />>
+                </a>
+                <h5 class="font-weight-semi-bold m-0">PC CPS X ASUS Gaming Intel i3 Gen 12 Kèm màn hình</h5>
+            </div>
+        </div> @*Màn hình*@
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">15 Sản phẩm</p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid w-100" src="~/img/TaiNgheRazer.jpg" alt="Tai Nghe Razer" style="height: 220px; object-fit: contain;" />
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Tai nghe Razer Kraken V3 X USB</h5>
+            </div>
+        </div> @*Tai Nghe*@
+    </div>
 </div>
+<!-- Categories End -->
+<!-- Flash Sale Start -->
+<div class="container-fluid bg-danger text-white text-center py-5 mb-5">
+    <h3 class="mb-3">⚡ FLASH SALE HÔM NAY ⚡</h3>
+    <p class="mb-2">Giảm giá sốc đến 50% - Chỉ còn:</p>
+    <div id="countdown" style="font-size: 32px; font-weight: bold;"></div>
+    <a asp-controller="Home" asp-action="Shop" class="btn btn-light mt-3 px-4 py-2 font-weight-bold">
+        Xem Sản Phẩm
+    </a>
+</div>
+
+<script>
+    // Đặt thời gian kết thúc lúc 23:59:59 hôm nay
+    const now = new Date();
+    const countDownDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime();
+
+    const x = setInterval(function () {
+        const nowTime = new Date().getTime();
+        const distance = countDownDate - nowTime;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Đã hết giờ!";
+        } else {
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        }
+    }, 1000);
+</script>
+<!-- Flash Sale End -->
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5">
+            <span class="px-2" style="font-family: Tahoma">ĐIỆN THOẠI NỔI BẬT NHẤT</span>
+        </h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @if (ViewBag.FeaturedProducts != null)
+        {
+            @foreach (var sp in ViewBag.FeaturedProducts)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="~/img/@sp.HinhAnh" alt="@sp.TenSanPham" />
+                        </div>
+
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-2" style="min-height: 48px;">@sp.TenSanPham</h6>
+
+                            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 60px;">
+                                @if (!string.IsNullOrEmpty(sp.MoTa))
+                                {
+                                    <span class="badge badge-danger mb-2 px-3 py-1" style="background-color: #f8cdd3; color: #a94442; font-size: 13px;">
+                                        @sp.MoTa
+                                    </span>
+                                }
+                                <h6 class="m-0">@sp.Gia.ToString("N0")đ</h6>
+                            </div>
+                        </div>
+
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a asp-controller="SanPham" asp-action="Details" asp-route-id="@sp.SanPhamId" class="btn btn-sm text-dark p-0">
+                                <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
+                            </a>
+                            <a href="javascript:void(0);" onclick="addToWishlist(@sp.SanPhamId)" class="btn btn-sm text-dark p-0">
+                                <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-sm text-dark p-0 btn-add-to-cart" data-product-id="@sp.SanPhamId">
+                                <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Chưa có sản phẩm nổi bật.</p>
+        }
+    </div>
+</div>
+
 <!-- Products End -->
 <!-- Products Start -->
+@{
+    var laptopProducts = new List<dynamic>
+    {
+        new { Id = 109, Ten = "Apple MacBook Air M2 2024 8CPU 8GPU 16GB 256GB", Gia = 19790000, GiamGia = 24990000, Hinh = "Apple_MacBook_Air_M2.jpg" },
+        new { Id = 110, Ten = "MacBook Air M4 13 inch 2025 10CPU 8GPU 16GB 256GB", Gia = 25390000, GiamGia = 26990000, Hinh = "MacBook_Air_M4.jpg" },
+        new { Id = 111, Ten = "Laptop HP Gaming Victus 15-FA1139TX", Gia = 16490000, GiamGia = 24590000, Hinh = "Laptop_HP_Gaming_Victus_15.jpg" },
+        new { Id = 112, Ten = "Laptop ASUS Vivobook 15 X1502VA-BQ885W", Gia = 13990000, GiamGia = 15990000, Hinh = "Laptop_ASUS_Vivobook_15.jpg" },
+        new { Id = 113, Ten = "Laptop ASUS Gaming Vivobook 16X K3605VC-RP431W", Gia = 18490000, GiamGia = 20990000, Hinh = "Laptop_ASUS_Gaming_Vivobook_16X.jpg" },
+        new { Id = 114, Ten = "Laptop Acer Aspire Lite 15 AL15-41P-R3U5", Gia = 12590000, GiamGia = 12990000, Hinh = "Laptop Acer Aspire Lite 15.jpg" },
+        new { Id = 115, Ten = "Laptop Acer Gaming Nitro Lite 16 NL16-71G-71UJ", Gia = 22590000, GiamGia = 23990000, Hinh = "Laptop Acer Gaming Nitro Lite 16.jpg" },
+        new { Id = 116, Ten = "Laptop HP 245 G10 B8PF8AT", Gia = 11690000, GiamGia = 15590000, Hinh = "Laptop HP 245 G10.jpg" }
+    };
+}
+
 <div class="container-fluid pt-5">
 	<div class="text-center mb-4">
 		<h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">Laptop</span></h2>
@@ -615,6 +814,40 @@
 	</div>
 </div>
 <!-- Products End -->
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2" style="font-family: Tahoma">LAPTOP</span></h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var sp in laptopProducts)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <img class="img-fluid w-100" src="~/img/@sp.Hinh" alt="@sp.Ten" />
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">@sp.Ten</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>@sp.Gia.ToString("N0")đ</h6>
+                            @if (sp.GiamGia > sp.Gia)
+                            {
+                                <h6 class="text-muted ml-2"><del>@sp.GiamGia.ToString("N0")đ</del></h6>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center bg-light border">
+                        <span class="btn btn-sm text-muted p-0" style="cursor: not-allowed;">
+                            <i class="fas fa-times text-danger mr-1"></i> Đã hết hàng
+                        </span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+>>>>>>> 23c93ce805ebcadb2089f9a2fcee067287b345ec
 <!-- Subscribe Start -->
 <div class="container-fluid bg-secondary my-5">
 	<div class="col-md-12 col-12 py-5">
@@ -680,3 +913,96 @@
 	</div>
 </div>
 <!-- Vendor End -->
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".btn-add-to-cart").click(function (e) {
+                e.preventDefault(); // 🛑 Quan trọng: chặn reload khi click vào <a>
+
+                const productId = $(this).data("product-id");
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Cart")',
+                    method: 'POST',
+                    data: { productId: productId, quantity: 1 },
+                    success: function (result) {
+                        if (result.success) {
+                            Toastify({
+                                text: "🎉 Đã thêm vào giỏ hàng!",
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#28a745"
+                            }).showToast();
+
+                            $("#cart-count").text(result.cartCount);
+                        } else {
+                            Toastify({
+                                text: "❌ " + result.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#dc3545"
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Lỗi hệ thống khi thêm sản phẩm!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545"
+                        }).showToast();
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+                function addToWishlist(productId) {
+            $.ajax({
+                url: '/Wishlist/AddToWishlistAjax',
+                type: 'POST',
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        $('#wishlist-count').text(response.wishlistCount);
+                        Toastify({
+                            text: "💖 " + response.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#ff4081",
+                            close: true,
+                            stopOnFocus: true
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "⚠️ " + response.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#ffc107",
+                            close: true
+                        }).showToast();
+                    }
+                },
+                error: function () {
+                    Toastify({
+                        text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "#dc3545",
+                        close: true
+                    }).showToast();
+                }
+            });
+        }
+    </script>
+}
+
+
+
