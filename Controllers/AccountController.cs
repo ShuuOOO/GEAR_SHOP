@@ -103,8 +103,8 @@ namespace TL4_SHOP.Controllers
                 if (!string.IsNullOrEmpty(user.Email))
                     claims.Add(new Claim(ClaimTypes.Email, user.Email));
 
-                if (!string.IsNullOrEmpty(user.VaiTro))
-                    claims.Add(new Claim(ClaimTypes.Role, user.VaiTro));
+                //if (!string.IsNullOrEmpty(user.VaiTro))
+                //    claims.Add(new Claim(ClaimTypes.Role, user.VaiTro));
 
 
                 // Tìm NhanVien tương ứng để lấy NhanVienId
@@ -155,42 +155,31 @@ namespace TL4_SHOP.Controllers
             if (ModelState.IsValid)
             {
                 // Kiểm tra email đã tồn tại
-                var emailExists = _context.TaoTaiKhoans.Any(u => u.Email == account.Email);
-                if (emailExists)
+                if (_context.TaoTaiKhoans.Any(u => u.Email == account.Email))
                 {
                     ViewBag.Message = "Email đã được sử dụng.";
                     return View(account);
                 }
 
                 // Kiểm tra username đã tồn tại
-                var usernameExists = _context.TaoTaiKhoans.Any(u => u.HoTen == account.Username);
-                if (usernameExists)
+                if (_context.TaoTaiKhoans.Any(u => u.HoTen == account.Username))
                 {
                     ViewBag.Message = "Tên đăng nhập đã được sử dụng.";
                     return View(account);
                 }
 
                 // Kiểm tra số điện thoại đã tồn tại
-                var phoneExists = _context.TaoTaiKhoans.Any(u => u.Phone == account.Phone);
-                if (phoneExists)
+                if (_context.TaoTaiKhoans.Any(u => u.Phone == account.Phone))
                 {
                     ViewBag.Message = "Số điện thoại đã được sử dụng.";
                     return View(account);
                 }
 
-                var newUser = new TaoTaiKhoan
-                {
-                    HoTen = account.Username,
-                    Email = account.Email,
-                    Phone = account.Phone,
-                    MatKhau = HashPassword(account.Password), // Hash password
-                    LoaiTaiKhoan = "KhachHang",
-                };
-                // Hash password
-                var hashedPassword = HashPassword(account.Password);
-
                 try
                 {
+                    // Hash password
+                    var hashedPassword = HashPassword(account.Password);
+
                     // 👉 Tạo Khách hàng trước
                     var khachHang = new KhachHang
                     {
@@ -203,7 +192,7 @@ namespace TL4_SHOP.Controllers
                     _context.KhachHangs.Add(khachHang);
                     _context.SaveChanges(); // để có được KhachHangId
 
-                   
+                    // 👉 Tạo tài khoản sau khi có KhachHangId
                     var newUser = new TaoTaiKhoan
                     {
                         HoTen = account.Username,

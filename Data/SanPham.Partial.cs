@@ -2,6 +2,6 @@
 {
     public partial class SanPham
     {
-        public bool? LaNoiBat { get; set; }
+        //public bool? LaNoiBat { get; set; }
     }
 }

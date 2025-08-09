@@ -26,8 +26,8 @@ namespace TL4_SHOP.Controllers
 
             // Danh mục menu như cũ
             var danhMuc = _context.DanhMucSanPhams
-                .Include(d => d.DanhMucCon)
-                .ThenInclude(d => d.DanhMucCon)
+                //.Include(d => d.DanhMucCon)
+                //.ThenInclude(d => d.DanhMucCon)
                 .ToList();
 
             var danhMucViewModels = danhMuc.Select(d => new DanhMucViewModel

@@ -16,6 +16,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "9.0.0",
+          "Newtonsoft.Json": "13.0.3",
           "QuestPDF": "2025.7.0"
         },
         "runtime": {
@@ -605,11 +606,6 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
-          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
-          "Microsoft.Extensions.Options": "9.0.0"
       "MailKit/4.13.0": {
         "dependencies": {
           "MimeKit": "4.13.0",
@@ -620,6 +616,13 @@
             "assemblyVersion": "4.13.0.0",
             "fileVersion": "4.13.0.0"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Options": "9.0.0"
         }
       },
       "Microsoft.AspNetCore.Authentication.Facebook/9.0.7": {
@@ -2008,7 +2011,6 @@
           }
         }
       },
-      "System.Buffers/4.6.0": {},
       "QuestPDF/2025.7.0": {
         "runtime": {
           "lib/net8.0/QuestPDF.dll": {
@@ -2169,6 +2171,7 @@
           }
         }
       },
+      "System.Buffers/4.6.0": {},
       "System.ClientModel/1.0.0": {
         "dependencies": {
           "System.Memory.Data": "1.0.2",
@@ -2760,18 +2763,19 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ve6uvLwKNRkfnO/QeN9M8eUJ49lCnWv/6/9p6iTEuiI6Rtsz+myaBAjdMzLuTViQY032xbTF5AdZF5BJzJJyXQ==",
-      "path": "microsoft.aspnetcore.authentication.abstractions/2.3.0",
-      "hashPath": "microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512"
     "MailKit/4.13.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-GsepEHKkaQvbAuBizlhz93yc0ihJWzVCfoerfnpCeqiKLeS6gsTKInYy3/U2wqgkGE62TKs5OKS1a90pyc+j4g==",
       "path": "mailkit/4.13.0",
       "hashPath": "mailkit.4.13.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ve6uvLwKNRkfnO/QeN9M8eUJ49lCnWv/6/9p6iTEuiI6Rtsz+myaBAjdMzLuTViQY032xbTF5AdZF5BJzJJyXQ==",
+      "path": "microsoft.aspnetcore.authentication.abstractions/2.3.0",
+      "hashPath": "microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Facebook/9.0.7": {
       "type": "package",
@@ -3445,18 +3449,19 @@
       "path": "nuget.versioning/6.11.0",
       "hashPath": "nuget.versioning.6.11.0.nupkg.sha512"
     },
-    "System.Buffers/4.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lN6tZi7Q46zFzAbRYXTIvfXcyvQQgxnY7Xm6C6xQ9784dEL1amjM6S6Iw4ZpsvesAKnRVsM4scrDQaDqSClkjA==",
-      "path": "system.buffers/4.6.0",
-      "hashPath": "system.buffers.4.6.0.nupkg.sha512"
     "QuestPDF/2025.7.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-yRjdm7p300eEuy4Mi9YdMuecl2cvTU/CV+IHHDzw22Uf43/0C2zeG4c+MthZqkpQNJPg0Agha1iBSmLBxX1vHA==",
       "path": "questpdf/2025.7.0",
       "hashPath": "questpdf.2025.7.0.nupkg.sha512"
+    },
+    "System.Buffers/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lN6tZi7Q46zFzAbRYXTIvfXcyvQQgxnY7Xm6C6xQ9784dEL1amjM6S6Iw4ZpsvesAKnRVsM4scrDQaDqSClkjA==",
+      "path": "system.buffers/4.6.0",
+      "hashPath": "system.buffers.4.6.0.nupkg.sha512"
     },
     "System.ClientModel/1.0.0": {
       "type": "package",

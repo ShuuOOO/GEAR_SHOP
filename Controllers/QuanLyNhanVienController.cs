@@ -76,7 +76,7 @@ namespace TL4_SHOP.Controllers
                 Email = tk.Email,
                 Phone = tk.Phone,
                 LoaiTaiKhoan = tk.LoaiTaiKhoan,
-                VaiTro = tk.VaiTro
+                //VaiTro = tk.VaiTro
             };
 
             return View(viewModel);
@@ -99,7 +99,7 @@ namespace TL4_SHOP.Controllers
                 taiKhoan.Email = model.Email;
                 taiKhoan.Phone = model.Phone;
                 taiKhoan.LoaiTaiKhoan = model.LoaiTaiKhoan;
-                taiKhoan.VaiTro = model.VaiTro;
+                //taiKhoan.VaiTro = model.VaiTro;
 
                 if (!string.IsNullOrEmpty(model.MatKhau))
                 {

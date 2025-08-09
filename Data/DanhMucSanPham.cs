@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TL4_SHOP.Data;
 
@@ -12,7 +11,6 @@ public partial class DanhMucSanPham
 
     public string MoTa { get; set; } = null!;
 
-    [ForeignKey(nameof(DanhMucCha))]
     public int? DanhMucChaId { get; set; }
 
     public virtual DanhMucSanPham? DanhMucCha { get; set; }

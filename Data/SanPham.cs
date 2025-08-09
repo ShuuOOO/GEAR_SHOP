@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TL4_SHOP.Data;
 
@@ -22,6 +21,12 @@ public partial class SanPham
 
     public int NhaCungCapId { get; set; }
 
+    public bool? LaNoiBat { get; set; }
+
+    public string? ChiTiet { get; set; }
+
+    public decimal? GiaSauGiam { get; set; }
+
     public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; } = new List<ChiTietDonHang>();
 
     public virtual ICollection<ChiTietNhapHang> ChiTietNhapHangs { get; set; } = new List<ChiTietNhapHang>();
@@ -31,19 +36,6 @@ public partial class SanPham
     public virtual KhoHang? KhoHang { get; set; }
 
     public virtual NhaCungCap NhaCungCap { get; set; } = null!;
-    public string? ChiTiet { get; set; }
-    public decimal? GiaSauGiam { get; set; }
 
-    [NotMapped]
-    public int? PhanTramGiamGia
-    {
-        get
-        {
-            if (GiaSauGiam.HasValue && GiaSauGiam.Value < Gia)
-            {
-                return (int)(100 - (GiaSauGiam.Value / Gia) * 100);
-            }
-            return null;
-        }
-    }
+    public virtual ICollection<WishlistItem> WishlistItems { get; set; } = new List<WishlistItem>();
 }
