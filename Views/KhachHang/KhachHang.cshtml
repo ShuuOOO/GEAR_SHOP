@@ -118,8 +118,8 @@
             <a asp-action="Index" asp-controller="NhapHang"><i class="fas fa-truck-loading disabled-link"></i> Nhập hàng</a>
             <a asp-action="Index" asp-controller="NhaCungCap"><i class="fas fa-truck disabled-link"></i> Nhà cung cấp</a>
             <a asp-action="Index" asp-controller="ChamSocKhachHang"><i class="fas fa-headset disabled-link"></i> Chăm sóc khách hàng</a>
-            <a href="#"><i class="fas fa-box disabled-link"></i> Quản lý đơn hàng</a>
-            <a href="#"><i class="fas fa-shopping-cart disabled-link"></i> Đơn hàng</a>
+            <a asp-action="Index" asp-controller="AdminDonHang"><i class="fas fa-box disabled-link"></i>Quản lý đơn hàng</a>
+            <a asp-action="Index" asp-controller="DonHang"><i class="fas fa-shopping-cart disabled-link"></i>Đơn hàng</a>
             <a asp-action="ThongKeDoanhThu" asp-controller="ThongKeDoanhThu"><i class="fas fa-chart-bar disabled-link"></i>Thống kê doanh thu</a>
             <a asp-action="QuanLyNhanVien" asp-controller="QuanLyNhanVien"><i class="fas fa-users-cog" style="color: orange"></i>Quản lý nhân viên</a>
             <a asp-action="KhachHang" asp-controller="KhachHang"><i class="fas fa-user-friends" style="color: orange"></i>Khách hàng</a>
@@ -171,28 +171,28 @@
 </div>
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-primary fw-bold">
-        <i class="bi bi-people-fill"></i> Danh sách khách hàng
-    </h2>
+    <h2 class="mb-4 text-primary fw-bold"></h2>
 
     <div class="table-responsive shadow-sm rounded">
         <table class="table table-hover align-middle">
             <thead class="table-dark">
                 <tr>
+                    <th>Mã ID khách hàng</th>
                     <th>Họ tên</th>
                     <th>Email</th>
                     <th>Số điện thoại</th>
-                    <th>Địa chỉ</th>
+                    @* <th>Địa chỉ</th> *@
                 </tr>
             </thead>
             <tbody>
                 @foreach (var kh in Model)
                 {
                     <tr>
+                        <td>@kh.KhachHangId</td>
                         <td class="fw-semibold">@kh.HoTen</td>
                         <td>@kh.Email</td>
                         <td>@kh.Phone</td>
-                        <td>
+                        @* <td>
                             @if (kh.DiaChis.Any())
                             {
                                 <ul class="list-unstyled mb-0">
@@ -209,7 +209,7 @@
                             {
                                 <span class="text-muted fst-italic">Chưa có địa chỉ</span>
                             }
-                        </td>
+                        </td> *@
                     </tr>
                 }
             </tbody>

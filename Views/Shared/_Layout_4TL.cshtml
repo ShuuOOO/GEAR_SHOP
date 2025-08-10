@@ -186,7 +186,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="nav-item nav-link" href="#">Xin chào, @User.Identity.Name</a>
-                        <a asp-action="Profile" asp-controller="Account" class="nav-item nav-link">Tài khoản của tôi</a>
+                        <a asp-action="Profile" asp-controller="Account" class="nav-item nav-link">Thông tin tài khoản</a>
 
                         @if (User.IsInRole("Admin"))
                         {

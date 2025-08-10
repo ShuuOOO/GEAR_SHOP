@@ -17,6 +17,8 @@ QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddSession();
 
+// Cho phép Controller + View
+builder.Services.AddControllersWithViews();
 
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);

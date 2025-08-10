@@ -7,6 +7,7 @@ namespace TL4_SHOP.Data
         public int NhaCungCapId { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGiaNhap { get; set; }
+        public int NhanVienId { get; set; }
 
         public List<NhaCungCap>? DanhSachNhaCungCap { get; set; }
         public List<SanPham>? DanhSachSanPham { get; set; }

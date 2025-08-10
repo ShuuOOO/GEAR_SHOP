@@ -104,6 +104,8 @@ namespace TL4_SHOP.Controllers
             return View();
         }
 
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SanPhamViewModel model)
@@ -161,9 +163,39 @@ namespace TL4_SHOP.Controllers
                 // Xử lý upload ảnh trước khi validate ModelState
                 if (model.HinhAnhFile != null)
                 {
-                    savedImageFileName = await SaveImageAsync(model.HinhAnhFile);
-                    model.HinhAnh = savedImageFileName;
+                    model.HinhAnh = await SaveImageAsync(model.HinhAnhFile); // Ví dụ: "Chuot_Faker_1.jpg"
                 }
+                else
+                {
+                    model.HinhAnh = "default-product.jpg";
+                }
+
+
+                if (ModelState.IsValid)
+                {
+                    var sanPham = new TL4_SHOP.Data.SanPham
+                    {
+                        TenSanPham = model.TenSanPham?.Trim(),
+                        MoTa = model.MoTa?.Trim(),
+                        Gia = model.Gia,
+                        SoLuongTon = model.SoLuongTon,
+                        HinhAnh = model.HinhAnh, // Lưu đúng tên file ở đây
+                        DanhMucId = model.DanhMucId,
+                        NhaCungCapId = model.NhaCungCapId
+                    };
+
+                    var strategy = _context.Database.CreateExecutionStrategy();
+                    await strategy.ExecuteAsync(async () =>
+                    {
+                        _context.SanPhams.Add(sanPham);
+                        await _context.SaveChangesAsync();
+                    });
+
+                    TempData["SuccessMessage"] = "Thêm sản phẩm thành công!";
+                    return RedirectToAction(nameof(Index));
+                }
+
+
 
                 if (ModelState.IsValid)
                 {
@@ -356,6 +388,14 @@ namespace TL4_SHOP.Controllers
                     {
                         newImageFileName = await SaveImageAsync(model.HinhAnhFile);
 
+                        if (model.HinhAnhFile != null)
+                        {
+                            model.HinhAnh = await SaveImageAsync(model.HinhAnhFile); // Ví dụ: "Chuot_Faker_1.jpg"
+                        }
+                        else
+                        {
+                            model.HinhAnh = "default-product.jpg";
+                        }
                         // Xóa ảnh cũ nếu có
                         if (!string.IsNullOrEmpty(existingSanPham.HinhAnh))
                         {
@@ -390,7 +430,6 @@ namespace TL4_SHOP.Controllers
                     existingSanPham.TenSanPham = model.TenSanPham;
                     existingSanPham.MoTa = model.MoTa;
                     existingSanPham.Gia = model.Gia;
-                    existingSanPham.SoLuongTon = model.SoLuongTon;
                     existingSanPham.HinhAnh = model.HinhAnh;
                     existingSanPham.DanhMucId = model.DanhMucId;
                     existingSanPham.NhaCungCapId = model.NhaCungCapId;
@@ -402,6 +441,7 @@ namespace TL4_SHOP.Controllers
                 TempData["SuccessMessage"] = "Cập nhật sản phẩm thành công!";
                 return RedirectToAction(nameof(Index));
             }
+
             catch (InvalidOperationException ex)
             {
                 ModelState.AddModelError("HinhAnhFile", ex.Message);
@@ -526,39 +566,48 @@ namespace TL4_SHOP.Controllers
             if (imageFile == null || imageFile.Length == 0)
                 throw new InvalidOperationException("Không có file ảnh được chọn");
 
-            // Kiểm tra định dạng file
             var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
             var fileExtension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
 
             if (!allowedExtensions.Contains(fileExtension))
                 throw new InvalidOperationException("Chỉ chấp nhận file ảnh có định dạng: " + string.Join(", ", allowedExtensions));
 
-            // Kiểm tra kích thước file (tối đa 5MB)
             if (imageFile.Length > 5 * 1024 * 1024)
                 throw new InvalidOperationException("Kích thước file không được vượt quá 5MB");
 
-            // Tạo tên file unique
-            var fileName = Guid.NewGuid().ToString() + fileExtension;
+            var originalFileName = Path.GetFileNameWithoutExtension(imageFile.FileName);
+            foreach (var c in Path.GetInvalidFileNameChars())
+            {
+                originalFileName = originalFileName.Replace(c, '_');
+            }
 
-            // Đường dẫn thư mục lưu ảnh
+            var fileName = originalFileName + fileExtension;
+
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "products");
 
-            // Tạo thư mục nếu chưa tồn tại
             if (!Directory.Exists(uploadsFolder))
             {
                 Directory.CreateDirectory(uploadsFolder);
             }
 
+            int count = 1;
+            while (System.IO.File.Exists(Path.Combine(uploadsFolder, fileName)))
+            {
+                fileName = $"{originalFileName}_{count}{fileExtension}";
+                count++;
+            }
+
             var filePath = Path.Combine(uploadsFolder, fileName);
 
-            // Lưu file
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 await imageFile.CopyToAsync(fileStream);
             }
 
-            return fileName;
+            return fileName; // Chỉ trả về tên file
         }
+
+
 
         // API endpoint để xuất Excel
         [HttpGet]

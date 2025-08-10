@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
 
 namespace TL4_SHOP.Controllers
 {
+    [Authorize(Roles = "Admin, Nhân viên quản lý đơn hàng")]
     public class AdminDonHangController : Controller
     {
         private readonly _4tlShopContext _context;

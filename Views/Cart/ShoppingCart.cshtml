@@ -1,6 +1,168 @@
 ﻿@model List<TL4_SHOP.Models.CartItem>
 
 @{
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+}
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Thanh chat ngang -->
+<div id="chatBar" class="chat-bar">
+	💬 Chat tư vấn - Giải đáp mọi thắc mắc
+</div>
+
+<!-- Khung chat -->
+<div id="chatBox" class="chat-box">
+	<div class="chat-header" style="font-family: Tahoma;">
+		Hỗ trợ trực tuyến
+		<button id="minimizeButton" class="minimize-btn">−</button>
+	</div>
+	<div id="messagesList" class="chat-messages"></div>
+	<div class="chat-input">
+		<input type="text" id="messageInput" style="font-family: Tahoma;" placeholder="Nhập tin nhắn..." />
+		<button id="sendButton" style="font-family: Tahoma;">Gửi</button>
+	</div>
+</div>
+
+<!-- CSS -->
+<style>
+	.minimize-btn {
+		float: right;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 1.2em;
+		cursor: pointer;
+		margin-right: 5px;
+	}
+
+		.minimize-btn:hover {
+			color: #ccc;
+		}
+
+	.chat-bar {
+		position: fixed;
+		bottom: 0;
+		left: 1219px;
+		width: 20%;
+		background-color: #D19C97;
+		color: white;
+		text-align: center;
+		padding: 1px;
+		font-weight: bold;
+		cursor: pointer;
+		z-index: 1000;
+		transition: background-color 0.3s;
+		border-radius: 10px 10px 0px 0px;
+		font-family: Tahoma;
+		font-size: 80%
+	}
+
+		.chat-bar:hover {
+			background-color: #D19C97;
+		}
+
+	.chat-box {
+		position: fixed;
+		bottom: 30px;
+		right: 75px;
+		width: 300px;
+		/* height: 400px; */
+		background-color: white;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		display: none;
+		flex-direction: column;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+		z-index: 1000;
+		animation: slideUp 0.3s ease-out;
+	}
+
+
+	.chat-header {
+		background-color: #D19C97;
+		color: white;
+		padding: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		font-weight: bold;
+	}
+
+	.chat-messages {
+		padding: 10px;
+		height: 300px;
+		overflow-y: auto;
+		font-size: 0.9em;
+	}
+
+	.chat-input {
+		display: flex;
+		border-top: 1px solid #ccc;
+		border-radius: 10px;
+	}
+
+		.chat-input input {
+			flex: 1;
+			/* border: none; */
+			padding: 10px;
+			outline: none;
+			border-radius: 10px
+		}
+
+		.chat-input button {
+			background-color: #D19C97;
+			color: white;
+			border-radius: 10px;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+</style>
+
+<!-- SignalR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+	const connection = new signalR.HubConnectionBuilder()
+		.withUrl("/chatHub")
+		.build();
+
+	connection.on("ReceiveMessage", function (user, message) {
+		const msg = document.createElement("div");
+		msg.textContent = `${user}: ${message}`;
+		document.getElementById("messagesList").appendChild(msg);
+		document.getElementById("messagesList").scrollTop = document.getElementById("messagesList").scrollHeight;
+	});
+
+	connection.start().catch(err => console.error(err));
+
+	document.getElementById("sendButton").addEventListener("click", function () {
+		const message = document.getElementById("messageInput").value.trim();
+		if (message) {
+			connection.invoke("SendMessage", "Khách", message);
+			document.getElementById("messageInput").value = "";
+		}
+	});
+
+		document.getElementById("chatBar").addEventListener("click", function () {
+		const chatBox = document.getElementById("chatBox");
+		const chatBar = document.getElementById("chatBar");
+
+		chatBox.style.display = "flex";
+		chatBar.style.display = "none"; // Ẩn thanh chat khi mở khung chat
+	});
+
+		document.getElementById("minimizeButton").addEventListener("click", function () {
+		document.getElementById("chatBox").style.display = "none";
+		document.getElementById("chatBar").style.display = "block"; // Hiện lại thanh chat khi thu nhỏ khung chat
+	});
+</script>
+
+@{
     ViewData["Title"] = "Giỏ hàng";
     var tongTien = Model.Sum(item => item.ThanhTien);
     var phiVanChuyen = 15000;
@@ -13,7 +175,7 @@
         <div class="col-lg-8 table-responsive mb-5">
             <table class="table table-bordered text-center mb-0">
                 <thead class="bg-secondary text-dark">
-                    <tr>
+					<tr style="font-family: Tahoma;">
                         <th>Sản phẩm</th>
                         <th>Giá tiền</th>
                         <th>Số lượng</th>
@@ -54,23 +216,23 @@
         <!-- Cột tổng tiền và thanh toán -->
         <div class="col-lg-4">
             <div class="card border-secondary mb-5">
-                <div class="card-header bg-secondary border-0">
+				<div class="card-header bg-secondary border-0" style="font-family: Tahoma;">
                     <h4 class="font-weight-semi-bold m-0">Tổng hóa đơn</h4>
                 </div>
                 <div class="card-body">
-                    <div class="d-flex justify-content-between mb-3 pt-1">
+                    <div class="d-flex justify-content-between mb-3 pt-1" style="font-family: Tahoma;">
                         <h6>Tổng tiền</h6>
                         <h6>@tongTien.ToString("N0")đ</h6>
                     </div>
-                    <div class="d-flex justify-content-between">
+					<div class="d-flex justify-content-between" style="font-family: Tahoma;">
                         <h6>Phí vận chuyển</h6>
                         <h6>@phiVanChuyen.ToString("N0")đ</h6>
                     </div>
                 </div>
-                <div class="card-footer border-secondary bg-transparent">
-                    <div class="text-center mt-2">
-                        <h5 class="mb-3">Tổng cộng: <span class="text-primary">@tongCong.ToString("N0")đ</span></h5>
-                        <a href="/Order/Checkout" class="btn btn-primary btn-lg px-5 py-2">
+				<div class="card-footer border-secondary bg-transparent" style="font-family: Tahoma;">
+                    <div class="text-center mt-2" style="justify-items: left;">
+						<h5 class="mb-3">Tổng cộng: <span class="text-primary" style="margin-left: 210px">@tongCong.ToString("N0")đ</span></h5>
+						<a href="/Order/Checkout" class="btn btn-primary btn-lg px-5 py-2" style="font-family: Tahoma;">
                             Tiến hành thanh toán
                         </a>
                     </div>

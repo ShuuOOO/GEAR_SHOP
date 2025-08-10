@@ -3,6 +3,164 @@
     ViewData["Title"] = "Mua sắm";
     Layout = "~/Views/Shared/_Layout_4TL.cshtml";
 }
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Thanh chat ngang -->
+<div id="chatBar" class="chat-bar">
+	💬 Chat tư vấn - Giải đáp mọi thắc mắc
+</div>
+
+<!-- Khung chat -->
+<div id="chatBox" class="chat-box">
+	<div class="chat-header" style="font-family: Tahoma;">
+		Hỗ trợ trực tuyến
+		<button id="minimizeButton" class="minimize-btn">−</button>
+	</div>
+	<div id="messagesList" class="chat-messages"></div>
+	<div class="chat-input">
+		<input type="text" id="messageInput"  style="font-family: Tahoma;" placeholder="Nhập tin nhắn..." />
+		<button id="sendButton" style="font-family: Tahoma;">Gửi</button>
+	</div>
+</div>
+
+<!-- CSS -->
+<style>
+	.minimize-btn {
+		float: right;
+		background: none;
+		border: none;
+		color: white;
+		font-size: 1.2em;
+		cursor: pointer;
+		margin-right: 5px;
+	}
+
+	.minimize-btn:hover {
+		color: #ccc;
+	}
+
+	.chat-bar {
+		position: fixed;
+		bottom: 0;
+		left: 1219px;
+		width: 20%;
+		background-color: #D19C97;
+		color: white;
+		text-align: center;
+		padding: 1px;
+		font-weight: bold;
+		cursor: pointer;
+		z-index: 1000;
+		transition: background-color 0.3s;
+		border-radius: 10px 10px 0px 0px;
+		font-family: Tahoma;
+		font-size: 80%
+	}
+
+		.chat-bar:hover {
+			background-color: #D19C97;
+		}
+
+	.chat-box {
+		position: fixed;
+		bottom: 30px;
+		right: 75px;
+		width: 300px;
+		/* height: 400px; */
+		background-color: white;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		display: none;
+		flex-direction: column;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+		z-index: 1000;
+		animation: slideUp 0.3s ease-out;
+	}
+
+
+	.chat-header {
+		background-color: #D19C97;
+		color: white;
+		padding: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		font-weight: bold;
+	}
+
+	.chat-messages {
+		padding: 10px;
+		height: 300px;
+		overflow-y: auto;
+		font-size: 0.9em;
+	}
+
+	.chat-input {
+		display: flex;
+		border-top: 1px solid #ccc;
+		border-radius: 10px;
+	}
+
+		.chat-input input {
+			flex: 1;
+			/* border: none; */
+			padding: 10px;
+			outline: none;
+			border-radius: 10px
+		}
+
+		.chat-input button {
+			background-color: #D19C97;
+			color: white;
+			border-radius: 10px ;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+</style>
+
+<!-- SignalR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+	const connection = new signalR.HubConnectionBuilder()
+		.withUrl("/chatHub")
+		.build();
+
+	connection.on("ReceiveMessage", function (user, message) {
+		const msg = document.createElement("div");
+		msg.textContent = `${user}: ${message}`;
+		document.getElementById("messagesList").appendChild(msg);
+		document.getElementById("messagesList").scrollTop = document.getElementById("messagesList").scrollHeight;
+	});
+
+	connection.start().catch(err => console.error(err));
+
+	document.getElementById("sendButton").addEventListener("click", function () {
+		const message = document.getElementById("messageInput").value.trim();
+		if (message) {
+			connection.invoke("SendMessage", "Khách", message);
+			document.getElementById("messageInput").value = "";
+		}
+	});
+
+		document.getElementById("chatBar").addEventListener("click", function () {
+		const chatBox = document.getElementById("chatBox");
+		const chatBar = document.getElementById("chatBar");
+
+		chatBox.style.display = "flex";
+		chatBar.style.display = "none"; // Ẩn thanh chat khi mở khung chat
+	});
+
+		document.getElementById("minimizeButton").addEventListener("click", function () {
+		document.getElementById("chatBox").style.display = "none";
+		document.getElementById("chatBar").style.display = "block"; // Hiện lại thanh chat khi thu nhỏ khung chat
+	});
+</script>
 
 <link rel="stylesheet" href="~/css/shop.css" />
 
@@ -107,7 +265,7 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="card-footer d-flex justify-content-between bg-light border">
+                               <div class="card-footer d-flex justify-content-between align-items-center bg-light border px-2" style="gap: 0.5rem;">
                                     <a href="@Url.Action("Details", "SanPham", new { id = product.SanPhamId })" class="btn btn-sm text-dark p-0">
                                         <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
                                     </a>
@@ -164,7 +322,7 @@
                                     @if (!string.IsNullOrEmpty(product.MoTa))
                                     {
                                         <div class="thongTinSanPham">
-                                            <p>@product.MoTa</p>
+                                            @* <p>@product.MoTa</p> *@
                                         </div>
                                     }
                                 </div>

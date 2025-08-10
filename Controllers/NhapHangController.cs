@@ -29,32 +29,36 @@ namespace TL4_SHOP.Controllers
         [HttpPost]
         public IActionResult ThemPhieuNhap(NhapHangViewModel model)
         {
-            var nhanVienIdClaim = User.FindFirst("NhanVienId")?.Value;
-            if (string.IsNullOrEmpty(nhanVienIdClaim))
-            {
-                return Content("Không tìm thấy NhanVienId trong tài khoản.");
-            }
-            int nhanVienId = int.Parse(nhanVienIdClaim);
+            // Lấy NhanVienId từ session thay vì form
+            var nhanVienId = HttpContext.Session.GetInt32("NhanVienId");
 
-            // Kiểm tra sản phẩm có tồn tại
+            if (nhanVienId == null)
+            {
+                return Content("Bạn chưa đăng nhập hoặc session hết hạn.");
+            }
+
+            var nhanVien = _context.NhanViens.FirstOrDefault(nv => nv.NhanVienId == nhanVienId.Value);
+            if (nhanVien == null)
+            {
+                return Content("Không tìm thấy nhân viên.");
+            }
+
             var sp = _context.SanPhams.Find(model.SanPhamId);
             if (sp == null)
             {
                 return Content("Sản phẩm không tồn tại.");
             }
 
-            // Tạo phiếu nhập
             var phieuNhap = new NhapHang
             {
                 NhaCungCapId = model.NhaCungCapId,
                 NgayNhap = DateTime.Now,
-                NhanVienId = nhanVienId
+                NhanVienId = nhanVienId.Value
             };
 
             _context.NhapHangs.Add(phieuNhap);
             _context.SaveChanges();
 
-            // Chi tiết
             var chiTiet = new ChiTietNhapHang
             {
                 PhieuNhapId = phieuNhap.PhieuNhapId,

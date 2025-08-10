@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5rBwKDQFomM=",
+  "dgSpecHash": "Zcrz87xD5w0=",
   "success": true,
-  "projectFilePath": "D:\\Nhung_bai_hoc_ve_MVC\\TL4_SHOP\\TL4_SHOP.csproj",
+  "projectFilePath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\phat_Trien_Ung_Dung\\Final_exam\\Code_dang_lam\\TL4_SHOP\\TL4_SHOP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tanle\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\tanle\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
