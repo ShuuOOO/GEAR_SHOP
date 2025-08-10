@@ -241,7 +241,7 @@
                                         const img = item.hinhAnh ? `/images/products/${item.hinhAnh}` : '/images/products/default.jpg';
                                         const price = item.gia ? item.gia.toLocaleString('vi-VN') + '₫' : 'Liên hệ';
                                         html += `
-                                            <a href="/Home/ShopDetail/${item.sanPhamId}" class="live-search-item">
+                                            <a href="/SanPham/Details/${item.sanPhamId}" class="live-search-item">
                                                 <img src="${img}" alt="${item.tenSanPham}" />
                                                 <div class="info">
                                                     <h6>${item.tenSanPham}</h6>

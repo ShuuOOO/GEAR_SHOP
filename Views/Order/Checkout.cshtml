@@ -122,6 +122,102 @@
             padding: 10px 15px;
             cursor: pointer;
         }
+    /* ===== Checkout polish ===== */
+    .checkout .card {
+        border-radius: 14px;
+        overflow: hidden;
+    }
+
+    .checkout .card-header {
+        background: #eef3ff;
+        border-bottom: 1px solid #e6ecff;
+    }
+
+        .checkout .card-header h4 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+    .checkout .form-group label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .checkout .form-control {
+        height: 44px;
+        border-radius: 10px;
+    }
+
+    .checkout .form-group + .form-group {
+        margin-top: 14px;
+    }
+
+    .order-summary {
+        position: sticky;
+        top: 24px;
+    }
+
+        .order-summary .summary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+            .order-summary .summary-table td {
+                padding: .55rem .75rem;
+                vertical-align: top;
+            }
+
+            .order-summary .summary-table tr + tr td {
+                border-top: 1px dashed #e9eef7;
+            }
+
+        .order-summary .name {
+            max-width: 280px;
+            line-height: 1.45;
+        }
+
+        .order-summary .price {
+            white-space: nowrap;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .order-summary .row-muted td {
+            color: #555;
+            font-weight: 500;
+        }
+
+        .order-summary .total-row td {
+            border-top: 1px solid #d9e2ff !important;
+            background: #f5f7ff;
+            font-weight: 800;
+            font-size: 1.05rem;
+        }
+
+        .order-summary .badge-note {
+            display: inline-block;
+            background: #fff4f4;
+            color: #c0392b;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: .8rem;
+            border: 1px solid #ffdede;
+            margin-left: 6px;
+        }
+
+    .payment .form-check {
+        padding: .35rem 0;
+    }
+
+        .payment .form-check + .form-check {
+            border-top: 1px dashed #eef1f6;
+        }
+
+    .payment #qr-container, .payment #visa-container {
+        background: #fafbff;
+        border-color: #e9eef7 !important;
+    }
 </style>
 
 <!-- SignalR -->
@@ -193,7 +289,7 @@
     }
     <input type="hidden" name="phiVanChuyen" value="@phiVanChuyen" />
     <input type="hidden" name="tongTien" value="@tongTien" />
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5 checkout">
         <div class="row px-xl-5">
             <div class="col-lg-8">
                 <div class="mb-4">
@@ -231,34 +327,39 @@
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Tổng đơn hàng</h4>
                     </div>
-                    <div class="card-body">
-                        <h5 class="font-weight-medium mb-3">Sản phẩm</h5>
-
-                        @foreach (var item in cart)
-                        {
-                            <div class="d-flex justify-content-between">
-                                <p>@item.TenSanPham</p>
-                                <p>@item.ThanhTien.ToString("N0")đ</p>
-                            </div>
-                        }
-
-                        <hr class="mt-0" />
-                        <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Tổng tiền</h6>
-                            <h6 class="font-weight-medium">@tongTien.ToString("N0")đ</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Phí vận chuyển</h6>
-                            <h6 class="font-weight-medium">@phiVanChuyen.ToString("N0")đ</h6>
-                        </div>
-                    </div>
-                    <div class="card-footer border-secondary bg-transparent">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Tổng cộng</h5>
-                            <h5 class="font-weight-bold">@tongCong.ToString("N0")đ</h5>
-                        </div>
+                    <div class="card-body p-0">
+                        <table class="table mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="border-0 font-weight-medium px-3">Sản phẩm</th>
+                                    <th class="border-0 font-weight-medium text-right px-3">Giá</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in cart)
+                                {
+                                    <tr>
+                                        <td class="px-3">@item.TenSanPham</td>
+                                        <td class="text-right px-3">@item.ThanhTien.ToString("N0")đ</td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td class="px-3 font-weight-medium">Tổng tiền</td>
+                                    <td class="text-right px-3 font-weight-medium">@tongTien.ToString("N0")đ</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 font-weight-medium">Phí vận chuyển</td>
+                                    <td class="text-right px-3 font-weight-medium">@phiVanChuyen.ToString("N0")đ</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td class="px-3 font-weight-bold">Tổng cộng</td>
+                                    <td class="text-right px-3 font-weight-bold text-primary">@tongCong.ToString("N0")đ</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
 
                 <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
@@ -383,8 +484,13 @@
                         case 'Momo':
                             qrContainer.style.display = 'block';
                             visaContainer.style.display = 'none';
-                            qrImage.src = '/images/payment/qr-momo.png';
+
+                            // Encode nội dung: MOMO | Mã đơn | Số tiền (tùy bạn)
+                            const payload = `PAYMENT_MOMO|ORDER=${maDon}|AMOUNT=@tongCong`;
+                            document.getElementById('qr-image').src =
+                              'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(payload);
                             break;
+
                         case 'Visa':
                             qrContainer.style.display = 'none';
                             visaContainer.style.display = 'block';

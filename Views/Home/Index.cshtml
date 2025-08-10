@@ -220,7 +220,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                 <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                <h5 class="font-weight-semi-bold m-0">Sản phảm chất lượng cao</h5>
+                <h5 class="font-weight-semi-bold m-0">Sản phẩm chất lượng cao</h5>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
@@ -247,113 +247,47 @@
 <!-- Categories Start -->
 <div class="container-fluid pt-5">
     <div class="row px-xl-5 pb-3">
-
-        <div class="col-lg-4 col-md-6 col-sm-12 pb-1" style="border-radius: 10px;">
-            <div class="product-item">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="/img/Chuot_Faker.jpg" alt="Chuột Razer Viper V3 Pro Faker Edition" style="height: 220px; object-fit: contain;">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Chuột Razer Viper V3 Pro Faker Edition</h6>
-                    <div class="d-flex justify-content-center flex-column align-items-center position-relative">
-                        <h5>4,990,000₫</h5>
+        @foreach (var sp in new[]
+        {
+        new { Id = 38, Ten = "Chuột Razer Viper V3 Pro Faker Edition", Gia = "4,990,000₫", Hinh = "Chuot_Faker.jpg" },
+        new { Id = 40, Ten = "Bàn phím Logitech G915 X Lightspeed", Gia = "5,990,000₫", Hinh = "BanPhimLogitech.jpg" },
+        new { Id = 41, Ten = "Bàn phím cơ Razer BlackWidow V4 Pro", Gia = "3,990,000₫", Hinh = "razer_blackwidow_v4_pro.jpg" },
+        new { Id = 43, Ten = "iPhone 16 Pro Max 256GB | Chính hãng VN/A", Gia = "34,990,000₫", Hinh = "iphone-16-pro.jpg" },
+        new { Id = 49, Ten = "PC CPS X ASUS Gaming Intel i3 Gen 12", Gia = "14,990,000₫", Hinh = "pc_cps_asus_i3_gen12.jpg" },
+        new { Id = 53, Ten = "Tai nghe Razer Kraken V3 X USB", Gia = "1,490,000₫", Hinh = "razer_kraken_v3x.jpg" }
+        })
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                <div class="product-item">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <a asp-controller="SanPham" asp-action="Details" asp-route-id="@sp.Id">
+                            <img class="img-fluid w-100" src="~/img/@sp.Hinh" alt="@sp.Ten" style="height: 220px; object-fit: contain;" asp-append-version="true" />
+                        </a>
                     </div>
-                    <div class="thongTinSanPham">
-                        Chuột gaming không dây cao cấp phiên bản Faker Edition, siêu nhẹ, cảm biến Focus Pro 35K, kết nối HyperSpeed Wireless, pin 95 giờ.
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">@sp.Ten</h6>
+                        <div class="d-flex justify-content-center flex-column align-items-center position-relative">
+                            <h5>@sp.Gia</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="/SanPham/Details/38" class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
-                    </a>
-                    <a href="#" class="btn btn-sm text-dark p-0" onclick="addToCart(38)">
-                        <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
-                    </a>
-                    <a href="javascript:void(0);" onclick="addToWishlist(38)" class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid w-100" src="~/img/BanPhimLogitech.jpg" alt="Bàn phím Logitech G915" style="height: 220px; object-fit: contain;" />
-                </a>
-                <h5 class="font-weight-semi-bold m-0">Bàn phím gaming không dây Logitech G915 X Lightspeed TKL Low Profile</h5>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Chuột Razer Viper V3 Pro Faker Edition</h6>
-                    <div class="d-flex justify-content-center flex-column align-items-center position-relative">
-                        <h5>4,990,000₫</h5>
-                    </div>
-                    <div class="thongTinSanPham">
-                        Chuột gaming không dây cao cấp phiên bản Faker Edition, siêu nhẹ, cảm biến Focus Pro 35K, kết nối HyperSpeed Wireless, pin 95 giờ.
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a asp-controller="SanPham" asp-action="Details" asp-route-id="@sp.Id" class="btn btn-sm text-dark p-0">
+                            <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-sm text-dark p-0" onclick="addToCart(@sp.Id)">
+                            <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
+                        </a>
+                        <a href="javascript:void(0);" onclick="addToWishlist(@sp.Id)" class="btn btn-sm text-dark p-0">
+                            <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
+                        </a>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="/SanPham/Details/38" class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
-                    </a>
-                    <a href="#" class="btn btn-sm text-dark p-0" onclick="addToCart(38)">
-                        <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
-                    </a>
-                    <a href="javascript:void(0);" onclick="addToWishlist(38)" class="btn btn-sm text-dark p-0">
-                        <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
-                    </a>
-                </div>
             </div>
-        </div> @*Bàn phím Logitech*@
-
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid w-100" src="~/img/iphone-16-pro.jpg" alt="Iphone 16 Pro Max" style="height: 220px; object-fit: contain;" />
-                </a>
-                <h5 class="font-weight-semi-bold m-0">iPhone 16 Pro Max 256GB | Chính hãng VN/A</h5>
-            <div class="card-footer  justify-content-between bg-light border">
-                <a href="/SanPham/Details/38" class="btn btn-sm text-dark p-0">
-                    <i class="fas fa-eye text-primary mr-1"></i> Xem chi tiết
-                </a>
-                <a href="#" class="btn btn-sm text-dark p-0" onclick="addToCart(38)">
-                    <i class="fas fa-shopping-cart text-primary mr-1"></i> Thêm vào giỏ hàng
-                </a>
-                <a href="javascript:void(0);" onclick="addToWishlist(38)" class="btn btn-sm text-dark p-0">
-                    <i class="fas fa-heart text-danger mr-1"></i> Yêu thích
-                </a>
-            </div>
-            </div>
-        </div> @*Iphone 16 pro Max*@
-
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid w-100" src="~/img/IpadPro.jpg" alt="Ipad Pro Max" style="height: 220px; object-fit: contain;" />
-                </a>
-                <h5 class="font-weight-semi-bold m-0">iPad Pro M4 13 inch 5G 2TB I Chính hãng Apple Việt Nam</h5>
-            </div>
-        </div> @*Ipad Pro*@
-
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid w-100" src="~/img/ManHinhASUS.jpg" alt="Màn hình ASUS Gaming" style="height: 220px; object-fit: contain;" />
-                </a>
-                <h5 class="font-weight-semi-bold m-0">PC CPS X ASUS Gaming Intel i3 Gen 12 Kèm màn hình</h5>
-            </div>
-        </div> @*Màn hình*@
-
-        <div class="col-lg-4 col-md-6 pb-1">
-            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid w-100" src="~/img/TaiNgheRazer.jpg" alt="Tai Nghe Razer" style="height: 220px; object-fit: contain;" />
-                </a>
-                <h5 class="font-weight-semi-bold m-0">Tai nghe Razer Kraken V3 X USB</h5>
-            </div>
-        </div> @*Tai Nghe*@
-
+        }
     </div>
 </div>
+
+
 <!-- Categories End -->
 <!-- Flash Sale Start -->
 <div class="container-fluid bg-danger text-white text-center py-5 mb-5">
@@ -480,7 +414,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-center bg-light border">
                         <span class="btn btn-sm text-muted p-0" style="cursor: not-allowed;">
-                            <i class="fas fa-times text-danger mr-1"></i> Đã hết hàng
+                            <i class="fas fa-times text-danger mr-1"></i> Sắp ra mắt
                         </span>
                     </div>
                 </div>
@@ -559,86 +493,78 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script>
-        $(document).ready(function () {
-            $(".btn-add-to-cart").click(function (e) {
-                e.preventDefault(); // 🛑 Quan trọng: chặn reload khi click vào <a>
+        // LẤY anti-forgery token nếu action có ValidateAntiForgeryToken
+        function getRequestVerificationToken() {
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            return token ? token : null;
+        }
 
-                const productId = $(this).data("product-id");
-                $.ajax({
-                    url: '@Url.Action("AddToCart", "Cart")',
-                    method: 'POST',
-                    data: { productId: productId, quantity: 1 },
-                    success: function (result) {
-                        if (result.success) {
-                            Toastify({
-                                text: "🎉 Đã thêm vào giỏ hàng!",
-                                duration: 3000,
-                                gravity: "top",
-                                position: "right",
-                                backgroundColor: "#28a745"
-                            }).showToast();
-
-                            $("#cart-count").text(result.cartCount);
-                        } else {
-                            Toastify({
-                                text: "❌ " + result.message,
-                                duration: 3000,
-                                gravity: "top",
-                                position: "right",
-                                backgroundColor: "#dc3545"
-                            }).showToast();
-                        }
-                    },
-                    error: function () {
-                        Toastify({
-                            text: "❌ Lỗi hệ thống khi thêm sản phẩm!",
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#dc3545"
-                        }).showToast();
-                    }
-                });
-            });
-        });
-    </script>
-    <script>
-                function addToWishlist(productId) {
+        // DÙNG CHUNG: thêm vào giỏ
+        function addToCart(productId) {
             $.ajax({
-                url: '/Wishlist/AddToWishlistAjax',
+                url: '@Url.Action("AddToCart", "Cart")',
                 type: 'POST',
-                data: { productId: productId },
+                data: {
+                    productId: productId,
+                    quantity: 1,
+                    __RequestVerificationToken: getRequestVerificationToken() // sẽ null nếu không có
+                },
                 success: function (response) {
-                    if (response.success) {
-                        $('#wishlist-count').text(response.wishlistCount);
+                    if (response && response.success) {
+                        $('#cart-count').text(response.cartCount);
                         Toastify({
-                            text: "💖 " + response.message,
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#ff4081",
-                            close: true,
-                            stopOnFocus: true
+                            text: "🎉 Đã thêm sản phẩm vào giỏ hàng!",
+                            duration: 3000, gravity: "top", position: "right",
+                            backgroundColor: "#28a745", close: true
                         }).showToast();
                     } else {
                         Toastify({
-                            text: "⚠️ " + response.message,
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#ffc107",
-                            close: true
+                            text: "❌ " + (response && response.message ? response.message : "Không thể thêm vào giỏ."),
+                            duration: 3000, gravity: "top", position: "right",
+                            backgroundColor: "#dc3545", close: true
+                        }).showToast();
+                    }
+                },
+                error: function () {
+                    Toastify({
+                        text: "❌ Lỗi hệ thống khi thêm sản phẩm!",
+                        duration: 3000, gravity: "top", position: "right",
+                        backgroundColor: "#dc3545", close: true
+                    }).showToast();
+                }
+            });
+        }
+
+        // DÙNG CHUNG: thêm vào wishlist
+        function addToWishlist(productId) {
+            $.ajax({
+                url: '/Wishlist/AddToWishlistAjax',
+                type: 'POST',
+                data: {
+                    productId: productId,
+                    __RequestVerificationToken: getRequestVerificationToken()
+                },
+                success: function (response) {
+                    if (response && response.success) {
+                        $('#wishlist-count').text(response.wishlistCount);
+                        Toastify({
+                            text: "💖 " + response.message,
+                            duration: 3000, gravity: "top", position: "right",
+                            backgroundColor: "#ff4081", close: true, stopOnFocus: true
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "⚠️ " + (response && response.message ? response.message : "Không thể thêm vào yêu thích."),
+                            duration: 3000, gravity: "top", position: "right",
+                            backgroundColor: "#ffc107", close: true
                         }).showToast();
                     }
                 },
                 error: function () {
                     Toastify({
                         text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
-                        duration: 3000,
-                        gravity: "top",
-                        position: "right",
-                        backgroundColor: "#dc3545",
-                        close: true
+                        duration: 3000, gravity: "top", position: "right",
+                        backgroundColor: "#dc3545", close: true
                     }).showToast();
                 }
             });
