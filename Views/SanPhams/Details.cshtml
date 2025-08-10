@@ -125,6 +125,59 @@
             padding: 10px 15px;
             cursor: pointer;
         }
+    /* ----- Product details readability ----- */
+    .product-detail .desc-text {
+        color: #2b2f33; /* đậm, dễ đọc hơn */
+        font-size: 1.06rem; /* to hơn chút */
+        line-height: 1.75;
+        letter-spacing: .2px;
+        margin-bottom: 12px;
+    }
+
+    /* Tabs title rõ ràng hơn */
+    .nav-tabs .nav-link {
+        color: #8a8f98;
+        border: none;
+    }
+
+        .nav-tabs .nav-link.active {
+            color: #D19C97;
+            font-weight: 600;
+            border-bottom: 2px solid #D19C97;
+        }
+
+    /* ----- Specs table look ----- */
+    .spec-card {
+        padding: 14px;
+        border: 1px solid #e9ecf1;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,.03);
+    }
+
+    #tab-specs table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        font-size: 0.98rem;
+    }
+
+    #tab-specs th, #tab-specs td {
+        border: 1px solid #eef0f4;
+        padding: 10px 12px;
+        color: #2f3440;
+    }
+
+    #tab-specs th {
+        width: 30%;
+        background: #f7f8fb;
+        font-weight: 600;
+    }
+
+    #tab-specs tr:nth-child(even) td {
+        background: #fbfcfe;
+    }
+    /* zebra */
 </style>
 
 <!-- SignalR -->
@@ -222,13 +275,35 @@
         <div class="col">
             <div class="nav nav-tabs justify-content-center border-secondary mb-4">
                 <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Mô tả chi tiết</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a>
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="tab-pane-1">
-                    @Model.MoTa
-                    <div class="p-3 border rounded">
-                        @Html.Raw(Model.ChiTiet)
-                    </div>
+                    @if (!string.IsNullOrWhiteSpace(Model.MoTa))
+                    {
+                        <div class="product-detail desc-text">
+                            @Html.Raw(Model.MoTa.Replace("\n", "<br/>"))
+                        </div>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.ChiTiet))
+                    {
+                        <div class="product-detail desc-text spec-card">
+                            @Html.Raw(Model.ChiTiet)
+                        </div>
+                    }
+                </div>
+
+                <div class="tab-pane fade" id="tab-specs">
+                    @if (!string.IsNullOrWhiteSpace(Model.ThongSoKyThuat))
+                    {
+                        <div class="spec-card table-responsive">
+                            @Html.Raw(Model.ThongSoKyThuat)
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted m-0">Chưa có thông số kỹ thuật.</p>
+                    }
                 </div>
             </div>
         </div>
@@ -323,6 +398,14 @@
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        $(function () {
+          // auto format bảng trong thông số
+          $('#tab-specs table')
+            .addClass('table table-hover align-middle')
+            .find('th').addClass('text-nowrap'); // header gọn
         });
     </script>
 }

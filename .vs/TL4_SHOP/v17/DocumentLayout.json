@@ -3,12 +3,56 @@
   "WorkspaceRootPath": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\sanphams\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\sanphams\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\data\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\models\\viewmodels\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:models\\viewmodels\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\technews\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\technews\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\technews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\technews\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\controllers\\technewscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\technewscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\data\\technews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\technews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\views\\shared\\layout_admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\layout_admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\ptud\\do_an\\4tl_shop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -42,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +90,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\SanPhams\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\SanPhams\\Details.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\SanPhams\\Details.cshtml",
+              "RelativeToolTip": "Views\\SanPhams\\Details.cshtml",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T15:22:44.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_footer.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_footer.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_footer.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_footer.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_footer.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T14:52:24.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\TechNews\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Views\\TechNews\\Detail.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\TechNews\\Detail.cshtml",
+              "RelativeToolTip": "Views\\TechNews\\Detail.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T14:45:52.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\TechNews\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\TechNews\\Index.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\TechNews\\Index.cshtml",
+              "RelativeToolTip": "Views\\TechNews\\Index.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAiwEIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T14:45:37.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TechNewsController.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Controllers\\TechNewsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TechNewsController.cs",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Controllers\\TechNewsController.cs",
+              "RelativeToolTip": "Controllers\\TechNewsController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAADwvzMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T14:44:49.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_4tlShopContext.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeDocumentMoniker": "Data\\_4tlShopContext.cs",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeToolTip": "Data\\_4tlShopContext.cs",
+              "ViewState": "AgIAAIsBAAAAAAAAAAAswKcBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T14:44:04.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShopViewModel.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Models\\ViewModels\\ShopViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\ShopViewModel.cs",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Models\\ViewModels\\ShopViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\ShopViewModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T14:38:44.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TechNews.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\TechNews.cs",
+              "RelativeDocumentMoniker": "Data\\TechNews.cs",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\TechNews.cs",
+              "RelativeToolTip": "Data\\TechNews.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T14:43:46.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Wishlist\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Wishlist\\Index.cshtml",
@@ -67,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -75,12 +215,37 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-10T12:41:11.819Z",
+              "WhenOpened": "2025-08-10T12:41:11.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
+              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
+              "ViewState": "AgIAAOsAAAAAAAAAAADwvwoBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T12:30:13.236Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\SanPham.cs",
+              "RelativeDocumentMoniker": "Data\\SanPham.cs",
+              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Data\\SanPham.cs",
+              "RelativeToolTip": "Data\\SanPham.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAkwCgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T15:31:13.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "Layout_Admin.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\Layout_Admin.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Layout_Admin.cshtml",
@@ -88,25 +253,24 @@
               "RelativeToolTip": "Views\\Shared\\Layout_Admin.cshtml",
               "ViewState": "AgIAAHYAAAAAAAAAAIAwwI0AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-10T12:53:47.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T12:53:47.78Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "_Layout_4TL.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout_4TL.cshtml",
               "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ViewState": "AgIAABsBAAAAAAAAAADwv0QBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAiwLYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-10T12:51:45.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -119,20 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
-              "ViewState": "AgIAAMoBAAAAAAAAAAAmwO4BAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-10T12:30:13.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -140,12 +291,11 @@
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAMkAAAAAAAAAAAAgwOMAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-10T10:19:46.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T10:19:46.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
               "Title": "Shop.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\Views\\Home\\Shop.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
@@ -153,8 +303,7 @@
               "RelativeToolTip": "Views\\Home\\Shop.cshtml",
               "ViewState": "AgIAAPMAAAAAAAAAAAAmwAMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-10T06:34:22.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T06:34:22.944Z"
             }
           ]
         }

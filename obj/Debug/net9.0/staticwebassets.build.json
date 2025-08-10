@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z55DYD6gf8mviFHF2DgAul36nzAxIj+dNrdEVsQjoaU=",
+  "Hash": "3jOZ7pu6/wtDEzzN2YlqFRpbT3+kIZMpM7CoblG5YzU=",
   "Source": "TL4_SHOP",
   "BasePath": "_content/TL4_SHOP",
   "Mode": "Default",
@@ -8751,6 +8751,174 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\msi_rtx4060ti_gamingx.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\android15ai.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/android15ai#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5cke1m4dm6",
+      "Integrity": "dZdROOM2BjJGd2oiL5hjaw/2GWQUwOM0NIFsEnf80CE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\android15ai.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\coreultra200.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/coreultra200#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zqd331p4sm",
+      "Integrity": "pYCwZ/RQUO/C4fpjPwYQO/Y9bAzawuVQthxWFVmbRqA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\coreultra200.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\findx8pro.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/findx8pro#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "14md28609a",
+      "Integrity": "z4wCVFsH5U2TQx2p601oatY99AMTWtDESYUuwBa+xMI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\findx8pro.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\galaxys25.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/galaxys25#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yr5c2tx6fz",
+      "Integrity": "wvF9qfRM0trdysw3ntAJi10WopEwLRH2IgltT1NoUxo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\galaxys25.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\m4.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/m4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n1zvkybmat",
+      "Integrity": "1bBBUO8zheudRex4e3xlF8OLQZ/ubivxNAUE+ZVwEAg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\m4.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\rtx5090.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/rtx5090#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8krggtmkw1",
+      "Integrity": "eAyZH7M7ylCWXUHfvbhPzh3uz18u/8jOqBdFxlEUJVk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\rtx5090.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\starlinkmini.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/starlinkmini#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3zapwfyf8t",
+      "Integrity": "MWB41c68FZyhpLJN/981XznN+XNtfuT7Era618/G3A0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\starlinkmini.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\windows12.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "img/news/windows12#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fyowp415zr",
+      "Integrity": "V9/HKFrce8k4QzktteW6qbZUc/Z/Nr3hg8KxmCBfvp4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\news\\windows12.jpg"
     },
     {
       "Identity": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\NVIDIA.jpg",
@@ -44559,6 +44727,662 @@
         {
           "Name": "integrity",
           "Value": "sha256-5p2vfOBCeGXCTPF5jGd7kd5+MC08owUxJc0ypBlOVlU="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/android15ai.5cke1m4dm6.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\android15ai.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "228448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dZdROOM2BjJGd2oiL5hjaw/2GWQUwOM0NIFsEnf80CE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:02:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5cke1m4dm6"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/android15ai.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dZdROOM2BjJGd2oiL5hjaw/2GWQUwOM0NIFsEnf80CE="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/android15ai.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\android15ai.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "228448"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dZdROOM2BjJGd2oiL5hjaw/2GWQUwOM0NIFsEnf80CE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:02:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dZdROOM2BjJGd2oiL5hjaw/2GWQUwOM0NIFsEnf80CE="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/coreultra200.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\coreultra200.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2493429"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pYCwZ/RQUO/C4fpjPwYQO/Y9bAzawuVQthxWFVmbRqA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:01:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pYCwZ/RQUO/C4fpjPwYQO/Y9bAzawuVQthxWFVmbRqA="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/coreultra200.zqd331p4sm.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\coreultra200.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2493429"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pYCwZ/RQUO/C4fpjPwYQO/Y9bAzawuVQthxWFVmbRqA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:01:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zqd331p4sm"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/coreultra200.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pYCwZ/RQUO/C4fpjPwYQO/Y9bAzawuVQthxWFVmbRqA="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/findx8pro.14md28609a.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\findx8pro.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "278342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z4wCVFsH5U2TQx2p601oatY99AMTWtDESYUuwBa+xMI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:05:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "14md28609a"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/findx8pro.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-z4wCVFsH5U2TQx2p601oatY99AMTWtDESYUuwBa+xMI="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/findx8pro.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\findx8pro.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "278342"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"z4wCVFsH5U2TQx2p601oatY99AMTWtDESYUuwBa+xMI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:05:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-z4wCVFsH5U2TQx2p601oatY99AMTWtDESYUuwBa+xMI="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/galaxys25.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\galaxys25.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvF9qfRM0trdysw3ntAJi10WopEwLRH2IgltT1NoUxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:02:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wvF9qfRM0trdysw3ntAJi10WopEwLRH2IgltT1NoUxo="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/galaxys25.yr5c2tx6fz.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\galaxys25.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "118129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wvF9qfRM0trdysw3ntAJi10WopEwLRH2IgltT1NoUxo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:02:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yr5c2tx6fz"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/galaxys25.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wvF9qfRM0trdysw3ntAJi10WopEwLRH2IgltT1NoUxo="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/m4.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\m4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3838"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1bBBUO8zheudRex4e3xlF8OLQZ/ubivxNAUE+ZVwEAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:00:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1bBBUO8zheudRex4e3xlF8OLQZ/ubivxNAUE+ZVwEAg="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/m4.n1zvkybmat.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\m4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3838"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1bBBUO8zheudRex4e3xlF8OLQZ/ubivxNAUE+ZVwEAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:00:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n1zvkybmat"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/m4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1bBBUO8zheudRex4e3xlF8OLQZ/ubivxNAUE+ZVwEAg="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/rtx5090.8krggtmkw1.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\rtx5090.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "168008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eAyZH7M7ylCWXUHfvbhPzh3uz18u/8jOqBdFxlEUJVk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:03:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8krggtmkw1"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/rtx5090.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eAyZH7M7ylCWXUHfvbhPzh3uz18u/8jOqBdFxlEUJVk="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/rtx5090.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\rtx5090.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "168008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eAyZH7M7ylCWXUHfvbhPzh3uz18u/8jOqBdFxlEUJVk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:03:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eAyZH7M7ylCWXUHfvbhPzh3uz18u/8jOqBdFxlEUJVk="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/starlinkmini.3zapwfyf8t.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\starlinkmini.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "188358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MWB41c68FZyhpLJN/981XznN+XNtfuT7Era618/G3A0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:04:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3zapwfyf8t"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/starlinkmini.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MWB41c68FZyhpLJN/981XznN+XNtfuT7Era618/G3A0="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/starlinkmini.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\starlinkmini.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "188358"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MWB41c68FZyhpLJN/981XznN+XNtfuT7Era618/G3A0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:04:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MWB41c68FZyhpLJN/981XznN+XNtfuT7Era618/G3A0="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/windows12.fyowp415zr.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\windows12.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64439"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V9/HKFrce8k4QzktteW6qbZUc/Z/Nr3hg8KxmCBfvp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:03:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fyowp415zr"
+        },
+        {
+          "Name": "label",
+          "Value": "img/news/windows12.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-V9/HKFrce8k4QzktteW6qbZUc/Z/Nr3hg8KxmCBfvp4="
+        }
+      ]
+    },
+    {
+      "Route": "img/news/windows12.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\PTUD\\DO_AN\\4TL_SHOP\\wwwroot\\img\\news\\windows12.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64439"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V9/HKFrce8k4QzktteW6qbZUc/Z/Nr3hg8KxmCBfvp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 10 Aug 2025 15:03:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-V9/HKFrce8k4QzktteW6qbZUc/Z/Nr3hg8KxmCBfvp4="
         }
       ]
     },

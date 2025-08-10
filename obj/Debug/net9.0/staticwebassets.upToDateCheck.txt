@@ -410,6 +410,14 @@ wwwroot\img\ManHinhASUS.jpg
 wwwroot\img\MSI.jpg
 wwwroot\img\msi_raider_ge78hx.jpg
 wwwroot\img\msi_rtx4060ti_gamingx.jpg
+wwwroot\img\news\android15ai.jpg
+wwwroot\img\news\coreultra200.jpg
+wwwroot\img\news\findx8pro.jpg
+wwwroot\img\news\galaxys25.jpg
+wwwroot\img\news\m4.jpg
+wwwroot\img\news\rtx5090.jpg
+wwwroot\img\news\starlinkmini.jpg
+wwwroot\img\news\windows12.jpg
 wwwroot\img\NVIDIA.jpg
 wwwroot\img\payments.png
 wwwroot\img\pc_cps_asus_i3_gen12.jpg

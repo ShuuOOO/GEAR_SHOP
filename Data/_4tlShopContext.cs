@@ -53,9 +53,11 @@ public partial class _4tlShopContext : DbContext
 
     public virtual DbSet<WishlistItem> WishlistItems { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
+    public virtual DbSet<TechNews> TechNews { get; set; } = null!;
+
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("Data Source=LENHATTAN\\SQLEXPRESS;Initial Catalog=4TL_SHOP;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -411,6 +413,21 @@ public partial class _4tlShopContext : DbContext
                 .HasForeignKey(d => d.WishlistId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__WishlistI__Wishl__76969D2E");
+        });
+
+        modelBuilder.Entity<TechNews>(entity =>
+        {
+            entity.ToTable("TechNews");
+            entity.HasKey(e => e.TechNewsId);
+            entity.Property(e => e.Title).HasMaxLength(200).IsRequired();
+            entity.Property(e => e.Slug).HasMaxLength(220).IsRequired();
+            entity.HasIndex(e => e.Slug).IsUnique();
+            entity.Property(e => e.Summary).HasMaxLength(400);
+            entity.Property(e => e.CoverImage).HasMaxLength(300);
+            entity.Property(e => e.Author).HasMaxLength(100);
+            entity.Property(e => e.Tags).HasMaxLength(200);
+            entity.HasIndex(e => e.PublishedAt);
+            entity.HasIndex(e => new { e.IsFeatured, e.PublishedAt });
         });
 
         OnModelCreatingPartial(modelBuilder);

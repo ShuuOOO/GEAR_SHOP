@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TL4_SHOP.Models
+namespace TL4_SHOP.Models.ViewModels
 {
     public class SanPhamViewModel
     {

@@ -10,8 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using TL4_SHOP.Data;
-using TL4_SHOP.Models;
 using DataSanPham = TL4_SHOP.Data.SanPham;
+using TL4_SHOP.Models.ViewModels;
 
 namespace TL4_SHOP.Controllers
 {

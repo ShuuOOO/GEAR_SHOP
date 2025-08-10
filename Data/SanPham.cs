@@ -38,4 +38,5 @@ public partial class SanPham
     public virtual NhaCungCap NhaCungCap { get; set; } = null!;
 
     public virtual ICollection<WishlistItem> WishlistItems { get; set; } = new List<WishlistItem>();
+    public string? ThongSoKyThuat { get; set; } // NVARCHAR(MAX)
 }
