@@ -12,6 +12,16 @@
 <!-- Customized Bootstrap Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --app-font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+
+    .checkout, .order-summary, .payment, .card, .form-control, .custom-select, .btn {
+        font-family: var(--app-font) !important;
+    }
+</style>
 <!-- Thanh chat ngang -->
 <div id="chatBar" class="chat-bar">
     💬 Chat tư vấn - Giải đáp mọi thắc mắc
@@ -32,55 +42,11 @@
 
 <!-- CSS -->
 <style>
-    /* ================= Chat widget ================ */
-    .chat-bar {
-        position: fixed;
-        bottom: 0;
-        right: 20px;
-        width: 300px;
-        background: #D19C97;
-        color: #fff;
-        text-align: center;
-        padding: 6px 10px;
-        font: 700 13px/1 Tahoma,Arial,sans-serif;
-        cursor: pointer;
-        z-index: 1000;
-        border-radius: 10px 10px 0 0;
-    }
-
-        .chat-bar:hover {
-            background: #D19C97;
-        }
-
-    .chat-box {
-        position: fixed;
-        bottom: 30px;
-        right: 20px;
-        width: 300px;
-        background: #fff;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        display: none;
-        flex-direction: column;
-        box-shadow: 0 4px 12px rgba(0,0,0,.3);
-        z-index: 1000;
-        animation: slideUp .3s ease-out;
-    }
-
-    .chat-header {
-        background: #D19C97;
-        color: #fff;
-        padding: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        font-weight: 700;
-    }
-
     .minimize-btn {
         float: right;
         background: none;
         border: none;
-        color: #fff;
+        color: white;
         font-size: 1.2em;
         cursor: pointer;
         margin-right: 5px;
@@ -90,178 +56,215 @@
             color: #ccc;
         }
 
+    .chat-bar {
+        position: fixed;
+        bottom: 0;
+        left: 1219px;
+        width: 20%;
+        background-color: #D19C97;
+        color: white;
+        text-align: center;
+        padding: 1px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background-color 0.3s;
+        border-radius: 10px 10px 0px 0px;
+        font-family: Tahoma;
+        font-size: 80%
+    }
+
+        .chat-bar:hover {
+            background-color: #D19C97;
+        }
+
+    .chat-box {
+        position: fixed;
+        bottom: 30px;
+        right: 75px;
+        width: 300px;
+        /* height: 400px; */
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        animation: slideUp 0.3s ease-out;
+    }
+
+
+    .chat-header {
+        background-color: #D19C97;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-weight: bold;
+    }
+
     .chat-messages {
         padding: 10px;
         height: 300px;
         overflow-y: auto;
-        font-size: .9em;
+        font-size: 0.9em;
     }
 
     .chat-input {
         display: flex;
         border-top: 1px solid #ccc;
-        border-radius: 0 0 10px 10px;
+        border-radius: 10px;
     }
 
         .chat-input input {
             flex: 1;
+            /* border: none; */
             padding: 10px;
             outline: none;
-            border: 0;
+            border-radius: 10px
         }
 
         .chat-input button {
-            background: #D19C97;
-            color: #fff;
-            border: 0;
+            background-color: #D19C97;
+            color: white;
+            border-radius: 10px;
             padding: 10px 15px;
             cursor: pointer;
-            border-radius: 0 0 10px 0;
         }
-
-    /* ================= Checkout polish ================ */
-    .checkout .card {
-        border-radius: 14px;
-        overflow: hidden;
+    /* === [ADD] Sửa lỗi label MM/YY bị lấn ô nhập === */
+    .checkout .input-group {
+        /* Bootstrap 4 để flex-wrap: wrap => có thể gây tràn/nhảy dòng.
+           Ép nowrap để nhãn "MM/YY" không chen lấn các ô select */
+        flex-wrap: nowrap;
     }
 
-    .checkout .card-header {
-        background: #eef3ff;
-        border-bottom: 1px solid #e6ecff;
-    }
-
-        .checkout .card-header h4 {
-            margin: 0;
-            font-weight: 700;
-        }
-
-    .checkout .form-group label {
-        font-weight: 600;
-        color: #333;
-    }
-
-    .checkout .form-group + .form-group {
-        margin-top: 14px;
-    }
-
-    /* đồng bộ chiều cao control trong khu Checkout */
-    .checkout .form-control,
-    .checkout .custom-select,
-    .checkout .input-group-text {
-        height: 44px;
-        line-height: 44px;
-        border-radius: 10px;
-    }
-
-    /* Order summary */
-    .order-summary {
-        position: sticky;
-        top: 24px;
-    }
-
-        .order-summary .summary-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
-            .order-summary .summary-table td {
-                padding: .55rem .75rem;
-                vertical-align: top;
-            }
-
-            .order-summary .summary-table tr + tr td {
-                border-top: 1px dashed #e9eef7;
-            }
-
-        .order-summary .name {
-            max-width: 280px;
-            line-height: 1.45;
-        }
-
-        .order-summary .price {
+        /* Nhãn MM/YY: đảm bảo có bề rộng cố định, không xuống dòng */
+        .checkout .input-group .input-group-text {
+            display: flex;
+            align-items: center;
             white-space: nowrap;
-            text-align: right;
-            font-weight: 600;
+            padding: 0 .75rem;
+            min-width: 72px; /* giữ ổn định bề ngang */
         }
 
-        .order-summary .row-muted td {
-            color: #555;
-            font-weight: 500;
-        }
-
-        .order-summary .total-row td {
-            border-top: 1px solid #d9e2ff !important;
-            background: #f5f7ff;
-            font-weight: 800;
-            font-size: 1.05rem;
-        }
-
-        .order-summary .badge-note {
-            display: inline-block;
-            background: #fff4f4;
-            color: #c0392b;
-            padding: 2px 8px;
-            border-radius: 999px;
-            font-size: .8rem;
-            border: 1px solid #ffdede;
-            margin-left: 6px;
-        }
-
-    /* Payment list */
-    .payment .form-check {
-        padding: .35rem 0;
-    }
-
-        .payment .form-check + .form-check {
-            border-top: 1px dashed #eef1f6;
-        }
-
-    .payment #qr-container,
-    .payment #visa-container {
-        background: #fafbff;
-        border-color: #e9eef7 !important;
-    }
-
-    /* Input-group label “MM/YY” */
-    .checkout .input-group .input-group-text {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        padding: 0 .75rem;
-        min-width: 72px;
-    }
-
-    /* ================= Visa form tweaks (scoped) ================ */
-    #visa-container .custom-select,
-    #visa-container .form-control,
-    #visa-container .input-group-text {
-        height: 44px;
-        line-height: 44px;
-        border-radius: 10px;
-    }
-
+    /* [Tối ưu hiển thị] Hai ô chọn tháng/năm có kích thước hợp lý */
     #expiryMonth {
-        width: 90px;
+        width: 92px;
     }
 
     #expiryYear {
-        width: 100px;
+        width: 104px;
     }
 
-    /* Căn chân hai cột Expiry/CVV cho thẳng hàng */
-    #visa-container .form-row {
-        align-items: flex-end;
+    /* === [ADD] Làm đẹp khu "Tổng đơn hàng" (chỉ bổ sung style, không đổi cấu trúc) === */
+    .order-summary .card-header {
+        background: #f3f6ff !important;
+        border-bottom: 1px solid #e6ecff !important;
     }
 
-    /* ================= Responsive ================ */
-    @@media (max-width: 576px) {
-        .chat-bar, .chat-box
-
-    {
-        right: 10px;
-        width: calc(100vw - 20px);
+    .order-summary .table thead th {
+        background: #f9fbff;
+        border-top: 0;
+        font-weight: 600;
     }
+
+    .order-summary .table td,
+    .order-summary .table th {
+        padding: .75rem 1rem;
+        vertical-align: middle;
+    }
+
+    .order-summary .table tbody tr:not(:last-child) td {
+        border-bottom: 1px dashed #edf1f7; /* gạch nhẹ giữa các dòng */
+    }
+
+    .order-summary .table tbody tr.total-row {
+        background: #f6f9ff;
+        font-weight: 700;
+    }
+
+        .order-summary .table tbody tr.total-row td:last-child {
+            color: #2a5bd7;
+        }
+
+    .order-summary .table .text-right {
+        text-align: right;
+    }
+    /* [ADD] Footer của tổng đơn hàng rõ ràng hơn */
+    .order-summary .card-footer {
+        background: #f6f9ff;
+        border-top: 1px solid #e6ecff !important;
+        padding: 1rem 1.25rem;
+    }
+
+    /* [ADD] Dòng Tổng cộng */
+    .order-summary .total-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: .2px; /* tránh cảm giác dính */
+    }
+
+        .order-summary .total-line .label {
+            margin-right: 12px;
+        }
+
+        .order-summary .total-line .amount {
+            color: #2a5bd7;
+            margin-left: 12px;
+            white-space: nowrap; /* số tiền không xuống dòng */
+        }
+    /* [ADD] Không cho hàng MM/YY wrap và chừa rộng cho select năm */
+    .checkout .form-row .input-group {
+        flex-wrap: nowrap;
+    }
+
+    #expiryYear {
+        min-width: 104px;
+    }
+    
+    /* giữ ổn định để không cắt chữ 2025 */
+    /* [ADD] Chống wrap & set size gọn cho MM/YY (không dùng input-group nữa) */
+    .checkout .no-wrap {
+        flex-wrap: nowrap;
+    }
+
+    .checkout #expiryMonth,
+    .checkout #expiryYear {
+        max-width: 96px;
+    }
+    /* [ADD] Nhìn gọn như form thẻ phổ biến */
+    #visa-container .form-control,
+    #visa-container .custom-select {
+        height: 42px;
+    }
+
+    #visa-container select.form-control.w-auto {
+        min-width: 88px;
+    }
+    /* MM, YY */
+    #cardNumber {
+        letter-spacing: .5px;
+        padding-right: 2.75rem;
+    }
+    /* chừa chỗ logo thẻ */
+
+    #visa-container label {
+        font-weight: 600;
+        color: #5b6a8a;
+    }
+
+    #visa-container .form-group {
+        margin-bottom: .85rem;
+    }
+
+    #visa-container .no-wrap {
+        flex-wrap: nowrap;
+    }
+
 </style>
 
 <!-- SignalR -->
@@ -312,7 +315,7 @@
 }
 
 
- <!-- Page Header Start -->
+<!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">Thanh toán</h1>
@@ -325,7 +328,7 @@
 </div>
 <!-- Page Header End -->
 <!-- Checkout Start -->
-<form asp-action="Checkout" method="post">
+<form asp-action="Checkout" method="post" class="checkout">
     @Html.AntiForgeryToken()
     @if (TempData["ErrorMessage"] != null)
     {
@@ -333,7 +336,7 @@
     }
     <input type="hidden" name="phiVanChuyen" value="@phiVanChuyen" />
     <input type="hidden" name="tongTien" value="@tongTien" />
-    <div class="container-fluid pt-5 checkout">
+    <div class="container-fluid pt-5">
         <div class="row px-xl-5">
             <div class="col-lg-8">
                 <div class="mb-4">
@@ -367,43 +370,38 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="card border-secondary mb-5">
+                <div class="card border-secondary mb-5 order-summary">
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Tổng đơn hàng</h4>
                     </div>
-                    <div class="card-body p-0">
-                        <table class="table mb-0">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="border-0 font-weight-medium px-3">Sản phẩm</th>
-                                    <th class="border-0 font-weight-medium text-right px-3">Giá</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in cart)
-                                {
-                                    <tr>
-                                        <td class="px-3">@item.TenSanPham</td>
-                                        <td class="text-right px-3">@item.ThanhTien.ToString("N0")đ</td>
-                                    </tr>
-                                }
-                                <tr>
-                                    <td class="px-3 font-weight-medium">Tổng tiền</td>
-                                    <td class="text-right px-3 font-weight-medium">@tongTien.ToString("N0")đ</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-3 font-weight-medium">Phí vận chuyển</td>
-                                    <td class="text-right px-3 font-weight-medium">@phiVanChuyen.ToString("N0")đ</td>
-                                </tr>
-                                <tr class="bg-light">
-                                    <td class="px-3 font-weight-bold">Tổng cộng</td>
-                                    <td class="text-right px-3 font-weight-bold text-primary">@tongCong.ToString("N0")đ</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <h5 class="font-weight-medium mb-3">Sản phẩm</h5>
+
+                        @foreach (var item in cart)
+                        {
+                            <div class="d-flex justify-content-between">
+                                <p>@item.TenSanPham</p>
+                                <p>@item.ThanhTien.ToString("N0")đ</p>
+                            </div>
+                        }
+
+                        <hr class="mt-0" />
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Tổng tiền</h6>
+                            <h6 class="font-weight-medium">@tongTien.ToString("N0")đ</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Phí vận chuyển</h6>
+                            <h6 class="font-weight-medium">@phiVanChuyen.ToString("N0")đ</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="total-line mt-2">
+                            <span class="label">Tổng cộng:</span>
+                            <span class="amount">@tongCong.ToString("N0")đ</span>
+                        </div>
                     </div>
                 </div>
-
 
                 <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
@@ -442,67 +440,51 @@
                         </div>
 
                         <!-- FORM THẺ VISA GIẢ LẬP -->
-                        <!-- FORM THẺ VISA GIẢ LẬP (đã chỉnh) -->
-                        <div id="visa-container" class="border rounded p-3 mt-3" style="display:none;">
+                        <div id="visa-container" class="border rounded p-3 mt-3" style="display: none;">
                             <h6 class="mb-3"><strong>Nhập thông tin thẻ</strong></h6>
-
-                            <!-- Số thẻ -->
-                            <div class="form-group mb-3">
-                                <label for="cardNumber">Số thẻ</label>
-                                <div class="position-relative">
-                                    <input id="cardNumber" class="form-control pr-5" placeholder="1234 5678 9012 3456" autocomplete="cc-number" />
-                                    <img id="cardLogo" src="" alt="" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); height:24px; display:none;" />
+                            <div class="form-group">
+                                <label>Số thẻ</label>
+                                <div style="position: relative;">
+                                    <input id="cardNumber" class="form-control pr-5" placeholder="1234 5678 9012 3456" />
+                                    <img id="cardLogo" src="" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); height:24px; display:none;" />
                                 </div>
                             </div>
-
-                            <!-- Ngày hết hạn + CVV -->
-                            <div class="form-row align-items-end">
-                                <div class="form-group col-6 mb-0">
+                            <div class="form-row">
+                                <div class="form-group col-6">
                                     <label>Ngày hết hạn</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">MM/YY</span>
-                                        </div>
-
-                                        <select id="expiryMonth" class="custom-select mr-2" aria-label="Tháng hết hạn">
+                                    <div class="d-flex align-items-center no-wrap">
+                                        <select id="expiryMonth" class="form-control w-auto mr-2" aria-label="Tháng hết hạn">
                                             <option value="">MM</option>
                                             @for (int m = 1; m <= 12; m++)
                                             {
                                                 <option value="@m.ToString("D2")">@m.ToString("D2")</option>
                                             }
                                         </select>
-
-                                        <select id="expiryYear" class="custom-select" aria-label="Năm hết hạn">
+                                        <select id="expiryYear" class="form-control w-auto" aria-label="Năm hết hạn">
                                             <option value="">YY</option>
                                             @for (int y = DateTime.Now.Year; y <= DateTime.Now.Year + 10; y++)
                                             {
-                                                <option value="@y.ToString().Substring(2)">@y</option>
+                                                <option value="@y.ToString().Substring(2)">@y.ToString().Substring(2)</option>
                                             }
                                         </select>
                                     </div>
-
-                                    <!-- Hidden để submit/validate -->
                                     <input type="hidden" name="visaExpiry" id="visaExpiryHidden" />
                                 </div>
 
-                                <div class="form-group col-6 mb-0">
-                                    <label for="visaCVV">Mã CVV</label>
-                                    <input id="visaCVV" name="visaCVV" class="form-control" placeholder="123"
-                                           maxlength="4" inputmode="numeric" autocomplete="cc-csc" required />
+                                <div class="form-group col-6">
+                                    <label>Mã CVV</label>
+                                    <input name="visaCVV" class="form-control" placeholder="123" required />
                                 </div>
                             </div>
-
-                            <!-- Chủ thẻ -->
-                            <div class="form-group mt-3 mb-0">
-                                <label for="cardHolder">Tên chủ thẻ</label>
-                                <input id="cardHolder" name="cardHolder" class="form-control" placeholder="NGUYEN VAN A" autocomplete="cc-name" required />
+                            <div class="form-group">
+                                <label>Tên chủ thẻ</label>
+                                <input name="cardHolder" class="form-control" placeholder="NGUYEN VAN A" required />
                             </div>
-
                             <div class="text-right mt-3">
-                                <button type="button" class="btn btn-success" id="btnVisaConfirm">Xác nhận</button>
-                                </div>
+                                <button type="button" class="btn btn-success" onclick="hienThongBaoVisa()">Xác nhận</button>
                             </div>
                         </div>
+                    </div>
                     <div class="card-footer border-secondary bg-transparent">
                         <button type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" style="font-family: Tahoma;">
                             Đặt hàng
@@ -518,87 +500,61 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-          // Hiển thị khối Visa khi chọn
-          const radios        = document.querySelectorAll('input[name="phuongThucThanhToan"]');
-          const visaContainer = document.getElementById('visa-container');
-          const qrContainer   = document.getElementById('qr-container');
+            const radios = document.querySelectorAll('input[name="phuongThucThanhToan"]');
+            const qrContainer = document.getElementById('qr-container');
+            const visaContainer = document.getElementById('visa-container');
+            const qrImage = document.getElementById('qr-image');
 
-          radios.forEach(r => r.addEventListener('change', function () {
-            if (this.value === 'Visa') { visaContainer.style.display = 'block'; qrContainer.style.display = 'none'; }
-            else if (this.value === 'ChuyenKhoan' || this.value === 'Momo') { visaContainer.style.display = 'none'; qrContainer.style.display = 'block'; }
-            else { visaContainer.style.display = 'none'; qrContainer.style.display = 'none'; }
-          }));
-          const selected = document.querySelector('input[name="phuongThucThanhToan"]:checked');
-          if (selected) selected.dispatchEvent(new Event('change'));
+            const maDonElement = document.getElementById('ma-don-tu-sinh');
+            let maDon = maDonElement?.dataset.maDon;
 
-          // --- Visa form logic ---
-          const numberInput = document.getElementById('cardNumber');
-          const logoImg     = document.getElementById('cardLogo');
-          const mm          = document.getElementById('expiryMonth');
-          const yy          = document.getElementById('expiryYear');
-          const expiryHid   = document.getElementById('visaExpiryHidden');
-          const btnConfirm  = document.getElementById('btnVisaConfirm');
-
-          function updateExpiryHidden(){
-            expiryHid.value = (mm.value && yy.value) ? `${mm.value}/${yy.value}` : '';
-          }
-          mm.addEventListener('change', updateExpiryHidden);
-          yy.addEventListener('change', updateExpiryHidden);
-          updateExpiryHidden();
-
-          // Format số thẻ xxxx xxxx ... và nhận diện logo
-          numberInput.addEventListener('input', function(){
-            let v = this.value.replace(/\D/g,'').slice(0,19);
-            this.value = v.replace(/(\d{4})(?=\d)/g,'$1 ').trim();
-
-            const clean = v;
-            if (/^4/.test(clean)) {
-              logoImg.src = '/images/payment/visa.png'; logoImg.style.display = 'block';
-            } else if (/^5[1-5]/.test(clean)) {
-              logoImg.src = '/images/payment/mastercard.png'; logoImg.style.display = 'block';
+            if (!maDon || maDon === "") {
+                maDon = 'DH_' + Math.floor(100000 + Math.random() * 900000);
+                maDonElement.innerText = maDon;
             } else {
-              logoImg.style.display = 'none';
-            }
-          });
-
-          // Chỉ cho số ở CVV
-          const cvv = document.getElementById('visaCVV');
-          cvv.addEventListener('input', () => cvv.value = cvv.value.replace(/\D/g,'').slice(0,4));
-
-          // Validate & demo confirm
-          btnConfirm.addEventListener('click', function(){
-            const card = numberInput.value.replace(/\s/g,'').trim();
-            const exp  = expiryHid.value.trim();
-            const name = document.getElementById('cardHolder').value.trim();
-
-            if (!card || !exp || !cvv.value || !name) {
-              return Swal.fire({icon:'warning', title:'Thiếu thông tin', text:'Vui lòng điền đủ thông tin thẻ.'});
-            }
-            if (!/^\d{13,19}$/.test(card)) {
-              return Swal.fire({icon:'error', title:'Số thẻ không hợp lệ', text:'Số thẻ phải gồm 13–19 chữ số.'});
-            }
-            if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(exp)) {
-              return Swal.fire({icon:'error', title:'Ngày hết hạn sai', text:'Định dạng MM/YY. Ví dụ 08/26.'});
-            } else {
-              const [m, y] = exp.split('/').map(Number);
-              const d = new Date(); const cm = d.getMonth()+1; const cy = d.getFullYear()%100;
-              if (!(y>cy || (y===cy && m>=cm))) {
-                return Swal.fire({icon:'error', title:'Thẻ đã hết hạn', text:'Vui lòng chọn tháng/năm hợp lệ.'});
-              }
-            }
-            if (!/^\d{3,4}$/.test(cvv.value)) {
-              return Swal.fire({icon:'error', title:'CVV không hợp lệ', text:'CVV gồm 3–4 chữ số.'});
-            }
-            if (!/^[A-Z ]+$/.test(name.toUpperCase())) {
-              return Swal.fire({icon:'error', title:'Tên chủ thẻ không hợp lệ', text:'Chỉ dùng chữ cái và khoảng trắng.'});
+                maDonElement.innerText = maDon;
             }
 
-            // Demo success
-            Swal.fire({icon:'success', title:'Giao dịch thành công!', text:'LOVE YOU ♥♥♥'}).then(()=> {
-              // bạn có thể submit form ở đây nếu muốn
-              // document.querySelector('form[method="post"]').submit();
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    switch (this.value) {
+                        case 'ChuyenKhoan':
+                            qrContainer.style.display = 'block';
+                            visaContainer.style.display = 'none';
+                            qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent("Chuyen khoan don hang " + maDon) + '&size=250x250';
+                            break;
+                        case 'Momo':
+                            qrContainer.style.display = 'block';
+                            visaContainer.style.display = 'none';
+                            qrImage.src = '/images/payment/qr-momo.png';
+                            break;
+                        case 'Visa':
+                            qrContainer.style.display = 'none';
+                            visaContainer.style.display = 'block';
+                            break;
+                        default:
+                            qrContainer.style.display = 'none';
+                            visaContainer.style.display = 'none';
+                            break;
+                    }
+                });
             });
-          });
+
+            const cardInput = document.getElementById("cardNumber");
+            const cardLogo = document.getElementById("cardLogo");
+
+            cardInput?.addEventListener("input", function () {
+                const value = cardInput.value.replace(/\s/g, "");
+                if (value.startsWith("4")) {
+                    cardLogo.src = "/images/payment/visa.png";
+                    cardLogo.style.display = "block";
+                } else if (/^5[1-5]/.test(value)) {
+                    cardLogo.src = "/images/payment/mastercard.png";
+                    cardLogo.style.display = "block";
+                } else {
+                    cardLogo.style.display = "none";
+                }
+            });
         });
     </script>
     <script>
@@ -668,26 +624,48 @@
             });
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-                document.addEventListener("DOMContentLoaded", function () {
-          const monthSelect = document.getElementById("expiryMonth");
-          const yearSelect  = document.getElementById("expiryYear");
-          const hidden      = document.getElementById("visaExpiryHidden");
-          const form        = document.getElementById("checkoutForm");
+                // [REPLACE START] Chỉ đồng bộ từ 2 select → hidden
+        document.addEventListener("DOMContentLoaded", function () {
+            const monthSelect = document.getElementById("expiryMonth");
+            const yearSelect  = document.getElementById("expiryYear");
+            const hidden      = document.getElementById("visaExpiryHidden");
 
-          function updateExpiryHidden() {
-            const mm = monthSelect.value;
-            const yy = yearSelect.value;
-            hidden.value = (mm && yy) ? `${mm}/${yy}` : "";
+            function updateHidden() {
+                const mm = monthSelect.value;
+                const yy = yearSelect.value;
+                hidden.value = (mm && yy) ? `${mm}/${yy}` : "";
+            }
+
+            monthSelect.addEventListener("change", updateHidden);
+            yearSelect .addEventListener("change", updateHidden);
+
+            // chốt lại trước khi submit
+            const form = document.querySelector('form.checkout');
+            if (form) form.addEventListener("submit", updateHidden);
+        });
+        /* [REPLACE END] */
+    </script>
+    <script>
+        // [ADD] format số thẻ & giới hạn CVV
+        document.addEventListener('DOMContentLoaded', function () {
+          const cardInput = document.getElementById("cardNumber");
+          const cvvInput  = document.querySelector('[name="visaCVV"]');
+
+          if (cardInput){
+            cardInput.setAttribute('inputmode','numeric');
+            cardInput.addEventListener('input', function(){
+              let v = cardInput.value.replace(/\D/g,'').slice(0,19);
+              cardInput.value = v.replace(/(.{4})/g,'$1 ').trim();
+            });
           }
-
-          monthSelect.addEventListener("change", updateExpiryHidden);
-          yearSelect.addEventListener("change", updateExpiryHidden);
-          form.addEventListener("submit", updateExpiryHidden);  // <- giờ chắc chắn chạy
-
-          updateExpiryHidden(); // set lần đầu
+          if (cvvInput){
+            cvvInput.setAttribute('inputmode','numeric');
+            cvvInput.addEventListener('input', function(){
+              cvvInput.value = cvvInput.value.replace(/\D/g,'').slice(0,4);
+            });
+          }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 }
-

@@ -17,6 +17,17 @@
     <link href="~/css/shop.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/mega-menu.css" />
 
+    <!-- [ADD] Google Font có tiếng Việt -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --app-font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        .checkout, .order-summary, .payment, .card, .form-control, .custom-select, .btn {
+            font-family: var(--app-font) !important;
+        }
+    </style>
 
     <style>
         /* FIX live search */
