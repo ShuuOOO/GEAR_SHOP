@@ -1,0 +1,206 @@
+﻿@{
+    Layout = null;
+    var title = ViewData["Title"] as string ?? "Admin";
+}
+
+<!DOCTYPE html>
+<html lang="vi" class="light-style layout-menu-fixed" data-assets-path="/admin/assets/" data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@title - 4TL_SHOP Admin</title>
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/fonts/boxicons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/fonts/iconify-icons.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/css/core.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/css/theme-default.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/css/demo.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/node-waves/node-waves.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/apex-charts/apex-charts.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+
+    <style>
+        /* THÊM MỚI: vài util nho nhỏ cho bảng hình ảnh */
+        .table-admin img {
+            width: auto !important;
+            height: auto !important;
+            max-width: none !important;
+        }
+
+        .table-admin .thumb {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            display: block;
+        }
+
+        .clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+    <script src="~/admin/assets/vendor/js/helpers.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/js/config.js" asp-append-version="true"></script>
+    @* Nếu cần bật customizer:
+<script src="~/admin/assets/js/template-customizer.js" asp-append-version="true"></script>
+*@
+</head>
+<body>
+    <!-- THÊM MỚI: Khung Sneat tối giản -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Sidebar -->
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo px-3">
+                    <a href="/Admin" class="app-brand-link">
+                        <span class="app-brand-text demo">4TL Admin</span>
+                    </a>
+                </div>
+                <ul class="menu-inner py-1">
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:home"></span>
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Bán hàng</li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="SanPhams" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="SanPhams" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:package"></span>
+                            <div>Sản phẩm</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DanhMucs" ? "active" : "")">
+                        @* Nếu controller của bạn là DanhMucSanPhamsController → đổi asp-controller="DanhMucSanPhams"
+       Nếu bạn đặt tên DanhMucController → đổi asp-controller="DanhMuc"
+       Ở đây mình giả định "DanhMucsController" *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:category"></span>
+                            <div>Danh mục</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DonHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="DonHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:cart"></span>
+                            <div>Đơn hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhapHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhapHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:import"></span>
+                            <div>Nhập hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhoHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:store"></span>
+                            <div>Kho</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhaCungCaps" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhaCungCaps" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:buildings"></span>
+                            <div>Nhà cung cấp</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Người dùng</li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhachHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="KhachHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:user"></span>
+                            <div>Khách hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhanViens" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhanViens" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:id-card"></span>
+                            <div>Nhân viên</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaoTaiKhoans" ? "active" : "")">
+                        @* Nếu controller quản lý tài khoản tên khác (AccountsController) → đổi asp-controller="Accounts" *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="TaoTaiKhoans" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:lock-alt"></span>
+                            <div>Tài khoản</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Nội dung</li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TechNews" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="TechNews" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:news"></span>
+                            <div>Tin tức</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Báo cáo</li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="BaoCao" ? "active" : "")">
+                        @* Tên controller báo cáo của bạn là gì → đặt đúng ở đây *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="BaoCao" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:bar-chart-alt-2"></span>
+                            <div>Doanh thu</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- /Sidebar -->
+            <!-- Main -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme">
+                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <span class="fw-bold ms-3">4TL_SHOP Admin</span>
+                    </div>
+                </nav>
+
+                <!-- Content -->
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        @RenderBody()
+                    </div>
+
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div class="container-xxl d-flex justify-content-between py-2">
+                            <div>© @DateTime.Now.Year 4TL_SHOP</div>
+                            <div class="me-3">v1.0</div>
+                        </div>
+                    </footer>
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- /Content -->
+            </div>
+            <!-- /Main -->
+        </div>
+    </div>
+
+    <script src="~/admin/assets/vendor/libs/jquery/jquery.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/popper/popper.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/js/bootstrap.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/node-waves/node-waves.js" asp-append-version="true"></script>
+
+    <script src="~/admin/assets/vendor/libs/apex-charts/apexcharts.js" asp-append-version="true"></script>
+
+    <script src="~/admin/assets/vendor/js/menu.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/js/main.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

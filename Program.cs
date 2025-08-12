@@ -27,10 +27,7 @@ ConfigureServices(builder.Services, builder.Configuration);
 var app = builder.Build();
 
 app.MapHub<ChatHub>("/chatHub");
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-);
+
 // seed data
 using (var scope = app.Services.CreateScope())
 {
@@ -146,7 +143,6 @@ static void ConfigureAuthorization(IServiceCollection services)
 // Pipeline configuration method
 static void ConfigurePipeline(WebApplication app)
 {
-    // Error handling
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Home/Error");
@@ -157,32 +153,24 @@ static void ConfigurePipeline(WebApplication app)
         app.UseDeveloperExceptionPage();
     }
 
-    // Security headers
     app.UseHttpsRedirection();
-
-    // Static files
     app.UseStaticFiles();
-
-    // Routing
     app.UseRouting();
 
-    // Session
-    app.UseSession();
-
-    // Authentication & Authorization
-    app.UseAuthentication();
+    app.UseSession();          // session
+    app.UseAuthentication();   // auth
     app.UseAuthorization();
 
-    app.UseSession();
+    // ❷ Map route cho Areas TRƯỚC
+    app.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
-
-    // Route mapping
+    // ❸ Rồi mới tới default
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    app.MapControllerRoute(
-        name: "admin",
-        pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
-        defaults: new { area = "Admin" });
+    // SignalR
+    app.MapHub<ChatHub>("/chatHub");
 }

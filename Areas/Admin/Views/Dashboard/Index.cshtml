@@ -1,0 +1,73 @@
+﻿@model GEAR_SHOP.Models.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<!-- BEGIN: DASHBOARD-CARDS -->
+<div class="row">
+    <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="d-block mb-1">Sản phẩm</span>
+                <h3 class="card-title mb-2">@Model.TongSanPham</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="d-block mb-1">Đơn hàng</span>
+                <h3 class="card-title mb-2">@Model.TongDonHang</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="d-block mb-1">Khách hàng</span>
+                <h3 class="card-title mb-2">@Model.TongKhachHang</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="d-block mb-1">Doanh thu tháng</span>
+                <h3 class="card-title mb-2">@Model.DoanhThuThang.ToString("N0") ₫</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: DASHBOARD-CARDS -->
+<!-- BEGIN: CHART -->
+<div class="card">
+    <div class="card-header">Doanh thu 7 ngày</div>
+    <div class="card-body">
+        <div id="chartDoanhThu"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // BEGIN: APEXCHARTS
+        (function () {
+          const el = document.querySelector('#chartDoanhThu');
+          if (!el || typeof ApexCharts === 'undefined') return;
+
+          const options = {
+            chart: { type: 'line', height: 320, toolbar: { show: false } },
+            series: [{ name: 'Doanh thu', data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.DoanhThuNgay)) }],
+            xaxis: { categories: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.NgayLabels)) },
+            yaxis: { labels: { formatter: val => new Intl.NumberFormat('vi-VN').format(val) } },
+            dataLabels: { enabled: false }
+          };
+
+          new ApexCharts(el, options).render();
+        })();
+        // END: APEXCHARTS
+    </script>
+}

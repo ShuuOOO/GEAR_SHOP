@@ -116,12 +116,22 @@ namespace TL4_SHOP.Controllers
                 TempData["Message"] = "Đăng nhập thành công!";
 
                 // Điều hướng theo vai trò
-                if (user.VaiTro == "Admin") return RedirectToAction("Index", "Admin");
-                if (user.VaiTro == "Nhân viên quản lý sản phẩm") return RedirectToAction("Index", "QuanLySanPham");
-                if (user.VaiTro == "Nhân viên quản lý đơn hàng") return RedirectToAction("Index", "AdminDonHang");
-                if (user.VaiTro == "Nhân viên quản lý nhân sự") return RedirectToAction("QuanLyNhanVien", "QuanLyNhanVien");
-                if (user.VaiTro == "Nhân viên chăm sóc khách hàng") return RedirectToAction("Index", "ChamSocKhachHang");
+                if (user.VaiTro == "Admin")
+                    return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
 
+                if (user.VaiTro == "Nhân viên quản lý sản phẩm")
+                    return RedirectToAction("Index", "QuanLySanPham", new { area = "Admin" });
+
+                if (user.VaiTro == "Nhân viên quản lý đơn hàng")
+                    return RedirectToAction("Index", "AdminDonHang", new { area = "Admin" });
+
+                if (user.VaiTro == "Nhân viên quản lý nhân sự")
+                    return RedirectToAction("QuanLyNhanVien", "QuanLyNhanVien", new { area = "Admin" });
+
+                if (user.VaiTro == "Nhân viên chăm sóc khách hàng")
+                    return RedirectToAction("Index", "ChamSocKhachHang", new { area = "Admin" });
+
+                // còn lại → về trang chủ
                 return RedirectToAction("Index", "Home");
             }
 

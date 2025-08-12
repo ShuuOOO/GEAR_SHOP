@@ -36,6 +36,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="wwwroot\admin\" />
   </ItemGroup>
 
 </Project>
