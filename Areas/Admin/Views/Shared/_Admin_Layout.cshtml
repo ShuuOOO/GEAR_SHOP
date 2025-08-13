@@ -23,6 +23,26 @@
     @RenderSection("Styles", required: false)
 
     <style>
+        .breadcrumb {
+            --bs-breadcrumb-divider: "›";
+        }
+
+            .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+                color: #9aa0a6;
+            }
+
+            .breadcrumb .bx {
+                font-size: 1.05rem;
+                line-height: 1;
+            }
+
+        .navbar .btn i {
+            margin-right: .35rem;
+        }
+    </style>
+
+
+    <style>
         /* THÊM MỚI: vài util nho nhỏ cho bảng hình ảnh */
         .table-admin img {
             width: auto !important;
@@ -59,14 +79,29 @@
             <!-- Sidebar -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo px-3">
-                    <a href="/Admin" class="app-brand-link">
-                        <span class="app-brand-text demo">4TL Admin</span>
+                    <a href="/" class="app-brand-link">
+                        
+                        <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json"
+                                   trigger="hover"
+                                   colors="primary:#121331,secondary:#08a88a"
+                                   style="width:32px;height:32px;margin-right:8px">
+                        </lord-icon>
+                       
+
+                        <span class="app-brand-text demo">4TL</span>
                     </a>
                 </div>
                 <ul class="menu-inner py-1">
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "active" : "")">
                         <a class="menu-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:home"></span>
+                            
+                            <lord-icon src="https://cdn.lordicon.com/btfbysou.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
+                            
+
                             <div>Dashboard</div>
                         </a>
                     </li>
@@ -75,7 +110,11 @@
 
                     <li class="menu-item">
                         <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
-                            <i class="menu-icon tf-icons bx bx-package"></i>
+                            <lord-icon src="https://cdn.lordicon.com/abgykmtd.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
                             <div>Sản phẩm</div>
                         </a>
                     </li>
@@ -85,14 +124,22 @@
        Nếu bạn đặt tên DanhMucController → đổi asp-controller="DanhMuc"
        Ở đây mình giả định "DanhMucsController" *@
                         <a class="menu-link" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:category"></span>
+                            <lord-icon src="https://cdn.lordicon.com/dutqakce.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
                             <div>Danh mục</div>
                         </a>
                     </li>
 
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DonHangs" ? "active" : "")">
                         <a class="menu-link" asp-area="Admin" asp-controller="DonHangs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:cart"></span>
+                            <lord-icon src="https://cdn.lordicon.com/nvtfowkn.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
                             <div>Đơn hàng</div>
                         </a>
                     </li>
@@ -165,10 +212,52 @@
             <div class="layout-page">
                 <!-- Navbar -->
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme">
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <span class="fw-bold ms-3">4TL - Chào mừng bạn đến với trang quản trị ♥</span>
+                    <div class="navbar-nav-right d-flex align-items-center w-100 justify-content-between" id="navbar-collapse">
+                        <!-- Breadcrumb -->
+                        <ol class="breadcrumb mb-0 align-items-center">
+                            <li class="breadcrumb-item">
+                                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-body d-flex align-items-center">
+                                    <lord-icon src="https://cdn.lordicon.com/rrfthkgx.json"
+                                               trigger="hover"
+                                               style="width:20px;height:20px">
+                                    </lord-icon>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                        </ol>
+
+                        <!-- Nút chức năng -->
+                        <div class="d-flex align-items-center gap-2">
+                            <!-- Thông báo -->
+                            <a href="/admin/thongbao" class="btn btn-sm btn-warning d-flex align-items-center gap-1">
+                                <lord-icon src="https://cdn.lordicon.com/ahxaipjb.json"
+                                           trigger="hover"
+                                           style="width:20px;height:20px">
+                                </lord-icon>
+                                <span class="d-none d-sm-inline">Thông báo</span>
+                            </a>
+
+                            <!-- Về website -->
+                            <a href="/" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1">
+                                <lord-icon src="https://cdn.lordicon.com/axroojxh.json"
+                                           trigger="hover"
+                                           style="width:20px;height:20px">
+                                </lord-icon>
+                                <span class="d-none d-sm-inline">Về website</span>
+                            </a>
+
+                            <!-- Tài liệu -->
+                            <a href="/admin/tailieu" target="_blank" class="btn btn-sm btn-primary d-flex align-items-center gap-1">
+                                <lord-icon src="https://cdn.lordicon.com/cfkiwvcc.json"
+                                           trigger="hover"
+                                           style="width:20px;height:20px">
+                                </lord-icon>
+                                <span class="d-none d-sm-inline">Tài liệu</span>
+                            </a>
+                        </div>
                     </div>
                 </nav>
+
 
                 <!-- Content -->
                 <div class="content-wrapper">
@@ -200,6 +289,8 @@
 
     <script src="~/admin/assets/vendor/js/menu.js" asp-append-version="true"></script>
     <script src="~/admin/assets/js/main.js" asp-append-version="true"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

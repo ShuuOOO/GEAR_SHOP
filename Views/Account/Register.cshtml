@@ -13,6 +13,7 @@
                 </div>
                 <div class="card-body">
                     <form asp-action="Register" method="post">
+                        @Html.AntiForgeryToken()
                         <div class="mb-3">
                             <label asp-for="Username" class="form-label">Tên đăng nhập</label>
                             <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập..." />

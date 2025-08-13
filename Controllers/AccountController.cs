@@ -50,6 +50,13 @@ namespace TL4_SHOP.Controllers
                 return false;
             }
         }
+        // Kiểm tra số điện thoại
+        private bool IsValidPhone(string? phone)
+        {
+            if (string.IsNullOrWhiteSpace(phone)) return false;
+            var digitsOnly = new string(phone.Where(char.IsDigit).ToArray());
+            return digitsOnly.Length >= 9 && digitsOnly.Length <= 15;
+        }
 
         [HttpGet]
         public IActionResult Login()
@@ -59,9 +66,9 @@ namespace TL4_SHOP.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken] // ====== THÊM MỚI: bảo vệ CSRF ======
         public async Task<IActionResult> Login(UserAccount account)
         {
-
             // Kiểm tra rỗng trước
             if (string.IsNullOrEmpty(account?.Username) || string.IsNullOrEmpty(account?.Password))
             {
@@ -69,75 +76,91 @@ namespace TL4_SHOP.Controllers
                 return View(account);
             }
 
-            var hashedPassword = HashPassword(account.Password);
+            var hashedInput = HashPassword(account.Password);
 
+            // Tìm theo HoTen hoặc Email
             var user = _context.TaoTaiKhoans
                 .FirstOrDefault(u => u.HoTen == account.Username || u.Email == account.Username);
-            if (user != null)
+
+            if (user == null)
             {
-                var claims = new List<Claim>();
-
-                if (!string.IsNullOrEmpty(user.HoTen))
-                    claims.Add(new Claim(ClaimTypes.Name, user.HoTen));
-
-                claims.Add(new Claim("TaiKhoanId", user.TaiKhoanId.ToString()));
-
-                if (!string.IsNullOrEmpty(user.Email))
-                    claims.Add(new Claim(ClaimTypes.Email, user.Email));
-
-                if (!string.IsNullOrEmpty(user.VaiTro))
-                    claims.Add(new Claim(ClaimTypes.Role, user.VaiTro));
-
-                // Lưu TaiKhoanId vào session nếu cần
-                HttpContext.Session.SetInt32("TaiKhoanId", user.TaiKhoanId);
-
-                // Lấy NhanVienId từ bảng NhanVien dựa trên TaiKhoanId
-                var nhanVien = _context.NhanViens.FirstOrDefault(nv => nv.NhanVienId == user.NhanVienId);
-                if (nhanVien != null)
-                {
-                    HttpContext.Session.SetInt32("NhanVienId", nhanVien.NhanVienId);
-                }
-
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
-
-                await HttpContext.SignOutAsync();
-
-                await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    principal,
-                    new AuthenticationProperties
-                    {
-                        IsPersistent = account.RememberMe,
-                        ExpiresUtc = DateTime.UtcNow.AddDays(account.RememberMe ? 7 : 1)
-                    });
-
-                TempData["Message"] = "Đăng nhập thành công!";
-
-                // Điều hướng theo vai trò
-                if (user.VaiTro == "Admin")
-                    return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-
-                if (user.VaiTro == "Nhân viên quản lý sản phẩm")
-                    return RedirectToAction("Index", "QuanLySanPham", new { area = "Admin" });
-
-                if (user.VaiTro == "Nhân viên quản lý đơn hàng")
-                    return RedirectToAction("Index", "AdminDonHang", new { area = "Admin" });
-
-                if (user.VaiTro == "Nhân viên quản lý nhân sự")
-                    return RedirectToAction("QuanLyNhanVien", "QuanLyNhanVien", new { area = "Admin" });
-
-                if (user.VaiTro == "Nhân viên chăm sóc khách hàng")
-                    return RedirectToAction("Index", "ChamSocKhachHang", new { area = "Admin" });
-
-                // còn lại → về trang chủ
-                return RedirectToAction("Index", "Home");
+                ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng.";
+                return View(account);
             }
 
+            // ====== SỬA: So khớp mật khẩu ======
+            bool passwordOk = false;
 
-            ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng.";
-            return View(account);
+            // 1) Khớp hash chuẩn
+            if (user.MatKhau == hashedInput) passwordOk = true;
+
+            // 2) Trường hợp DB cũ còn plaintext (ví dụ "123") → auto nâng cấp
+            else if (!string.IsNullOrEmpty(user.MatKhau) && user.MatKhau == account.Password)
+            {
+                user.MatKhau = hashedInput;
+                _context.SaveChanges(); // nâng cấp ngay
+                passwordOk = true;
+            }
+
+            if (!passwordOk)
+            {
+                ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng.";
+                return View(account);
+            }
+            // ====== HẾT: SỬA so khớp mật khẩu ======
+
+            // Đồng bộ vai trò
+            var role = NormalizeRole(user.VaiTro, user.LoaiTaiKhoan);
+
+            var claims = new List<Claim>();
+            if (!string.IsNullOrEmpty(user.HoTen))
+                claims.Add(new Claim(ClaimTypes.Name, user.HoTen));
+
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.TaiKhoanId.ToString())); // THÊM MỚI
+            if (!string.IsNullOrEmpty(user.Email))
+                claims.Add(new Claim(ClaimTypes.Email, user.Email));
+
+            claims.Add(new Claim(ClaimTypes.Role, role)); // gắn vai trò đã chuẩn hóa
+
+            // Lưu Session
+            HttpContext.Session.SetInt32("TaiKhoanId", user.TaiKhoanId);
+
+            var nhanVien = _context.NhanViens.FirstOrDefault(nv => nv.NhanVienId == user.NhanVienId);
+            if (nhanVien != null)
+                HttpContext.Session.SetInt32("NhanVienId", nhanVien.NhanVienId);
+
+            // Đăng nhập cookie
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignOutAsync();
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                principal,
+                new AuthenticationProperties
+                {
+                    IsPersistent = account.RememberMe,
+                    ExpiresUtc = DateTime.UtcNow.AddDays(account.RememberMe ? 7 : 1)
+                });
+
+            TempData["Message"] = "Đăng nhập thành công!";
+
+            // Điều hướng theo vai trò (dựa trên role đã Normalize)
+            switch (role)
+            {
+                case "Admin":
+                    return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                case "Nhân viên quản lý sản phẩm":
+                    return RedirectToAction("Index", "QuanLySanPham", new { area = "Admin" });
+                case "Nhân viên quản lý đơn hàng":
+                    return RedirectToAction("Index", "AdminDonHang", new { area = "Admin" });
+                case "Nhân viên quản lý nhân sự":
+                    return RedirectToAction("QuanLyNhanVien", "QuanLyNhanVien", new { area = "Admin" });
+                case "Nhân viên chăm sóc khách hàng":
+                    return RedirectToAction("Index", "ChamSocKhachHang", new { area = "Admin" });
+                default:
+                    return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpGet]
@@ -147,8 +170,46 @@ namespace TL4_SHOP.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(UserAccount account)
         {
+            // ====== THÊM: chuẩn hoá input ======
+            account.Username = account?.Username?.Trim();
+            account.Email = account?.Email?.Trim().ToLowerInvariant();
+            account.Phone = account?.Phone?.Trim();
+            // ====== HẾT THÊM ======
+
+            // ====== THÊM: kiểm tra cơ bản ======
+            if (string.IsNullOrWhiteSpace(account?.Username) ||
+                string.IsNullOrWhiteSpace(account.Email) ||
+                string.IsNullOrWhiteSpace(account.Phone) ||
+                string.IsNullOrWhiteSpace(account.Password))
+            {
+                ViewBag.Message = "Vui lòng nhập đầy đủ thông tin.";
+                return View(account);
+            }
+
+            if (!IsValidEmail(account.Email))
+            {
+                ViewBag.Message = "Email không đúng định dạng.";
+                return View(account);
+            }
+
+            // Nếu model UserAccount có ConfirmPassword thì kiểm tra khớp
+            var confirmPwd = (account as dynamic)?.ConfirmPassword as string;
+            if (!string.IsNullOrEmpty(confirmPwd) && confirmPwd != account.Password)
+            {
+                ViewBag.Message = "Mật khẩu xác nhận không khớp.";
+                return View(account);
+            }
+
+            if (!IsValidPhone(account.Phone))
+            {
+                ViewBag.Message = "Số điện thoại không hợp lệ (9–15 chữ số).";
+                return View(account);
+            }
+            // ====== HẾT THÊM ======
+
             if (ModelState.IsValid)
             {
                 // Kiểm tra trùng email
@@ -158,8 +219,8 @@ namespace TL4_SHOP.Controllers
                     return View(account);
                 }
 
-                // Kiểm tra trùng username
-                if (_context.TaoTaiKhoans.Any(u => u.HoTen == account.Username))
+                // Kiểm tra trùng username (so sánh không phân biệt hoa thường)
+                if (_context.TaoTaiKhoans.Any(u => u.HoTen.ToLower() == account.Username!.ToLower()))
                 {
                     ViewBag.Message = "Tên đăng nhập đã được sử dụng.";
                     return View(account);
@@ -174,34 +235,42 @@ namespace TL4_SHOP.Controllers
 
                 try
                 {
-                    // Hash password
                     var hashedPassword = HashPassword(account.Password);
 
-                    // 👉 Tạo tài khoản + khách hàng chỉ trong 1 lần Add
+                    // 👉 Tạo bản ghi tài khoản (đồng bộ VaiTro/LoaiTaiKhoan)
                     var newUser = new TaoTaiKhoan
                     {
-                        HoTen = account.Username,
+                        HoTen = account.Username,          // username
                         Email = account.Email,
                         Phone = account.Phone,
                         MatKhau = hashedPassword,
-                        LoaiTaiKhoan = "KhachHang",
+                        VaiTro = "Khách hàng",
+                        LoaiTaiKhoan = "KhachHang"
                     };
 
+                    newUser.LoaiTaiKhoan = (new[] { "Admin", "NhanVien", "KhachHang" }.Contains(newUser.LoaiTaiKhoan) ? newUser.LoaiTaiKhoan : "KhachHang");
                     _context.TaoTaiKhoans.Add(newUser);
                     _context.SaveChanges();
 
                     TempData["Message"] = "Đăng ký thành công! Vui lòng đăng nhập.";
                     return RedirectToAction("Login");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    ViewBag.Message = "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại.";
+                    // Hiển thị lỗi gốc ở môi trường DEBUG để bạn bắt đúng nguyên nhân (độ dài cột, unique, not null,…)
+                #if DEBUG
+                    ViewBag.Message = "Lỗi khi đăng ký: " + (ex.GetBaseException()?.Message ?? ex.Message);
+                #else
+            ViewBag.Message = "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại.";
+                #endif
                     return View(account);
                 }
             }
 
+            // ModelState không hợp lệ → trả về view để hiển thị validation
             return View(account);
         }
+
 
 
 
@@ -244,9 +313,10 @@ namespace TL4_SHOP.Controllers
                             {
                                 HoTen = username,
                                 Email = email,
-                                Phone = "", // External login có thể không có phone
-                                MatKhau = HashPassword(Guid.NewGuid().ToString()), // Random password
-                                LoaiTaiKhoan = "KhachHang"
+                                Phone = "",
+                                MatKhau = HashPassword(Guid.NewGuid().ToString()),
+                                VaiTro = "Khách hàng",      
+                                LoaiTaiKhoan = "KhachHang" 
                             };
 
                             _context.TaoTaiKhoans.Add(newUser);
@@ -279,6 +349,7 @@ namespace TL4_SHOP.Controllers
 
         // Xử lý gửi yêu cầu quên mật khẩu
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ForgotPassword(string email)
         {
             if (string.IsNullOrEmpty(email))
@@ -354,6 +425,7 @@ namespace TL4_SHOP.Controllers
 
         // Xử lý Reset Password
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ResetPassword(string token, string newPassword, string confirmPassword)
         {
             if (string.IsNullOrEmpty(token))
@@ -509,10 +581,10 @@ namespace TL4_SHOP.Controllers
                     HoTen = "admin",
                     Email = "admin@shop.com",
                     Phone = "0123456789",
-                    MatKhau = HashPassword("123"), // Mật khẩu đã được hash
+                    MatKhau = HashPassword("123"),
+                    VaiTro = "Admin",
                     LoaiTaiKhoan = "Admin"
                 };
-
                 _context.TaoTaiKhoans.Add(adminUser);
                 _context.SaveChanges();
 
@@ -550,6 +622,10 @@ namespace TL4_SHOP.Controllers
                 if (adminUser != null)
                 {
                     adminUser.MatKhau = HashPassword("123");
+                    // ====== THÊM MỚI: giữ vai trò là Admin ======
+                    if (string.IsNullOrWhiteSpace(adminUser.VaiTro)) adminUser.VaiTro = "Admin";
+                    if (string.IsNullOrWhiteSpace(adminUser.LoaiTaiKhoan)) adminUser.LoaiTaiKhoan = "Admin";
+                    // ====== HẾT THÊM ======
                     _context.SaveChanges();
 
                     return Json(new
@@ -672,6 +748,37 @@ namespace TL4_SHOP.Controllers
             TempData["Message"] = "Cập nhật thông tin thành công.";
             return RedirectToAction("Profile");
         }
+
+        // ====== THÊM MỚI: hằng ROLE & helper ======
+        private static readonly string[] AllowedRoles = new[]
+        {
+            "Admin",
+            "Nhân viên quản lý sản phẩm",
+            "Nhân viên quản lý đơn hàng",
+            "Nhân viên quản lý nhân sự",
+            "Nhân viên chăm sóc khách hàng",
+            "Khách hàng"
+        };
+
+        private string NormalizeRole(string? vaiTro, string? loaiTaiKhoan)
+        {
+            // Ưu tiên VaiTro; rỗng thì fallback từ LoaiTaiKhoan
+            var role = !string.IsNullOrWhiteSpace(vaiTro) ? vaiTro!.Trim()
+                      : !string.IsNullOrWhiteSpace(loaiTaiKhoan) ? loaiTaiKhoan!.Trim()
+                      : "Khách hàng";
+
+            // Chuẩn hóa một số biến thể phổ biến
+            if (string.Equals(role, "KhachHang", StringComparison.OrdinalIgnoreCase)) role = "Khách hàng";
+            if (string.Equals(role, "Nhan vien quan ly san pham", StringComparison.OrdinalIgnoreCase)) role = "Nhân viên quản lý sản phẩm";
+            if (string.Equals(role, "Nhan vien quan ly don hang", StringComparison.OrdinalIgnoreCase)) role = "Nhân viên quản lý đơn hàng";
+            if (string.Equals(role, "Nhan vien quan ly nhan su", StringComparison.OrdinalIgnoreCase)) role = "Nhân viên quản lý nhân sự";
+            if (string.Equals(role, "Nhan vien cham soc khach hang", StringComparison.OrdinalIgnoreCase)) role = "Nhân viên chăm sóc khách hàng";
+
+            // Không nằm trong whitelist → gán Khách hàng
+            if (!AllowedRoles.Contains(role)) role = "Khách hàng";
+            return role;
+        }
+        // ====== HẾT: THÊM MỚI ======
 
     }
 }

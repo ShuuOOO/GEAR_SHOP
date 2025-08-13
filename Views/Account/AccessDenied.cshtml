@@ -1,8 +1,135 @@
 ﻿@{
-    ViewData["Title"] = "Access Denied";
-    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+    ViewData["Title"] = "Không có quyền truy cập";
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+
+    // Lấy ReturnUrl nếu có để gợi ý quay lại / đăng nhập lại đúng trang
+    var returnUrl = Context.Request.Query["ReturnUrl"].ToString();
+    var safeReturn = string.IsNullOrWhiteSpace(returnUrl) ? "/" : returnUrl;
+    var mailtoHref =
+        $"mailto:cskh@4tlshop.com?subject=Yeu%20cau%20cap%20quyen&body=Toi%20can%20quyen%20truy%20cap%20vao%20{Uri.EscapeDataString(safeReturn)}";
 }
 
-<h2 style="font-family: Tahoma">Truy cập bị từ chối</h2>
-<p>Bạn không có quyền truy cập trang này.</p>
-<a href="javascript:history.back()" class="btn btn-secondary" style="border-radius: 10px"> <i class="fas fa-arrow-left me-2"></i> Quay lại</a>
+
+<style>
+    .denied-wrap{padding-top:56px;padding-bottom:56px}
+    .denied-card{border:0;border-radius:22px;box-shadow:0 14px 34px rgba(0,0,0,.08);overflow:hidden;background:#fff}
+
+    /* hero đổi icon + màu */
+    .denied-hero {
+        background: linear-gradient(135deg,#ffe59e 0%,#ffc8af 50%,#ffb3b3 100%);
+        padding: 36px 42px 22px;
+        color: #3a2a18
+    }
+
+    .denied-icon {
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: #ef4444;
+        box-shadow: 0 10px 24px rgba(239,68,68,.25);
+        margin-left: 10px;
+        margin-right: 18px
+    }
+
+    .denied-title {
+        font-family: "Be Vietnam Pro","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-weight: 800;
+        letter-spacing: .2px
+    }
+
+    .denied-body{padding:28px}
+    .chip{display:inline-block;padding:6px 12px;border-radius:999px;background:#eef2f7;font-weight:700;font-size:.9rem;color:#334155;border:1px solid #e2e8f0}
+
+    /* nút “soft” luôn thấy rõ, không trắng trên trắng */
+    .btn-row .btn {
+        border-radius: 12px;
+        padding: 10px 18px;
+        font-weight: 700
+    }
+
+    .btn-row {
+        gap: 14px;
+        row-gap: 14px
+    }
+    .btn-ghost{background:#f3f4f6;border:1px solid rgba(0,0,0,.06);color:#374151}
+    .btn-ghost:hover{background:#e5e7eb;border-color:rgba(0,0,0,.12)}
+    .btn-ghost-blue{background:#eef2ff;border:1px solid #e0e7ff;color:#1e3a8a}
+    .btn-ghost-blue:hover{background:#e0e7ff}
+    .btn-ghost-outline{background:#fff;border:1px solid #d1d5db;color:#374151}
+    .btn-ghost-outline:hover{background:#f9fafb}
+
+    .hint{color:#6b7280}
+    .tip{color:#6b7280;font-size:.92rem}
+</style>
+
+<div class="container denied-wrap">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+            <div class="denied-card">
+                <!-- HERO: icon mới + tiêu đề font khác -->
+                <div class="denied-hero d-flex align-items-center" style="column-gap:24px">
+                    <div class="denied-icon me-3">
+                        <!-- SVG shield-exclamation (không cần thư viện icon) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8.46.146a.5.5 0 0 0-.92 0l-6 2A.5.5 0 0 0 1 2.62V8a7 7 0 1 0 14 0V2.62a.5.5 0 0 0-.54-.474l-6-2Z"/>
+                            <path fill="#fff" d="M8 5c.276 0 .5.224.5.5v3a.5.5 0 0 1-1 0v-3C7.5 5.224 7.724 5 8 5Zm0 6a.75.75 0 1 1 0 1.5A.75.75 0 0 1 8 11Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="denied-title mb-1">Bạn không có quyền truy cập</h2>
+                        <div class="hint">Tài khoản hiện tại không đủ quyền để vào trang này.</div>
+                    </div>
+                </div>
+
+                <!-- BODY -->
+                <div class="denied-body">
+                    <div class="mb-3">
+                        <span class="chip me-2">Người dùng: <strong>@(User?.Identity?.Name ?? "Chưa đăng nhập")</strong></span>
+                        @if (User?.Identity?.IsAuthenticated ?? false)
+                        {
+                            var role = User?.Claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Role)?.Value;
+                            if (!string.IsNullOrWhiteSpace(role))
+                            {
+                                <span class="chip">Vai trò hiện tại: <strong>@role</strong></span>
+                            }
+                        }
+                    </div>
+
+                    <ul class="mb-4 ps-3">
+                        <li>Nếu bạn có tài khoản có quyền cao hơn (ví dụ: <em>Admin, Nhân viên</em>), hãy đăng nhập lại.</li>
+                        <li>Nếu bạn nghĩ đây là nhầm lẫn, vui lòng liên hệ quản trị để được cấp quyền.</li>
+                    </ul>
+
+                    <!-- HÀNG NÚT: luôn rõ, không bị nền trắng -->
+                    <div class="btn-row d-flex flex-wrap gap-3 mt-1">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Về trang chủ</a>
+
+                        @if (!string.IsNullOrWhiteSpace(returnUrl))
+                        {
+                            <a href="@safeReturn" class="btn btn-ghost">Thử lại trang trước</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-ghost disabled" href="#" tabindex="-1" aria-disabled="true">Thử lại trang trước</a>
+                        }
+
+                        <a asp-area="" asp-controller="Account" asp-action="Login"
+                           asp-route-returnUrl="@safeReturn"
+                           class="btn btn-ghost-blue">
+                            Đăng nhập tài khoản khác
+                        </a>
+
+                        <a href="@mailtoHref" class="btn btn-ghost-outline">Liên hệ quản trị</a>
+                    </div>
+
+                    <div class="mt-4 tip">
+                        Mẹo: Nếu bạn vừa được cấp quyền, hãy <strong>đăng xuất</strong> rồi <strong>đăng nhập lại</strong> để có quyền mới nhé!.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

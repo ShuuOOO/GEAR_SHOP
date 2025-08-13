@@ -17,16 +17,13 @@ QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddSession();
 
-// Cho phép Controller + View
-builder.Services.AddControllersWithViews();
+
 
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);
 
 // Build the application
 var app = builder.Build();
-
-app.MapHub<ChatHub>("/chatHub");
 
 // seed data
 using (var scope = app.Services.CreateScope())
@@ -163,8 +160,9 @@ static void ConfigurePipeline(WebApplication app)
 
     // ❷ Map route cho Areas TRƯỚC
     app.MapControllerRoute(
-        name: "areas",
-        pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+    name: "areas",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}")
+   .RequireAuthorization("AdminOnly");
 
     // ❸ Rồi mới tới default
     app.MapControllerRoute(
