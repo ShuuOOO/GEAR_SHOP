@@ -366,6 +366,7 @@ wwwroot\images\products\316b56f7-f953-430d-abbe-10f94957e720.jpg
 wwwroot\images\products\38377a40-11e0-462a-9f62-17e0f081467e.jpg
 wwwroot\images\products\6d096a59-db7a-45e0-904e-98c459733bf1.jpg
 wwwroot\images\products\867d5796-3ae4-47e4-9dde-5b42cb444d31.jpg
+wwwroot\images\products\8de4bfd55fb34ff4b6f5d9b9a3a6bf28.jpg
 wwwroot\images\products\ac1cf5c5-bb06-4763-a4d5-a01ed03fef90.png
 wwwroot\images\products\acer_aspire_lite_15.jpg
 wwwroot\images\products\acer_aspire_lite_15_1.jpg
@@ -389,6 +390,7 @@ wwwroot\images\products\BanPhimLogitech.jpg
 wwwroot\images\products\BanPhimLogitech_1.jpg
 wwwroot\images\products\benq_mobiuz_ex3210u.jpg
 wwwroot\images\products\benq_mobiuz_ex3210u_1.jpg
+wwwroot\images\products\c7a929ef097341d2866ef0a358a6b7f5.jpg
 wwwroot\images\products\Chuot_Faker.jpg
 wwwroot\images\products\Chuot_Faker_1.jpg
 wwwroot\images\products\Chuot_Faker_3.jpg
@@ -418,6 +420,7 @@ wwwroot\images\products\iphone-16-pro.jpg
 wwwroot\images\products\iphone-16-pro_1.jpg
 wwwroot\images\products\kingston_fury_impact_ddr5.jpg
 wwwroot\images\products\kingston_fury_impact_ddr5_1.jpg
+wwwroot\images\products\lamzumazax.jpg
 wwwroot\images\products\Laptop HP 245 G10.jpg
 wwwroot\images\products\Laptop HP 245 G10_1.jpg
 wwwroot\images\products\logitech_gpro_x_superlight2.jpg
@@ -431,6 +434,7 @@ wwwroot\images\products\msi_raider_ge78hx.jpg
 wwwroot\images\products\msi_raider_ge78hx_1.jpg
 wwwroot\images\products\msi_rtx4060ti_gamingx.jpg
 wwwroot\images\products\msi_rtx4060ti_gamingx_1.jpg
+wwwroot\images\products\PC ULTRA.jpg
 wwwroot\images\products\pc_cps_asus_i3_gen12.jpg
 wwwroot\images\products\pc_cps_asus_i3_gen12_1.jpg
 wwwroot\images\products\Ram_G_Skill.jpg

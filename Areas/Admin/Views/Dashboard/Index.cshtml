@@ -4,45 +4,79 @@
     Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
 }
 
-<!-- BEGIN: DASHBOARD-CARDS -->
-<div class="row">
-    <div class="col-md-6 col-xl-3 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <span class="d-block mb-1">Sản phẩm</span>
-                <h3 class="card-title mb-2">@Model.TongSanPham</h3>
+@section Styles {
+    <style>
+        .kpi-card { border-radius: 16px; box-shadow: 0 4px 18px rgba(0,0,0,.05); }
+        .kpi-icon {
+          width: 44px; height: 44px; display: grid; place-items: center;
+          border-radius: 12px; font-size: 22px;
+        }
+        .status-chip { border-radius: 999px; padding: 8px 14px; font-weight: 600; }
+        .money { font-variant-numeric: tabular-nums; }
+    </style>
+}
+
+@* BEGIN: KPI CARDS *@
+<div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-primary text-primary">
+                    <i class="bx bx-cube"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Sản phẩm</small>
+                    <h3 class="mb-0">@Model.TongSanPham</h3>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6 col-xl-3 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <span class="d-block mb-1">Đơn hàng</span>
-                <h3 class="card-title mb-2">@Model.TongDonHang</h3>
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-info text-info">
+                    <i class="bx bx-receipt"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Đơn hàng</small>
+                    <h3 class="mb-0">@Model.TongDonHang</h3>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6 col-xl-3 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <span class="d-block mb-1">Khách hàng</span>
-                <h3 class="card-title mb-2">@Model.TongKhachHang</h3>
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-success text-success">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Khách hàng</small>
+                    <h3 class="mb-0">@Model.TongKhachHang</h3>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6 col-xl-3 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <span class="d-block mb-1">Doanh thu tháng</span>
-                <h3 class="card-title mb-2">@Model.DoanhThuThang.ToString("N0") ₫</h3>
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-warning text-warning">
+                    <i class="bx bx-dollar-circle"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Doanh thu tháng</small>
+                    <h3 class="mb-0 money">@Model.DoanhThuThang.ToString("N0") ₫</h3>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- END: DASHBOARD-CARDS -->
+@* END: KPI CARDS *@
+
+
 <!-- BEGIN: CHART -->
 <div class="card">
     <div class="card-header">Doanh thu 7 ngày</div>

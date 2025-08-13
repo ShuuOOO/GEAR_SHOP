@@ -11,7 +11,7 @@ namespace GEAR_SHOP.Areas.Admin.Controllers
     //[Authorize(Roles = "Admin,Nhân viên quản lý nhân sự")]
     public class DashboardController : Controller
     {
-        private readonly _4tlShopContext _context; // đổi đúng tên DbContext thực tế của bạn
+        private readonly _4tlShopContext _context; 
         public DashboardController(_4tlShopContext context) => _context = context;
 
         public async Task<IActionResult> Index()

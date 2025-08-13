@@ -168,8 +168,7 @@
     var phiVanChuyen = 15000;
     var tongCong = tongTien + phiVanChuyen;
 }
-<!-- giữ lại phần Page Header như cũ -->
-<!-- Cart Start -->
+
 <div class="container-fluid pt-5">
     <div class="row px-xl-5">
         <div class="col-lg-8 table-responsive mb-5">
@@ -188,7 +187,9 @@
                     {
                         <tr>
                             <td class="align-middle">
-                                <img src="~/img/@item.HinhAnh" alt="@item.TenSanPham" style="width: 50px;">
+								<img src="@Url.Content("~/" + ((item.HinhAnh?.Contains('/') ?? false) ? item.HinhAnh : $"images/products/{item.HinhAnh}"))"
+									 alt="@item.TenSanPham" style="width: 50px;"
+									 onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder-product.png")';">
                                 @item.TenSanPham
                             </td>
                             <td class="align-middle">@item.Gia.ToString("N0")đ</td>

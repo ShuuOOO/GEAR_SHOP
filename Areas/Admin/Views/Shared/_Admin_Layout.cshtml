@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>@title - 4TL_SHOP Admin</title>
+    <title>@title - 4TL</title>
 
     <link rel="stylesheet" href="~/admin/assets/vendor/fonts/boxicons.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/admin/assets/vendor/fonts/iconify-icons.css" asp-append-version="true" />
@@ -73,9 +73,9 @@
 
                     <li class="menu-header small text-uppercase">Bán hàng</li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="SanPhams" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="SanPhams" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:package"></span>
+                    <li class="menu-item">
+                        <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
+                            <i class="menu-icon tf-icons bx bx-package"></i>
                             <div>Sản phẩm</div>
                         </a>
                     </li>
@@ -166,7 +166,7 @@
                 <!-- Navbar -->
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme">
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <span class="fw-bold ms-3">4TL_SHOP Admin</span>
+                        <span class="fw-bold ms-3">4TL - Chào mừng bạn đến với trang quản trị ♥</span>
                     </div>
                 </nav>
 

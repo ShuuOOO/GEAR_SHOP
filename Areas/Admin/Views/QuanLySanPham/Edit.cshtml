@@ -1,0 +1,18 @@
+﻿@model TL4_SHOP.Models.ViewModels.ProductFormVM
+@{
+    ViewData["Title"] = "Sửa sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h4 class="mb-3">Sửa sản phẩm</h4>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="SanPhamID" />
+
+    <!-- Hiển thị lỗi model (nếu có) -->
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <partial name="_Form" model="Model" />
+
+</form>

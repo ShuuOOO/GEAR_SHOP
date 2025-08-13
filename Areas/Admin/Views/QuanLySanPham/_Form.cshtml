@@ -1,0 +1,191 @@
+﻿@model TL4_SHOP.Models.ViewModels.ProductFormVM
+
+<div class="card">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="TenSanPham" class="form-label"></label>
+                <input asp-for="TenSanPham" class="form-control" />
+                <span asp-validation-for="TenSanPham" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Gia" class="form-label"></label>
+                <input asp-for="Gia" class="form-control" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="GiaSauGiam" class="form-label"></label>
+                <input asp-for="GiaSauGiam" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="SoLuongTon" class="form-label"></label>
+                <input asp-for="SoLuongTon" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="DanhMucID" class="form-label"></label>
+                <select asp-for="DanhMucID" class="form-select"
+                        asp-items="@(new SelectList((IEnumerable<dynamic>)ViewBag.DanhMucs, "DanhMucId", "TenDanhMuc"))">
+                    <option value="">-- Chọn danh mục --</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="NhaCungCapID" class="form-label"></label>
+                <select asp-for="NhaCungCapID" class="form-select"
+                        asp-items="@(new SelectList((IEnumerable<dynamic>)ViewBag.NhaCungCaps, "NhaCungCapId", "TenNhaCungCap"))">
+                </select>
+                <span asp-validation-for="NhaCungCapID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <div class="form-check mt-4">
+                    <input asp-for="LaNoiBat" class="form-check-input" />
+                    <label asp-for="LaNoiBat" class="form-check-label ms-1">Nổi bật</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="MoTa" class="form-label"></label>
+                <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="ChiTiet" class="form-label"></label>
+                <textarea asp-for="ChiTiet" class="form-control" rows="5"></textarea>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Thông số kỹ thuật</label>
+
+                <div class="border rounded p-2">
+                    <div class="row g-2 align-items-center mb-2">
+                        <div class="col-md-5">
+                            <input id="spec-name" class="form-control" placeholder="Thuộc tính (VD: CPU, RAM, Kết nối)" />
+                        </div>
+                        <div class="col-md-5">
+                            <input id="spec-value" class="form-control" placeholder="Giá trị (VD: Intel i5, 16GB, USB-C)" />
+                        </div>
+                        <div class="col-md-2 d-grid">
+                            <button type="button" id="add-spec" class="btn btn-outline-primary">+ Thêm dòng</button>
+                        </div>
+                    </div>
+
+                    <table id="spec-table" class="table table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>Tính năng</th>
+                                <th>Thông số</th>
+                                <th style="width:80px"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- Trường thật lưu vào DB (HTML table) -->
+                <textarea asp-for="ThongSoKyThuat" class="d-none"></textarea>
+            </div>
+
+            <script>
+                (function () {
+                  const tbody = document.getElementById('spec-table').querySelector('tbody');
+                  const nameInput = document.getElementById('spec-name');
+                  const valueInput = document.getElementById('spec-value');
+                  const addBtn = document.getElementById('add-spec');
+                  const hidden = document.getElementById('@Html.IdFor(m => m.ThongSoKyThuat)');
+
+                  function escapeHtml(str) {
+                    return (str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+                  }
+
+                  function addRow(name, value) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                      <td><input class="form-control form-control-sm spec-name" value="${escapeHtml(name)}"></td>
+                      <td><input class="form-control form-control-sm spec-value" value="${escapeHtml(value)}"></td>
+                      <td class="text-end">
+                        <button type="button" class="btn btn-sm btn-outline-danger spec-del">Xóa</button>
+                      </td>`;
+                    tbody.appendChild(tr);
+                  }
+
+                  function serializeToHtml() {
+                  const rows = Array.from(tbody.querySelectorAll('tr')).map(tr => {
+                    const n = tr.querySelector('.spec-name').value.trim();
+                    const v = tr.querySelector('.spec-value').value.trim();
+                    return (n || v)
+                      ? `<tr><th>${escapeHtml(n)}</th><td>${escapeHtml(v)}</td></tr>`
+                      : '';
+                  }).filter(Boolean).join('');
+                  hidden.value = rows
+                    ? `<table class="table table-sm table-bordered"><tbody>${rows}</tbody></table>`
+                    : '';
+                }
+
+                  // + Thêm dòng
+                  addBtn.addEventListener('click', () => {
+                    if (nameInput.value.trim() || valueInput.value.trim()) {
+                      addRow(nameInput.value, valueInput.value);
+                      nameInput.value = ''; valueInput.value = '';
+                      nameInput.focus();
+                    }
+                  });
+
+                  // Nhấn Enter ở 2 ô input sẽ thêm dòng
+                    [nameInput, valueInput].forEach(el => el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') { e.preventDefault(); addBtn.click(); }
+                    }));
+
+
+                  // Xóa dòng
+                  document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('spec-del')) {
+                      e.target.closest('tr')?.remove();
+                    }
+                  });
+
+                  // Nạp lại khi Edit: parse HTML đã lưu
+                                  try {
+                  if (hidden.value) {
+                    const div = document.createElement('div');
+                    div.innerHTML = hidden.value;
+                    div.querySelectorAll('tbody tr').forEach(tr => {
+                      const cells = tr.querySelectorAll('th,td');   // <-- ĐỔI ở đây
+                      addRow(
+                        cells[0]?.textContent?.trim() || '',
+                        cells[1]?.textContent?.trim() || ''
+                      );
+                    });
+                  }
+                } catch {}
+
+                  // Trước khi submit, đóng gói lại vào hidden
+                  (document.currentScript.closest('form') || document.forms[0])
+                    .addEventListener('submit', serializeToHtml);
+                })();
+            </script>
+
+            <div class="col-md-6">
+                <label class="form-label">Ảnh sản phẩm</label>
+                <input type="file" name="HinhAnhFile" class="form-control" />
+                @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                {
+                    <div class="mt-2">
+                        <img src="~/@Model.HinhAnh" alt="preview" style="height:80px;border-radius:8px;border:1px solid #eee" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </div>
+    </div>
+</div>
+

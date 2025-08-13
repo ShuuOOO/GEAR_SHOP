@@ -235,7 +235,10 @@
 <div class="container-fluid py-5">
     <div class="row px-xl-5">
         <div class="col-lg-5 pb-5">
-            <img class="w-100 h-auto border" src="~/img/@Model.HinhAnh" alt="@Model.TenSanPham" />
+            <img class="w-100 h-auto border"
+                 src="@Url.Content("~/" + ((Model.HinhAnh?.Contains('/') ?? false) ? Model.HinhAnh : $"images/products/{Model.HinhAnh}"))"
+                 alt="@Model.TenSanPham"
+                 onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder-product.png")';" />
         </div>
 
         <div class="col-lg-7 pb-5">
