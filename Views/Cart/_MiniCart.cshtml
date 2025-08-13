@@ -10,7 +10,12 @@
         foreach (var item in Model)
         {
             <div class="d-flex align-items-center mb-2">
-                <img src="~/img/@item.HinhAnh" width="40" height="40" class="mr-2" />
+                <img src='@Url.Content("~/" + ((item.HinhAnh?.Contains("/") ?? false) ? item.HinhAnh : $"images/products/{item.HinhAnh}"))'
+                     alt='@item.TenSanPham'
+                     width="40" height="40"
+                     class="mr-2"
+                     style="object-fit:cover;border-radius:6px;border:1px solid #eee"
+                     onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder-product.png")';" />
                 <div>
                     <strong>@item.TenSanPham</strong><br />
                     <small>@item.SoLuong x @item.Gia.ToString("N0")đ</small>
