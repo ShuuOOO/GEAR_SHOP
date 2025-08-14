@@ -202,7 +202,8 @@
 
                         @if (User.IsInRole("Admin"))
                         {
-                            <a asp-controller="AdminDonHang" asp-action="Index" class="nav-item nav-link text-danger font-weight-bold">
+                            <a asp-area="Admin" asp-controller="DonHangs" asp-action="Index"
+                               class="nav-item nav-link text-danger font-weight-bold">
                                 QL Đơn hàng
                             </a>
                         }

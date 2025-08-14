@@ -69,6 +69,20 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TenDanhMuc,MoTa,DanhMucChaId")] DanhMucSanPham input)
         {
+            // [THÊM] bỏ yêu cầu validate cho DanhMucId để EF tự sinh
+            ModelState.Remove(nameof(DanhMucSanPham.DanhMucId));
+
+            // [THÊM] chuẩn hoá dữ liệu & validate trùng tên trong cùng cấp
+            if (!string.IsNullOrWhiteSpace(input.TenDanhMuc))
+                input.TenDanhMuc = input.TenDanhMuc.Trim();
+
+            var isDup = await _context.DanhMucSanPhams
+                .AsNoTracking()
+                .AnyAsync(x => x.TenDanhMuc == input.TenDanhMuc && x.DanhMucChaId == input.DanhMucChaId);
+
+            if (isDup)
+                ModelState.AddModelError(nameof(input.TenDanhMuc), "Danh mục đã tồn tại trong cùng cấp.");
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Parents = await _context.DanhMucSanPhams.AsNoTracking().OrderBy(x => x.TenDanhMuc).ToListAsync();
@@ -101,6 +115,41 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         {
             if (id != input.DanhMucId) return BadRequest();
 
+            // [THÊM] chuẩn hoá
+            if (!string.IsNullOrWhiteSpace(input.TenDanhMuc))
+                input.TenDanhMuc = input.TenDanhMuc.Trim();
+
+            // [THÊM] không cho chọn chính nó làm cha
+            if (input.DanhMucChaId == id)
+                ModelState.AddModelError(nameof(input.DanhMucChaId), "Không thể chọn chính danh mục này làm danh mục cha.");
+
+            // [THÊM] không cho tạo chu kỳ cha-con (newParent không phải là hậu duệ của id)
+            if (input.DanhMucChaId.HasValue)
+            {
+                var parentId = input.DanhMucChaId;
+                while (parentId.HasValue)
+                {
+                    if (parentId.Value == id)
+                    {
+                        ModelState.AddModelError(nameof(input.DanhMucChaId), "Danh mục cha không hợp lệ (tạo chu kỳ).");
+                        break;
+                    }
+                    parentId = await _context.DanhMucSanPhams
+                        .Where(x => x.DanhMucId == parentId.Value)
+                        .Select(x => x.DanhMucChaId)
+                        .FirstOrDefaultAsync();
+                }
+            }
+
+            // [THÊM] check trùng tên trong cùng cấp (trừ chính nó)
+            var isDup = await _context.DanhMucSanPhams
+                .AsNoTracking()
+                .AnyAsync(x => x.DanhMucId != id
+                               && x.TenDanhMuc == input.TenDanhMuc
+                               && x.DanhMucChaId == input.DanhMucChaId);
+            if (isDup)
+                ModelState.AddModelError(nameof(input.TenDanhMuc), "Danh mục đã tồn tại trong cùng cấp.");
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Parents = await _context.DanhMucSanPhams
@@ -114,7 +163,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             if (entity == null) return NotFound();
 
             entity.TenDanhMuc = input.TenDanhMuc;
-            entity.MoTa = input.MoTa ?? string.Empty;
+            entity.MoTa = input.MoTa?.Trim() ?? string.Empty; // [SỬA] chuẩn hoá chuỗi
             entity.DanhMucChaId = input.DanhMucChaId;
 
             await _context.SaveChangesAsync();

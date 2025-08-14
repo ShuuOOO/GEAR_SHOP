@@ -1,29 +1,32 @@
 ﻿@model IEnumerable<TL4_SHOP.Models.ViewModels.DanhMucViewModel>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<link rel="stylesheet" href="~/css/mega-menu.css" />
 
 @if (Model != null && Model.Any())
 {
-    <ul class="vertical-menu">
+    <ul id="dm-vertical" class="vertical-menu dm-menu" role="menu" aria-label="Danh mục sản phẩm">
         @foreach (var cha in Model.Where(d => d.DanhMucChaId == null))
         {
-            <li class="menu-item">
+            <li class="menu-item @(cha.DanhMucCon?.Any() == true ? "has-children" : "")" role="none">
                 <a asp-controller="Home" asp-action="Shop" asp-route-danhMucId="@cha.Id">
                     <i class="fas fa-folder me-2"></i>@cha.TenDanhMuc
-                    <i class="fas fa-angle-right float-right"></i>
+                    @if (cha.DanhMucCon?.Any() == true)
+                    {
+                        <i class="fas fa-angle-right ms-auto"></i>
+                    }
                 </a>
 
                 @if (cha.DanhMucCon?.Any() == true)
                 {
-                    <div class="mega-menu">
-                        <div class="row">
+                    <div class="mega-menu dm-sub" aria-hidden="true">
+                        <div class="row dm-grid">
                             @foreach (var cap2 in cha.DanhMucCon)
                             {
-                                <div class="col-md-4">
-                                    <a asp-controller="Home" asp-action="Shop" asp-route-danhMucId="@cap2.Id" class="fw-bold d-block mb-2 text-danger">
+                                <div class="col-md-4 dm-col">
+                                    <a asp-controller="Home" asp-action="Shop" asp-route-danhMucId="@cap2.Id"
+                                       class="fw-bold d-block mb-2 text-danger no-underline dm-section">
                                         <i class="fas fa-tags me-1"></i> @cap2.TenDanhMuc
                                     </a>
-                                    <ul class="list-unstyled">
+                                    <ul class="list-unstyled dm-list">
                                         @foreach (var cap3 in cap2.DanhMucCon ?? Enumerable.Empty<TL4_SHOP.Models.ViewModels.DanhMucViewModel>())
                                         {
                                             <li>
@@ -46,4 +49,18 @@
     </ul>
 }
 
-<link rel="stylesheet" href="~/css/mega-menu.css" />
+<script>
+    (function () {
+        function isMobile() { return matchMedia('(max-width: 991.98px)').matches; }
+        document.querySelectorAll('#dm-vertical > li.menu-item').forEach(function (li) {
+            var a = li.querySelector(':scope > a');
+            var sub = li.querySelector(':scope > .mega-menu, :scope > .dm-sub');
+            if (!a || !sub) return;
+            a.addEventListener('click', function (e) {
+                if (!isMobile()) return; // desktop vẫn dùng hover
+                e.preventDefault();
+                li.classList.toggle('open');
+            });
+        });
+    })();
+</script>

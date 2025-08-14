@@ -108,7 +108,7 @@
 
                     <li class="menu-header small text-uppercase">Bán hàng</li>
 
-                    <li class="menu-item">
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="QuanLySanPham" ? "active" : "")">
                         <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
                             <lord-icon src="https://cdn.lordicon.com/abgykmtd.json"
                                        trigger="hover"
@@ -291,6 +291,46 @@
     <script src="~/admin/assets/js/main.js" asp-append-version="true"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    
+    @await Html.PartialAsync("_ConfirmModal")
+    <script>
+        (function(){
+          // Giữ form đang chờ xác nhận
+          let formToSubmit = null;
+
+          // Lắng nghe mọi form có class .js-confirm (hoặc data-confirm)
+          document.addEventListener('submit', function(e){
+            const form = e.target;
+            if (!form.matches('form.js-confirm, form[data-confirm]')) return;
+
+            e.preventDefault(); // chặn submit mặc định
+
+            // Lấy thông điệp
+            const msg = form.getAttribute('data-confirm') || 'Bạn có chắc chắn muốn xoá?';
+            document.getElementById('confirmModalMessage').textContent = msg;
+
+            formToSubmit = form;
+
+            // Mở modal bootstrap
+            const modalEl = document.getElementById('confirmModal');
+            const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+            modal.show();
+          });
+
+          // Khi bấm Đồng ý -> submit form thật sự
+          document.getElementById('confirmModalOk').addEventListener('click', function(){
+            if (formToSubmit) {
+              const modalEl = document.getElementById('confirmModal');
+              const modal = bootstrap.Modal.getInstance(modalEl);
+              modal.hide();
+              // Submit lại (không trigger lại listener vì không e.preventDefault)
+              formToSubmit.removeAttribute('data-confirmed'); // phòng loop
+              formToSubmit.submit();
+              formToSubmit = null;
+            }
+          });
+        })();
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

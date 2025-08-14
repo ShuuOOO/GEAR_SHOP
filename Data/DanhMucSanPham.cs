@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TL4_SHOP.Data;
 
 public partial class DanhMucSanPham
 {
+    [Key]  // [THÊM]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // [THÊM]
     public int DanhMucId { get; set; }
 
     public string TenDanhMuc { get; set; } = null!;

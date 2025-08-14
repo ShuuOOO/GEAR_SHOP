@@ -3,6 +3,62 @@
   "WorkspaceRootPath": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\danhmucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\danhmucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\shared\\_admin_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\shared\\_admin_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\shared\\_confirmmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\shared\\_confirmmodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\donhangs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\donhangs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\donhangs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\donhangs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\wwwroot\\css\\mega-menu.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\mega-menu.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\shared\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_menudanhmuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\controllers\\danhmucscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\controllers\\danhmucscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,32 +67,12 @@
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\cart\\shoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\danhmucs\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\danhmucs\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\donhangs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\donhangs\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\donhangs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\donhangs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\danhmucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\danhmucs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\account\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layout_4tl.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\shared\\_admin_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\shared\\_admin_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -83,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -107,10 +135,6 @@
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\models\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:models\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -126,11 +150,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a5174402-226b-48da-aa5c-91376ed45871}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "_ConfirmModal.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_ConfirmModal.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_ConfirmModal.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_ConfirmModal.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_ConfirmModal.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T15:26:55.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DanhMucsController.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAUwKIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:31:09.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Order\\Checkout.cshtml",
               "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
@@ -142,16 +200,8 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a5174402-226b-48da-aa5c-91376ed45871}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "DonHangsController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DonHangsController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DonHangsController.cs",
@@ -164,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Details.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DonHangs\\Details.cshtml",
@@ -177,32 +227,137 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
               "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
               "RelativeToolTip": "Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
-              "ViewState": "AgIAACAAAAAAAAAAAAAUwDEAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwFQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-14T13:12:12.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "_Layout_4TL.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout_4TL.cshtml",
               "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout_4TL.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAIwM8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T14:43:35.568Z"
+              "WhenOpened": "2025-08-13T14:43:35.568Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
+              "Title": "_Form.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T07:34:24.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAQwGcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-13T07:36:22.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Admin_Layout.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAIwE0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-12T13:16:56.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_MenuDanhMuc.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Shared\\_MenuDanhMuc.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_MenuDanhMuc.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Shared\\_MenuDanhMuc.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_MenuDanhMuc.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T14:39:49.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "mega-menu.css",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\css\\mega-menu.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\mega-menu.css",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\css\\mega-menu.css",
+              "RelativeToolTip": "wwwroot\\css\\mega-menu.css",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAuwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-14T14:42:54.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAQwFAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T13:22:35.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DanhMucSanPham.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\DanhMucSanPham.cs",
+              "RelativeDocumentMoniker": "Data\\DanhMucSanPham.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\DanhMucSanPham.cs",
+              "RelativeToolTip": "Data\\DanhMucSanPham.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:27:38.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_4tlShopContext.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeDocumentMoniker": "Data\\_4tlShopContext.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeToolTip": "Data\\_4tlShopContext.cs",
+              "ViewState": "AgIAAKABAAAAAAAAAAAmwLQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:30:20.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
@@ -210,12 +365,11 @@
               "RelativeToolTip": "Views\\Account\\AccessDenied.cshtml",
               "ViewState": "AgIAADsAAAAAAAAAAAArwGIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T14:27:54.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T14:27:54.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 19,
               "Title": "Register.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
@@ -227,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 29,
               "Title": "QuanLySanPhamController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
@@ -235,11 +389,12 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
               "ViewState": "AgIAALsAAAAAAAAAAAAEwNEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:32:47.859Z"
+              "WhenOpened": "2025-08-13T07:32:47.859Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "ProductViewModels.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Models\\ViewModels\\ProductViewModels.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\ProductViewModels.cs",
@@ -247,11 +402,12 @@
               "RelativeToolTip": "Models\\ViewModels\\ProductViewModels.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAUwEMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:32:09.823Z"
+              "WhenOpened": "2025-08-13T07:32:09.823Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 20,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HomeController.cs",
@@ -263,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 15,
               "Title": "ShoppingCart.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Cart\\ShoppingCart.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\ShoppingCart.cshtml",
@@ -271,12 +427,11 @@
               "RelativeToolTip": "Views\\Cart\\ShoppingCart.cshtml",
               "ViewState": "AgIAALQAAAAAAAAAAAAAAL8AAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T09:17:03.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:17:03.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 16,
               "Title": "_Form.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
@@ -284,25 +439,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
               "ViewState": "AgIAAAgAAAAAAAAAAAAUwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:22:28.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:22:28.584Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwCYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:22:35.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 21,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -314,19 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "_Admin_Layout.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAIwAMBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T13:16:56.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "Shop.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Home\\Shop.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
@@ -338,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
@@ -346,11 +475,12 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAEwAAAAAAAAAAAAUwF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T13:57:40.074Z"
+              "WhenOpened": "2025-08-12T13:57:40.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DashboardController.cs",
@@ -362,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -370,23 +500,12 @@
               "RelativeToolTip": "Controllers\\AccountController.cs",
               "ViewState": "AgIAAN8AAAAAAAAAAAAnwPAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T13:58:49.86Z"
+              "WhenOpened": "2025-08-12T13:58:49.86Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "_Form.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAIwFEAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T07:34:24.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
@@ -398,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "_MiniCart.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Cart\\_MiniCart.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\_MiniCart.cshtml",
@@ -410,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 31,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
@@ -422,19 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC4AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T07:36:22.194Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Wishlist\\Index.cshtml",
@@ -446,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -458,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\SanPhams\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\SanPhams\\Details.cshtml",
@@ -470,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
@@ -482,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Models\\ViewModels\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\DashboardViewModel.cs",

@@ -77,14 +77,13 @@
               <td>@item.TenDanhMuc</td>
               <td>@(parentName ?? "-")</td>
               <td class="text-center">@item.SoLuongSanPham</td>
-              <td>
-                <div class="d-flex gap-2">
-                  <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
-                  <form method="post" asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Xoá danh mục này?')">
-                    <button class="btn btn-sm btn-outline-danger">Xoá</button>
-                  </form>
-                </div>
-              </td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                                <form method="post" asp-action="Delete" asp-route-id="@item.Id"
+                                      class="d-inline js-confirm" data-confirm="Xoá danh mục này?">
+                                    <button class="btn btn-sm btn-danger">Xoá</button>
+                                </form>
+                            </td>
             </tr>
           }
         </tbody>

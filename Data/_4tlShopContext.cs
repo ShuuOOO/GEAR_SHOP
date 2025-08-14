@@ -430,6 +430,12 @@ public partial class _4tlShopContext : DbContext
             entity.HasIndex(e => new { e.IsFeatured, e.PublishedAt });
         });
 
+        // [THÊM] trong OnModelCreating
+        modelBuilder.Entity<DanhMucSanPham>()
+            .Property(p => p.DanhMucId)
+            .ValueGeneratedOnAdd();
+
+
         OnModelCreatingPartial(modelBuilder);
     }
 

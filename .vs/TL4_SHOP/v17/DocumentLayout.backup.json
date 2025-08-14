@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\areas\\admin\\controllers\\danhmucscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\controllers\\danhmucscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\_4tlshopcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:data\\danhmucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|d:\\hk3_nam3\\gear shop\\gear_shop\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -131,14 +143,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
-              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Order\\Checkout.cshtml",
-              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
-              "ViewState": "AgIAAKcBAAAAAAAAAAAEwL8BAAB2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:38:39.615Z",
+              "Title": "DanhMucsController.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\DanhMucsController.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAUwKsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:31:09.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_4tlShopContext.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeDocumentMoniker": "Data\\_4tlShopContext.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\_4tlShopContext.cs",
+              "RelativeToolTip": "Data\\_4tlShopContext.cs",
+              "ViewState": "AgIAAKABAAAAAAAAAAAmwLQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:30:20.582Z",
               "EditorCaption": ""
             },
             {
@@ -152,6 +177,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DanhMucSanPham.cs",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\DanhMucSanPham.cs",
+              "RelativeDocumentMoniker": "Data\\DanhMucSanPham.cs",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Data\\DanhMucSanPham.cs*",
+              "RelativeToolTip": "Data\\DanhMucSanPham.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T14:27:38.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Order\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Order\\Checkout.cshtml",
+              "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Order\\Checkout.cshtml",
+              "RelativeToolTip": "Views\\Order\\Checkout.cshtml",
+              "ViewState": "AgIAAIYCAAAAAAAAAAAUwFICAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-14T13:38:39.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DonHangsController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DonHangsController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DonHangsController.cs",
@@ -159,12 +210,11 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\DonHangsController.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAUwGwAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:11:52.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:11:52.027Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Details.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DonHangs\\Details.cshtml",
@@ -172,12 +222,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\DonHangs\\Details.cshtml",
               "ViewState": "AgIAABYAAAAAAAAAAAAEwCkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:22:27.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:22:27.322Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
@@ -185,12 +234,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\DanhMucs\\Index.cshtml",
               "ViewState": "AgIAACAAAAAAAAAAAAAUwDEAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:12:12.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:12:12.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "_Layout_4TL.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Shared\\_Layout_4TL.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout_4TL.cshtml",
@@ -202,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AccessDenied.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Account\\AccessDenied.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\AccessDenied.cshtml",
@@ -210,12 +258,11 @@
               "RelativeToolTip": "Views\\Account\\AccessDenied.cshtml",
               "ViewState": "AgIAADsAAAAAAAAAAAArwGIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T14:27:54.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T14:27:54.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "Register.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
@@ -227,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "QuanLySanPhamController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
@@ -239,7 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "ProductViewModels.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Models\\ViewModels\\ProductViewModels.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\ProductViewModels.cs",
@@ -251,7 +298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HomeController.cs",
@@ -263,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ShoppingCart.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Cart\\ShoppingCart.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\ShoppingCart.cshtml",
@@ -271,12 +318,11 @@
               "RelativeToolTip": "Views\\Cart\\ShoppingCart.cshtml",
               "ViewState": "AgIAALQAAAAAAAAAAAAAAL8AAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T09:17:03.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:17:03.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "_Form.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
@@ -284,12 +330,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\DanhMucs\\_Form.cshtml",
               "ViewState": "AgIAAAgAAAAAAAAAAAAUwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:22:28.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:22:28.584Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
@@ -297,12 +342,11 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\DonHangs\\Index.cshtml",
               "ViewState": "AgIAABUAAAAAAAAAAAAUwCYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-14T13:22:35.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T13:22:35.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -314,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "_Admin_Layout.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
@@ -326,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "Shop.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Home\\Shop.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
@@ -338,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
@@ -350,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\DashboardController.cs",
@@ -362,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -374,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "_Form.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
@@ -386,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
@@ -398,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "_MiniCart.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Cart\\_MiniCart.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\_MiniCart.cshtml",
@@ -410,7 +454,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
@@ -422,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
@@ -434,7 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Wishlist\\Index.cshtml",
@@ -446,7 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -458,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Views\\SanPhams\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\SanPhams\\Details.cshtml",
@@ -470,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
@@ -482,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Models\\ViewModels\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "Models\\ViewModels\\DashboardViewModel.cs",

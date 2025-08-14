@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1bW3oHpe/dFsl67caZ+Y/mu+H1URf30CJhGIKUGi4tw=",
+  "Hash": "3O3weeUxmHOZUcPuNR02fL/25bSIp4taUpY5QFf94oo=",
   "Source": "TL4_SHOP",
   "BasePath": "_content/TL4_SHOP",
   "Mode": "Default",
@@ -1823,12 +1823,12 @@
       "OriginalItemSpec": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\lib\\easing\\easing.min.js"
     },
     {
-      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-fqgmsybw2a.gz",
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-hiviqleu1v.gz",
       "SourceId": "TL4_SHOP",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TL4_SHOP",
-      "RelativePath": "css/mega-menu#[.{fingerprint=fqgmsybw2a}]?.css.gz",
+      "RelativePath": "css/mega-menu#[.{fingerprint=hiviqleu1v}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1837,8 +1837,8 @@
       "RelatedAsset": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\css\\mega-menu.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wg0wcbamiw",
-      "Integrity": "YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74=",
+      "Fingerprint": "rlj1sjh9r5",
+      "Integrity": "gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\css\\mega-menu.css"
@@ -7570,8 +7570,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fqgmsybw2a",
-      "Integrity": "NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA=",
+      "Fingerprint": "hiviqleu1v",
+      "Integrity": "92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\mega-menu.css"
@@ -44782,12 +44782,12 @@
     },
     {
       "Route": "css/mega-menu.css",
-      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-fqgmsybw2a.gz",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-hiviqleu1v.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001345895020"
+          "Quality": "0.000693000693"
         }
       ],
       "ResponseHeaders": [
@@ -44797,15 +44797,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "742"
+          "Value": "1442"
         },
         {
           "Name": "ETag",
-          "Value": "\"YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74=\""
+          "Value": "\"gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -44825,13 +44825,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA=\""
+          "Value": "W/\"92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA="
+          "Value": "sha256-92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs="
         }
       ]
     },
@@ -44846,7 +44846,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2166"
+          "Value": "3584"
         },
         {
           "Name": "Content-Type",
@@ -44854,11 +44854,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA=\""
+          "Value": "\"92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -44868,13 +44868,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA="
+          "Value": "sha256-92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs="
         }
       ]
     },
     {
       "Route": "css/mega-menu.css.gz",
-      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-fqgmsybw2a.gz",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-hiviqleu1v.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -44883,7 +44883,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "742"
+          "Value": "1442"
         },
         {
           "Name": "Content-Type",
@@ -44891,11 +44891,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74=\""
+          "Value": "\"gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -44913,18 +44913,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74="
+          "Value": "sha256-gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU="
         }
       ]
     },
     {
-      "Route": "css/mega-menu.fqgmsybw2a.css",
-      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-fqgmsybw2a.gz",
+      "Route": "css/mega-menu.hiviqleu1v.css",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-hiviqleu1v.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001345895020"
+          "Quality": "0.000693000693"
         }
       ],
       "ResponseHeaders": [
@@ -44934,15 +44934,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "742"
+          "Value": "1442"
         },
         {
           "Name": "ETag",
-          "Value": "\"YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74=\""
+          "Value": "\"gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -44962,13 +44962,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA=\""
+          "Value": "W/\"92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqgmsybw2a"
+          "Value": "hiviqleu1v"
         },
         {
           "Name": "label",
@@ -44976,12 +44976,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA="
+          "Value": "sha256-92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs="
         }
       ]
     },
     {
-      "Route": "css/mega-menu.fqgmsybw2a.css",
+      "Route": "css/mega-menu.hiviqleu1v.css",
       "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\css\\mega-menu.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -44991,7 +44991,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2166"
+          "Value": "3584"
         },
         {
           "Name": "Content-Type",
@@ -44999,11 +44999,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA=\""
+          "Value": "\"92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -45013,7 +45013,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqgmsybw2a"
+          "Value": "hiviqleu1v"
         },
         {
           "Name": "label",
@@ -45021,13 +45021,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NxKPYy224wl3d8Yu9b5kl2t8L64EY6g/2FkMkKHToWA="
+          "Value": "sha256-92FdZGvbc23uj0MiPADHI9O/RrlGT7Aq5k5yDCrIsNs="
         }
       ]
     },
     {
-      "Route": "css/mega-menu.fqgmsybw2a.css.gz",
-      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-fqgmsybw2a.gz",
+      "Route": "css/mega-menu.hiviqleu1v.css.gz",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\n1xsp3t4ai-hiviqleu1v.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -45036,7 +45036,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "742"
+          "Value": "1442"
         },
         {
           "Name": "Content-Type",
@@ -45044,11 +45044,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74=\""
+          "Value": "\"gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 11 Aug 2025 14:44:36 GMT"
+          "Value": "Thu, 14 Aug 2025 15:09:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -45066,7 +45066,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqgmsybw2a"
+          "Value": "hiviqleu1v"
         },
         {
           "Name": "label",
@@ -45074,7 +45074,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YILhwl9IuxYKO2snbViAMm11zO5GYXuOZwOZ0p0zy74="
+          "Value": "sha256-gc4X12QZGozWkVnsIFEyRoYyi3jpdISoBXd2QKhstyU="
         }
       ]
     },

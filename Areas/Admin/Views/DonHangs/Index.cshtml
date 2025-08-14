@@ -72,10 +72,10 @@
               <td>@o.EmailNguoiDat</td>
               <td class="text-end">@(((decimal)o.TongTien).ToString("N0")) đ</td>
               <td><span class="badge bg-label-primary">@o.TrangThai</span></td>
-              <td class="text-end">
-                <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@o.DonHangId">Chi tiết</a>
-                <a class="btn btn-sm btn-outline-secondary" asp-action="Invoice" asp-route-id="@o.DonHangId">Hóa đơn</a>
-              </td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@o.DonHangId">Chi tiết</a>
+                                <a class="btn btn-sm btn-secondary" asp-action="Invoice" asp-route-id="@o.DonHangId">Hóa đơn</a>
+                            </td>
             </tr>
           }
         </tbody>
