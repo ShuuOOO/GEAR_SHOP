@@ -34,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\DanhMucs\" />
+    <Folder Include="Areas\Admin\Views\DonHangs\" />
     <Folder Include="Migrations\" />
     <Folder Include="ViewModels\" />
     <Folder Include="wwwroot\admin\" />

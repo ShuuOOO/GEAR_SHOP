@@ -434,7 +434,7 @@
                             <img id="qr-image" src="" alt="QR Thanh toán" width="250" />
                             <p class="mt-2 mb-0">
                                 💬 <strong>Nội dung chuyển khoản:</strong>
-                                <span id="ma-don-tu-sinh" data-ma-don="@TempData["MaDonHang"]">Đang tạo...</span>
+                                <span id="ma-don-tu-sinh" data-ma-don="@(TempData["MaDonHang"] ?? "")">Đang tạo...</span>
                             </p>
                             <p class="text-muted" style="font-size: 0.9em;">* Vui lòng ghi đúng nội dung để xác nhận đơn hàng.</p>
                         </div>
@@ -506,57 +506,93 @@
             const qrImage = document.getElementById('qr-image');
 
             const maDonElement = document.getElementById('ma-don-tu-sinh');
+
+            /* [SỬA] Khởi tạo mã đơn ngay khi load trang */
             let maDon = maDonElement?.dataset.maDon;
-
-            if (!maDon || maDon === "") {
+            if (!maDon || maDon.trim() === "") {
                 maDon = 'DH_' + Math.floor(100000 + Math.random() * 900000);
-                maDonElement.innerText = maDon;
-            } else {
-                maDonElement.innerText = maDon;
+                maDonElement.dataset.maDon = maDon;
             }
+            maDonElement.innerText = maDon;
 
-            radios.forEach(radio => {
-                radio.addEventListener('change', function () {
-                    switch (this.value) {
-                        case 'ChuyenKhoan':
-                            qrContainer.style.display = 'block';
-                            visaContainer.style.display = 'none';
-                            qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent("Chuyen khoan don hang " + maDon) + '&size=250x250';
-                            break;
-                        case 'Momo':
-                            qrContainer.style.display = 'block';
-                            visaContainer.style.display = 'none';
-                            qrImage.src = '/images/payment/qr-momo.png';
-                            break;
-                        case 'Visa':
-                            qrContainer.style.display = 'none';
-                            visaContainer.style.display = 'block';
-                            break;
-                        default:
-                            qrContainer.style.display = 'none';
-                            visaContainer.style.display = 'none';
-                            break;
+            const visaFields = Array.from(
+                document.querySelectorAll('#visa-container input, #visa-container select')
+            );
+
+            function setVisaEnabled(enabled) {
+                visaFields.forEach(el => {
+                    el.disabled = !enabled;
+                    if (['cardNumber','visaCVV','cardHolder'].includes(el.id) || ['visaCVV','cardHolder'].includes(el.name)) {
+                        el.required = !!enabled;
+                    } else {
+                        el.required = false;
                     }
                 });
-            });
+            }
 
-            const cardInput = document.getElementById("cardNumber");
-            const cardLogo = document.getElementById("cardLogo");
+            function showQR(src) {
+                qrContainer.style.display = 'block';
+                visaContainer.style.display = 'none';
+                setVisaEnabled(false);
+                qrImage.src = src;
+            }
 
-            cardInput?.addEventListener("input", function () {
-                const value = cardInput.value.replace(/\s/g, "");
-                if (value.startsWith("4")) {
-                    cardLogo.src = "/images/payment/visa.png";
-                    cardLogo.style.display = "block";
-                } else if (/^5[1-5]/.test(value)) {
-                    cardLogo.src = "/images/payment/mastercard.png";
-                    cardLogo.style.display = "block";
+            function hideAllPayUIs() {
+                qrContainer.style.display = 'none';
+                visaContainer.style.display = 'none';
+                setVisaEnabled(false);
+            }
+
+            // Áp dụng trạng thái ban đầu
+            const checked = document.querySelector('input[name="phuongThucThanhToan"]:checked');
+            if (checked) {
+                if (checked.value === 'Visa') {
+                    visaContainer.style.display = 'block';
+                    setVisaEnabled(true);
+                } else if (checked.value === 'ChuyenKhoan') {
+                    showQR('https://api.qrserver.com/v1/create-qr-code/?data=' +
+                      encodeURIComponent('Chuyen khoan don hang ' + maDon) + '&size=250x250');
+                } else if (checked.value === 'Momo') {
+                    showQR('/images/payment/qr-momo.png');
                 } else {
-                    cardLogo.style.display = "none";
+                    hideAllPayUIs();
                 }
-            });
+            }
+
+            // Khi đổi phương thức
+            radios.forEach(r => r.addEventListener('change', function () {
+                switch (this.value) {
+                    case 'ChuyenKhoan':
+                        showQR('https://api.qrserver.com/v1/create-qr-code/?data=' +
+                          encodeURIComponent('Chuyen khoan don hang ' + maDon) + '&size=250x250');
+                        break;
+                    case 'Momo':
+                        showQR('/images/payment/qr-momo.png');
+                        break;
+                    case 'Visa':
+                        qrContainer.style.display = 'none';
+                        visaContainer.style.display = 'block';
+                        setVisaEnabled(true);
+                        break;
+                    default:
+                        hideAllPayUIs();
+                        break;
+                }
+            }));
+
+            // Trước khi submit form
+            const monthSelect = document.getElementById('expiryMonth');
+            const yearSelect  = document.getElementById('expiryYear');
+            const hiddenExpiry= document.getElementById('visaExpiryHidden');
+            function updateHidden(){
+                const mm = monthSelect.value, yy = yearSelect.value;
+                hiddenExpiry.value = (mm && yy) ? `${mm}/${yy}` : '';
+            }
+            [monthSelect, yearSelect].forEach(el => el && el.addEventListener('change', updateHidden));
+            document.querySelector('form.checkout')?.addEventListener('submit', updateHidden);
         });
     </script>
+
     <script>
         function isValidExpiryDate(expiry) {
             const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
