@@ -127,6 +127,7 @@ D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\lib\jquery\dist\jquery.min.js
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\admin\assets\js\ui-toasts.js
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\lib\owlcarousel\assets\owl.theme.green.css
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\js\money-format.js
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 wwwroot\admin\assets\css\demo.css
@@ -364,6 +365,7 @@ wwwroot\images\products\0bab687d-469f-4858-9ee2-b23cd1953ba5.jpg
 wwwroot\images\products\0e6e8956-3da8-4b78-bd43-111f0cecc706.png
 wwwroot\images\products\316b56f7-f953-430d-abbe-10f94957e720.jpg
 wwwroot\images\products\38377a40-11e0-462a-9f62-17e0f081467e.jpg
+wwwroot\images\products\59102dce0ac24dcfb23096c8b4b11c69.jpg
 wwwroot\images\products\6d096a59-db7a-45e0-904e-98c459733bf1.jpg
 wwwroot\images\products\867d5796-3ae4-47e4-9dde-5b42cb444d31.jpg
 wwwroot\images\products\8de4bfd55fb34ff4b6f5d9b9a3a6bf28.jpg
@@ -406,6 +408,7 @@ wwwroot\images\products\e45f2290-96e9-4259-ab98-0c5d964e7916.jpg
 wwwroot\images\products\fa64f13d-9dca-44bc-a046-eda38eb48d3d.png
 wwwroot\images\products\gigabyte_rtx4060_eagle.jpg
 wwwroot\images\products\gigabyte_rtx4060_eagle_1.jpg
+wwwroot\images\products\GPRO X Superlight 2 Wireless.jpg
 wwwroot\images\products\hp_victus_15_fa1139tx.jpg
 wwwroot\images\products\hp_victus_15_fa1139tx_1.jpg
 wwwroot\images\products\hyperx_cloud_iii_wireless.jpg
@@ -548,6 +551,7 @@ wwwroot\img\TaiNgheRazer.jpg
 wwwroot\img\TinCongNghe.jpg
 wwwroot\img\xiaomi_14t_pro_1_.jpg
 wwwroot\js\main.js
+wwwroot\js\money-format.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

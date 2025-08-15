@@ -55,44 +55,66 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NhapHangCreateViewModel vm)
         {
-            var items = vm.Items?.Where(i => i != null && i.SanPhamId.HasValue && i.SoLuong > 0).ToList() ?? new();
-            if (vm.NhaCungCapId == null) ModelState.AddModelError(nameof(vm.NhaCungCapId), "Vui lòng chọn nhà cung cấp.");
-            if (items.Count == 0) ModelState.AddModelError(string.Empty, "Vui lòng thêm ít nhất 1 dòng sản phẩm hợp lệ.");
+            // lọc lại các dòng hợp lệ
+            var items = (vm.Items ?? new List<NhapHangItemViewModel>())
+                .Where(i => i != null && i.SanPhamId.HasValue && i.SoLuong > 0)
+                .ToList();
+
+            if (!vm.NhaCungCapId.HasValue)
+                ModelState.AddModelError(nameof(vm.NhaCungCapId), "Vui lòng chọn nhà cung cấp.");
+
+            if (items.Count == 0)
+                ModelState.AddModelError(string.Empty, "Vui lòng thêm ít nhất 1 dòng sản phẩm hợp lệ.");
 
             if (!ModelState.IsValid)
             {
-                ViewBag.Suppliers = await _context.NhaCungCaps.AsNoTracking().OrderBy(x => x.TenNhaCungCap).ToListAsync();
-                ViewBag.Products = await _context.SanPhams.AsNoTracking()
-                                           .Select(p => new { p.SanPhamId, p.TenSanPham })
-                                           .OrderBy(p => p.TenSanPham)
-                                           .ToListAsync();
+                await LoadDropdowns();
                 return View(vm);
             }
 
-            var entity = new NhapHang
+            // GOM CHA–CON rồi SaveChanges 1 LẦN
+            var phieu = new NhapHang
             {
                 NhaCungCapId = vm.NhaCungCapId,
                 NgayNhap = vm.NgayNhap ?? DateTime.Now,
-                NhanVienId = vm.NhanVienId
-            };
-            _context.NhapHangs.Add(entity);
-            await _context.SaveChangesAsync(); // lấy PhieuNhapId
-
-            foreach (var i in items)
-            {
-                _context.ChiTietNhapHangs.Add(new ChiTietNhapHang
+                NhanVienId = vm.NhanVienId,
+                ChiTietNhapHangs = items.Select(i => new ChiTietNhapHang
                 {
-                    PhieuNhapId = entity.PhieuNhapId,
-                    SanPhamId = i.SanPhamId,
+                    SanPhamId = i.SanPhamId!.Value,
                     SoLuong = i.SoLuong,
-                    DonGiaNhap = i.DonGiaNhap,
-                    TongTien = i.DonGiaNhap * i.SoLuong // trigger cũng tính, ta set sẵn để hiển thị ngay
-                });
-            }
+                    DonGiaNhap = i.DonGiaNhap,               
+                    TongTien = i.DonGiaNhap * i.SoLuong    
+                }).ToList()
+            };
 
-            await _context.SaveChangesAsync(); // trigger DB sẽ cập nhật Kho + tính tổng tiền
-            TempData["ok"] = "Tạo phiếu nhập thành công.";
-            return RedirectToAction(nameof(Details), new { id = entity.PhieuNhapId });
+            try
+            {
+                _context.NhapHangs.Add(phieu);
+                await _context.SaveChangesAsync();   // EF tự bao trong 1 transaction nội bộ
+
+                TempData["ok"] = "Tạo phiếu nhập thành công.";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException ex)
+            {
+                // Nếu trigger/FK báo lỗi → hiện ra cho dễ debug
+                ModelState.AddModelError(string.Empty, ex.InnerException?.Message ?? ex.Message);
+                await LoadDropdowns();
+                return View(vm);
+            }
+        }
+        private async Task LoadDropdowns()
+        {
+            ViewBag.Suppliers = await _context.NhaCungCaps
+                .AsNoTracking()
+                .OrderBy(x => x.TenNhaCungCap)
+                .ToListAsync();
+
+            ViewBag.Products = await _context.SanPhams
+                .AsNoTracking()
+                .Select(p => new { p.SanPhamId, p.TenSanPham })
+                .OrderBy(p => p.TenSanPham)
+                .ToListAsync();
         }
 
         // GET: Admin/NhapHangs/Details/5

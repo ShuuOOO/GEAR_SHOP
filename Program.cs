@@ -10,7 +10,10 @@ builder.Services.AddDbContext<_4tlShopContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("4TL_SHOP"));
 });
 builder.Services.AddSignalR();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(o =>
+{
+    o.Filters.Add<TL4_SHOP.Extensions.SqlErrorToMessageFilter>();
+});
 
 QuestPDF.Settings.License = LicenseType.Community;
 

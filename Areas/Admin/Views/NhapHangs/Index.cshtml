@@ -35,7 +35,9 @@
                         <td>@pn.NhaCungCap?.TenNhaCungCap</td>
                         <td>@pn.NgayNhap.ToString("dd/MM/yyyy HH:mm")</td>
                         <td class="text-end">@pn.ChiTietNhapHangs?.Count</td>
-                        <td class="text-end"><a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@pn.PhieuNhapId">Chi tiết</a></td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@pn.PhieuNhapId">Chi tiết</a>
+                        </td>
                     </tr>
                 }
             </tbody>

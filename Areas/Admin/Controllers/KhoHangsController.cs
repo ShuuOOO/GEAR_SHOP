@@ -54,19 +54,51 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                                  .FirstOrDefaultAsync(x => x.SanPhamId == sanPhamId);
                 if (entity == null)
                 {
-                    var sp = await _context.SanPhams.FindAsync(sanPhamId);
-                    entity = new KhoHang { SanPhamId = sanPhamId, SanPham = sp, SoLuongTon = 0 };
+                    var sanPhamPreview = await _context.SanPhams.FindAsync(sanPhamId);
+                    if (sanPhamPreview == null) return NotFound();
+                    entity = new KhoHang { SanPhamId = sanPhamId, SanPham = sanPhamPreview, SoLuongTon = 0 };
                 }
                 return View(entity);
             }
 
-            var kh = await _context.KhoHangs.FirstOrDefaultAsync(x => x.SanPhamId == sanPhamId);
-            if (kh == null) _context.KhoHangs.Add(new KhoHang { SanPhamId = sanPhamId, SoLuongTon = soLuongTon });
-            else { kh.SoLuongTon = soLuongTon; _context.KhoHangs.Update(kh); }
+            try
+            {
+                // Tạo/sửa tồn kho
+                var kh = await _context.KhoHangs.SingleOrDefaultAsync(x => x.SanPhamId == sanPhamId);
+                if (kh == null)
+                {
+                    kh = new KhoHang { SanPhamId = sanPhamId, SoLuongTon = soLuongTon };
+                    _context.KhoHangs.Add(kh);
+                }
+                else
+                {
+                    kh.SoLuongTon = soLuongTon;
+                }
 
-            await _context.SaveChangesAsync();
-            TempData["ok"] = "Cập nhật tồn kho thành công!";
-            return RedirectToAction(nameof(Index));
+                // Đồng bộ sang bảng SanPham (nếu bạn đang hiển thị từ cột này)
+                var sp = await _context.SanPhams.FindAsync(sanPhamId);
+                if (sp != null) sp.SoLuongTon = soLuongTon;
+
+                // Chỉ 1 lần SaveChanges; EF tự dùng transaction ngầm → không xung đột với execution strategy
+                await _context.SaveChangesAsync();
+
+                TempData["ok"] = "Cập nhật tồn kho thành công!";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+                // Quay lại form hiện tại
+                var entity = await _context.KhoHangs.Include(x => x.SanPham)
+                                 .FirstOrDefaultAsync(x => x.SanPhamId == sanPhamId);
+                if (entity == null)
+                {
+                    var sanPhamPreview = await _context.SanPhams.FindAsync(sanPhamId);
+                    if (sanPhamPreview == null) return NotFound();
+                    entity = new KhoHang { SanPhamId = sanPhamId, SanPham = sanPhamPreview, SoLuongTon = 0 };
+                }
+                return View(entity);
+            }
         }
     }
 }

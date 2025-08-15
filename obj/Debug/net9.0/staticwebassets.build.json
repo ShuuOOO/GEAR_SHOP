@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3O3weeUxmHOZUcPuNR02fL/25bSIp4taUpY5QFf94oo=",
+  "Hash": "OxUVzc0c5MgVHY16jfEthrOXH/6C1TI6TNxbi+NCqfw=",
   "Source": "TL4_SHOP",
   "BasePath": "_content/TL4_SHOP",
   "Mode": "Default",
@@ -2766,6 +2766,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\ybieq7ydr8-kto0u1bpw4.gz",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "js/money-format#[.{fingerprint=kto0u1bpw4}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\money-format.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "8o7r6xvvqq",
+      "Integrity": "mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\money-format.js"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\yonw99bvcl-iovd86k7lj.gz",
@@ -7787,6 +7808,27 @@
       "OriginalItemSpec": "wwwroot\\images\\products\\38377a40-11e0-462a-9f62-17e0f081467e.jpg"
     },
     {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\59102dce0ac24dcfb23096c8b4b11c69.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/products/59102dce0ac24dcfb23096c8b4b11c69#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nib5s5qtf9",
+      "Integrity": "cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\59102dce0ac24dcfb23096c8b4b11c69.jpg"
+    },
+    {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\6d096a59-db7a-45e0-904e-98c459733bf1.jpg",
       "SourceId": "TL4_SHOP",
       "SourceType": "Discovered",
@@ -8667,6 +8709,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\gigabyte_rtx4060_eagle_1.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\GPRO X Superlight 2 Wireless.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/products/GPRO X Superlight 2 Wireless#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nib5s5qtf9",
+      "Integrity": "cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\GPRO X Superlight 2 Wireless.jpg"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\hp_victus_15_fa1139tx.jpg",
@@ -11649,6 +11712,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\main.js"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\money-format.js",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "js/money-format#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kto0u1bpw4",
+      "Integrity": "WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\money-format.js"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\site.js",
@@ -46979,6 +47063,88 @@
       ]
     },
     {
+      "Route": "images/products/59102dce0ac24dcfb23096c8b4b11c69.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\59102dce0ac24dcfb23096c8b4b11c69.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:37:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/59102dce0ac24dcfb23096c8b4b11c69.nib5s5qtf9.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\59102dce0ac24dcfb23096c8b4b11c69.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:37:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nib5s5qtf9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/products/59102dce0ac24dcfb23096c8b4b11c69.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk="
+        }
+      ]
+    },
+    {
       "Route": "images/products/6d096a59-db7a-45e0-904e-98c459733bf1.jpg",
       "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\6d096a59-db7a-45e0-904e-98c459733bf1.jpg",
       "Selectors": [],
@@ -50419,6 +50585,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-J4lwAo+Eddp6lj/AJ3IETvjFNDaQY5fAiaACE9SEZrA="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/GPRO X Superlight 2 Wireless.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\GPRO X Superlight 2 Wireless.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:35:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/GPRO X Superlight 2 Wireless.nib5s5qtf9.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\GPRO X Superlight 2 Wireless.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5504"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:35:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nib5s5qtf9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/products/GPRO X Superlight 2 Wireless.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk="
         }
       ]
     },
@@ -62279,6 +62527,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-lgn9escsRznY8nKe/fy8KnJegLD2x/KLoXnO2akLh18="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.js",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\ybieq7ydr8-kto0u1bpw4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000741289844"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1348"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.js",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\money-format.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3585"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.js.gz",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\ybieq7ydr8-kto0u1bpw4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.kto0u1bpw4.js",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\ybieq7ydr8-kto0u1bpw4.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000741289844"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1348"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kto0u1bpw4"
+        },
+        {
+          "Name": "label",
+          "Value": "js/money-format.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.kto0u1bpw4.js",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\js\\money-format.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3585"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kto0u1bpw4"
+        },
+        {
+          "Name": "label",
+          "Value": "js/money-format.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WBAa4NxEyLGc447HvfZAUTDEAJgw0CbvM/h7lkJV8RA="
+        }
+      ]
+    },
+    {
+      "Route": "js/money-format.kto0u1bpw4.js.gz",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\obj\\Debug\\net9.0\\compressed\\ybieq7ydr8-kto0u1bpw4.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1348"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 15 Aug 2025 14:16:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kto0u1bpw4"
+        },
+        {
+          "Name": "label",
+          "Value": "js/money-format.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mPkqH6cYsoZs5GDxl8tyunOQAYWEGcwF58Gni8dYATA="
         }
       ]
     },

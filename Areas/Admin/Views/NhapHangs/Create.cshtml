@@ -52,7 +52,10 @@
                                     </select>
                                 </td>
                                 <td><input type="number" name="Items[@i].SoLuong" class="form-control" value="1" min="1" /></td>
-                                <td><input type="number" step="0.001" name="Items[@i].DonGiaNhap" class="form-control" value="0" /></td>
+                                <td>
+                                    <input class="form-control" data-money inputmode="numeric"
+                                           name="Items[@i].DonGiaNhap" value="@(Model.Items[i].DonGiaNhap)" />
+                                </td>
                                 <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger btn-remove">X</button></td>
                             </tr>
                         }
@@ -80,7 +83,10 @@
             </select>
         </td>
         <td><input type="number" name="__name__.SoLuong" class="form-control" value="1" min="1" /></td>
-        <td><input type="number" step="0.001" name="__name__.DonGiaNhap" class="form-control" value="0" /></td>
+        <td>
+            <input class="form-control" data-money inputmode="numeric"
+                   name="__name__.DonGiaNhap" value="0" />
+        </td>
         <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger btn-remove">X</button></td>
     </tr>
 </template>
@@ -97,12 +103,16 @@
                   });
               });
           }
-          btnAdd.addEventListener('click', function(){
-              let tmpl = document.getElementById('rowTemplate').innerHTML;
-              let nextIndex = tbody.querySelectorAll('tr').length;
-              tmpl = tmpl.replaceAll('__name__', `Items[${nextIndex}]`);
-              tbody.insertAdjacentHTML('beforeend', tmpl);
-          });
+                  btnAdd.addEventListener('click', function(){
+            let tmpl = document.getElementById('rowTemplate').innerHTML;
+            let nextIndex = tbody.querySelectorAll('tr').length;
+            tmpl = tmpl.replaceAll('__name__', `Items[${nextIndex}]`);
+            tbody.insertAdjacentHTML('beforeend', tmpl);
+
+            // Khởi tạo formatter cho các <input data-money> vừa thêm
+            const newRow = tbody.lastElementChild;
+            if (window.moneyFormatInit) window.moneyFormatInit(newRow);
+        });
           document.addEventListener('click', function(e){
               if (e.target.classList.contains('btn-remove')) { e.target.closest('tr').remove(); reindex(); }
           });

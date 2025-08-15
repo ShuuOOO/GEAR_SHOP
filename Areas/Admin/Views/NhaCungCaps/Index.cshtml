@@ -27,10 +27,15 @@
                         <td>@s.Email</td>
                         <td>@s.DiaChi</td>
                         <td class="text-end">
-                            <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@s.NhaCungCapId">Sửa</a>
-                            <form asp-action="Delete" asp-route-id="@s.NhaCungCapId" method="post" class="d-inline" onsubmit="return confirm('Xoá nhà cung cấp này?')">
+                            <a class="btn btn-sm btn-primary me-2"
+                               asp-action="Edit" asp-route-id="@s.NhaCungCapId">Sửa</a>
+
+                            <form asp-action="Delete" method="post"
+                                  class="d-inline js-confirm"
+                                  data-confirm="Xoá nhà cung cấp này?">
                                 @Html.AntiForgeryToken()
-                                <button class="btn btn-sm btn-outline-danger">Xoá</button>
+                                <input type="hidden" name="id" value="@s.NhaCungCapId" />
+                                <button class="btn btn-sm btn-danger">Xoá</button>
                             </form>
                         </td>
                     </tr>

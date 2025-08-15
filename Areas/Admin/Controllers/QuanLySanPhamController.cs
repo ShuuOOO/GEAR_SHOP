@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
 using TL4_SHOP.Models.ViewModels;
+using Microsoft.Data.SqlClient;
 
 namespace TL4_SHOP.Areas.Admin.Controllers
 {
@@ -23,26 +24,24 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         public async Task<IActionResult> Index([FromQuery] ProductFilterVM filter)
         {
             var query =
-            from sp in _context.SanPhams.AsNoTracking()
-            join dm in _context.DanhMucSanPhams.AsNoTracking() on sp.DanhMucId equals dm.DanhMucId into gdm
-            from dm in gdm.DefaultIfEmpty()
-            join ncc in _context.NhaCungCaps.AsNoTracking() on sp.NhaCungCapId equals ncc.NhaCungCapId
-            // NEW: left join kho
-            join kh0 in _context.KhoHangs.AsNoTracking() on sp.SanPhamId equals kh0.SanPhamId into gkh
-            from kh in gkh.DefaultIfEmpty()
-            select new ProductListItemVM
-            {
-                SanPhamID = sp.SanPhamId,
-                TenSanPham = sp.TenSanPham,
-                Gia = sp.Gia,
-                GiaSauGiam = sp.GiaSauGiam,
-                // NEW: lấy tồn kho từ KhoHang (nếu chưa có dòng kho thì = 0)
-                SoLuongTon = kh != null ? kh.SoLuongTon : 0,
-                HinhAnh = sp.HinhAnh,
-                TenDanhMuc = dm != null ? dm.TenDanhMuc : null,
-                TenNhaCungCap = ncc.TenNhaCungCap,
-                LaNoiBat = sp.LaNoiBat ?? false
-            };
+                from sp in _context.SanPhams.AsNoTracking()
+                join dm in _context.DanhMucSanPhams.AsNoTracking() on sp.DanhMucId equals dm.DanhMucId into gdm
+                from dm in gdm.DefaultIfEmpty()
+                join ncc in _context.NhaCungCaps.AsNoTracking() on sp.NhaCungCapId equals ncc.NhaCungCapId
+                join kh0 in _context.KhoHangs.AsNoTracking() on sp.SanPhamId equals kh0.SanPhamId into gkh
+                from kh in gkh.DefaultIfEmpty()
+                select new ProductListItemVM
+                {
+                    SanPhamID = sp.SanPhamId,
+                    TenSanPham = sp.TenSanPham,
+                    Gia = sp.Gia,
+                    GiaSauGiam = sp.GiaSauGiam,
+                    SoLuongTon = kh != null ? kh.SoLuongTon : 0,
+                    HinhAnh = sp.HinhAnh,
+                    TenDanhMuc = dm != null ? dm.TenDanhMuc : null,
+                    TenNhaCungCap = ncc.TenNhaCungCap,
+                    LaNoiBat = sp.LaNoiBat ?? false
+                };
 
             if (!string.IsNullOrWhiteSpace(filter.q))
                 query = query.Where(x => x.TenSanPham!.Contains(filter.q));
@@ -50,11 +49,10 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             if (filter.DanhMucID.HasValue)
                 query = query.Where(x => x.TenDanhMuc != null &&
                                          _context.DanhMucSanPhams
-                                            .Any(d => d.DanhMucId == filter.DanhMucID && d.TenDanhMuc == x.TenDanhMuc));
+                                             .Any(d => d.DanhMucId == filter.DanhMucID && d.TenDanhMuc == x.TenDanhMuc));
 
             if (filter.NhaCungCapID.HasValue)
             {
-                // lọc theo tên ncc từ id (tối ưu hơn là join lại, nhưng giữ code gọn)
                 var nccName = await _context.NhaCungCaps
                     .Where(n => n.NhaCungCapId == filter.NhaCungCapID)
                     .Select(n => n.TenNhaCungCap)
@@ -66,7 +64,6 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             if (filter.LaNoiBat.HasValue)
                 query = query.Where(x => x.LaNoiBat == filter.LaNoiBat.Value);
 
-            // Pagination
             var total = await query.CountAsync();
             var items = await query
                 .OrderByDescending(x => x.SanPhamID)
@@ -77,7 +74,6 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             ViewBag.Filter = filter;
             ViewBag.Total = total;
 
-            // DDL cho filter
             ViewBag.DanhMucs = await _context.DanhMucSanPhams
                 .OrderBy(x => x.TenDanhMuc)
                 .Select(x => new { x.DanhMucId, x.TenDanhMuc })
@@ -101,7 +97,10 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         // POST: /Admin/QuanLySanPham/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductFormVM model, IFormFile? HinhAnhFile)
+        public async Task<IActionResult> Create(
+            ProductFormVM model,
+            IFormFile? HinhAnhFile,
+            [FromQuery] ProductFilterVM filter) // để có thể quay lại danh sách hiện tại
         {
             if (!ModelState.IsValid)
             {
@@ -114,36 +113,30 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 TenSanPham = model.TenSanPham,
                 MoTa = model.MoTa,
                 Gia = model.Gia,
-                SoLuongTon = model.SoLuongTon,
                 HinhAnh = model.HinhAnh,
                 DanhMucId = model.DanhMucID,
                 NhaCungCapId = model.NhaCungCapID,
-                LaNoiBat = model.LaNoiBat, // bool -> bool?
+                LaNoiBat = model.LaNoiBat,
                 ChiTiet = model.ChiTiet,
                 GiaSauGiam = model.GiaSauGiam,
                 ThongSoKyThuat = model.ThongSoKyThuat
             };
 
             if (HinhAnhFile != null && HinhAnhFile.Length > 0)
-            {
                 sp.HinhAnh = await SaveImageAsync(HinhAnhFile);
-            }
 
-            if (string.IsNullOrEmpty(sp.HinhAnh) == false && HinhAnhFile == null)
-            {
+            if (!string.IsNullOrEmpty(sp.HinhAnh) && HinhAnhFile == null)
                 sp.HinhAnh = NormalizeImagePath(sp.HinhAnh);
-            }
 
             try
             {
                 _context.SanPhams.Add(sp);
                 await _context.SaveChangesAsync();
                 TempData["ok"] = "Tạo sản phẩm thành công!";
-                return RedirectToAction(nameof(Index));
+                return BackToList(filter);
             }
             catch (Exception ex)
             {
-                // Đẩy lỗi ra view để biết vì sao không lưu được (FK, format, v.v.)
                 ModelState.AddModelError(string.Empty, ex.InnerException?.Message ?? ex.Message);
                 await BuildFormViewBags();
                 return View(model);
@@ -151,7 +144,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
         // GET: /Admin/QuanLySanPham/Edit/5
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int id, string? returnUrl = null)
         {
             var sp = await _context.SanPhams.FindAsync(id);
             if (sp == null) return NotFound();
@@ -172,6 +165,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 ThongSoKyThuat = sp.ThongSoKyThuat
             };
 
+            ViewBag.ReturnUrl = returnUrl;
             await BuildFormViewBags();
             return View(model);
         }
@@ -179,12 +173,18 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         // POST: /Admin/QuanLySanPham/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ProductFormVM model, IFormFile? HinhAnhFile)
+        public async Task<IActionResult> Edit(
+            int id,
+            ProductFormVM model,
+            IFormFile? HinhAnhFile,
+            [FromQuery] ProductFilterVM filter,
+            string? returnUrl = null)
         {
             if (id != model.SanPhamID) return BadRequest();
 
             if (!ModelState.IsValid)
             {
+                ViewBag.ReturnUrl = returnUrl;
                 await BuildFormViewBags();
                 return View(model);
             }
@@ -195,7 +195,6 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             sp.TenSanPham = model.TenSanPham;
             sp.MoTa = model.MoTa;
             sp.Gia = model.Gia;
-            sp.SoLuongTon = model.SoLuongTon;
             sp.DanhMucId = model.DanhMucID;
             sp.NhaCungCapId = model.NhaCungCapID;
             sp.LaNoiBat = model.LaNoiBat;
@@ -204,45 +203,82 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             sp.ThongSoKyThuat = model.ThongSoKyThuat;
 
             if (HinhAnhFile != null && HinhAnhFile.Length > 0)
-            {
                 sp.HinhAnh = await SaveImageAsync(HinhAnhFile);
-            }
 
             if (HinhAnhFile == null && !string.IsNullOrWhiteSpace(sp.HinhAnh))
-            {
                 sp.HinhAnh = NormalizeImagePath(sp.HinhAnh);
-            }
 
             await _context.SaveChangesAsync();
             TempData["ok"] = "Cập nhật sản phẩm thành công!";
-            return RedirectToAction(nameof(Index));
+            return BackToList(filter, returnUrl);
         }
 
         // POST: /Admin/QuanLySanPham/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id, [FromQuery] ProductFilterVM filter)
         {
             var sp = await _context.SanPhams.FindAsync(id);
             if (sp == null) return NotFound();
 
-            _context.SanPhams.Remove(sp);
-            await _context.SaveChangesAsync();
-            TempData["ok"] = "Đã xóa sản phẩm.";
-            return RedirectToAction(nameof(Index));
+            var coNhap = await _context.ChiTietNhapHangs.AnyAsync(x => x.SanPhamId == id);
+            var coXuat = await _context.ChiTietDonHangs.AnyAsync(x => x.SanPhamId == id);
+            if (coNhap || coXuat)
+            {
+                TempData["Error"] = "Không thể xóa sản phẩm vì đã phát sinh giao dịch (nhập/xuất). Hãy ẩn sản phẩm.";
+                return BackToList(filter);
+            }
+
+            var imgRel = sp.HinhAnh;
+
+            try
+            {
+                var wish = await _context.WishlistItems.Where(w => w.SanPhamId == id).ToListAsync();
+                if (wish.Count > 0) _context.WishlistItems.RemoveRange(wish);
+
+                _context.SanPhams.Remove(sp);
+                await _context.SaveChangesAsync();
+
+                var isLocalImage = !string.IsNullOrWhiteSpace(imgRel)
+                                   && _env?.WebRootPath != null
+                                   && !imgRel.Contains("://")
+                                   && !Path.IsPathRooted(imgRel);
+                if (isLocalImage)
+                {
+                    try
+                    {
+                        var full = Path.Combine(_env.WebRootPath, imgRel.Replace("/", Path.DirectorySeparatorChar.ToString()));
+                        if (System.IO.File.Exists(full)) System.IO.File.Delete(full);
+                    }
+                    catch { }
+                }
+
+                TempData["ok"] = "Đã xóa sản phẩm.";
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sql && sql.Number == 547)
+            {
+                TempData["Error"] = "Không thể xóa sản phẩm vì còn ràng buộc dữ liệu (FK).";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+            }
+
+            return BackToList(filter);
         }
 
         // POST: /Admin/QuanLySanPham/ToggleFeatured/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ToggleFeatured(int id)
+        public async Task<IActionResult> ToggleFeatured(int id, [FromQuery] ProductFilterVM filter)
         {
             var sp = await _context.SanPhams.FindAsync(id);
             if (sp == null) return NotFound();
 
             sp.LaNoiBat = !(sp.LaNoiBat ?? false);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return BackToList(filter);
         }
 
         private async Task BuildFormViewBags()
@@ -270,14 +306,30 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             {
                 await file.CopyToAsync(stream);
             }
-            // đường dẫn tương đối để lưu DB
             return Path.Combine("images", "products", fileName).Replace("\\", "/");
         }
+
         private static string? NormalizeImagePath(string? p)
         {
             if (string.IsNullOrWhiteSpace(p)) return p;
             var path = p.Replace("\\", "/");
             return path.Contains('/') ? path : $"images/products/{path}";
+        }
+
+        private IActionResult BackToList(ProductFilterVM filter, string? returnUrl = null)
+        {
+            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+
+            return RedirectToAction(nameof(Index), new
+            {
+                q = filter.q,
+                DanhMucID = filter.DanhMucID,
+                NhaCungCapID = filter.NhaCungCapID,
+                LaNoiBat = filter.LaNoiBat,
+                Page = filter.Page,
+                PageSize = filter.PageSize
+            });
         }
     }
 }

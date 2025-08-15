@@ -145,8 +145,12 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Details), new { id });
             }
 
+            await using var tx = await _context.Database.BeginTransactionAsync();
+
             entity.TrangThaiId = statusId;
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); // => trigger đổi trạng thái sẽ trừ/hoàn tồn
+            await tx.CommitAsync();
+
             TempData["Success"] = "Đã cập nhật trạng thái đơn hàng.";
             return RedirectToAction(nameof(Details), new { id });
         }

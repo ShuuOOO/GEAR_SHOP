@@ -1732,3 +1732,4 @@ D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.pdb
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.genruntimeconfig.cache
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\obj\Debug\net9.0\ref\TL4_SHOP.dll
 D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\obj\Debug\net9.0\compressed\n1xsp3t4ai-hiviqleu1v.gz
+D:\HK3_Nam3\GEAR SHOP\GEAR_SHOP\obj\Debug\net9.0\compressed\ybieq7ydr8-kto0u1bpw4.gz

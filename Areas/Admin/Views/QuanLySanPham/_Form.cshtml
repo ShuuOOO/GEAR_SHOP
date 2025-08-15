@@ -11,18 +11,21 @@
 
             <div class="col-md-3">
                 <label asp-for="Gia" class="form-label"></label>
-                <input asp-for="Gia" class="form-control" />
+                <input asp-for="Gia" class="form-control" data-money inputmode="numeric" autocomplete="off" />
                 <span asp-validation-for="Gia" class="text-danger"></span>
             </div>
 
             <div class="col-md-3">
                 <label asp-for="GiaSauGiam" class="form-label"></label>
-                <input asp-for="GiaSauGiam" class="form-control" />
+                <input asp-for="GiaSauGiam" class="form-control" data-money inputmode="numeric" autocomplete="off" />
             </div>
 
             <div class="col-md-3">
                 <label asp-for="SoLuongTon" class="form-label"></label>
-                <input asp-for="SoLuongTon" class="form-control" />
+                <input asp-for="SoLuongTon" class="form-control" readonly />
+                <small class="text-muted">
+                    Sửa tồn kho tại <a asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">Kho hàng</a>.
+                </small>
             </div>
 
             <div class="col-md-3">
@@ -181,6 +184,113 @@
                 }
             </div>
         </div>
+        <script>
+            (function () {
+              // Dùng group theo VN (1.234.567); nếu bạn thích dấu phẩy, đổi 'vi-VN' -> 'en-US'
+              const nf = new Intl.NumberFormat('vi-VN');
+
+              function onlyNumberChars(s) {
+                return (s || '').replace(/[^\d.,]/g, ''); // giữ số + , .
+              }
+
+              // Parse "1.234.567,89" hoặc "1,234,567.89" -> số (float)
+              function parseMoneyToNumber(viewStr) {
+                let s = onlyNumberChars(viewStr).trim();
+                if (!s) return null;
+
+                // nếu có cả . và , -> coi ký tự CUỐI CÙNG là phần thập phân
+                const lastDot = s.lastIndexOf('.');
+                const lastComma = s.lastIndexOf(',');
+
+                if (lastDot >= 0 && lastComma >= 0) {
+                  const decPos = Math.max(lastDot, lastComma);
+                  const intPart = s.slice(0, decPos).replace(/[.,]/g, '');
+                  const decPart = s.slice(decPos + 1).replace(/[^\d]/g, '');
+                  s = intPart + '.' + decPart; // chuẩn hóa về dấu chấm thập phân
+                } else {
+                  // chỉ có 1 loại dấu
+                  if (s.includes(',')) {
+                    // giả định , là thập phân nếu có duy nhất một , và sau đó <= 2 chữ số
+                    const parts = s.split(',');
+                    if (parts.length === 2 && parts[1].length <= 2) {
+                      s = parts[0].replace(/[.,]/g, '') + '.' + parts[1];
+                    } else {
+                      s = s.replace(/,/g, ''); // , chỉ là phân cách nghìn
+                    }
+                  } else if (s.includes('.')) {
+                    const parts = s.split('.');
+                    if (parts.length === 2 && parts[1].length <= 2) {
+                      s = parts[0].replace(/[.,]/g, '') + '.' + parts[1];
+                    } else {
+                      s = s.replace(/\./g, ''); // . là phân cách nghìn
+                    }
+                  }
+                }
+
+                const num = Number(s);
+                return Number.isFinite(num) ? num : null;
+              }
+
+              function formatMoneyView(num) {
+                if (num == null || num === '') return '';
+                const n = Number(num);
+                if (!Number.isFinite(n)) return '';
+                return nf.format(n);
+              }
+
+              // map: id view -> id hidden
+              const pairs = [
+                ['Gia_view', 'Gia'],
+                ['GiaSauGiam_view', 'GiaSauGiam']
+              ];
+
+              // Khởi tạo: copy hidden -> view (định dạng)
+              pairs.forEach(([viewId, hidId]) => {
+                const hid = document.getElementById(hidId);
+                const view = document.getElementById(viewId);
+                if (!hid || !view) return;
+
+                view.value = formatMoneyView(hid.value);
+
+                // Khi gõ: format theo thời gian thực, đồng thời cập nhật hidden = số sạch
+                view.addEventListener('input', () => {
+                  const caretToEnd = document.activeElement === view;
+                  const num = parseMoneyToNumber(view.value);
+                  hid.value = (num ?? '').toString();
+
+                  // Hiển thị lại dạng format (nhưng tránh nhảy con trỏ quá khó chịu)
+                  const start = view.selectionStart, end = view.selectionEnd;
+                  view.value = formatMoneyView(num);
+                  if (caretToEnd) {
+                    // đặt con trỏ về cuối để trải nghiệm mượt
+                    view.setSelectionRange(view.value.length, view.value.length);
+                  } else {
+                    // fallback
+                    try { view.setSelectionRange(start, end); } catch {}
+                  }
+                });
+
+                // Khi blur: chắc chắn hiển thị format
+                view.addEventListener('blur', () => {
+                  const num = parseMoneyToNumber(view.value);
+                  hid.value = (num ?? '').toString();
+                  view.value = formatMoneyView(num);
+                });
+              });
+
+              // Trước khi submit form: đảm bảo hidden là số, view chỉ để hiển thị
+              (document.currentScript.closest('form') || document.forms[0])
+                .addEventListener('submit', function () {
+                  pairs.forEach(([viewId, hidId]) => {
+                    const hid = document.getElementById(hidId);
+                    const view = document.getElementById(viewId);
+                    if (!hid || !view) return;
+                    const num = parseMoneyToNumber(view.value);
+                    hid.value = (num ?? '').toString();
+                  });
+                });
+            })();
+        </script>
 
         <div class="mt-4 d-flex gap-2">
             <button type="submit" class="btn btn-primary">Lưu</button>

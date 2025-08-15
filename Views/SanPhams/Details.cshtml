@@ -282,12 +282,6 @@
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="tab-pane-1">
-                    @if (!string.IsNullOrWhiteSpace(Model.MoTa))
-                    {
-                        <div class="product-detail desc-text">
-                            @Html.Raw(Model.MoTa.Replace("\n", "<br/>"))
-                        </div>
-                    }
                     @if (!string.IsNullOrWhiteSpace(Model.ChiTiet))
                     {
                         <div class="product-detail desc-text spec-card">
