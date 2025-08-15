@@ -23,22 +23,26 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         public async Task<IActionResult> Index([FromQuery] ProductFilterVM filter)
         {
             var query =
-                from sp in _context.SanPhams
-                join dm in _context.DanhMucSanPhams on sp.DanhMucId equals dm.DanhMucId into gdm
-                from dm in gdm.DefaultIfEmpty()
-                join ncc in _context.NhaCungCaps on sp.NhaCungCapId equals ncc.NhaCungCapId
-                select new ProductListItemVM
-                {
-                    SanPhamID = sp.SanPhamId,
-                    TenSanPham = sp.TenSanPham,
-                    Gia = sp.Gia,
-                    GiaSauGiam = sp.GiaSauGiam,
-                    SoLuongTon = sp.SoLuongTon,
-                    HinhAnh = sp.HinhAnh,
-                    TenDanhMuc = dm != null ? dm.TenDanhMuc : null,
-                    TenNhaCungCap = ncc.TenNhaCungCap,
-                    LaNoiBat = sp.LaNoiBat ?? false
-                };
+            from sp in _context.SanPhams.AsNoTracking()
+            join dm in _context.DanhMucSanPhams.AsNoTracking() on sp.DanhMucId equals dm.DanhMucId into gdm
+            from dm in gdm.DefaultIfEmpty()
+            join ncc in _context.NhaCungCaps.AsNoTracking() on sp.NhaCungCapId equals ncc.NhaCungCapId
+            // NEW: left join kho
+            join kh0 in _context.KhoHangs.AsNoTracking() on sp.SanPhamId equals kh0.SanPhamId into gkh
+            from kh in gkh.DefaultIfEmpty()
+            select new ProductListItemVM
+            {
+                SanPhamID = sp.SanPhamId,
+                TenSanPham = sp.TenSanPham,
+                Gia = sp.Gia,
+                GiaSauGiam = sp.GiaSauGiam,
+                // NEW: lấy tồn kho từ KhoHang (nếu chưa có dòng kho thì = 0)
+                SoLuongTon = kh != null ? kh.SoLuongTon : 0,
+                HinhAnh = sp.HinhAnh,
+                TenDanhMuc = dm != null ? dm.TenDanhMuc : null,
+                TenNhaCungCap = ncc.TenNhaCungCap,
+                LaNoiBat = sp.LaNoiBat ?? false
+            };
 
             if (!string.IsNullOrWhiteSpace(filter.q))
                 query = query.Where(x => x.TenSanPham!.Contains(filter.q));
