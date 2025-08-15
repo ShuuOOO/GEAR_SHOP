@@ -3,4 +3,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
     ViewData["Title"] = "Thêm nhà cung cấp";
 }
-@Html.Partial("_Form", Model)
+@await Html.PartialAsync("_Form", Model)
+
+@section Styles { }
+@section Scripts { }

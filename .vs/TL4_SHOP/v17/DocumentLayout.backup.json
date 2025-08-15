@@ -234,8 +234,7 @@
               "RelativeToolTip": "wwwroot\\js\\money-format.js",
               "ViewState": "AgIAADYAAAAAAAAAAAAqwFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-08-15T14:04:14.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T14:04:14.717Z"
             },
             {
               "$type": "Document",
@@ -247,8 +246,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
               "ViewState": "AgIAABABAAAAAAAAAAAAAC0BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T07:34:24.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T07:34:24.334Z"
             },
             {
               "$type": "Document",
@@ -258,7 +256,7 @@
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
               "ToolTip": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
               "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAG4AAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHgAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-13T07:36:22.194Z",
               "EditorCaption": ""
@@ -273,8 +271,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T07:35:14.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T07:35:14.882Z"
             },
             {
               "$type": "Document",
@@ -286,8 +283,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\NhapHangs\\Index.cshtml",
               "ViewState": "AgIAABYAAAAAAAAAAAAjwCcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T07:50:26.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:50:26.162Z"
             },
             {
               "$type": "Document",
@@ -299,8 +295,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\NhapHangs\\Create.cshtml",
               "ViewState": "AgIAAEAAAAAAAAAAAAAhwFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T07:50:42.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:50:42.26Z"
             },
             {
               "$type": "Document",
@@ -312,8 +307,7 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\NhapHangsController.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAADwv1sAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T07:49:18.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:49:18.386Z"
             },
             {
               "$type": "Document",
@@ -325,8 +319,7 @@
               "RelativeToolTip": "Views\\SanPhams\\Details.cshtml",
               "ViewState": "AgIAAA4BAAAAAAAAAAAAABsBAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T09:21:19.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T09:21:19.907Z"
             },
             {
               "$type": "Document",
@@ -338,8 +331,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\NhaCungCaps\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T07:53:05.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:53:05.919Z"
             },
             {
               "$type": "Document",
@@ -351,8 +343,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\NhaCungCaps\\Index.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T07:52:20.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:52:20.658Z"
             },
             {
               "$type": "Document",
@@ -364,8 +355,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\KhoHangs\\Index.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T07:51:32.319Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:51:32.319Z"
             },
             {
               "$type": "Document",
@@ -377,8 +367,7 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
               "ViewState": "AgIAADIBAAAAAAAAAAAAwEMBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T07:32:47.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T07:32:47.859Z"
             },
             {
               "$type": "Document",
@@ -390,8 +379,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Admin_Layout.cshtml",
               "ViewState": "AgIAAEUBAAAAAAAAAAAIwFIBAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-12T13:16:56.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T13:16:56.618Z"
             },
             {
               "$type": "Document",
@@ -403,8 +391,7 @@
               "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-13T07:35:37.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T07:35:37.728Z"
             },
             {
               "$type": "Document",
@@ -416,8 +403,7 @@
               "RelativeToolTip": "Areas\\Admin\\Controllers\\KhoHangsController.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAAwGUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T07:49:37.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T07:49:37.73Z"
             },
             {
               "$type": "Document",
