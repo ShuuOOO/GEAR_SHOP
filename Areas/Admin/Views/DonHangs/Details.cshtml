@@ -1,9 +1,22 @@
 @model TL4_SHOP.Models.ViewModels.DonHangDetailViewModel
 @{
-  ViewData["Title"] = "Chi tiết đơn hàng #" + Model.DonHangId;
-  Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
-  var statuses = (IEnumerable<TL4_SHOP.Data.TrangThaiDonHang>)ViewBag.Statuses;
+    ViewData["Title"] = "Chi tiết đơn hàng #" + Model.DonHangId;
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+
+    var statuses   = (IEnumerable<TL4_SHOP.Data.TrangThaiDonHang>)ViewBag.Statuses;
+    var isTerminal = Model.TrangThai == 4 || Model.TrangThai == 5; // 4: Giao thành công, 5: Đã hủy
+    int current    = Model.TrangThai.GetValueOrDefault();
+
+    // Chỉ cho phép: 1→2/5, 2→3/5, 3→4/5; 4/5: kết thúc
+    int[] allowedStatuses = current switch
+    {
+        1 => new int[] { 1, 2, 5 },   // Mới tạo
+        2 => new int[] { 2, 3, 5 },   // Xác nhận
+        3 => new int[] { 3, 4, 5 },   // Đang giao
+        _ => new int[] { current }    // 4/5: chỉ giữ nguyên
+    };
 }
+
 <div class="d-flex align-items-center justify-content-between mb-3">
   <h4 class="mb-0">@ViewData["Title"]</h4>
   <div class="d-flex gap-2">
@@ -11,6 +24,7 @@
     <a class="btn btn-outline-primary" asp-action="Invoice" asp-route-id="@Model.DonHangId">Xuất hoá đơn</a>
   </div>
 </div>
+
 <div class="card">
   <div class="card-body">
     <div class="row">
@@ -22,30 +36,47 @@
         <p><strong>Ngày đặt:</strong> @Model.NgayDatHang.ToString("dd/MM/yyyy HH:mm")</p>
         <p><strong>Tổng tiền:</strong> @Model.TongTien.ToString("N0") đ</p>
       </div>
+
       <div class="col-lg-6">
         <h6 class="text-muted">Trạng thái</h6>
+
         <form class="d-flex align-items-center gap-2" asp-action="UpdateStatus" method="post">
           @Html.AntiForgeryToken()
           <input type="hidden" name="id" value="@Model.DonHangId" />
-                    <select class="form-select" name="statusId" style="max-width:320px">
-                        @foreach (var s in statuses)
-                        {
-                            if (Model.TrangThai == s.TrangThaiId)
-                            {
-                                <option value="@s.TrangThaiId" selected>@s.TenTrangThai</option>
-                            }
-                            else
-                            {
-                                <option value="@s.TrangThaiId">@s.TenTrangThai</option>
-                            }
-                        }
-                    </select>
-          <button class="btn btn-primary">Cập nhật</button>
+
+         <select class="form-select" name="statusId" id="statusId" style="max-width:320px"
+        @(isTerminal ? "disabled=\"disabled\"" : "") data-current="@(Model.TrangThai ?? 0)">
+            @foreach (var s in statuses)
+            {
+                if (Array.IndexOf(allowedStatuses, s.TrangThaiId) < 0) { continue; }
+
+                if (Model.TrangThai == s.TrangThaiId)
+                {
+                    <option value="@s.TrangThaiId" selected="selected">@s.TenTrangThai</option>
+                }
+                else
+                {
+                    <option value="@s.TrangThaiId">@s.TenTrangThai</option>
+                }
+            }
+          </select>
+
+          <button type="submit" class="btn btn-primary" id="btnUpdate" @(isTerminal ? "disabled=\"disabled\"" : "")>
+            Cập nhật
+          </button>
         </form>
+
+        @if (isTerminal)
+        {
+            <small class="text-muted d-block mt-1">
+                Đơn đã ở trạng thái kết thúc (@(Model.TrangThai==4?"Giao thành công":"Đã hủy")). Không thể đổi trạng thái.
+            </small>
+        }
       </div>
     </div>
 
     <hr />
+
     <div class="table-responsive">
       <table class="table table-striped align-middle">
         <thead>
@@ -73,3 +104,20 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Tự khoá nút "Cập nhật" nếu người dùng chưa đổi trạng thái (tránh submit vô ích)
+  (function () {
+    var sel = document.getElementById('statusId');
+    var btn = document.getElementById('btnUpdate');
+    if (!sel || !btn) return;
+
+    var current = parseInt(sel.getAttribute('data-current'), 10);
+    function toggle() {
+      var next = parseInt(sel.value, 10);
+      btn.disabled = (next === current) || sel.disabled;
+    }
+    toggle();
+    sel.addEventListener('change', toggle);
+  })();
+</script>

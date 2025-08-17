@@ -1,55 +1,62 @@
 ﻿@{
-    var hasError = TempData["Error"] as string;
-    var hasSuccess = TempData["Success"] as string;
-    var hasInfo = TempData["Info"] as string;
-    var hasWarn = TempData["Warning"] as string;
+    // Chuẩn hóa key: gom các alias phổ biến trong project
+    string err = (TempData["Error"] as string) ?? (TempData["ErrorMessage"] as string);
+    string ok = (TempData["Success"] as string) ?? (TempData["ok"] as string);
+    string info = (TempData["Info"] as string) ?? (TempData["Message"] as string);
+    string warn = (TempData["Warning"] as string);
+
+    bool hasAny = !string.IsNullOrWhiteSpace(err)
+               || !string.IsNullOrWhiteSpace(ok)
+               || !string.IsNullOrWhiteSpace(info)
+               || !string.IsNullOrWhiteSpace(warn);
 }
-@if (!string.IsNullOrWhiteSpace(hasError) ||
-    !string.IsNullOrWhiteSpace(hasSuccess) ||
-    !string.IsNullOrWhiteSpace(hasInfo) ||
-    !string.IsNullOrWhiteSpace(hasWarn))
+@if (hasAny)
 {
-    <div class="container mt-3">
+    <div class="container mt-3" aria-live="polite" aria-atomic="true">
         @* ERROR *@
-        @if (!string.IsNullOrWhiteSpace(hasError))
+        @if (!string.IsNullOrWhiteSpace(err))
         {
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                @hasError
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                @err
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
             </div>
         }
+
         @* SUCCESS *@
-        @if (!string.IsNullOrWhiteSpace(hasSuccess))
+        @if (!string.IsNullOrWhiteSpace(ok))
         {
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                @hasSuccess
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                @ok
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
             </div>
         }
+
         @* INFO *@
-        @if (!string.IsNullOrWhiteSpace(hasInfo))
+        @if (!string.IsNullOrWhiteSpace(info))
         {
-            <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                @hasInfo
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                @info
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
             </div>
         }
+
         @* WARNING *@
-        @if (!string.IsNullOrWhiteSpace(hasWarn))
+        @if (!string.IsNullOrWhiteSpace(warn))
         {
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                @hasWarn
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                @warn
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
             </div>
         }
     </div>
+
     <script>
-        // Auto close với Bootstrap 5 (không dùng jQuery)
+        // Tự đóng sau 4s (Bootstrap 5, không cần jQuery)
         (function () {
             if (!window.bootstrap) return;
             document.querySelectorAll('.alert').forEach(function (el) {
                 var inst = new bootstrap.Alert(el);
-                setTimeout(function () { try { inst.close(); } catch(e){} }, 4000);
+                setTimeout(function () { try { inst.close(); } catch (e) { } }, 4000);
             });
         })();
     </script>
