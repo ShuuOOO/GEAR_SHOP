@@ -332,10 +332,6 @@
         })();
     </script>
     @await Html.PartialAsync("_Flash")
-
-    <script>
-        $(function () { setTimeout(function () { $('.alert').alert('close'); }, 4000); });
-    </script>
     <script src="~/js/money-format.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

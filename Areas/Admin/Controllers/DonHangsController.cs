@@ -83,6 +83,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 .Include(x => x.TrangThai)
                 .Include(x => x.ChiTietDonHangs).ThenInclude(ct => ct.SanPham)
                 .Include(x => x.DiaChi)
+                .Include(x => x.KhachHang)
                 .FirstOrDefaultAsync(x => x.DonHangId == id);
 
             if (dh == null) return NotFound();
@@ -138,22 +139,59 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             var entity = await _context.DonHangs.FindAsync(id);
             if (entity == null) return NotFound();
 
-            bool exists = await _context.TrangThaiDonHangs.AsNoTracking().AnyAsync(x => x.TrangThaiId == statusId);
+            // 1) Validate trạng thái đích có tồn tại
+            bool exists = await _context.TrangThaiDonHangs.AsNoTracking()
+                .AnyAsync(x => x.TrangThaiId == statusId);
             if (!exists)
             {
                 TempData["Error"] = "Trạng thái không hợp lệ.";
                 return RedirectToAction(nameof(Details), new { id });
             }
 
-            await using var tx = await _context.Database.BeginTransactionAsync();
+            // 2) Không làm gì nếu không thay đổi
+            if (entity.TrangThaiId == statusId)
+            {
+                TempData["Info"] = "Trạng thái không thay đổi.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
 
+            // 3) Ràng buộc luồng chuyển trạng thái cơ bản (chỉ tiến/hoặc hủy)
+            //    1: Chờ xác nhận, 2: Đã xác nhận, 3: Đang giao, 4: Giao thành công, 5: Đã hủy
+            bool hopLe = (entity.TrangThaiId, statusId) switch
+            {
+                (1, 2) or (2, 3) or (3, 4) or          // tiến trình chuẩn
+                (_, 5) => true,                       // cho phép hủy từ mọi trạng thái chưa giao thành công
+                (4, _) => false,                      // đã 'Giao thành công' thì không lùi/đổi
+                (5, _) => false,                      // đã 'Đã hủy' thì không đổi
+                _ => false
+            };
+
+            if (!hopLe)
+            {
+                TempData["Error"] = "Luồng chuyển trạng thái không hợp lệ.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            // 4) Cập nhật
             entity.TrangThaiId = statusId;
-            await _context.SaveChangesAsync(); // => trigger đổi trạng thái sẽ trừ/hoàn tồn
-            await tx.CommitAsync();
 
-            TempData["Success"] = "Đã cập nhật trạng thái đơn hàng.";
+            try
+            {
+                // Trigger DB sẽ tự trừ/hoàn tồn khi vào/ra trạng thái 'Giao thành công'
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Đã cập nhật trạng thái đơn hàng.";
+            }
+            catch (DbUpdateException ex)
+            {
+                // Nếu trigger ném lỗi (ví dụ âm tồn), đẩy nội dung ra TempData cho dễ theo dõi
+                var msg = ex.InnerException?.Message ?? ex.Message;
+                TempData["Error"] = "Cập nhật thất bại: " + msg;
+            }
+
             return RedirectToAction(nameof(Details), new { id });
         }
+
+
 
         // GET: Admin/DonHangs/Invoice/5
         public async Task<IActionResult> Invoice(int id)

@@ -1,23 +1,56 @@
-﻿@if (TempData["Error"] != null || TempData["Success"] != null)
+﻿@{
+    var hasError = TempData["Error"] as string;
+    var hasSuccess = TempData["Success"] as string;
+    var hasInfo = TempData["Info"] as string;
+    var hasWarn = TempData["Warning"] as string;
+}
+@if (!string.IsNullOrWhiteSpace(hasError) ||
+    !string.IsNullOrWhiteSpace(hasSuccess) ||
+    !string.IsNullOrWhiteSpace(hasInfo) ||
+    !string.IsNullOrWhiteSpace(hasWarn))
 {
     <div class="container mt-3">
-        @if (TempData["Error"] != null)
+        @* ERROR *@
+        @if (!string.IsNullOrWhiteSpace(hasError))
         {
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                @TempData["Error"]
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                @hasError
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         }
-        @if (TempData["Success"] != null)
+        @* SUCCESS *@
+        @if (!string.IsNullOrWhiteSpace(hasSuccess))
         {
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                @TempData["Success"]
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                @hasSuccess
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @* INFO *@
+        @if (!string.IsNullOrWhiteSpace(hasInfo))
+        {
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                @hasInfo
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @* WARNING *@
+        @if (!string.IsNullOrWhiteSpace(hasWarn))
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                @hasWarn
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         }
     </div>
+    <script>
+        // Auto close với Bootstrap 5 (không dùng jQuery)
+        (function () {
+            if (!window.bootstrap) return;
+            document.querySelectorAll('.alert').forEach(function (el) {
+                var inst = new bootstrap.Alert(el);
+                setTimeout(function () { try { inst.close(); } catch(e){} }, 4000);
+            });
+        })();
+    </script>
 }
