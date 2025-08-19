@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TL4_SHOP.Data;
 using TL4_SHOP.Models.ViewModels;
+using Microsoft.Data.SqlClient;
 
 namespace TL4_SHOP.Areas.Admin.Controllers
 {
@@ -157,38 +158,72 @@ namespace TL4_SHOP.Areas.Admin.Controllers
 
             // 3) Ràng buộc luồng chuyển trạng thái cơ bản (chỉ tiến/hoặc hủy)
             //    1: Chờ xác nhận, 2: Đã xác nhận, 3: Đang giao, 4: Giao thành công, 5: Đã hủy
-            bool hopLe = (entity.TrangThaiId, statusId) switch
-            {
-                (1, 2) or (2, 3) or (3, 4) or          // tiến trình chuẩn
-                (_, 5) => true,                       // cho phép hủy từ mọi trạng thái chưa giao thành công
-                (4, _) => false,                      // đã 'Giao thành công' thì không lùi/đổi
-                (5, _) => false,                      // đã 'Đã hủy' thì không đổi
-                _ => false
-            };
+            // 3) Ràng buộc luồng chuyển trạng thái cơ bản (chỉ tiến/hoặc hủy)
+            var current = entity.TrangThaiId;
+            var next = statusId;
 
-            if (!hopLe)
+            if (current < 1 || current > 5)
             {
-                TempData["Error"] = "Luồng chuyển trạng thái không hợp lệ.";
+                TempData["Error"] = $"Trạng thái hiện tại ({current}) không hợp lệ.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+            if (next < 1 || next > 5)
+            {
+                TempData["Error"] = $"Trạng thái đích ({next}) không hợp lệ.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            // Chặn nếu đơn đã ở trạng thái kết thúc vòng đời
+            if (IsTerminal(current))
+            {
+                TempData["Warning"] = "Đơn hàng đã kết thúc (giao xong/đã hủy), không thể đổi trạng thái.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            // Chỉ cho phép chuyển theo AllowedTransitions
+            if (!IsTransitionAllowed(current, next))
+            {
+                TempData["Error"] = $"Không cho phép chuyển từ trạng thái {current} sang {next}.";
                 return RedirectToAction(nameof(Details), new { id });
             }
 
             // 4) Cập nhật
             entity.TrangThaiId = statusId;
+            // Ghi nhận cập nhật để audit (không đổi tên field public nào khác)
+
+            bool isAjax = string.Equals(Request?.Headers["X-Requested-With"], "XMLHttpRequest", StringComparison.OrdinalIgnoreCase);
 
             try
             {
                 // Trigger DB sẽ tự trừ/hoàn tồn khi vào/ra trạng thái 'Giao thành công'
                 await _context.SaveChangesAsync();
                 TempData["Success"] = "Đã cập nhật trạng thái đơn hàng.";
-            }
-            catch (DbUpdateException ex)
-            {
-                // Nếu trigger ném lỗi (ví dụ âm tồn), đẩy nội dung ra TempData cho dễ theo dõi
-                var msg = ex.InnerException?.Message ?? ex.Message;
-                TempData["Error"] = "Cập nhật thất bại: " + msg;
-            }
 
-            return RedirectToAction(nameof(Details), new { id });
+                if (isAjax)
+                    return Json(new { ok = true, message = TempData["Success"], status = statusId });
+
+                return RedirectToAction(nameof(Details), new { id });
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                TempData["Error"] = "Có xung đột dữ liệu. Vui lòng tải lại trang và thử lại.";
+                if (isAjax) return Json(new { ok = false, message = TempData["Error"] });
+                return RedirectToAction(nameof(Details), new { id });
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlEx)
+            {
+                // Lỗi từ trigger/ràng buộc kho (âm tồn, v.v.)
+                // Nếu bạn có quy ước Number thì có thể map thân thiện hơn theo sqlEx.Number
+                TempData["Error"] = "Cập nhật thất bại do ràng buộc kho: " + sqlEx.Message;
+                if (isAjax) return Json(new { ok = false, message = TempData["Error"] });
+                return RedirectToAction(nameof(Details), new { id });
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Lỗi không xác định: " + ex.Message;
+                if (isAjax) return Json(new { ok = false, message = TempData["Error"] });
+                return RedirectToAction(nameof(Details), new { id });
+            }
         }
 
 
@@ -204,5 +239,26 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             var bytes = InvoiceGenerator.CreateInvoice(dh);
             return File(bytes, "application/pdf", $"invoice-{id}.pdf");
         }
+
+        private static readonly Dictionary<int, int[]> AllowedTransitions = new()
+{
+            // 1: Mới tạo -> 2: Xác nhận | 5: Hủy
+            { 1, new[] { 2, 5 } },
+            // 2: Xác nhận -> 3: Đang giao | 5: Hủy
+            { 2, new[] { 3, 5 } },
+            // 3: Đang giao -> 4: Giao thành công | 5: Hủy
+            { 3, new[] { 4, 5 } },
+            // 4,5: Kết thúc vòng đời -> không cho đổi nữa
+        };
+        private static bool IsTransitionAllowed(int current, int next)
+        {
+            if (!AllowedTransitions.TryGetValue(current, out var nexts) || nexts == null)
+                return false;
+
+            // Tránh phụ thuộc LINQ; nếu mảng null sẽ không vào đây
+            return Array.IndexOf(nexts, next) >= 0;
+        }
+
+        private static bool IsTerminal(int statusId) => statusId == 4 || statusId == 5;
     }
 }
