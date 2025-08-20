@@ -360,6 +360,9 @@ wwwroot\css\site.css
 wwwroot\css\style.css
 wwwroot\css\style.min.css
 wwwroot\favicon.ico
+wwwroot\images\news\2e5e3633593f4806ab6b619fecd10394.png
+wwwroot\images\news\61d6460a5f6147a696e3b0bfe3e6a94f.jpg
+wwwroot\images\news\bd880ddf3d0d4bffb478cbf7a251a46d.jpg
 wwwroot\images\payment\visa.png
 wwwroot\images\products\0bab687d-469f-4858-9ee2-b23cd1953ba5.jpg
 wwwroot\images\products\0e6e8956-3da8-4b78-bd43-111f0cecc706.png

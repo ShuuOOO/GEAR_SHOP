@@ -118,21 +118,26 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
         // POST: Admin/TechNews/Delete/5
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             var n = await _context.TechNews.FindAsync(id);
-            if (n == null) return NotFound();
+            if (n == null)
+            {
+                TempData["Error"] = "Bài viết không tồn tại hoặc đã bị xoá.";
+                return RedirectToAction(nameof(Index));
+            }
 
             _context.TechNews.Remove(n);
             try
             {
                 await _context.SaveChangesAsync();
-                TempData["Success"] = "Đã xoá bài viết.";
+                TempData["Success"] = $"Đã xoá bài viết “{n.Title}”.";
             }
             catch (DbUpdateException ex)
             {
-                TempData["Error"] = $"Xoá thất bại: {ex.InnerException?.Message ?? ex.Message}";
+                TempData["Error"] = "Xoá thất bại. " + (ex.InnerException?.Message ?? ex.Message);
             }
             return RedirectToAction(nameof(Index));
         }

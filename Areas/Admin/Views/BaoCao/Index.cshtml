@@ -3,12 +3,6 @@
     ViewData["Title"] = "Báo cáo doanh thu";
     Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
 }
-@section Styles {
-<style>
-  .kpi {border-radius:14px}
-  .money{font-variant-numeric:tabular-nums}
-</style>
-}
 
 <div class="d-flex justify-content-between align-items-center mb-3">
   <h4 class="mb-0">Báo cáo doanh thu</h4>
@@ -46,7 +40,7 @@
   <div class="col-md-3">
     <div class="card kpi">
       <div class="card-body">
-        <small class="text-muted d-block">Đơn hàng</small>
+        <small class="text-muted d-block">Đơn hàng đã bán</small>
         <h4 class="mb-0">@Model.TongSoDonHang</h4>
       </div>
     </div>
@@ -102,4 +96,33 @@
     new ApexCharts(el, opt).render();
   })();
 </script>
+}
+@section Styles {
+    <style>
+        .kpi {
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,.06);
+        }
+
+            .kpi .title {
+                color: #6b7280;
+                font-weight: 600;
+            }
+
+            .kpi .val {
+                font-variant-numeric: tabular-nums;
+                font-weight: 700;
+                font-size: 1.25rem;
+            }
+
+        .toolbar .btn-apply {
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .chart-card {
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,.06);
+        }
+    </style>
 }

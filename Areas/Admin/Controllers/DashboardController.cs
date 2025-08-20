@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GEAR_SHOP.Models.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using TL4_SHOP.Data;
 
 namespace GEAR_SHOP.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    // Nếu bạn chưa dùng ASP.NET Identity Role, có thể tạm bỏ Authorize để test:
-    //[Authorize(Roles = "Admin,Nhân viên quản lý nhân sự")]
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
-        private readonly _4tlShopContext _context; 
+        private readonly _4tlShopContext _context;
         public DashboardController(_4tlShopContext context) => _context = context;
 
         public async Task<IActionResult> Index()
@@ -26,10 +25,12 @@ namespace GEAR_SHOP.Areas.Admin.Controllers
                 TongDonHang = await _context.DonHangs.CountAsync(),
                 TongKhachHang = await _context.KhachHangs.CountAsync(),
 
-                // Doanh thu tháng: lấy TongTien + PhiVanChuyen (nếu muốn chỉ TongTien thì bỏ PhiVanChuyen)
+                // Doanh thu tháng = TongTien + PhiVanChuyen (đơn trạng thái = 4)
                 DoanhThuThang = await _context.DonHangs
-                    .Where(d => d.NgayDatHang >= monthStart && d.NgayDatHang < monthEnd)
-                    .SumAsync(d => (decimal?)d.TongTien + (decimal?)d.PhiVanChuyen) ?? 0
+                    .Where(d => d.TrangThaiId == 4 &&
+                                d.NgayDatHang >= monthStart && d.NgayDatHang < monthEnd)
+                    .Select(d => d.TongTien + d.PhiVanChuyen)    // <- KHÔNG dùng ??
+                    .SumAsync(),
             };
 
             // Đếm theo trạng thái
@@ -39,39 +40,31 @@ namespace GEAR_SHOP.Areas.Admin.Controllers
             vm.DonGiaoThanhCong = await _context.DonHangs.CountAsync(d => d.TrangThaiId == 4);
             vm.DonDaHuy = await _context.DonHangs.CountAsync(d => d.TrangThaiId == 5);
 
-
-            // Biểu đồ doanh thu 7 ngày gần nhất
+            // Doanh thu 7 ngày gần nhất (đơn trạng thái = 4)
             var today = DateTime.Today;
             var from = today.AddDays(-6);
 
-            // Cách 1: đọc trực tiếp từ DonHang (an toàn khi bảng tổng hợp chưa đủ dữ liệu)
             var last7 = await _context.DonHangs
-                .Where(d => d.NgayDatHang >= from && d.NgayDatHang < today.AddDays(1))
+                .Where(d => d.TrangThaiId == 4 &&
+                            d.NgayDatHang >= from && d.NgayDatHang < today.AddDays(1))
                 .GroupBy(d => d.NgayDatHang.Date)
-                .Select(g => new {
+                .Select(g => new
+                {
                     Ngay = g.Key,
-                    DoanhThu = g.Sum(x => x.TongTien + x.PhiVanChuyen)
+                    DoanhThu = g.Sum(x => x.TongTien + x.PhiVanChuyen) // <- KHÔNG dùng ??
                 })
                 .ToListAsync();
-
-            // Cách 2 (tùy chọn): nếu bạn maintain bảng DoanhThuTheoNgay đều đặn, dùng bảng này sẽ nhẹ hơn
-            // var last7 = await _context.DoanhThuTheoNgays
-            //     .Where(x => x.Ngay >= from && x.Ngay <= today)
-            //     .OrderBy(x => x.Ngay)
-            //     .Select(x => new { Ngay = x.Ngay, DoanhThu = x.TongDoanhThu ?? 0 })
-            //     .ToListAsync();
 
             // Đổ dữ liệu theo thứ tự ngày
             for (int i = 0; i < 7; i++)
             {
                 var d = from.AddDays(i);
-                var row = last7.FirstOrDefault(x => x.Ngay.Date == d.Date);
+                var row = last7.FirstOrDefault(x => x.Ngay == d.Date);
                 vm.NgayLabels.Add(d.ToString("dd/MM"));
-                vm.DoanhThuNgay.Add(row?.DoanhThu ?? 0);
+                vm.DoanhThuNgay.Add(row?.DoanhThu ?? 0m); // row có thể null, nên ?? ở đây là hợp lệ
             }
 
             return View(vm);
         }
     }
 }
-
