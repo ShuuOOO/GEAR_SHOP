@@ -1,8 +1,9 @@
 ﻿@{
-    var success = TempData["Success"] as string;
-    var error = TempData["Error"] as string;
+    // [SỬA] Thêm fallback cho các key cũ để tránh mất toast
+    var success = TempData["Success"] as string ?? TempData["ok"] as string;
+    var error = TempData["Error"] as string ?? TempData["err"] as string;
     var info = TempData["Info"] as string;
-    var warn = TempData["Warning"] as string;
+    var warn = TempData["Warning"] as string ?? TempData["warn"] as string;
     bool any = success != null || error != null || info != null || warn != null;
 }
 

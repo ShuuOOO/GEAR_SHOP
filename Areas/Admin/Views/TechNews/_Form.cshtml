@@ -1,0 +1,71 @@
+﻿@model TL4_SHOP.Data.TechNews
+<div class="row">
+    <div class="col-xl-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Tiêu đề *</label>
+                    <input asp-for="Title" class="form-control" id="titleInput" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Slug *</label>
+                    <div class="input-group">
+                        <input asp-for="Slug" class="form-control slug" id="slugInput" />
+                        <button class="btn btn-outline-secondary" type="button" id="btnSlug">Tạo từ tiêu đề</button>
+                    </div>
+                    <span asp-validation-for="Slug" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tóm tắt</label>
+                    <textarea asp-for="Summary" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nội dung (HTML) *</label>
+                    <textarea asp-for="ContentHtml" rows="10" class="form-control" spellcheck="false"></textarea>
+                    <span asp-validation-for="ContentHtml" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Ảnh bìa</label>
+                    <input type="file" name="CoverImageFile" class="form-control" />
+                    @if (!string.IsNullOrEmpty(Model.CoverImage))
+                    {
+                        <img src="~/@Model.CoverImage" class="mt-2 rounded" style="width:100%;max-height:200px;object-fit:cover;border:1px solid #eee" />
+                    }
+                </div>
+                <div class="mb-3"><label class="form-label">Tác giả</label><input asp-for="Author" class="form-control" /></div>
+                <div class="mb-3"><label class="form-label">Tags (phân tách bởi dấu phẩy)</label><input asp-for="Tags" class="form-control" /></div>
+                <div class="mb-3"><label class="form-label">Ngày đăng</label><input asp-for="PublishedAt" type="datetime-local" class="form-control" value="@Model.PublishedAt.ToLocalTime().ToString("yyyy-MM-ddTHH:mm")" /></div>
+                <div class="form-check form-switch mb-3">
+                    <input asp-for="IsFeatured" class="form-check-input" />
+                    <label class="form-check-label" for="IsFeatured">Nổi bật</label>
+                </div>
+                <button class="btn btn-primary" type="submit"><i class="bx bx-save me-1"></i>Lưu</button>
+                <a class="btn btn-outline-secondary" asp-action="Index">Huỷ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function toSlug(s) {
+          if (!s) return "";
+          s = s.toLowerCase();
+          s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // bỏ dấu
+          s = s.replace(/[^a-z0-9\s-]/g, '');
+          s = s.trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+          return s;
+        }
+        document.querySelector('#btnSlug')?.addEventListener('click', function () {
+          const t = document.querySelector('#titleInput')?.value || '';
+          document.querySelector('#slugInput').value = toSlug(t);
+        });
+    </script>
+}
