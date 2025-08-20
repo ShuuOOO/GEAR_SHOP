@@ -120,6 +120,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Db25maXJtTW9kYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/HK3_Nam3/GEAR SHOP/GEAR_SHOP/Areas/Admin/Views/Shared/_NotificationDropdown.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25Ecm9wZG93bi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/HK3_Nam3/GEAR SHOP/GEAR_SHOP/Areas/Admin/Views/TaiLieu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFpTGlldVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/HK3_Nam3/GEAR SHOP/GEAR_SHOP/Areas/Admin/Views/TechNews/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVjaE5ld3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

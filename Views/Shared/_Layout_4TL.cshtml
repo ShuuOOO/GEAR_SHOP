@@ -1,11 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using TL4_SHOP.Models.ViewModels
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>@ViewData["Title"]</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="request-verification-token"
+          content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -202,9 +207,9 @@
 
                         @if (User.IsInRole("Admin"))
                         {
-                            <a asp-area="Admin" asp-controller="DonHangs" asp-action="Index"
+                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
                                class="nav-item nav-link text-danger font-weight-bold">
-                                QL Đơn hàng
+                                Quản Lý
                             </a>
                         }
 
@@ -237,6 +242,8 @@
     <script>
         $(document).ready(function () {
             let searchTimeout;
+
+            // Bắt sự kiện gõ phím trong ô search
             $('#live-search-bar').on('keyup', function () {
                 const term = $(this).val().trim();
                 clearTimeout(searchTimeout);
@@ -251,16 +258,25 @@
                                 let html = '';
                                 if (data && data.length > 0) {
                                     data.forEach(item => {
-                                        const img = item.hinhAnh ? `/images/products/${item.hinhAnh}` : '/images/products/default.jpg';
-                                        const price = item.gia ? item.gia.toLocaleString('vi-VN') + '₫' : 'Liên hệ';
+                                        const img = item.hinhAnh
+                                            ? (item.hinhAnh.startsWith('/') ? item.hinhAnh : '/' + item.hinhAnh.replace(/^~\//, ''))
+                                            : '/images/products/default.jpg';
+
+                                        const price = item.gia
+                                            ? Number(item.gia).toLocaleString('vi-VN') + '₫'
+                                            : 'Liên hệ';
+
+                                        // ❌ KHÔNG còn <a href=...> nữa, chỉ là <div>
                                         html += `
-                                            <a href="/SanPham/Details/${item.sanPhamId}" class="live-search-item">
+                                            <div class="live-search-item"
+                                                 data-id="${item.sanPhamId}"
+                                                 data-name="${item.tenSanPham}">
                                                 <img src="${img}" alt="${item.tenSanPham}" />
                                                 <div class="info">
                                                     <h6>${item.tenSanPham}</h6>
                                                     <p>${price}</p>
                                                 </div>
-                                            </a>`;
+                                            </div>`;
                                     });
                                 } else {
                                     html = '<div class="live-search-item"><div class="info"><h6>Không tìm thấy sản phẩm</h6></div></div>';
@@ -268,7 +284,9 @@
                                 $('#live-search-results').html(html).show();
                             },
                             error: function () {
-                                $('#live-search-results').html('<div class="live-search-item"><div class="info"><h6>Lỗi tìm kiếm</h6></div></div>').show();
+                                $('#live-search-results').html(
+                                    '<div class="live-search-item"><div class="info"><h6>Lỗi tìm kiếm</h6></div></div>'
+                                ).show();
                             }
                         });
                     }, 300);
@@ -277,14 +295,24 @@
                 }
             });
 
-            // Ẩn khi click ngoài vùng dropdown
+            // Ẩn dropdown khi click ngoài
             $(document).on('click', function (e) {
                 if (!$(e.target).closest('#live-search-bar, #live-search-results').length) {
                     $('#live-search-results').hide();
                 }
             });
+
+            // Khi click vào gợi ý → chỉ điền vào ô search, không redirect
+            $(document).on('click', '.live-search-item', function (e) {
+                e.preventDefault();
+                const name = $(this).data('name');
+                $('#live-search-bar').val(name).focus();
+                $('#live-search-results').hide();
+                // Người dùng bấm Enter hoặc nút search mới submit
+            });
         });
     </script>
+
 
     <script>
         $(document).ready(function () {
@@ -331,6 +359,17 @@
                 }
             );
         });
+    </script>
+
+    <script>
+        (function () {
+          var token = document.querySelector('meta[name="request-verification-token"]')?.content;
+          if (token && window.jQuery) {
+            $.ajaxSetup({ headers: { 'RequestVerificationToken': token } });
+          }
+          // nếu trang con cần dùng thủ công:
+          window.getCsrfToken = function () { return token; };
+        })();
     </script>
     @RenderSection("Scripts", required: false)
 </body>

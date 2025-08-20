@@ -363,12 +363,16 @@ wwwroot\favicon.ico
 wwwroot\images\news\2e5e3633593f4806ab6b619fecd10394.png
 wwwroot\images\news\61d6460a5f6147a696e3b0bfe3e6a94f.jpg
 wwwroot\images\news\bd880ddf3d0d4bffb478cbf7a251a46d.jpg
+wwwroot\images\news\f4ff7bc9bd064aeaa4f87bd481cef143.jpg
+wwwroot\images\news\go-2-1755666620508-17556666206091387351104.jpg
 wwwroot\images\payment\visa.png
 wwwroot\images\products\0bab687d-469f-4858-9ee2-b23cd1953ba5.jpg
+wwwroot\images\products\0da7fdc6f498419fb688b80bf884ae86.webp
 wwwroot\images\products\0e6e8956-3da8-4b78-bd43-111f0cecc706.png
 wwwroot\images\products\316b56f7-f953-430d-abbe-10f94957e720.jpg
 wwwroot\images\products\38377a40-11e0-462a-9f62-17e0f081467e.jpg
 wwwroot\images\products\59102dce0ac24dcfb23096c8b4b11c69.jpg
+wwwroot\images\products\64f2e53d3c64404dbae272f5bfd6dcee.webp
 wwwroot\images\products\6d096a59-db7a-45e0-904e-98c459733bf1.jpg
 wwwroot\images\products\867d5796-3ae4-47e4-9dde-5b42cb444d31.jpg
 wwwroot\images\products\8de4bfd55fb34ff4b6f5d9b9a3a6bf28.jpg
@@ -409,6 +413,7 @@ wwwroot\images\products\corsair_vengeance_64gb_ddr5_1.jpg
 wwwroot\images\products\dien-thoai-samsung-galaxy-a56.1_1_1.jpg
 wwwroot\images\products\e45f2290-96e9-4259-ab98-0c5d964e7916.jpg
 wwwroot\images\products\fa64f13d-9dca-44bc-a046-eda38eb48d3d.png
+wwwroot\images\products\fa6f7d6f0ac2498596e566fa8b5fe791.png
 wwwroot\images\products\gigabyte_rtx4060_eagle.jpg
 wwwroot\images\products\gigabyte_rtx4060_eagle_1.jpg
 wwwroot\images\products\GPRO X Superlight 2 Wireless.jpg

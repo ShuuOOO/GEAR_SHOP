@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+bnHkz82C2LooMpgCKuoaZLCjoNdR4rhdGiiEuzYTa4=",
+  "Hash": "d3fllLP8GQARyH9za+f4sk8HedwWiXCtp4NnAzuvFaM=",
   "Source": "TL4_SHOP",
   "BasePath": "_content/TL4_SHOP",
   "Mode": "Default",
@@ -7766,6 +7766,48 @@
       "OriginalItemSpec": "wwwroot\\images\\news\\bd880ddf3d0d4bffb478cbf7a251a46d.jpg"
     },
     {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\f4ff7bc9bd064aeaa4f87bd481cef143.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/news/f4ff7bc9bd064aeaa4f87bd481cef143#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ghl2jga58h",
+      "Integrity": "vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\news\\f4ff7bc9bd064aeaa4f87bd481cef143.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\go-2-1755666620508-17556666206091387351104.jpg",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/news/go-2-1755666620508-17556666206091387351104#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ghl2jga58h",
+      "Integrity": "vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\news\\go-2-1755666620508-17556666206091387351104.jpg"
+    },
+    {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\payment\\visa.png",
       "SourceId": "TL4_SHOP",
       "SourceType": "Discovered",
@@ -7806,6 +7848,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\0bab687d-469f-4858-9ee2-b23cd1953ba5.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\0da7fdc6f498419fb688b80bf884ae86.webp",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/products/0da7fdc6f498419fb688b80bf884ae86#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w4fbilwy13",
+      "Integrity": "YGco/zvoytJHGRbqFjRiJsozhbpwwSMeZedLj+m/zRQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\0da7fdc6f498419fb688b80bf884ae86.webp"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\0e6e8956-3da8-4b78-bd43-111f0cecc706.png",
@@ -7890,6 +7953,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\59102dce0ac24dcfb23096c8b4b11c69.jpg"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\64f2e53d3c64404dbae272f5bfd6dcee.webp",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/products/64f2e53d3c64404dbae272f5bfd6dcee#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "23de4ago22",
+      "Integrity": "viXcI5uIBuYoXK50RfJ37HdCMJ9SIHKpjVxEkZ6lQNk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\64f2e53d3c64404dbae272f5bfd6dcee.webp"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\6d096a59-db7a-45e0-904e-98c459733bf1.jpg",
@@ -8730,6 +8814,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\fa64f13d-9dca-44bc-a046-eda38eb48d3d.png"
+    },
+    {
+      "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\fa6f7d6f0ac2498596e566fa8b5fe791.png",
+      "SourceId": "TL4_SHOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\",
+      "BasePath": "_content/TL4_SHOP",
+      "RelativePath": "images/products/fa6f7d6f0ac2498596e566fa8b5fe791#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rcmtcpbkqu",
+      "Integrity": "lakY1LIpGta85t79geFuXuH5tiKxru1ITke1/D8o9e8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\fa6f7d6f0ac2498596e566fa8b5fe791.png"
     },
     {
       "Identity": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\gigabyte_rtx4060_eagle.jpg",
@@ -46962,6 +47067,170 @@
       ]
     },
     {
+      "Route": "images/news/f4ff7bc9bd064aeaa4f87bd481cef143.ghl2jga58h.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\f4ff7bc9bd064aeaa4f87bd481cef143.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "183039"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 11:29:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ghl2jga58h"
+        },
+        {
+          "Name": "label",
+          "Value": "images/news/f4ff7bc9bd064aeaa4f87bd481cef143.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8="
+        }
+      ]
+    },
+    {
+      "Route": "images/news/f4ff7bc9bd064aeaa4f87bd481cef143.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\f4ff7bc9bd064aeaa4f87bd481cef143.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "183039"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 11:29:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8="
+        }
+      ]
+    },
+    {
+      "Route": "images/news/go-2-1755666620508-17556666206091387351104.ghl2jga58h.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\go-2-1755666620508-17556666206091387351104.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "183039"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 11:25:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ghl2jga58h"
+        },
+        {
+          "Name": "label",
+          "Value": "images/news/go-2-1755666620508-17556666206091387351104.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8="
+        }
+      ]
+    },
+    {
+      "Route": "images/news/go-2-1755666620508-17556666206091387351104.jpg",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\news\\go-2-1755666620508-17556666206091387351104.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "183039"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 11:25:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vBODyqnyy42UPjZwa+p3DLyOEOVNhipBwI33tB5dMN8="
+        }
+      ]
+    },
+    {
       "Route": "images/payment/visa.fxtd2nruyv.png",
       "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\payment\\visa.png",
       "Selectors": [],
@@ -47122,6 +47391,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-GVGapN3Tgp/DbYWGXmzUGTL/QyhQWpiQzYtfpr4iHEU="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/0da7fdc6f498419fb688b80bf884ae86.w4fbilwy13.webp",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\0da7fdc6f498419fb688b80bf884ae86.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32800"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YGco/zvoytJHGRbqFjRiJsozhbpwwSMeZedLj+m/zRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:17:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w4fbilwy13"
+        },
+        {
+          "Name": "label",
+          "Value": "images/products/0da7fdc6f498419fb688b80bf884ae86.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YGco/zvoytJHGRbqFjRiJsozhbpwwSMeZedLj+m/zRQ="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/0da7fdc6f498419fb688b80bf884ae86.webp",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\0da7fdc6f498419fb688b80bf884ae86.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "32800"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YGco/zvoytJHGRbqFjRiJsozhbpwwSMeZedLj+m/zRQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:17:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YGco/zvoytJHGRbqFjRiJsozhbpwwSMeZedLj+m/zRQ="
         }
       ]
     },
@@ -47450,6 +47801,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-cYbxU2diE2/tJu1yO3X9hXC6n7vWQB2x+jwsKpJ4Bzk="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/64f2e53d3c64404dbae272f5bfd6dcee.23de4ago22.webp",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\64f2e53d3c64404dbae272f5bfd6dcee.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"viXcI5uIBuYoXK50RfJ37HdCMJ9SIHKpjVxEkZ6lQNk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:00:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "23de4ago22"
+        },
+        {
+          "Name": "label",
+          "Value": "images/products/64f2e53d3c64404dbae272f5bfd6dcee.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-viXcI5uIBuYoXK50RfJ37HdCMJ9SIHKpjVxEkZ6lQNk="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/64f2e53d3c64404dbae272f5bfd6dcee.webp",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\64f2e53d3c64404dbae272f5bfd6dcee.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134160"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"viXcI5uIBuYoXK50RfJ37HdCMJ9SIHKpjVxEkZ6lQNk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:00:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-viXcI5uIBuYoXK50RfJ37HdCMJ9SIHKpjVxEkZ6lQNk="
         }
       ]
     },
@@ -50730,6 +51163,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-0lpOoKK6yKuupqUE1x2xxv3jtxwOG64EesF7hH+Hhng="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/fa6f7d6f0ac2498596e566fa8b5fe791.png",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\fa6f7d6f0ac2498596e566fa8b5fe791.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1588899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lakY1LIpGta85t79geFuXuH5tiKxru1ITke1/D8o9e8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-lakY1LIpGta85t79geFuXuH5tiKxru1ITke1/D8o9e8="
+        }
+      ]
+    },
+    {
+      "Route": "images/products/fa6f7d6f0ac2498596e566fa8b5fe791.rcmtcpbkqu.png",
+      "AssetFile": "D:\\HK3_Nam3\\GEAR SHOP\\GEAR_SHOP\\wwwroot\\images\\products\\fa6f7d6f0ac2498596e566fa8b5fe791.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1588899"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"lakY1LIpGta85t79geFuXuH5tiKxru1ITke1/D8o9e8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Aug 2025 12:02:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rcmtcpbkqu"
+        },
+        {
+          "Name": "label",
+          "Value": "images/products/fa6f7d6f0ac2498596e566fa8b5fe791.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-lakY1LIpGta85t79geFuXuH5tiKxru1ITke1/D8o9e8="
         }
       ]
     },
@@ -92490,7 +93005,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92543,7 +93058,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92580,7 +93095,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92627,7 +93142,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92688,7 +93203,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92733,7 +93248,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92788,7 +93303,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92849,7 +93364,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92894,7 +93409,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -92949,7 +93464,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -93002,7 +93517,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -93039,7 +93554,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 20 Aug 2025 09:27:48 GMT"
+          "Value": "Wed, 20 Aug 2025 11:58:34 GMT"
         },
         {
           "Name": "Cache-Control",

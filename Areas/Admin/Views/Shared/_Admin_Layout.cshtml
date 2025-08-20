@@ -228,14 +228,24 @@
 
                         <!-- Nút chức năng -->
                         <div class="d-flex align-items-center gap-2">
-                            <!-- Thông báo -->
-                            <a href="/admin/thongbao" class="btn btn-sm btn-warning d-flex align-items-center gap-1">
-                                <lord-icon src="https://cdn.lordicon.com/ahxaipjb.json"
-                                           trigger="hover"
-                                           style="width:20px;height:20px">
-                                </lord-icon>
-                                <span class="d-none d-sm-inline">Thông báo</span>
-                            </a>
+                            <!-- Thông báo (DROPDOWN MINI) -->
+                            <div class="dropdown">
+                                <button id="btnNotif" class="btn btn-sm btn-warning d-flex align-items-center gap-1 dropdown-toggle"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <lord-icon src="https://cdn.lordicon.com/ahxaipjb.json" trigger="hover" style="width:20px;height:20px"></lord-icon>
+                                    <span class="d-none d-sm-inline">Thông báo</span>
+                                    <span id="notifBadge" class="badge bg-danger ms-1 d-none">●</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0" style="min-width: 340px;">
+                                    <div class="p-2 fw-semibold border-bottom">Thông báo gần đây</div>
+                                    <ul id="notifList" class="list-group list-group-flush m-0" style="max-height: 300px; overflow:auto;">
+                                        <li class="px-3 py-2 text-muted" id="notifEmpty">Chưa có thông báo mới</li>
+                                    </ul>
+                                    <div class="p-2 border-top text-end">
+                                        <a class="small" href="/Admin/DonHangs">Xem tất cả đơn</a>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- Về website -->
                             <a href="/" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1">
@@ -333,6 +343,128 @@
     </script>
     <script src="~/js/money-format.js"></script>
     @await Html.PartialAsync("_Flash")
+
+    <!-- THÊM: SignalR client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const list  = document.getElementById('notifList');
+          const badge = document.getElementById('notifBadge');
+          let unreadOnly = false;
+
+          // ICON LORDICON
+          function iconFor(type, sev){
+            const size = 22;
+            const map = {
+              OrderCreated: 'https://cdn.lordicon.com/qhviklyi.json',
+              OrderStatusChanged: (sev==='success'
+                  ? 'https://cdn.lordicon.com/egiwmiit.json'
+                  : sev==='warn' ? 'https://cdn.lordicon.com/kfzfxczd.json'
+                  : 'https://cdn.lordicon.com/otkqkdbd.json'),
+              DataChanged: 'https://cdn.lordicon.com/sbiheqdr.json'
+            };
+            const url = map[type] || 'https://cdn.lordicon.com/psnhyobz.json';
+            const color = (sev==='success' ? '#22c55e'
+                         : sev==='warn'    ? '#f59e0b'
+                         : sev==='error'   ? '#ef4444'
+                         : '#3b82f6');
+            return `<lord-icon src="${url}" trigger="hover"
+                      colors="primary:${color},secondary:${color}"
+                      style="width:${size}px;height:${size}px;margin-top:2px"></lord-icon>`;
+          }
+
+          function render(items){
+            list.innerHTML = '';
+            let unread = 0;
+
+            if(!items || items.length === 0){
+              list.innerHTML = '<li class="px-3 py-2 text-muted">Chưa có thông báo</li>';
+              badge.classList.add('d-none');
+              return;
+            }
+
+            items.forEach(it=>{
+              // hỗ trợ camelCase & PascalCase
+              const id        = it.notificationId ?? it.NotificationId;
+              const type      = it.type ?? it.Type ?? 'info';
+              const title     = it.title ?? it.Title ?? '(không có tiêu đề)';
+              const body      = it.body ?? it.Body ?? '';
+              const severity  = it.severity ?? it.Severity ?? 'info';
+              const createdAt = it.createdAt ?? it.CreatedAt ?? '';
+              const isReadRaw = it.isRead ?? it.IsRead ?? false;
+              const isRead    = (isReadRaw === true || isReadRaw === 1 || isReadRaw === '1');
+
+              if(!isRead) unread++;
+
+              const li = document.createElement('li');
+              li.className = 'list-group-item px-3 py-2';
+              li.innerHTML = `
+                <div class="d-flex align-items-start gap-2">
+                  ${iconFor(type, severity)}
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold">${title}</div>
+                    ${body ? `<div class="small text-muted">${body}</div>` : ''}
+                    <div class="small text-secondary">${createdAt}</div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-light mark-read" data-id="${id}">✓</button>
+                </div>`;
+              list.appendChild(li);
+            });
+
+            if(unread > 0){ badge.textContent = unread; badge.classList.remove('d-none'); }
+            else badge.classList.add('d-none');
+          }
+
+          async function load(){
+            try{
+              const res = await fetch('/Admin/Notification/Latest?take=20&unreadOnly='+unreadOnly, { credentials: 'same-origin' });
+              if(!res.ok) throw new Error('HTTP '+res.status);
+              render(await res.json());
+            }catch(err){
+              console.error('Notification load failed:', err);
+              list.innerHTML = '<li class="px-3 py-2 text-danger">Không tải được thông báo</li>';
+            }
+          }
+
+          // mark-as-read
+          list.addEventListener('click', async (e)=>{
+            const btn = e.target.closest('.mark-read');
+            if(!btn) return;
+            await fetch('/Admin/Notification/MarkRead', {
+              method: 'POST',
+              headers: {'Content-Type':'application/x-www-form-urlencoded'},
+              body: 'id='+btn.dataset.id
+            });
+            load();
+          });
+
+          // mở dropdown: nạp danh sách + ẩn badge
+          document.getElementById('btnNotif')?.addEventListener('show.bs.dropdown', () => {
+            badge.classList.add('d-none');
+            load();
+          });
+
+          // SignalR + fallback polling
+          const connection = new signalR.HubConnectionBuilder()
+            .withUrl('/notifyHub')
+            .withAutomaticReconnect()
+            .build();
+
+          connection.on('notifyNew', load);
+
+          connection.start()
+            .then(load)
+            .catch(err => {
+              console.warn('SignalR start failed, fallback to polling:', err);
+              load();
+              setInterval(load, 15000); // 15s nạp 1 lần nếu hub lỗi
+            });
+
+        }); // <-- đóng DOMContentLoaded
+    </script>
+
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
