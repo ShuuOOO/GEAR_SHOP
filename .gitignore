@@ -33,6 +33,13 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+bin/
+obj/
+Debug/
+Release/
+*.dll
+*.exe
+*.cache
 
 # Build results on 'Bin' directories
 **/[Bb]in/*
@@ -255,6 +262,7 @@ ClientBin/
 *.pfx
 *.publishsettings
 orleans.codegen.cs
+*.ide
 
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
@@ -416,3 +424,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+.vs/
+bin/
+obj/
