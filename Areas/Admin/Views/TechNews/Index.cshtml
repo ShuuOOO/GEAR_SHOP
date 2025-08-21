@@ -1,0 +1,135 @@
+﻿@model IEnumerable<TL4_SHOP.Data.TechNews>
+@{
+    ViewData["Title"] = "Tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+    var filter = ViewBag.Filter;
+}
+@section Styles { <style>.slug{font-family:ui-monospace,Menlo,monospace}</style> }
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Tin tức</h4>
+    <a class="btn btn-primary" asp-action="Create"><i class="bx bx-plus me-1"></i>Tạo bài viết</a>
+</div>
+
+<form method="get" class="card p-3 mb-4">
+    <div class="row g-3">
+        <div class="col-12 col-md-4">
+            <input name="q" value="@(filter?.q)" class="form-control" placeholder="Từ khoá (tiêu đề, slug, tag)" />
+        </div>
+        <div class="col-6 col-md-2">
+            <select name="featured" class="form-select">
+                <option value="" selected="@(filter?.featured == null ? "selected" : null)">-- Tất cả --</option>
+                <option value="true" selected="@(filter?.featured == true ? "selected" : null)">Nổi bật</option>
+                <option value="false" selected="@(filter?.featured == false ? "selected" : null)">Không nổi bật</option>
+            </select>
+        </div>
+        <div class="col-6 col-md-2"><input type="date" name="from" value="@(filter?.from?.ToString("yyyy-MM-dd"))" class="form-control"/></div>
+        <div class="col-6 col-md-2"><input type="date" name="to"   value="@(filter?.to?.ToString("yyyy-MM-dd"))"   class="form-control"/></div>
+        <div class="col-6 col-md-2">
+            <button class="btn btn-outline-primary w-100"><i class="bx bx-search"></i> Lọc</button>
+        </div>
+    </div>
+</form>
+
+<div class="card">
+<table class="table table-hover mb-0">
+    <thead>
+        <tr>
+            <th style="width:48px"></th>
+            <th>Tiêu đề</th>
+            <th>Slug</th>
+            <th class="text-center">Nổi bật</th>
+            <th class="text-end">Lượt xem</th>
+            <th>Ngày đăng</th>
+            <th style="width:140px"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var n in Model)
+{
+    <tr>
+        <td>
+                        @if (!string.IsNullOrEmpty(n.CoverImage))
+                        {
+                            <img src="@Url.Content((n.CoverImage?.StartsWith("/") ?? false) ? "~" + n.CoverImage : "~/" + n.CoverImage)"
+                                 class="rounded"
+                                 style="width:44px;height:44px;object-fit:cover;border:1px solid #eee"
+                                 asp-append-version="true"
+                                 alt="@n.Title" />
+                        }
+        </td>
+        <td class="fw-semibold">@n.Title</td>
+        <td class="slug text-muted">@n.Slug</td>
+        <td class="text-center">
+            @if (n.IsFeatured) { <span class="badge bg-label-success">Yes</span> } else { <span class="badge bg-label-secondary">No</span> }
+        </td>
+        <td class="text-end">@n.ViewCount</td>
+        <td>@n.PublishedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@n.TechNewsId">Sửa</a>
+
+                        <form id="del-@n.TechNewsId"
+                              asp-action="Delete"
+                              asp-route-id="@n.TechNewsId"
+                              method="post"
+                              class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="button"
+                                    class="btn btn-sm btn-danger btn-open-confirm"
+                                    data-form="#del-@n.TechNewsId"
+                                    data-title="Xác nhận"
+                                    data-message="Xoá bài viết “@n.Title”?"
+                                    data-ok="Đồng ý"
+                                    data-cancel="Huỷ">
+                                Xoá
+                            </button>
+                        </form>
+                    </td>
+    </tr>
+}
+    </tbody>
+</table>
+    @Html.Partial("~/Areas/Admin/Views/Shared/_ConfirmModal.cshtml")
+</div>
+@section Scripts {
+    <script>
+        (function () {
+          const modalEl = document.getElementById('confirmModal');
+          if (!modalEl) return; // thiếu partial thì thôi
+          const bsModal = new bootstrap.Modal(modalEl);
+
+          const titleEl  = modalEl.querySelector('#confirmModalLabel');
+          const msgEl    = modalEl.querySelector('#confirmModalMessage');
+          const okBtn    = modalEl.querySelector('#confirmModalOk');
+          const cancelEl = modalEl.querySelector('.modal-footer [data-bs-dismiss="modal"]');
+
+          let formToSubmit = null;
+
+          // Mở modal khi bấm nút .btn-open-confirm
+          document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.btn-open-confirm');
+            if (!btn) return;
+
+            const formSel = btn.dataset.form;
+            formToSubmit  = formSel ? document.querySelector(formSel) : null;
+            if (!formToSubmit) return;
+
+            if (titleEl)  titleEl.textContent  = btn.dataset.title   || 'Xác nhận';
+            if (msgEl)    msgEl.textContent    = btn.dataset.message || 'Bạn có chắc muốn thực hiện thao tác này?';
+            if (okBtn)    okBtn.textContent    = btn.dataset.ok      || 'Đồng ý';
+            if (cancelEl) cancelEl.textContent = btn.dataset.cancel  || 'Huỷ';
+
+            bsModal.show();
+          });
+
+          // Đồng ý => submit form thật (kèm Anti-Forgery)
+          okBtn?.addEventListener('click', function () {
+            if (!formToSubmit) return;
+            bsModal.hide();
+            if (formToSubmit.requestSubmit) formToSubmit.requestSubmit();
+            else formToSubmit.submit();
+            formToSubmit = null;
+          });
+        })();
+    </script>
+}

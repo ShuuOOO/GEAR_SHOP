@@ -6,16 +6,20 @@ using TL4_SHOP.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
+using TL4_SHOP.Hubs;
 
 namespace TL4_SHOP.Controllers
 {
     public class OrderController : BaseController
     {
         private readonly _4tlShopContext _context;
+        private readonly IHubContext<NotificationHub> _notifyHub;
 
-        public OrderController(_4tlShopContext context) : base(context)
+        public OrderController(_4tlShopContext context, IHubContext<NotificationHub> notifyHub) : base(context)
         {
-            _context = context;
+            _context = context;          // <<< QUAN TRỌNG: gán field để dùng ở các action
+            _notifyHub = notifyHub;
         }
 
         [HttpGet]
@@ -92,7 +96,16 @@ namespace TL4_SHOP.Controllers
 
             _context.DonHangs.Add(donHang);
             _context.SaveChanges();
-            
+
+            // Gửi realtime tới Admin (giữ action sync, nên dùng GetAwaiter().GetResult())
+            _notifyHub.Clients.All.SendAsync("NewOrder", new
+            {
+                id = donHang.DonHangId,
+                customer = tenKhachHang,
+                total = (decimal)tongTien + phiVanChuyen,
+                createdAt = donHang.NgayDatHang.ToString("HH:mm dd/MM")
+            }).GetAwaiter().GetResult();
+
             // Gán mã đơn hàng cho QR 
             TempData["MaDonHang"] = $"DH_{donHang.DonHangId}";
 

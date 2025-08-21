@@ -344,14 +344,19 @@
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-2" style="min-height: 48px;">@sp.TenSanPham</h6>
 
-                            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 60px;">
-                                @if (!string.IsNullOrEmpty(sp.MoTa))
+                            <div class="d-flex justify-content-center flex-column align-items-center position-relative">
+                                @if (sp.GiaSauGiam != null && sp.GiaSauGiam < sp.Gia)
                                 {
-                                    <span class="badge badge-danger mb-2 px-3 py-1" style="background-color: #f8cdd3; color: #a94442; font-size: 13px;">
-                                        @sp.MoTa
+                                    <h6 class="text-muted ml-2"><del>@sp.Gia.ToString("N0")đ</del></h6>
+                                    <h5 class="text-danger">@sp.GiaSauGiam?.ToString("N0")đ</h5>
+                                    <span class="badge badge-danger position-absolute" style="top:0; right:0; font-size:0.8rem;">
+                                        -@Math.Round((1 - (decimal)sp.GiaSauGiam / (decimal)sp.Gia) * 100)%
                                     </span>
                                 }
-                                <h6 class="m-0">@sp.Gia.ToString("N0")đ</h6>
+                                else
+                                {
+                                    <h6 class="m-0">@sp.Gia.ToString("N0")đ</h6>
+                                }
                             </div>
                         </div>
 
@@ -405,16 +410,27 @@
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="~/img/@sp.Hinh" alt="@sp.Ten" />
                     </div>
+
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">@sp.Ten</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>@sp.Gia.ToString("N0")đ</h6>
+                        <h6 class="text-truncate mb-2" style="min-height: 48px;">@sp.Ten</h6>
+
+                        <div class="d-flex justify-content-center flex-column align-items-center position-relative">
+                            @* Nếu có giá gốc cao hơn (đang giảm) thì gạch giá gốc *@
                             @if (sp.GiamGia > sp.Gia)
                             {
                                 <h6 class="text-muted ml-2"><del>@sp.GiamGia.ToString("N0")đ</del></h6>
+                                <h5 class="text-danger">@sp.Gia.ToString("N0")đ</h5>
+                                <span class="badge badge-danger position-absolute" style="top:0; right:0; font-size:0.8rem;">
+                                    -@Math.Round((1 - (decimal)sp.Gia / (decimal)sp.GiamGia) * 100)%
+                                </span>
+                            }
+                            else
+                            {
+                                <h6 class="m-0">@sp.Gia.ToString("N0")đ</h6>
                             }
                         </div>
                     </div>
+
                     <div class="card-footer d-flex justify-content-center bg-light border">
                         <span class="btn btn-sm text-muted p-0" style="cursor: not-allowed;">
                             <i class="fas fa-times text-danger mr-1"></i> Sắp ra mắt
@@ -427,36 +443,53 @@
 </div>
 
 
+
 <!-- Subscribe Start -->
 <div class="container-fluid bg-secondary my-5">
     <div class="col-md-12 col-12 py-5">
         <div class="text-center mb-2 pb-2">
-            <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2" style="font-family: Tahoma">Tin công nghệ</span></h2>
+            <h2 class="section-title px-5 mb-3">
+                <span class="bg-secondary px-2" style="font-family: Tahoma">Tin công nghệ</span>
+            </h2>
         </div>
+
+        @* --- LẤY 4 TIN MỚI NHẤT TỪ ViewBag do Controller đã truyền sang --- *@
+        @{
+            var latestNews = ViewBag.LatestNews as IEnumerable<TL4_SHOP.Data.TechNews>;
+
+            string ImgPath(string? p) =>
+            Url.Content((p?.StartsWith("/") ?? false) ? "~" + p : "~/" + p);
+        }
+
         <div class="flex-container">
-            <div class="divInformation">
-                <img class="imagess" src="~/img/Kiem_tra_kha_nang_khang_nuoc.jpg" alt="Kiểm tra khả năng kháng nước của điện thoại" />
-                <div class="vanBan"><p>Mẹo nhỏ giúp bạn kiểm tra điện thoại Samsung còn khả năng kháng nước không</p></div>
-            </div>
-            <div class="divInformation">
-                <img class="imagess" src="~/img/QuangCao.jpg" alt="Lộ diện điện thoại gập mới của Google: Chỉ vượt mặt Galaxy Z Fold7 ở điểm này, còn lại như...đồ cổ" />
-                <div class="vanBan"><p>Lộ diện điện thoại gập mới của Google: Chỉ vượt mặt Galaxy Z Fold7 ở điểm này, còn lại như... "đồ cổ"</p></div>
-            </div>
-            <div class="divInformation">
-                <img class="imagess" src="~/img/Quang_Cao_2.jpg" alt="Ra mắt Samsung Galaxy Z mới: Đặt trước Z Flip7, Z Fold7 nhận ưu đãi cực sốc" />
-                <div class="vanBan">
-                    <p>
-                        Ra mắt Samsung Galaxy Z mới: Đặt trước Z Flip7, Z Fold7 nhận ưu đãi cực sốc
-                    </p>
+            @if (latestNews != null && latestNews.Any())
+            {
+                foreach (var n in latestNews)
+                {
+                    var href = Url.Action("Detail", "TechNews", new { slug = n.Slug });
+                    var src = string.IsNullOrWhiteSpace(n.CoverImage)
+                    ? Url.Content("~/img/placeholder.png")
+                    : ImgPath(n.CoverImage);
+
+                    <a class="divInformation d-block text-decoration-none" href="@href" title="@n.Title">
+                        <img class="imagess"
+                             src="@src"
+                             alt="@n.Title"
+                             onerror="this.onerror=null;this.src='@Url.Content("~/img/placeholder.png")';" />
+                        <div class="vanBan"><p>@n.Title</p></div>
+                    </a>
+                }
+            }
+            else
+            {
+                <div class="divInformation">
+                    <div class="vanBan"><p>Chưa có tin công nghệ.</p></div>
                 </div>
-            </div>
-            <div class="divInformation">
-                <img class="imagess" src="~/img/TinCongNghe.jpg" alt="Vivo Y39 5G ra mắt thiết kế mới nhiều tính năng nâng cấp ở phân khúc tầm trung" />
-                <div class="vanBan"><p>Vivo Y39 5G ra mắt thiết kế mới nhiều tính năng nâng cấp ở phân khúc tầm trung</p></div>
-            </div>
+            }
         </div>
     </div>
 </div>
+
 <!-- Subscribe End -->
 <!-- Vendor Start -->
 <div class="container-fluid py-5">
@@ -494,82 +527,100 @@
 <!-- Vendor End -->
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
     <script>
-        // LẤY anti-forgery token nếu action có ValidateAntiForgeryToken
-        function getRequestVerificationToken() {
-            var token = $('input[name="__RequestVerificationToken"]').val();
-            return token ? token : null;
+        // Lấy token từ meta (đã đặt ở layout)
+        function getCsrf() {
+            return document.querySelector('meta[name="request-verification-token"]')?.content || null;
         }
 
-        // DÙNG CHUNG: thêm vào giỏ
+        // Đồng bộ: click cho tất cả nút có class .btn-add-to-cart
+        $(document).on('click', '.btn-add-to-cart', function (e) {
+            e.preventDefault();
+            const pid = $(this).data('product-id');
+            if (pid) addToCart(pid);
+        });
+
         function addToCart(productId) {
+            const token = getCsrf();
             $.ajax({
-                url: '@Url.Action("AddToCart", "Cart")',
+                url: '@Url.Action("AddToCart", "Cart")',   // nếu action này redirect -> fallback bên dưới
                 type: 'POST',
-                data: {
-                    productId: productId,
-                    quantity: 1,
-                    __RequestVerificationToken: getRequestVerificationToken() // sẽ null nếu không có
-                },
-                success: function (response) {
-                    if (response && response.success) {
-                        $('#cart-count').text(response.cartCount);
-                        Toastify({
-                            text: "🎉 Đã thêm sản phẩm vào giỏ hàng!",
-                            duration: 3000, gravity: "top", position: "right",
-                            backgroundColor: "#28a745", close: true
-                        }).showToast();
+                data: { productId: productId, quantity: 1 },
+                headers: token ? { 'RequestVerificationToken': token } : {},
+                dataType: 'json'
+            })
+            .done(function (response) {
+                // Trường hợp backend trả JSON {success, cartCount, message}
+                if (response && typeof response === 'object' && 'success' in response) {
+                    if (response.success) {
+                        if (response.cartCount !== undefined) $('#cart-count').text(response.cartCount);
+                        Toastify({ text: "🎉 Đã thêm sản phẩm vào giỏ!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#28a745", close: true }).showToast();
                     } else {
-                        Toastify({
-                            text: "❌ " + (response && response.message ? response.message : "Không thể thêm vào giỏ."),
-                            duration: 3000, gravity: "top", position: "right",
-                            backgroundColor: "#dc3545", close: true
-                        }).showToast();
+                        Toastify({ text: "❌ " + (response.message || "Không thể thêm vào giỏ."), duration: 3000, gravity: "top", position: "right", backgroundColor: "#dc3545", close: true }).showToast();
                     }
-                },
-                error: function () {
-                    Toastify({
-                        text: "❌ Lỗi hệ thống khi thêm sản phẩm!",
-                        duration: 3000, gravity: "top", position: "right",
-                        backgroundColor: "#dc3545", close: true
-                    }).showToast();
+                } else {
+                    // Nếu không phải JSON (ví dụ redirect HTML), fallback: hỏi lại số lượng giỏ rồi hiện toast
+                    refreshCartCountAndToast();
+                }
+            })
+            .fail(function (xhr) {
+                if (xhr.status === 400) {
+                    Toastify({ text: "⚠️ Thiếu hoặc sai CSRF token. Hãy refresh trang!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#ffc107", close: true }).showToast();
+                } else {
+                    // fallback sang endpoint AJAX thuần nếu có
+                    addToCartAjaxFallback(productId, token);
                 }
             });
         }
 
-        // DÙNG CHUNG: thêm vào wishlist
+        // Fallback 1: gọi endpoint JSON chuyên dụng (nếu bạn thêm ở bước C)
+        function addToCartAjaxFallback(productId, token) {
+            $.ajax({
+                url: '/Cart/AddToCartAjax',
+                type: 'POST',
+                data: { productId: productId, quantity: 1 },
+                headers: token ? { 'RequestVerificationToken': token } : {},
+                dataType: 'json'
+            }).done(function (res) {
+                if (res && res.success) {
+                    if (res.cartCount !== undefined) $('#cart-count').text(res.cartCount);
+                    Toastify({ text: "🎉 Đã thêm sản phẩm vào giỏ!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#28a745", close: true }).showToast();
+                } else {
+                    Toastify({ text: "❌ " + (res?.message || "Không thể thêm vào giỏ."), duration: 3000, gravity: "top", position: "right", backgroundColor: "#dc3545", close: true }).showToast();
+                }
+            }).fail(function () {
+                Toastify({ text: "❌ Lỗi hệ thống khi thêm sản phẩm!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#dc3545", close: true }).showToast();
+            });
+        }
+
+        // Fallback 2: chỉ cần refresh được số lượng giỏ là coi như ok
+        function refreshCartCountAndToast() {
+            $.getJSON('/Cart/Count', function (res) {
+                if (res && typeof res.count !== 'undefined') $('#cart-count').text(res.count);
+                Toastify({ text: "🎉 Đã thêm sản phẩm vào giỏ!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#28a745", close: true }).showToast();
+            }).fail(function () {
+                Toastify({ text: "✔️ Đã thêm vào giỏ (không lấy được số lượng).", duration: 3000, gravity: "top", position: "right", backgroundColor: "#17a2b8", close: true }).showToast();
+            });
+        }
+
+        // Wishlist giữ nguyên
         function addToWishlist(productId) {
+            const token = getCsrf();
             $.ajax({
                 url: '/Wishlist/AddToWishlistAjax',
                 type: 'POST',
-                data: {
-                    productId: productId,
-                    __RequestVerificationToken: getRequestVerificationToken()
-                },
-                success: function (response) {
-                    if (response && response.success) {
-                        $('#wishlist-count').text(response.wishlistCount);
-                        Toastify({
-                            text: "💖 " + response.message,
-                            duration: 3000, gravity: "top", position: "right",
-                            backgroundColor: "#ff4081", close: true, stopOnFocus: true
-                        }).showToast();
-                    } else {
-                        Toastify({
-                            text: "⚠️ " + (response && response.message ? response.message : "Không thể thêm vào yêu thích."),
-                            duration: 3000, gravity: "top", position: "right",
-                            backgroundColor: "#ffc107", close: true
-                        }).showToast();
-                    }
-                },
-                error: function () {
-                    Toastify({
-                        text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
-                        duration: 3000, gravity: "top", position: "right",
-                        backgroundColor: "#dc3545", close: true
-                    }).showToast();
+                data: { productId: productId },
+                headers: token ? { 'RequestVerificationToken': token } : {},
+                dataType: 'json'
+            }).done(function (response) {
+                if (response && response.success) {
+                    $('#wishlist-count').text(response.wishlistCount);
+                    Toastify({ text: "💖 " + response.message, duration: 3000, gravity: "top", position: "right", backgroundColor: "#ff4081", close: true, stopOnFocus: true }).showToast();
+                } else {
+                    Toastify({ text: "⚠️ " + (response?.message || "Không thể thêm vào yêu thích."), duration: 3000, gravity: "top", position: "right", backgroundColor: "#ffc107", close: true }).showToast();
                 }
+            }).fail(function () {
+                Toastify({ text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!", duration: 3000, gravity: "top", position: "right", backgroundColor: "#dc3545", close: true }).showToast();
             });
         }
     </script>

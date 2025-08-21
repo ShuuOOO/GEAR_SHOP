@@ -20,7 +20,18 @@ QuestPDF.Settings.License = LicenseType.Community;
 
 builder.Services.AddSession();
 
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<TL4_SHOP.Filters.SetActorContextFilter>();
+});
+builder.Services.AddScoped<TL4_SHOP.Filters.SetActorContextFilter>();
 
+
+builder.Services.AddScoped<TL4_SHOP.Filters.NotifyPingFilter>();
+builder.Services.AddControllersWithViews(o =>
+{
+    o.Filters.Add<TL4_SHOP.Filters.NotifyPingFilter>();
+});
 
 // Configure services
 ConfigureServices(builder.Services, builder.Configuration);
@@ -174,4 +185,7 @@ static void ConfigurePipeline(WebApplication app)
 
     // SignalR
     app.MapHub<ChatHub>("/chatHub");
+
+    // THÊM MỚI:
+    app.MapHub<TL4_SHOP.Hubs.NotificationHub>("/notifyHub");
 }

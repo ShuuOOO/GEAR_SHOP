@@ -15,18 +15,25 @@ namespace TL4_SHOP.Controllers
         {
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewBag.Message = TempData["Message"];
 
-            // Lấy danh sách sản phẩm nổi bật từ DB
-            var featuredProducts = _context.SanPhams
+            // Sản phẩm nổi bật
+            var featuredProducts = await _context.SanPhams
                 .Where(sp => sp.LaNoiBat == true)
                 .OrderByDescending(sp => sp.SanPhamId)
-                .Take(8) // Hiển thị tối đa 8 sản phẩm
-                .ToList();
-
+                .Take(8)
+                .ToListAsync();
             ViewBag.FeaturedProducts = featuredProducts;
+
+            // 4 tin công nghệ mới nhất
+            var latestNews = await _context.TechNews
+                .AsNoTracking()
+                .OrderByDescending(n => n.PublishedAt)
+                .Take(4)
+                .ToListAsync();
+            ViewBag.LatestNews = latestNews;
 
             return View();
         }
@@ -105,9 +112,14 @@ namespace TL4_SHOP.Controllers
                 .Select(s => new
                 {
                     s.SanPhamId,
-                    s.TenSanPham,
-                    s.Gia,
-                    s.HinhAnh
+                    TenSanPham = s.TenSanPham,
+                    Gia = s.Gia,
+                    HinhAnh = s.HinhAnh,
+                    // [THÊM] URL ảnh tuyệt đối cho client
+                    imageUrl = s.HinhAnh.StartsWith("http")
+                        ? s.HinhAnh
+                        : (s.HinhAnh.StartsWith("/") ? s.HinhAnh
+                            : "/" + s.HinhAnh.Replace("~/", ""))
                 })
                 .ToListAsync();
 

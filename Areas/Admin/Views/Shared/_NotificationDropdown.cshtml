@@ -1,0 +1,78 @@
+﻿<div class="dropdown">
+    <button id="btnNotify" class="btn btn-warning position-relative" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-bell"></i> Thông báo
+        <span id="notifyBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+    </button>
+
+    <div class="dropdown-menu dropdown-menu-end shadow p-0" style="width: 380px; max-height: 70vh; overflow:auto;">
+        <div class="p-3 border-bottom">
+            <div class="d-flex justify-content-between align-items-center">
+                <strong>Thông báo gần đây</strong>
+                <div class="btn-group btn-group-sm" role="group">
+                    <button class="btn btn-outline-secondary" data-filter="all">Tất cả</button>
+                    <button class="btn btn-outline-secondary" data-filter="unread">Chưa đọc</button>
+                </div>
+            </div>
+        </div>
+        <div id="notifyList" class="list-group list-group-flush small"></div>
+        <div class="p-2 text-center"><a href="@Url.Action("Index","Audit", new { area="Admin"})" class="text-decoration-none">Xem nhật ký thay đổi →</a></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+          const list  = document.getElementById('notifyList');
+          const badge = document.getElementById('notifyBadge');
+          let unreadOnly = false;
+
+          function pill(sev){ return sev==='error'?'danger':sev==='warn'?'warning':sev==='success'?'success':'info'; }
+          function render(items){
+            list.innerHTML = '';
+            let unread = 0;
+            items.forEach(it=>{
+              if(!it.IsRead) unread++;
+              const row = document.createElement('a');
+              row.className = 'list-group-item list-group-item-action d-flex gap-2 align-items-start';
+              row.innerHTML = `
+                <div class="mt-1 flex-shrink-0"><span class="badge bg-${pill(it.Severity)}">&nbsp;</span></div>
+                <div class="flex-grow-1">
+                  <div class="fw-semibold">${it.Title}</div>
+                  ${it.Body?`<div class="text-muted">${it.Body}</div>`:''}
+                  <div class="text-secondary">${it.CreatedAt}</div>
+                </div>
+                <button class="btn btn-sm btn-light ms-auto mark-read" data-id="${it.NotificationId}">✓</button>`;
+              list.appendChild(row);
+            });
+            if(unread>0){ badge.textContent = unread; badge.classList.remove('d-none'); }
+            else badge.classList.add('d-none');
+          }
+          async function load(){
+            const res = await fetch('@Url.Action("Latest", "Notification", new { area = "Admin" })?take=20&unreadOnly='+unreadOnly);
+            render(await res.json());
+          }
+          list.addEventListener('click', async (e)=>{
+            const btn = e.target.closest('.mark-read');
+            if(!btn) return;
+            await fetch('@Url.Action("MarkRead", "Notification", new { area = "Admin" })', {
+              method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:'id='+btn.dataset.id
+            });
+            load();
+          });
+          document.querySelectorAll('[data-filter]').forEach(b=>{
+            b.addEventListener('click', ()=>{ unreadOnly = b.dataset.filter==='unread'; load(); });
+          });
+
+          // SignalR (ASP.NET Core)
+          const conn = new signalR.HubConnectionBuilder()
+            .withUrl('/notifyHub')
+            .withAutomaticReconnect()
+            .build();
+          conn.on('notifyNew', load);
+          conn.start().then(load).catch(console.error);
+
+          document.getElementById('btnNotify')?.addEventListener('show.bs.dropdown', load);
+        });
+    </script>
+}
