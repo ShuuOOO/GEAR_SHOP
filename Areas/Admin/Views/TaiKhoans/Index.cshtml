@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TL4_SHOP.Data.TaoTaiKhoan>
+
+@{
+    ViewData["Title"] = "Danh sách tất cả tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h2>Danh sách tất cả tài khoản</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">+ Thêm tài khoản</a>
+</p>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mã KH</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Loại tài khoản</th>
+                    <th>Vai trò</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TaiKhoanId</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.LoaiTaiKhoan</td>
+                        <td>@item.VaiTro</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.TaiKhoanId" class="btn btn-sm btn-primary">Sửa</a> |
+                            <a asp-action="Details" asp-route-id="@item.TaiKhoanId" class="btn btn-info btn-sm">Chi tiết</a> |
+                            <a asp-action="Delete" asp-route-id="@item.TaiKhoanId" class="btn btn-danger btn-sm">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

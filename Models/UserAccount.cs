@@ -20,6 +20,7 @@ namespace TL4_SHOP.Models
 
         [Required(ErrorMessage = "Vui lòng nhập lại mật khẩu.")]
         [Compare("Password", ErrorMessage = "Mật khẩu xác nhận không khớp.")]
+        [MinLength(6, ErrorMessage = "Mật khẩu tối thiểu 6 ký tự")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
