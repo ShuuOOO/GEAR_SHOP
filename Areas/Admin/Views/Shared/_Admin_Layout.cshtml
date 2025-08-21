@@ -181,9 +181,9 @@
                         </a>
                     </li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaoTaiKhoans" ? "active" : "")">
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaiKhoans" ? "active" : "")">
                         @* Nếu controller quản lý tài khoản tên khác (AccountsController) → đổi asp-controller="Accounts" *@
-                        <a class="menu-link" asp-area="Admin" asp-controller="TaoTaiKhoans" asp-action="Index">
+                        <a class="menu-link" asp-area="Admin" asp-controller="TaiKhoans" asp-action="Index">
                             <span class="menu-icon iconify" data-icon="bx:lock-alt"></span>
                             <div>Tài khoản</div>
                         </a>

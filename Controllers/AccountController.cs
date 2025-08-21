@@ -271,9 +271,6 @@ namespace TL4_SHOP.Controllers
             return View(account);
         }
 
-
-
-
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
