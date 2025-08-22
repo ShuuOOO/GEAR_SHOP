@@ -31,12 +31,25 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             }
         }
 
-        // Index: Hiển thị tất cả tài khoản
-        public IActionResult Index()
+        // Index
+        public IActionResult Index(string? TuKhoa)
         {
-            var dsTaiKhoan = _context.TaoTaiKhoans.ToList();
-            return View(dsTaiKhoan);
+            var dsTaiKhoan = _context.TaoTaiKhoans.AsQueryable();
+
+            if (!string.IsNullOrEmpty(TuKhoa))
+            {
+                dsTaiKhoan = dsTaiKhoan.Where(t =>
+                    t.TaiKhoanId.ToString().Contains(TuKhoa) ||
+                    t.HoTen.Contains(TuKhoa) ||
+                    t.Email.Contains(TuKhoa) ||
+                    t.Phone.Contains(TuKhoa) ||
+                    t.LoaiTaiKhoan.Contains(TuKhoa) || 
+                    t.VaiTro.Contains(TuKhoa)); 
+            }
+
+            return View(dsTaiKhoan.ToList());
         }
+
 
         // Details
         public IActionResult Details(int id)
@@ -93,6 +106,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             _context.TaoTaiKhoans.Add(entity);
             _context.SaveChanges();
 
+            TempData["ThongBao"] = "Thêm tài khoản thành công !";
             return RedirectToAction(nameof(Index));
         }
 
@@ -163,6 +177,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             _context.Update(taiKhoan);
             _context.SaveChanges();
 
+            TempData["ThongBao"] = "Cập nhật tài khoản thành công !";
             return RedirectToAction(nameof(Index));
         }
 
@@ -192,6 +207,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 _context.SaveChanges();
             }
 
+            TempData["ThongBao"] = "Xóa tài khoản thành công !";
             return RedirectToAction(nameof(Index));
         }
     }

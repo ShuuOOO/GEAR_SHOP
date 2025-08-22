@@ -31,14 +31,24 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
         // Index
-        public IActionResult Index()
+        public IActionResult Index(string? TuKhoa)
         {
             var dsNhanVien = _context.TaoTaiKhoans
                 .Where(t => t.LoaiTaiKhoan == "NhanVien")
-                .ToList();
+                .AsQueryable();
 
-            return View(dsNhanVien);
+            if (!string.IsNullOrEmpty(TuKhoa))
+            {
+                dsNhanVien = dsNhanVien.Where(t =>
+                    t.TaiKhoanId.ToString().Contains(TuKhoa) ||
+                    t.HoTen.Contains(TuKhoa) ||
+                    t.Email.Contains(TuKhoa) ||
+                    t.Phone.Contains(TuKhoa));
+            }
+
+            return View(dsNhanVien.ToList());
         }
+
 
         // Details
         public IActionResult Details(int id)
@@ -94,6 +104,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             _context.TaoTaiKhoans.Add(entity);
             _context.SaveChanges();
 
+            TempData["ThongBao"] = "Thêm nhân viên thành công !";
             return RedirectToAction(nameof(Index));
         }
 
@@ -165,6 +176,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             _context.Update(taiKhoan);
             _context.SaveChanges();
 
+            TempData["ThongBao"] = "Cập nhật nhân viên thành công !";
             return RedirectToAction(nameof(Index));
         }
 
@@ -195,6 +207,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 _context.SaveChanges();
             }
 
+            TempData["ThongBao"] = "Xóa nhân viên thành công !";
             return RedirectToAction(nameof(Index));
         }
     }
