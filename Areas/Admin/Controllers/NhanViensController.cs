@@ -50,6 +50,15 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
 
+        public IActionResult Index()
+        {
+            var dsNhanVien = _context.TaoTaiKhoans
+                .Where(t => t.LoaiTaiKhoan == "NhanVien")
+                .ToList();
+
+            return View(dsNhanVien);
+        }
+
         // Details
         public IActionResult Details(int id)
         {

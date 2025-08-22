@@ -36,6 +36,9 @@ namespace TL4_SHOP.Areas.Admin.Controllers
 
         // Index
         public IActionResult Index(string? TuKhoa)
+
+    // GET: Index
+    public IActionResult Index()
         {
             var dsKhachHang = _context.TaoTaiKhoans
                 .Include(t => t.KhachHang)
@@ -56,6 +59,12 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
         // Details
+                .ToList();
+
+            return View(dsKhachHang);
+        }
+
+        // GET: Details
         public IActionResult Details(int id)
         {
             var kh = _context.TaoTaiKhoans
@@ -113,7 +122,6 @@ namespace TL4_SHOP.Areas.Admin.Controllers
             TempData["ThongBao"] = "Thêm khách hàng thành công !";
             return RedirectToAction(nameof(Index));
         }
-
 
         // GET: Chỉnh sửa
         [HttpGet]
@@ -215,6 +223,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                 _context.TaoTaiKhoans.Remove(kh);
                 _context.SaveChanges();
             }
+
             TempData["ThongBao"] = "Xóa khách hàng thành công !";
             return RedirectToAction(nameof(Index));
         }

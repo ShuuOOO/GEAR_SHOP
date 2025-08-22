@@ -26,6 +26,7 @@
     <a asp-action="Index" class="btn btn-secondary">Hiển thị tất cả</a>
 </form>
 <br />
+<h2>Danh sách nhân viên</h2>
 
 <p>
     <a asp-action="Create" class="btn btn-primary">+ Thêm nhân viên</a>
@@ -68,41 +69,45 @@
     <div class="table-responsive">
          @if (Model != null && Model.Any())
         {
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Mã KH</th>
-                    <th>Họ tên</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.TaiKhoanId</td>
-                        <td>@item.HoTen</td>
-                        <td>@item.Email</td>
-                        <td>@item.Phone</td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.TaiKhoanId" class="btn btn-sm btn-primary">Sửa</a> |
-                            <a asp-action="Details" asp-route-id="@item.TaiKhoanId" class="btn btn-info btn-sm">Chi tiết</a> |
-                            <a asp-action="Delete" asp-route-id="@item.TaiKhoanId" class="btn btn-danger btn-sm">Xóa</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        }
-        else
-        {
-            <div class="d-flex justify-content-center mt-3">
-                <div class="alert alert-danger text-center d-inline-block px-3 py-2">
-                    Không tìm thấy nhân viên nào.
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã KH</th>
+                                <th>Họ tên</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.TaiKhoanId</td>
+                                    <td>@item.HoTen</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.TaiKhoanId" class="btn btn-sm btn-primary">Sửa</a> |
+                                        <a asp-action="Details" asp-route-id="@item.TaiKhoanId" class="btn btn-info btn-sm">Chi tiết</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.TaiKhoanId" class="btn btn-danger btn-sm">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    }
+                    else
+                    {
+                        <div class="d-flex justify-content-center mt-3">
+                            <div class="alert alert-danger text-center d-inline-block px-3 py-2">
+                                Không tìm thấy nhân viên nào.
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-        }
     </div>
 </div>

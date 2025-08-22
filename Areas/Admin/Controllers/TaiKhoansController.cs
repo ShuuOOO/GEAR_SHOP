@@ -51,6 +51,13 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         }
 
 
+        // Index: Hiển thị tất cả tài khoản
+        public IActionResult Index()
+        {
+            var dsTaiKhoan = _context.TaoTaiKhoans.ToList();
+            return View(dsTaiKhoan);
+        }
+
         // Details
         public IActionResult Details(int id)
         {
