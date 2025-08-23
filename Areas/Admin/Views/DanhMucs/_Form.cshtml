@@ -1,0 +1,38 @@
+@model TL4_SHOP.Data.DanhMucSanPham
+@{
+    var parents = (IEnumerable<TL4_SHOP.Data.DanhMucSanPham>)ViewBag.Parents;
+}
+<div class="row">
+  <div class="col-lg-8">
+    <div class="mb-3">
+      <label class="form-label">Tên danh mục</label>
+      <input asp-for="TenDanhMuc" class="form-control" />
+      <span asp-validation-for="TenDanhMuc" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Mô tả</label>
+      <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+      <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="mb-3">
+      <label class="form-label">Danh mục cha</label>
+            <select asp-for="DanhMucChaId" class="form-select">
+                <option value="">-- Không --</option>
+                @foreach (var p in parents)
+                {
+                    if (Model?.DanhMucChaId == p.DanhMucId)
+                    {
+                        <option value="@p.DanhMucId" selected>@p.TenDanhMuc</option>
+                    }
+                    else
+                    {
+                        <option value="@p.DanhMucId">@p.TenDanhMuc</option>
+                    }
+                }
+            </select>
+
+    </div>
+  </div>
+</div>

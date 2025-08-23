@@ -1,0 +1,40 @@
+﻿@* Modal xác nhận dùng chung *@
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="confirmModalLabel" class="modal-title">Xác nhận</h5>
+                <!-- Giữ nguyên nút close của Bootstrap -->
+                <button type="button" class="btn-close custom-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="confirmModalMessage">Bạn có chắc muốn thực hiện thao tác này?</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Huỷ</button>
+                <button id="confirmModalOk" type="button" class="btn btn-danger">
+                    Đồng ý
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* THÊM MỚI: Tùy chỉnh nút đóng modal */
+    .custom-close {
+        background-color: #ff4d4f; /* Màu đỏ nổi bật */
+        border-radius: 50%;
+        opacity: 1; /* Luôn rõ ràng */
+        transition: all 0.2s ease-in-out;
+    }
+
+        .custom-close:hover {
+            background-color: #ff7875; /* Đỏ nhạt hơn khi hover */
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .custom-close:focus {
+            box-shadow: 0 0 0 2px rgba(255,77,79,0.4);
+        }
+</style>

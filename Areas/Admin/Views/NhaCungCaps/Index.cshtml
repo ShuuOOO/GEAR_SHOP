@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TL4_SHOP.Data.NhaCungCap>
+@{
+    ViewData["Title"] = "Nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h4 class="mb-0">Nhà cung cấp</h4>
+    <a class="btn btn-primary" asp-action="Create">+ Thêm</a>
+</div>
+
+<form class="row g-2 mb-3">
+    <div class="col-md-4"><input type="text" name="q" class="form-control" placeholder="Tìm theo tên, email, sđt..." /></div>
+    <div class="col-auto"><button class="btn btn-outline-secondary">Tìm</button></div>
+</form>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead><tr><th>Mã</th><th>Tên</th><th>Điện thoại</th><th>Email</th><th>Địa chỉ</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.NhaCungCapId</td>
+                        <td>@s.TenNhaCungCap</td>
+                        <td>@s.Phone</td>
+                        <td>@s.Email</td>
+                        <td>@s.DiaChi</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-primary me-2"
+                               asp-action="Edit" asp-route-id="@s.NhaCungCapId">Sửa</a>
+
+                            <form asp-action="Delete" method="post"
+                                  class="d-inline js-confirm"
+                                  data-confirm="Xoá nhà cung cấp này?">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@s.NhaCungCapId" />
+                                <button class="btn btn-sm btn-danger">Xoá</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

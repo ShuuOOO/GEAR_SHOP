@@ -1,0 +1,376 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TL4_SHOP.Models.ViewModels
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewData["Title"]</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="request-verification-token"
+          content="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/shop.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/mega-menu.css" />
+
+    <!-- [ADD] Google Font có tiếng Việt -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --app-font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        .checkout, .order-summary, .payment, .card, .form-control, .custom-select, .btn {
+            font-family: var(--app-font) !important;
+        }
+    </style>
+
+    <style>
+        /* FIX live search */
+        .live-search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            max-height: 350px;
+            overflow-y: auto;
+            z-index: 9999;
+            display: none;
+            border-radius: 4px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .live-search-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+            text-decoration: none;
+            color: #000;
+            border-bottom: 1px solid #eee;
+        }
+
+            .live-search-item img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+
+            .live-search-item:hover {
+                background-color: #f1f1f1;
+            }
+
+            .live-search-item .info h6 {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .live-search-item .info p {
+                margin: 0;
+                font-size: 13px;
+                color: #d00;
+            }
+    </style>
+</head>
+
+<body>
+    <!-- TOPBAR -->
+    <div class="container-fluid bg-secondary py-2 px-xl-5">
+        <div class="row">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Giúp đỡ</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Hỗ trợ</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="text-dark pl-2" href=""><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER + SEARCH -->
+    <div class="container-fluid py-3 px-xl-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-2 text-center text-lg-left mb-2 mb-lg-0">
+                <a href="/" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold">
+                        <span class="text-primary font-weight-bold border px-3 mr-1">4TL</span>
+                    </h1>
+                </a>
+            </div>
+
+            <div class="col-lg-6">
+                <form action="@Url.Action("Shop", "Home")" method="get" class="position-relative" autocomplete="off">
+                    <div class="input-group">
+                        <input type="text" id="live-search-bar" name="searchTerm" class="form-control" placeholder="Tìm kiếm sản phẩm..." />
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="live-search-results" class="live-search-dropdown"></div>
+                </form>
+            </div>
+
+            <div class="col-lg-2 text-center text-lg-right mt-2 mt-lg-0 d-flex justify-content-end">
+
+                <!-- Wishlist -->
+                <a href="/Wishlist" class="btn border mx-1 p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                    <i class="fas fa-heart text-primary"></i>
+                    <span id="wishlist-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
+                        0
+                    </span>
+                </a>
+
+                <!-- Cart + Mini-cart -->
+                <div id="cart-hover-wrapper" class="position-relative mx-1">
+                    <a href="/Cart/Index" class="btn border p-2 position-relative d-inline-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
+                        <i class="fas fa-shopping-cart text-primary"></i>
+                        <span id="cart-count" class="badge badge-danger position-absolute" style="top: 0; right: 0; transform: translate(50%, -50%); font-size: 12px; min-width: 18px; height: 18px; line-height: 18px; padding: 0;">
+                            0
+                        </span>
+                    </a>
+
+                    <!-- Mini-cart dropdown -->
+                    <div id="mini-cart-wrapper" class="position-absolute bg-white border shadow-sm" style="display:none; right: 0; top: 100%; z-index:1000; min-width: 250px;">
+                        <div id="mini-cart-content" class="p-2 text-sm"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- NAVBAR -->
+    <div class="container-fluid bg-light border-top px-xl-5">
+        <div class="navbar navbar-expand-lg navbar-light py-3">
+            <a href="/" class="d-lg-none text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold">
+                    <span class="text-primary font-weight-bold border px-3 mr-1">4TL</span>
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0 d-flex align-items-start">
+
+                    <!-- MỤC DANH MỤC -->
+                    <div class="nav-item dropdown position-static">
+                        <a href="#" class="nav-link font-weight-bold" id="megaMenuToggle" role="button">
+                            <i class="fas fa-bars mr-1"></i> Danh mục
+                        </a>
+                        <div id="megaMenuContent" class="dropdown-menu border-0 p-0 mt-0 bg-white shadow" style="display: none; position: absolute; top: 100%; left: 0; z-index: 9999;">
+                            <div class="p-3">
+                                @await Html.PartialAsync("_MenuDanhMuc", ViewBag.DanhMuc as IEnumerable<TL4_SHOP.Models.ViewModels.DanhMucViewModel>)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MỤC NAVBARS CÒN LẠI -->
+                    <a asp-action="Index" asp-controller="Home" class="nav-item nav-link">Trang chủ</a>
+                    <a asp-action="Shop" asp-controller="Home" class="nav-item nav-link">Mua Sắm</a>
+                    <a asp-action="Index" asp-controller="TechNews" class="nav-item nav-link">Tin công nghệ</a>
+
+                </div>
+
+                <div class="navbar-nav ml-auto py-0">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-item nav-link" href="#">Xin chào, @User.Identity.Name</a>
+                        <a asp-action="Profile" asp-controller="Account" class="nav-item nav-link">Thông tin tài khoản</a>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                               class="nav-item nav-link text-danger font-weight-bold">
+                                Quản Lý
+                            </a>
+                        }
+
+                        <a asp-action="Logout" asp-controller="Account" class="nav-item nav-link">Đăng xuất</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Login" asp-controller="Account" class="nav-item nav-link">Đăng nhập</a>
+                        <a asp-action="Register" asp-controller="Account" class="nav-item nav-link">Đăng ký</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+
+    @await Html.PartialAsync("_footer")
+
+    <!-- JS LIBRARIES -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    <!-- LIVE SEARCH SCRIPT -->
+    <script>
+        $(document).ready(function () {
+            let searchTimeout;
+
+            // Bắt sự kiện gõ phím trong ô search
+            $('#live-search-bar').on('keyup', function () {
+                const term = $(this).val().trim();
+                clearTimeout(searchTimeout);
+
+                if (term.length >= 2) {
+                    searchTimeout = setTimeout(function () {
+                        $.ajax({
+                            url: '/Home/SearchSuggestions',
+                            type: 'GET',
+                            data: { term: term },
+                            success: function (data) {
+                                let html = '';
+                                if (data && data.length > 0) {
+                                    data.forEach(item => {
+                                        const img = item.hinhAnh
+                                            ? (item.hinhAnh.startsWith('/') ? item.hinhAnh : '/' + item.hinhAnh.replace(/^~\//, ''))
+                                            : '/images/products/default.jpg';
+
+                                        const price = item.gia
+                                            ? Number(item.gia).toLocaleString('vi-VN') + '₫'
+                                            : 'Liên hệ';
+
+                                        // ❌ KHÔNG còn <a href=...> nữa, chỉ là <div>
+                                        html += `
+                                            <div class="live-search-item"
+                                                 data-id="${item.sanPhamId}"
+                                                 data-name="${item.tenSanPham}">
+                                                <img src="${img}" alt="${item.tenSanPham}" />
+                                                <div class="info">
+                                                    <h6>${item.tenSanPham}</h6>
+                                                    <p>${price}</p>
+                                                </div>
+                                            </div>`;
+                                    });
+                                } else {
+                                    html = '<div class="live-search-item"><div class="info"><h6>Không tìm thấy sản phẩm</h6></div></div>';
+                                }
+                                $('#live-search-results').html(html).show();
+                            },
+                            error: function () {
+                                $('#live-search-results').html(
+                                    '<div class="live-search-item"><div class="info"><h6>Lỗi tìm kiếm</h6></div></div>'
+                                ).show();
+                            }
+                        });
+                    }, 300);
+                } else {
+                    $('#live-search-results').hide();
+                }
+            });
+
+            // Ẩn dropdown khi click ngoài
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#live-search-bar, #live-search-results').length) {
+                    $('#live-search-results').hide();
+                }
+            });
+
+            // Khi click vào gợi ý → chỉ điền vào ô search, không redirect
+            $(document).on('click', '.live-search-item', function (e) {
+                e.preventDefault();
+                const name = $(this).data('name');
+                $('#live-search-bar').val(name).focus();
+                $('#live-search-results').hide();
+                // Người dùng bấm Enter hoặc nút search mới submit
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Toggle Mega Menu
+            $('#megaMenuToggle').on('click', function (e) {
+                e.preventDefault();
+                $('#megaMenuContent').toggle();
+            });
+
+            // Ẩn khi click ra ngoài
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#megaMenuToggle, #megaMenuContent').length) {
+                    $('#megaMenuContent').hide();
+                }
+            });
+        });
+    </script>
+
+    <script>
+               $(document).ready(function () {
+            // Gọi lại Component WishlistCount để khởi tạo session
+                   $.get("/Wishlist/WishlistCount", function (data) {
+            $("#wishlist-count").text(data.count);
+        });
+         // Khởi tạo số lượng giỏ hàng
+        $.get("/Cart/CartCount", function (data) {
+            $("#cart-count").text(data.count);
+        });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#cart-hover-wrapper').hover(
+                function () {
+                    $.get("/Cart/MiniCart", function (data) {
+                        $('#mini-cart-content').html(data);
+                        $('#mini-cart-wrapper').fadeIn(100);
+                    });
+                },
+                function () {
+                    $('#mini-cart-wrapper').fadeOut(100);
+                }
+            );
+        });
+    </script>
+
+    <script>
+        (function () {
+          var token = document.querySelector('meta[name="request-verification-token"]')?.content;
+          if (token && window.jQuery) {
+            $.ajaxSetup({ headers: { 'RequestVerificationToken': token } });
+          }
+          // nếu trang con cần dùng thủ công:
+          window.getCsrfToken = function () { return token; };
+        })();
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

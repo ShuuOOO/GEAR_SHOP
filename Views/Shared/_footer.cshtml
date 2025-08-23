@@ -3,10 +3,10 @@
     <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
             <a href="" class="text-decoration-none">
-                <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">4TL</span>SHOP</h1>
+                <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">4TL</span></h1>
             </a>
             <p>
-                <b>4TL-SHOP</b> là cửa hàng chuyên cung cấp linh kiện điện tử chất lượng cao, phục vụ cho nhu cầu học tập,
+                <b>4TL</b> là cửa hàng chuyên cung cấp linh kiện điện tử chất lượng cao, phục vụ cho nhu cầu học tập,
                 nghiên cứu và chế tạo của học sinh, sinh viên, kỹ sư và người yêu công nghệ. Chúng tôi mang đến đa dạng sản phẩm như IC, 
                 cảm biến, Arduino, Module, Relay, nguồn, mạch điều khiển, và nhiều linh kiện chuyên dụng khác.</p>
             <p class="mb-2">
@@ -21,12 +21,11 @@
                     <h5 class="font-weight-bold text-dark mb-4" style="font-family: Tahoma">Liên kết nhanh</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <div class="khoangCachDong">
-                            <a asp-controller="Home" asp-action="Index"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                            <a asp-controller="Home" asp-action="Shop"><i class="fa fa-angle-right mr-2"></i>Mua sắm</a>
-                            <a asp-controller="Home" asp-action="ShopDetail"><i class="fa fa-angle-right mr-2"></i>Chi tiết sản phẩm</a>
-                            <a asp-controller="Home" asp-action="ShoppingCart"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
-                            <a asp-controller="Home" asp-action="Checkout"><i class="fa fa-angle-right mr-2"></i>Thanh toán</a>
-                            <a asp-controller="Home" asp-action="Contact"><i class="fa fa-angle-right mr-2"></i>Liên hệ với chúng tôi</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Shop"><i class="fa fa-angle-right mr-2"></i>Mua sắm</a>
+                            <a asp-area="" asp-controller="TechNews" asp-action="Index">
+                                <i class="fa fa-angle-right mr-2"></i>Tin công nghệ
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -46,20 +45,13 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <h5 class="font-weight-bold text-dark mb-4">Đăng ký ngay</h5>
-                    <p style="font-family: Tahoma">Đăng ký để nhận ưu đãi, sản phẩm mới và thông tin kỹ thuật hữu ích mỗi tuần.</p>
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0 py-4" placeholder="Tên của bạn" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control border-0 py-4" placeholder="Email của bạn"
-                                   required="required" />
-                        </div>
-                        <div>
-                            <button class="btn btn-primary btn-block border-0 py-3" type="submit">Đăng ký</button>
-                        </div>
-                    </form>
+                    <h5 class="font-weight-bold text-dark mb-4">TỔNG ĐÀI HỖ TRỢ (8:00 - 21:00)</h5>
+                    <ul class="list-unstyled" style="font-family: Tahoma; font-size: 15px;">
+                        <li><strong>Mua hàng:</strong> <a href="tel:19005301">1900.1111</a></li>
+                        <li><strong>Bảo hành:</strong> <a href="tel:19005325">1900.2222</a></li>
+                        <li><strong>Khiếu nại:</strong> <a href="tel:18006173">1800.3333</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:cskh@4tlshop.com">cskh@4tlshop.com</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

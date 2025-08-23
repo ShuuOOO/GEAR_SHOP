@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Tài liệu sử dụng Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <h4 class="mb-3">Hướng dẫn nhanh</h4>
+        <ol class="ps-3">
+            <li><b>Đăng nhập</b>: vào <code>/Admin</code> bằng tài khoản có role <code>Admin</code>.</li>
+            <li><b>Danh mục (DanhMucs)</b>: tạo/sửa/xoá danh mục trước khi thêm sản phẩm.</li>
+            <li><b>Sản phẩm (QuanLySanPham)</b>: thêm mới, sửa thông tin, gán danh mục & nhà cung cấp, upload ảnh. Không xoá được khi đang có bản ghi liên quan (VD: wishlist, đơn hàng) do ràng buộc FK.</li>
+            <li><b>Nhập hàng (NhapHangs)</b>: tạo phiếu nhập, thêm các dòng chi tiết ⇒ hệ thống cộng tồn kho theo từng sản phẩm.</li>
+            <li><b>Kho (KhoHangs)</b>: xem & chỉnh tay tồn kho từng sản phẩm (không cho âm). Ưu tiên cập nhật tồn qua “Nhập hàng”.</li>
+            <li><b>Đơn hàng (DonHangs)</b>: theo dõi & đổi trạng thái theo luồng (1→2→3→4 hoặc 5 huỷ). Chỉ khi trạng thái = <b>4 Giao thành công</b> mới được tính doanh thu.</li>
+            <li><b>Báo cáo (BaoCao)</b>: lọc theo mốc thời gian; dữ liệu lấy từ các đơn đã hoàn tất (trạng thái = 4).</li>
+            <li><b>Tin tức (TechNews)</b>: CRUD bài viết, hỗ trợ tìm kiếm theo tiêu đề/slug/tags, lọc “nổi bật”.</li>
+            <li><b>Thông báo</b>: nút “Thông báo” ở góc phải. Khi có đơn hàng mới hệ thống thêm bản ghi và hiện ở dropdown; bạn bấm dấu ✓ để đánh dấu đã đọc.</li>
+        </ol>
+
+        <hr class="my-4" />
+
+        <h5 class="mb-2">Chi tiết từng màn hình</h5>
+
+        <h6 class="mt-3">1) Danh mục sản phẩm</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/DanhMucs</code></li>
+            <li><b>Chức năng</b>: Tạo, Sửa, Xoá, Liệt kê. Tìm kiếm theo tên.</li>
+            <li><b>Lưu ý</b>: Không xoá khi đang có sản phẩm thuộc danh mục (FK).</li>
+        </ul>
+
+        <h6 class="mt-3">2) Sản phẩm</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/QuanLySanPham</code></li>
+            <li><b>Bộ lọc</b>: từ khóa, danh mục, nhà cung cấp, phân trang.</li>
+            <li><b>Thêm/Sửa</b>: nhập <i>Tên sản phẩm</i>, <i>Mô tả</i>, <i>Giá</i>, <i>Giá sau giảm</i> (nếu có), <i>Ảnh</i>, <i>Thông số kỹ thuật</i>, gán <i>Danh mục</i> & <i>Nhà cung cấp</i>, đánh dấu <i>Nổi bật</i> nếu cần.</li>
+            <li>
+                <b>Ràng buộc</b>:
+                <ul class="mb-0">
+                    <li>Không xoá khi có dữ liệu liên quan (Wishlist, Đơn hàng, v.v.).</li>
+                    <li>Tồn kho hiển thị theo bảng Kho; thao tác cộng tồn nên thực hiện qua “Nhập hàng”.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h6 class="mt-3">3) Nhập hàng</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/NhapHangs</code></li>
+            <li><b>Tạo phiếu</b>: chọn <i>Nhà cung cấp</i>, ngày nhập; thêm các dòng <i>(Sản phẩm, Số lượng, Đơn giá nhập)</i>.</li>
+            <li><b>Hiệu lực</b>: lưu thành công ⇒ tồn kho mỗi sản phẩm được <b>cộng</b> thêm.</li>
+            <li><b>Tra cứu</b>: có lọc theo nhà cung cấp, mốc thời gian, phân trang.</li>
+        </ul>
+
+        <h6 class="mt-3">4) Kho</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/KhoHangs</code></li>
+            <li><b>Chức năng</b>: xem danh sách tồn, tìm theo tên SP, sửa <i>Số lượng tồn</i> một SP.</li>
+            <li><b>Ràng buộc</b>: không cho phép nhập số âm.</li>
+        </ul>
+
+        <h6 class="mt-3">5) Đơn hàng</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/DonHangs</code></li>
+            <li><b>Bộ lọc</b>: từ khóa (tên/email KH…), trạng thái, ngày đặt từ/đến, phân trang.</li>
+            <li><b>Chi tiết</b>: xem thông tin khách, địa chỉ, các dòng SP, tổng tiền; có nút <i>Xuất hoá đơn</i>.</li>
+            <li>
+                <b>Đổi trạng thái</b>: chỉ cho phép:
+                <ul class="mb-0">
+                    <li><b>1 Mới tạo</b> → 2 Xác nhận / 5 Hủy</li>
+                    <li><b>2 Xác nhận</b> → 3 Đang giao / 5 Hủy</li>
+                    <li><b>3 Đang giao</b> → 4 Giao thành công / 5 Hủy</li>
+                    <li><b>4 hoặc 5</b>: kết thúc, không chuyển tiếp.</li>
+                </ul>
+            </li>
+            <li><b>Tính doanh thu</b>: chỉ tính với đơn ở trạng thái <b>4 Giao thành công</b> (phục vụ trang Báo cáo).</li>
+        </ul>
+
+        <h6 class="mt-3">6) Báo cáo</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/BaoCao</code></li>
+            <li><b>Dữ liệu</b>: tổng hợp theo ngày/tháng/năm từ các đơn hàng đã hoàn tất (TT = 4).</li>
+        </ul>
+
+        <h6 class="mt-3">7) Tin tức (TechNews)</h6>
+        <ul>
+            <li><b>Đường dẫn</b>: <code>/Admin/TechNews</code></li>
+            <li><b>Chức năng</b>: CRUD bài viết; lọc theo từ khóa, “nổi bật”, ngày đăng; upload ảnh.</li>
+        </ul>
+
+        <h6 class="mt-3">8) Thông báo</h6>
+        <ul>
+            <li><b>Giao diện</b>: nút <i>Thông báo</i> (màu vàng) ở góc phải navbar. Mục mới hiển thị trên cùng; có badge đỏ hiển thị số chưa đọc.</li>
+            <li><b>Hành vi</b>: khi có đơn hàng mới, hệ thống tạo bản ghi thông báo (kiểu <code>OrderCreated</code>). Admin mở dropdown để xem, bấm ✓ để đánh dấu <i>đã đọc</i>.</li>
+            <li><b>Realtime</b>: nếu đã cấu hình <i>SignalR hub</i> <code>/notifyHub</code>, dropdown tự làm tươi khi có thông báo mới; nếu hub không khả dụng, client sẽ tự chuyển sang cơ chế “polling” định kỳ.</li>
+        </ul>
+
+        <hr class="my-4" />
+
+        <h5 class="mb-2">Ghi chú kỹ thuật</h5>
+        <ul>
+            <li><b>Luồng trạng thái đơn</b>: 1→2→3→4 (hoặc 5 huỷ). Ràng buộc chuyển trạng thái đã được kiểm tra ở trang chi tiết đơn.</li>
+            <li><b>Tồn kho</b>: tăng qua “Nhập hàng”; có thể chỉnh tay ở “Kho” (không cho âm).</li>
+            <li><b>Doanh thu</b>: chỉ lấy từ đơn trạng thái 4.</li>
+            <li><b>Ràng buộc FK</b>: xoá danh mục/sản phẩm có thể bị chặn nếu còn dữ liệu liên quan (đơn hàng, wishlist…).</li>
+            <li><b>Thông báo</b>: API đọc danh sách gần đây tại <code>/Admin/Notification/Latest</code>, đánh dấu đã đọc tại <code>/Admin/Notification/MarkRead</code> (nếu bạn đã thêm module Notification theo hướng dẫn trước đó).</li>
+        </ul>
+
+        <h5 class="mt-4">Mẹo & lỗi thường gặp</h5>
+        <ul>
+            <li>Không thấy thông báo? Kiểm tra Console của trình duyệt (lỗi JS), hoặc mở trực tiếp <code>/Admin/Notification/Latest?take=5</code> xem API trả JSON chưa.</li>
+            <li>Không xoá được sản phẩm: kiểm tra có bản ghi Wishlist/đơn hàng liên quan.</li>
+            <li>Không đổi trạng thái đơn: xem lại quy tắc 1→2/5, 2→3/5, 3→4/5; đơn đã ở 4/5 thì kết thúc.</li>
+        </ul>
+    </div>
+</div>

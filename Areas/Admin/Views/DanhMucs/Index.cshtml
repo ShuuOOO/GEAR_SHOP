@@ -1,0 +1,106 @@
+@model IEnumerable<TL4_SHOP.Models.ViewModels.DanhMucViewModel>
+@{
+    ViewData["Title"] = "Quản lý danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+    var filter = ViewBag.Filter;
+    int total = (int)ViewBag.Total;
+    var parents = (IEnumerable<TL4_SHOP.Data.DanhMucSanPham>)ViewBag.Parents;
+    int page = (int)filter.GetType().GetProperty("page").GetValue(filter, null);
+    int pageSize = (int)filter.GetType().GetProperty("pageSize").GetValue(filter, null);
+    int pageCount = (int)Math.Ceiling(total / (double)pageSize);
+    string q = (string)filter.GetType().GetProperty("q").GetValue(filter, null);
+    int? parentId = (int?)filter.GetType().GetProperty("parentId").GetValue(filter, null);
+}
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <h4 class="mb-0">Danh mục</h4>
+  <a class="btn btn-primary" asp-action="Create"><i class="bx bx-plus"></i> Thêm danh mục</a>
+</div>
+<div class="card">
+  <div class="card-body">
+    <form class="row g-2 mb-3" method="get">
+      <div class="col-md-4">
+        <input class="form-control" type="text" name="q" value="@q" placeholder="Tìm tên danh mục..." />
+      </div>
+      <div class="col-md-4">
+                <select class="form-select" name="parentId">
+                    <option value="">-- Tất cả danh mục cha --</option>
+                    @foreach (var p in parents)
+                    {
+                        if (parentId == p.DanhMucId)
+                        {
+                            <option value="@p.DanhMucId" selected>@p.TenDanhMuc</option>
+                        }
+                        else
+                        {
+                            <option value="@p.DanhMucId">@p.TenDanhMuc</option>
+                        }
+                    }
+                </select>
+      </div>
+      <div class="col-md-2">
+                <select class="form-select" name="pageSize">
+                    @foreach (var size in new[] { 10, 12, 20, 50 })
+                    {
+                        if (pageSize == size)
+                        {
+                            <option value="@size" selected>@size / trang</option>
+                        }
+                        else
+                        {
+                            <option value="@size">@size / trang</option>
+                        }
+                    }
+                </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-secondary w-100" type="submit">Lọc</button>
+      </div>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle table-admin">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên danh mục</th>
+            <th>Danh mục cha</th>
+            <th class="text-center">Số SP</th>
+            <th style="width:160px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var item in Model)
+          {
+            var parentName = parents.FirstOrDefault(x => x.DanhMucId == item.DanhMucChaId)?.TenDanhMuc;
+            <tr>
+              <td>@item.Id</td>
+              <td>@item.TenDanhMuc</td>
+              <td>@(parentName ?? "-")</td>
+              <td class="text-center">@item.SoLuongSanPham</td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                                <form method="post" asp-action="Delete" asp-route-id="@item.Id"
+                                      class="d-inline js-confirm" data-confirm="Xoá danh mục này?">
+                                    <button class="btn btn-sm btn-danger">Xoá</button>
+                                </form>
+                            </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <div>Tổng: <strong>@total</strong> danh mục</div>
+    <nav>
+      <ul class="pagination mb-0">
+        @for (int i = 1; i <= pageCount; i++)
+        {
+            <li class="page-item @(i==page?"active":"")">
+              <a class="page-link" href="@Url.Action("Index", new { q=q, parentId=parentId, page=i, pageSize=pageSize })">@i</a>
+            </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</div>

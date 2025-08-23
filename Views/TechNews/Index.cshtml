@@ -1,0 +1,106 @@
+﻿@model IEnumerable<TL4_SHOP.Data.TechNews>
+@{
+    ViewData["Title"] = "Tin công nghệ";
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+    var page = (int)(ViewBag.Page ?? 1);
+    var pageSize = (int)(ViewBag.PageSize ?? 8);
+    var total = (int)(ViewBag.Total ?? 0);
+    var search = (string)(ViewBag.Search ?? "");
+    var totalPages = (int)Math.Ceiling((double)total / pageSize);
+}
+<div class="container-fluid bg-secondary mb-5 page-hero text-dark">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height:240px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Tin công nghệ</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a class="text-dark" href="/">Home</a></p>
+            <p class="m-0 px-2 text-dark">-</p>
+            <p class="m-0 text-dark">News</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ====== Chỉ áp dụng cho trang TechNews ====== */
+    .technews-page .card .text-secondary,
+    .technews-page .card .text-muted {
+        color: #495057 !important; /* đậm hơn, không bị nhạt/trắng */
+    }
+
+    .page-hero, .page-hero * {
+        color: #212529 !important;
+    }
+        /* chữ trong header nền xám */
+        .page-hero.bg-secondary {
+            background-color: #eef1ff;
+        }
+    /* xám nhạt dễ nhìn */
+
+    /* Ô tìm tin tức: thu gọn, căn giữa, nút dính vào input */
+    .technews-search {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+        .technews-search .input-group > .form-control {
+            height: 44px;
+        }
+
+        .technews-search .input-group > .input-group-append .btn {
+            height: 44px;
+        }
+
+    /* Ảnh card cùng tỉ lệ, không giãn */
+    .technews-page .card-img-top {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+</style>
+
+<div class="container-fluid pt-4 technews-page">
+    <form method="get" class="mb-4 technews-search">
+        <div class="input-group">
+            <input name="search" value="@search" class="form-control" placeholder="Tìm tin tức..." />
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Tìm</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row px-xl-5">
+        @foreach (var n in Model)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <a href="@Url.Action("Detail","TechNews", new { slug = n.Slug })" class="text-decoration-none">
+                        <img class="card-img-top" src="@(string.IsNullOrWhiteSpace(n.CoverImage) ? "/img/placeholder.png" : n.CoverImage)" alt="@n.Title" />
+                        <div class="card-body">
+                            <h6 class="text-dark text-truncate">@n.Title</h6>
+                            <p class="text-muted small mb-2">@n.PublishedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</p>
+                            <p class="mb-0 text-secondary" style="min-height:48px">@n.Summary</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (totalPages > 1)
+    {
+        <nav aria-label="News pagination">
+            <ul class="pagination justify-content-center mt-3">
+                <li class="page-item @(page<=1?"disabled":"")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = page-1, search })">«</a>
+                </li>
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i==page?"active":"")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = i, search })">@i</a>
+                    </li>
+                }
+                <li class="page-item @(page>=totalPages?"disabled":"")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = page+1, search })">»</a>
+                </li>
+            </ul>
+        </nav>
+    }
+</div>

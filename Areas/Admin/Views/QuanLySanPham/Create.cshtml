@@ -1,0 +1,13 @@
+﻿@model TL4_SHOP.Models.ViewModels.ProductFormVM
+@{
+    ViewData["Title"] = "Thêm sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h4 class="mb-3">Thêm sản phẩm</h4>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <partial name="_Form" model="Model" />
+</form>

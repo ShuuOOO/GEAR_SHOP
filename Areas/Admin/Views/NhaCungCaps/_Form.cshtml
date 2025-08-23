@@ -1,0 +1,48 @@
+﻿@model TL4_SHOP.Data.NhaCungCap
+
+@{
+    var isEdit = Model?.NhaCungCapId > 0;
+    ViewData["Title"] = (isEdit ? "Sửa" : "Thêm") + " nhà cung cấp";
+}
+
+<h4 class="mb-3">@ViewData["Title"]</h4>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="@(isEdit ? "Edit" : "Create")" method="post">
+            @Html.AntiForgeryToken()
+            @if (isEdit)
+            {
+                <input type="hidden" asp-for="NhaCungCapId" />
+            }
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="TenNhaCungCap" class="form-label">Tên nhà cung cấp</label>
+                    <input asp-for="TenNhaCungCap" class="form-control" />
+                    <span asp-validation-for="TenNhaCungCap" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="Phone" class="form-label">Điện thoại</label>
+                    <input asp-for="Phone" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="DiaChi" class="form-label">Địa chỉ</label>
+                    <input asp-for="DiaChi" class="form-control" />
+                </div>
+            </div>
+
+            <div class="mt-3 d-flex gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">Huỷ</a>
+                <button class="btn btn-primary">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>

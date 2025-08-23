@@ -1,0 +1,39 @@
+﻿@model List<TL4_SHOP.Models.CartItem>
+
+<div class="mini-cart-content p-3" style="min-width: 250px;">
+    @if (Model.Count == 0)
+    {
+        <p class="text-center">🛒 Giỏ hàng trống</p>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="d-flex align-items-center mb-2">
+                <img src='@Url.Content("~/" + ((item.HinhAnh?.Contains("/") ?? false) ? item.HinhAnh : $"images/products/{item.HinhAnh}"))'
+                     alt='@item.TenSanPham'
+                     width="40" height="40"
+                     class="mr-2"
+                     style="object-fit:cover;border-radius:6px;border:1px solid #eee"
+                     onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder-product.png")';" />
+                <div>
+                    <strong>@item.TenSanPham</strong><br />
+                    <small>@item.SoLuong x @item.Gia.ToString("N0")đ</small>
+                </div>
+            </div>
+        }
+
+        <hr />
+
+        <!-- Tổng tiền -->
+        <div class="text-right font-weight-bold mb-2">
+            Tổng: @Model.Sum(x => x.ThanhTien).ToString("N0")₫
+        </div>
+
+        <!-- 2 nút -->
+        <div class="d-flex justify-content-between">
+            <a href="/Cart/Index" class="btn btn-sm btn-outline-primary">Xem giỏ hàng</a>
+            <a href="@Url.Action("Checkout", "Order")" class="btn btn-sm btn-primary">Thanh toán</a>
+        </div>
+    }
+</div>

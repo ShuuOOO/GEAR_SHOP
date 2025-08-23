@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TL4_SHOP.Data.NhapHang>
+@{
+    ViewData["Title"] = "Nhập hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+    var filter = ViewBag.Filter;
+    int total = (int)ViewBag.Total;
+    int page = (int)ViewBag.Page;
+    int pageSize = (int)ViewBag.PageSize;
+    int pageCount = (int)Math.Ceiling(total / (double)pageSize);
+    string q = (string)filter.GetType().GetProperty("q")?.GetValue(filter, null);
+    DateTime? from = (DateTime?)filter.GetType().GetProperty("from")?.GetValue(filter, null);
+    DateTime? to = (DateTime?)filter.GetType().GetProperty("to")?.GetValue(filter, null);
+}
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h4 class="mb-0">Phiếu nhập</h4>
+    <a class="btn btn-primary" asp-area="Admin" asp-controller="NhapHangs" asp-action="Create">+ Tạo phiếu nhập</a>
+</div>
+
+<form class="row g-2 mb-3">
+    <div class="col-md-3"><input type="text" name="q" value="@q" class="form-control" placeholder="Tìm theo nhà cung cấp..." /></div>
+    <div class="col-md-2"><input type="date" class="form-control" name="from" value="@(from?.ToString("yyyy-MM-dd"))" /></div>
+    <div class="col-md-2"><input type="date" class="form-control" name="to" value="@(to?.ToString("yyyy-MM-dd"))" /></div>
+    <div class="col-auto"><button class="btn btn-outline-secondary" type="submit">Lọc</button></div>
+</form>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead><tr><th style="width:100px">Mã PN</th><th>Nhà cung cấp</th><th>Ngày nhập</th><th class="text-end">Số dòng</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var pn in Model)
+                {
+                    <tr>
+                        <td>#@pn.PhieuNhapId</td>
+                        <td>@pn.NhaCungCap?.TenNhaCungCap</td>
+                        <td>@pn.NgayNhap.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td class="text-end">@pn.ChiTietNhapHangs?.Count</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@pn.PhieuNhapId">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (pageCount > 1)
+{
+    <nav class="mt-3">
+        <ul class="pagination">
+            @for (int i = 1; i <= pageCount; i++)
+            {
+                <li class="page-item @(i==page?"active":"")">
+                    <a class="page-link" href="?page=@i&pageSize=@pageSize&q=@q&from=@(from?.ToString("yyyy-MM-dd"))&to=@(to?.ToString("yyyy-MM-dd"))">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

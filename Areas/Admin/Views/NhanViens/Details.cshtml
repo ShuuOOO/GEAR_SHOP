@@ -1,0 +1,38 @@
+﻿@model TL4_SHOP.Data.TaoTaiKhoan
+
+@{
+    ViewData["Title"] = "Chi tiết tài khoản nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h4>Chi tiết tài khoản nhân viên</h4>
+
+<div class="card">
+    <div class="card-body">
+        <div class="col-md-6">
+            <dl class="row g-3">
+                <dt class="col-sm-2">Mã KH</dt>
+                <dd class="col-sm-10">@Model.TaiKhoanId</dd>
+
+                <dt class="col-sm-2">Họ tên</dt>
+                <dd class="col-sm-10">@Model.HoTen</dd>
+
+                <dt class="col-sm-2">Email</dt>
+                <dd class="col-sm-10">@Model.Email</dd>
+
+                <dt class="col-sm-2">Phone</dt>
+                <dd class="col-sm-10">@Model.Phone</dd>
+
+                <dt class="col-sm-2">Loại tài khoản</dt>
+                <dd class="col-sm-10">@Model.LoaiTaiKhoan</dd>
+
+                <dt class="col-sm-2">Vai trò</dt>
+                <dd class="col-sm-10">@Model.VaiTro</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="mt-4 d-flex gap-2">
+    <a asp-action="Edit" asp-route-id="@Model.TaiKhoanId" class="btn btn-primary">Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</div>

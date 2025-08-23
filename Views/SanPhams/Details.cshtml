@@ -1,0 +1,408 @@
+﻿@model TL4_SHOP.Data.SanPham
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Thanh chat ngang -->
+<div id="chatBar" class="chat-bar">
+    💬 Chat tư vấn - Giải đáp mọi thắc mắc
+</div>
+
+<!-- Khung chat -->
+<div id="chatBox" class="chat-box">
+    <div class="chat-header" style="font-family: Tahoma;">
+        Hỗ trợ trực tuyến
+        <button id="minimizeButton" class="minimize-btn">−</button>
+    </div>
+    <div id="messagesList" class="chat-messages"></div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" style="font-family: Tahoma;" placeholder="Nhập tin nhắn..." />
+        <button id="sendButton" style="font-family: Tahoma;">Gửi</button>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    .minimize-btn {
+        float: right;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+        .minimize-btn:hover {
+            color: #ccc;
+        }
+
+    .chat-bar {
+        position: fixed;
+        bottom: 0;
+        left: 1219px;
+        width: 20%;
+        background-color: #D19C97;
+        color: white;
+        text-align: center;
+        padding: 1px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background-color 0.3s;
+        border-radius: 10px 10px 0px 0px;
+        font-family: Tahoma;
+        font-size: 80%
+    }
+
+        .chat-bar:hover {
+            background-color: #D19C97;
+        }
+
+    .chat-box {
+        position: fixed;
+        bottom: 30px;
+        right: 75px;
+        width: 300px;
+        /* height: 400px; */
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        animation: slideUp 0.3s ease-out;
+    }
+
+
+    .chat-header {
+        background-color: #D19C97;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-weight: bold;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        font-size: 0.9em;
+    }
+
+    .chat-input {
+        display: flex;
+        border-top: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+        .chat-input input {
+            flex: 1;
+            /* border: none; */
+            padding: 10px;
+            outline: none;
+            border-radius: 10px
+        }
+
+        .chat-input button {
+            background-color: #D19C97;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    /* ----- Product details readability ----- */
+    .product-detail .desc-text {
+        color: #2b2f33; /* đậm, dễ đọc hơn */
+        font-size: 1.06rem; /* to hơn chút */
+        line-height: 1.75;
+        letter-spacing: .2px;
+        margin-bottom: 12px;
+    }
+
+    /* Tabs title rõ ràng hơn */
+    .nav-tabs .nav-link {
+        color: #8a8f98;
+        border: none;
+    }
+
+        .nav-tabs .nav-link.active {
+            color: #D19C97;
+            font-weight: 600;
+            border-bottom: 2px solid #D19C97;
+        }
+
+    /* ----- Specs table look ----- */
+    .spec-card {
+        padding: 14px;
+        border: 1px solid #e9ecf1;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(0,0,0,.03);
+    }
+
+    #tab-specs table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        font-size: 0.98rem;
+    }
+
+    #tab-specs th, #tab-specs td {
+        border: 1px solid #eef0f4;
+        padding: 10px 12px;
+        color: #2f3440;
+    }
+
+    #tab-specs th {
+        width: 30%;
+        background: #f7f8fb;
+        font-weight: 600;
+    }
+
+    #tab-specs tr:nth-child(even) td {
+        background: #fbfcfe;
+    }
+    /* zebra */
+</style>
+
+<!-- SignalR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        const msg = document.createElement("div");
+        msg.textContent = `${user}: ${message}`;
+        document.getElementById("messagesList").appendChild(msg);
+        document.getElementById("messagesList").scrollTop = document.getElementById("messagesList").scrollHeight;
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    document.getElementById("sendButton").addEventListener("click", function () {
+        const message = document.getElementById("messageInput").value.trim();
+        if (message) {
+            connection.invoke("SendMessage", "Khách", message);
+            document.getElementById("messageInput").value = "";
+        }
+    });
+
+        document.getElementById("chatBar").addEventListener("click", function () {
+        const chatBox = document.getElementById("chatBox");
+        const chatBar = document.getElementById("chatBar");
+
+        chatBox.style.display = "flex";
+        chatBar.style.display = "none"; // Ẩn thanh chat khi mở khung chat
+    });
+
+        document.getElementById("minimizeButton").addEventListener("click", function () {
+        document.getElementById("chatBox").style.display = "none";
+        document.getElementById("chatBar").style.display = "block"; // Hiện lại thanh chat khi thu nhỏ khung chat
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<!-- Page Header -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Chi tiết sản phẩm</h1>
+        <div class="d-inline-flex">
+            @* <p class="m-0"><a href="/">Trang chủ</a></p> *@
+            @* <p class="m-0 px-2">-</p> *@
+            <p class="m-0">@Model.TenSanPham</p>
+        </div>
+    </div>
+</div>
+
+<!-- Product Detail -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-5 pb-5">
+            <img class="w-100 h-auto border"
+                 src="@Url.Content("~/" + ((Model.HinhAnh?.Contains('/') ?? false) ? Model.HinhAnh : $"images/products/{Model.HinhAnh}"))"
+                 alt="@Model.TenSanPham"
+                 onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder-product.png")';" />
+        </div>
+
+        <div class="col-lg-7 pb-5">
+            <h3 class="font-weight-semi-bold">@Model.TenSanPham</h3>
+            <div class="d-flex mb-3">
+                <div class="text-primary mr-2">
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star"></small>
+                    <small class="fas fa-star-half-alt"></small>
+                    <small class="far fa-star"></small>
+                </div>
+                <small class="pt-1">(Đánh giá sản phẩm)</small>
+            </div>
+            <h3 class="font-weight-semi-bold mb-4">@Model.Gia.ToString("N0")₫</h3>
+            <p class="mb-4">@Model.MoTa</p>
+
+            <div class="d-flex align-items-center mb-4 pt-2">
+                <button class="btn btn-primary px-3" onclick="addToCart(@(Model.SanPhamId))">
+                    <i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng
+                </button>
+                <button class="btn btn-outline-danger px-3 ml-2" onclick="addToWishlist(@Model.SanPhamId)">
+                    <i class="fa fa-heart mr-1"></i> Yêu thích
+                </button>
+            </div>
+
+            <div class="mt-3">
+                <p><strong>Danh mục:</strong> @Model.DanhMuc?.TenDanhMuc</p>
+                <p><strong>Nhà cung cấp:</strong> @Model.NhaCungCap?.TenNhaCungCap</p>
+                <p><strong>Tồn kho:</strong> @Model.SoLuongTon</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Mô tả -->
+    <div class="row px-xl-5 mt-5">
+        <div class="col">
+            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Mô tả chi tiết</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab-pane-1">
+                    @if (!string.IsNullOrWhiteSpace(Model.ChiTiet))
+                    {
+                        <div class="product-detail desc-text spec-card">
+                            @Html.Raw(Model.ChiTiet)
+                        </div>
+                    }
+                </div>
+
+                <div class="tab-pane fade" id="tab-specs">
+                    @if (!string.IsNullOrWhiteSpace(Model.ThongSoKyThuat))
+                    {
+                        <div class="spec-card table-responsive">
+                            @Html.Raw(Model.ThongSoKyThuat)
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted m-0">Chưa có thông số kỹ thuật.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        $(document).ready(function () {
+            window.addToCart = function (productId) {
+                $.ajax({
+                    url: '/Cart/AddToCartAjax',
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#cart-count').text(response.cartCount);
+                            Toastify({
+                                text: "🎉 Đã thêm sản phẩm vào giỏ hàng!",
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#28a745",
+                                close: true,
+                                stopOnFocus: true
+                            }).showToast();
+                        } else {
+                            Toastify({
+                                text: "❌ Lỗi: " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#dc3545",
+                                close: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            close: true
+                        }).showToast();
+                    }
+                });
+            }
+
+            window.addToWishlist = function (productId) {
+                $.ajax({
+                    url: '/Wishlist/AddToWishlistAjax',
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        if (response.success) {
+                            $('#wishlist-count').text(response.wishlistCount);
+                            Toastify({
+                                text: "💖 " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#ff4081",
+                                close: true,
+                                stopOnFocus: true
+                            }).showToast();
+                        } else {
+                            Toastify({
+                                text: "⚠️ " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#ffc107",
+                                close: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            close: true
+                        }).showToast();
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+          // auto format bảng trong thông số
+          $('#tab-specs table')
+            .addClass('table table-hover align-middle')
+            .find('th').addClass('text-nowrap'); // header gọn
+        });
+    </script>
+}

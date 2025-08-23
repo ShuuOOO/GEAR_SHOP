@@ -1,0 +1,8 @@
+﻿@model TL4_SHOP.Data.TechNews
+@{
+    ViewData["Title"] = "Tạo bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @Html.Partial("_Form", Model)
+</form>

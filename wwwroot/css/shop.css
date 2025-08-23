@@ -1,0 +1,162 @@
+﻿.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+    .suggestion-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .suggestion-item:last-child {
+        border-bottom: none;
+    }
+
+.search-form {
+    position: relative;
+}
+
+.thongTinSanPham {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+}
+
+    .thongTinSanPham p {
+        margin: 2px 0;
+    }
+
+.product-item:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.product-img img {
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-img img {
+    transform: scale(1.05);
+}
+
+<style >
+.search-result-box {
+    border: 1px solid #ddd;
+    background: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fa-shopping-cart + .badge {
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    padding: 3px 6px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.badge-danger {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.product-item .badge-danger {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 10;
+}
+
+.card.product-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .card-body .thongTinSanPham {
+        margin-top: 10px;
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 2px solid #f8d7da;
+    background-color: #fff0f3;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    height: 40px;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    width: fit-content;
+    animation: scroll-loop 20s linear infinite;
+}
+
+.marquee-content {
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 500;
+    color: #e83e8c;
+    padding-right: 100px; /* khoảng cách giữa 2 lần lặp */
+}
+
+@keyframes scroll-loop {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+

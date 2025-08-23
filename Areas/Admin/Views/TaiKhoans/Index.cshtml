@@ -1,0 +1,108 @@
+﻿@model IEnumerable<TL4_SHOP.Data.TaoTaiKhoan>
+
+@{
+    ViewData["Title"] = "Danh sách tất cả tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+    .alert-success {
+        background-color: #d1e7dd !important; /* xanh nhạt */
+        color: #0f5132 !important; /* xanh đậm cho chữ */
+        border: none !important; /* bỏ viền cứng */
+    }
+</style>
+
+<h4>Danh sách tất cả tài khoản (@Model.Count())</h4>
+<!--Tìm kiếm-->
+<form asp-action="Index" method="get" class="d-flex align-items-center gap-2">
+    <input name="TuKhoa" value="@Context.Request.Query["TuKhoa"]"
+           placeholder="Nhập từ cần tìm"
+           class="form-control" style="max-width: 500px;" />
+    <button class="btn btn-primary">Tìm</button>
+    <a asp-action="Index" class="btn btn-secondary">Hiển thị tất cả</a>
+</form>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-primary">+ Thêm tài khoản</a>
+</p>
+
+<!--Thông báo-->
+@if (TempData["ThongBao"] != null)
+{
+    var loai = TempData["LoaiThongBao"]?.ToString() ?? "success";
+    var icon = loai switch
+    {
+        "success" => "bi bi-check-circle-fill text-success",
+        "danger" => "bi bi-exclamation-triangle-fill text-danger",
+        "warning" => "bi bi-exclamation-circle-fill text-warning",
+        "info" => "bi bi-info-circle-fill text-info",
+        _ => "bi bi-info-circle"
+    };
+
+    <div id="alertBox"
+         class="alert alert-@loai alert-dismissible fade show shadow-sm border-0 d-flex align-items-center"
+         role="alert"
+         style="border-radius:10px;">
+        <i class="@icon me-2 fs-5"></i> <!-- icon -->
+        <span>@TempData["ThongBao"]</span>
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            var alertBox = document.getElementById("alertBox");
+            if (alertBox) {
+                var bsAlert = new bootstrap.Alert(alertBox);
+                bsAlert.close(); // tự động đóng sau 3 giây
+            }
+        }, 3000);
+    </script>
+}
+
+<div class="card">
+    <div class="table-responsive">
+        @if (Model != null && Model.Any())
+        {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Mã KH</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Loại tài khoản</th>
+                    <th>Vai trò</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TaiKhoanId</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.LoaiTaiKhoan</td>
+                        <td>@item.VaiTro</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.TaiKhoanId" class="btn btn-sm btn-primary">Sửa</a> |
+                            <a asp-action="Details" asp-route-id="@item.TaiKhoanId" class="btn btn-info btn-sm">Chi tiết</a> |
+                            <a asp-action="Delete" asp-route-id="@item.TaiKhoanId" class="btn btn-danger btn-sm">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        }
+        else
+        {
+            <div class="d-flex justify-content-center mt-3">
+                <div class="alert alert-danger text-center d-inline-block px-3 py-2">
+                    Không tìm thấy tài khoản nào.
+                </div>
+            </div>
+        }
+    </div>
+</div>

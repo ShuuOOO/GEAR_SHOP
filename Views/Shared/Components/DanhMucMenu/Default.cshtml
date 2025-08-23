@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TL4_SHOP.Models.ViewModels.DanhMucViewModel>
+
+<ul class="vertical-menu">
+    @foreach (var cha in Model.Where(d => d.DanhMucChaId == null))
+    {
+        <li class="menu-item">
+            <a href="#">
+                <i class="fas fa-folder me-2"></i>@cha.TenDanhMuc
+                <i class="fas fa-angle-right float-right"></i>
+            </a>
+
+            @if (cha.DanhMucCon?.Any() == true)
+            {
+                <div class="mega-menu animate">
+                    <div class="row">
+                        @foreach (var cap2 in cha.DanhMucCon)
+                        {
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">
+                                    <i class="fas fa-tags me-1"></i>
+                                    @cap2.TenDanhMuc
+                                </h6>
+                                <ul class="list-unstyled">
+                                    @foreach (var cap3 in cap2.DanhMucCon ?? new List<TL4_SHOP.Models.ViewModels.DanhMucViewModel>())
+                                    {
+                                        <li>
+                                            <a href="/shop?danhMucId=@cap3.Id">
+                                                @cap3.TenDanhMuc (@cap3.SoLuongSanPham)
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </li>
+    }
+</ul>
+
+<!-- Tách CSS sang file riêng -->
+<link rel="stylesheet" href="~/css/mega-menu.css" />
+
+<!-- Script xử lý hover delay để tránh nhấp nháy -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.vertical-menu .menu-item');
+        items.forEach(item => {
+            let timeout;
+            item.addEventListener('mouseenter', () => {
+                timeout = setTimeout(() => {
+                    item.classList.add('open');
+                }, 200);
+            });
+            item.addEventListener('mouseleave', () => {
+                clearTimeout(timeout);
+                item.classList.remove('open');
+            });
+        });
+    });
+</script>

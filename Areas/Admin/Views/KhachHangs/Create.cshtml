@@ -1,0 +1,64 @@
+﻿@model TL4_SHOP.Models.ViewModels.TaiKhoanCreateViewModel
+
+@{
+    ViewData["Title"] = "Thêm khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h4>Thêm khách hàng</h4>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+
+                    <div class="form-group mb-3">
+                        <label asp-for="HoTen" class="mb-1">Họ tên</label>
+                        <input asp-for="HoTen" class="form-control" />
+                        <span asp-validation-for="HoTen" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="mb-1">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Phone" class="mb-1">Số điện thoại</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="MatKhau" class="mb-1">Mật khẩu</label>
+                        <input asp-for="MatKhau" type="password" class="form-control" />
+                        <span asp-validation-for="MatKhau" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="LoaiTaiKhoan" class="mb-1">Loại tài khoản</label>
+                        <input type="text" class="form-control" value="Khách hàng" disabled />
+                        <!-- hidden để submit giá trị -->
+                        <input type="hidden" asp-for="LoaiTaiKhoan" value="KhachHang" />
+                        <span asp-validation-for="LoaiTaiKhoan" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="VaiTro" class="mb-1">Vai trò</label>
+                        <input asp-for="VaiTro" class="form-control">
+                        <span asp-validation-for="VaiTro" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

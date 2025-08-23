@@ -1,0 +1,35 @@
+﻿@model TL4_SHOP.Data.NhapHang
+@{
+    ViewData["Title"] = "Chi tiết phiếu nhập #" + Model.PhieuNhapId;
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <h4 class="mb-0">Phiếu nhập #@Model.PhieuNhapId</h4>
+    <a class="btn btn-outline-secondary" asp-action="Index">Quay lại</a>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body row g-3">
+        <div class="col-md-4"><strong>Nhà cung cấp:</strong> @Model.NhaCungCap?.TenNhaCungCap</div>
+        <div class="col-md-3"><strong>Ngày nhập:</strong> @Model.NgayNhap.ToString("dd/MM/yyyy HH:mm")</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead><tr><th>Sản phẩm</th><th class="text-end">Số lượng</th><th class="text-end">Đơn giá</th><th class="text-end">Thành tiền</th></tr></thead>
+            <tbody>
+                @foreach (var d in Model.ChiTietNhapHangs)
+                {
+                    <tr>
+                        <td>@d.SanPham?.TenSanPham</td>
+                        <td class="text-end">@d.SoLuong</td>
+                        <td class="text-end">@d.DonGiaNhap.ToString("N0")</td>
+                        <td class="text-end">@d.TongTien.ToString("N0")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

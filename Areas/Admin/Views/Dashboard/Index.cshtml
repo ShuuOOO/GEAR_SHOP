@@ -1,0 +1,236 @@
+﻿@model GEAR_SHOP.Models.ViewModels.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@section Styles {
+    <style>
+        .kpi-card {
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,.05);
+            transition: box-shadow 0.25s ease;
+        }
+
+            .kpi-card:hover {
+                box-shadow: 0 8px 26px rgba(0,0,0,.06);
+            }
+
+        .kpi-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            font-size: 22px;
+        }
+
+        .status-chip {
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 600;
+        }
+
+        .money {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .kpi-delta {
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+            .kpi-delta.up {
+                color: #16a34a;
+            }
+
+            .kpi-delta.down {
+                color: #dc2626;
+            }
+
+        /* Hover link KPI */
+        .kpi-link {
+            font-size: .85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+            .kpi-link i {
+                opacity: 0;
+                transform: translateX(-4px);
+                transition: all 0.25s ease;
+            }
+
+            .kpi-link:hover,
+            .kpi-link.text-muted:hover { /* fix màu bị text-muted ghi đè */
+                color: var(--bs-primary, #4f46e5);
+            }
+
+                .kpi-link:hover i {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+            /* Focus bằng bàn phím cũng có hiệu ứng */
+            .kpi-link:focus-visible {
+                outline: none;
+                color: var(--bs-primary, #4f46e5);
+                text-decoration: underline;
+            }
+
+                .kpi-link:focus-visible i {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+        /* Tuỳ chọn: hover cả card thì icon hiện */
+        .kpi-card:hover .kpi-link i {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+
+}
+
+@* BEGIN: KPI CARDS *@
+<div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-primary text-primary">
+                    <i class="bx bx-cube"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Sản phẩm</small>
+                    <h3 class="mb-0">@Model.TongSanPham</h3>
+                    <div class="d-flex align-items-center gap-2 mt-1">
+                        @if (ViewBag.DeltaSanPham is int ds)
+                        {
+                            <span class="kpi-delta @(ds >= 0 ? "up" : "down")">
+                                @((ds > 0 ? "+" : "") + ds + "%")
+                            </span>
+                        }
+                        <a asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index" class="kpi-link text-muted">
+                            Xem chi tiết
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-info text-info">
+                    <i class="bx bx-receipt"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Đơn hàng</small>
+                    <h3 class="mb-0">@Model.TongDonHang</h3>
+                    <div class="d-flex align-items-center gap-2 mt-1">
+                        @* TODO: Khi có dữ liệu: ViewBag.DeltaDonHang is int dd *@
+                        <a asp-area="Admin" asp-controller="DonHangs" asp-action="Index" class="kpi-link text-muted">
+                            Xem chi tiết
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-success text-success">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Khách hàng</small>
+                    <h3 class="mb-0">@Model.TongKhachHang</h3>
+                    <div class="d-flex align-items-center gap-2 mt-1">
+                        @* TODO: Khi có dữ liệu: ViewBag.DeltaKhachHang is int dk *@
+                        <a asp-area="Admin" asp-controller="KhachHangs" asp-action="Index" class="kpi-link text-muted">
+                            Xem chi tiết
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card kpi-card">
+            <div class="card-body d-flex align-items-center gap-3">
+                <div class="kpi-icon bg-label-warning text-warning">
+                    <i class="bx bx-dollar-circle"></i>
+                </div>
+                <div>
+                    <small class="text-muted d-block mb-1">Doanh thu tháng</small>
+                    <h3 class="mb-0 money">@Model.DoanhThuThang.ToString("N0") ₫</h3>
+                    <div class="d-flex align-items-center gap-2 mt-1">
+                        @* TODO: Khi có dữ liệu: ViewBag.DeltaDoanhThuThang is int dt *@
+                        <a asp-area="Admin" asp-controller="BaoCao" asp-action="Index" class="kpi-link text-muted">
+                            Xem chi tiết
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* END: KPI CARDS *@
+
+
+<!-- BEGIN: CHART -->
+<div class="card">
+    <div class="card-header">Doanh thu 7 ngày</div>
+    <div class="card-body">
+        <div id="chartDoanhThu"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // BEGIN: APEXCHARTS
+        (function () {
+          const el = document.querySelector('#chartDoanhThu');
+          if (!el || typeof ApexCharts === 'undefined') return;
+
+          // [THÊM MỚI] formatter tiền VND dùng Intl
+          const vnd = v => new Intl.NumberFormat('vi-VN').format(v);
+
+          const options = {
+            chart: { type: 'line', height: 340, toolbar: { show: false }, zoom: { enabled: false } },
+            series: [{ name: 'Doanh thu', data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.DoanhThuNgay)) }],
+            xaxis: {
+              categories: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.NgayLabels)),
+              labels: { show: true }
+            },
+            yaxis: {
+              labels: { formatter: vnd }
+            },
+            stroke: { curve: 'smooth', width: 3 },   // [SỬA] đường mượt hơn
+            markers: { size: 3 },
+            dataLabels: { enabled: false },
+            grid: { borderColor: '#eee', strokeDashArray: 4 },
+            tooltip: {
+              x: { show: true },
+              y: { formatter: v => vnd(v) + ' ₫' }   // [THÊM MỚI] tooltip chuẩn VND
+            },
+            colors: ['#4f46e5'] // màu chủ đạo, có thể bỏ nếu muốn dùng mặc định theme
+          };
+
+          new ApexCharts(el, options).render();
+        })();
+        // END: APEXCHARTS
+    </script>
+}

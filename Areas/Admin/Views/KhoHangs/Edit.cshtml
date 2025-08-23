@@ -1,0 +1,26 @@
+﻿@model TL4_SHOP.Data.KhoHang
+@{
+    ViewData["Title"] = "Điều chỉnh tồn kho";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<h4 class="mb-3">Điều chỉnh tồn kho</h4>
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="sanPhamId" value="@Model.SanPhamId" />
+            <div class="mb-3">
+                <label class="form-label">Sản phẩm</label>
+                <input class="form-control" value="@(Model?.SanPham?.TenSanPham ?? ("#" + Model.SanPhamId))" disabled />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Số lượng tồn</label>
+                <input type="number" class="form-control" name="soLuongTon" value="@Model.SoLuongTon" />
+            </div>
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-secondary" asp-action="Index">Huỷ</a>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>

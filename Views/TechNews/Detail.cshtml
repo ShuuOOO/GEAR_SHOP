@@ -1,0 +1,62 @@
+﻿@model TL4_SHOP.Data.TechNews
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+}
+
+<!-- Header có màu chữ tối -->
+<div class="container-fluid bg-secondary mb-5 page-hero text-dark">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 240px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">@Model.Title</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a class="text-primary" href="/">Home</a></p>
+            <p class="m-0 px-2 text-dark">-</p>
+            <p class="m-0"><a class="text-primary" href="@Url.Action("Index","TechNews")">Tin công nghệ</a></p>
+        </div>
+        <p class="mt-2 small text-muted">
+            @Model.PublishedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")
+            • @Model.Author
+            • @Model.ViewCount lượt xem
+        </p>
+    </div>
+</div>
+
+<style>
+    .page-hero h1,
+    .page-hero p.small {
+        color: #212529 !important;
+    }
+
+    .page-hero.bg-secondary {
+        background-color: #eef1ff;
+    }
+</style>
+
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-9">
+            @if (!string.IsNullOrWhiteSpace(Model.CoverImage))
+            {
+                var imgPath = (Model.CoverImage.StartsWith("/") ? "~" + Model.CoverImage
+                : "~/" + Model.CoverImage);
+
+                <img src="@Url.Content(imgPath)"
+                     class="img-fluid rounded mb-3"
+                     alt="@Model.Title"
+                     asp-append-version="true" />
+            }
+            <article class="bg-white p-3 rounded shadow-sm">
+                @Html.Raw(Model.ContentHtml)
+            </article>
+        </div>
+        <div class="col-lg-3">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h6 class="font-weight-bold">Từ khóa</h6>
+                    <p class="mb-0 text-dark">@Model.Tags</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+﻿@{
+    // [SỬA] Thêm fallback cho các key cũ để tránh mất toast
+    var success = TempData["Success"] as string ?? TempData["ok"] as string;
+    var error = TempData["Error"] as string ?? TempData["err"] as string;
+    var info = TempData["Info"] as string;
+    var warn = TempData["Warning"] as string ?? TempData["warn"] as string;
+    bool any = success != null || error != null || info != null || warn != null;
+}
+
+@if (any)
+{
+    <style>
+        /* Make-up nho nhỏ cho toast */
+        .toast-flash {
+            min-width: 320px;
+            max-width: 460px;
+            border-radius: 14px;
+        }
+
+            .toast-flash .toast-body {
+                padding: 0.9rem 1rem;
+            }
+
+            .toast-flash .title {
+                font-weight: 700;
+                letter-spacing: .2px;
+                font-size: .95rem;
+            }
+
+            .toast-flash .msg {
+                font-weight: 500;
+                opacity: .95;
+            }
+
+            .toast-flash .iconify {
+                font-size: 1.25rem;
+                line-height: 1;
+            }
+
+        .toast-success {
+            background: linear-gradient(135deg,#16a34a,#22c55e);
+            color: #fff;
+        }
+
+        .toast-error {
+            background: linear-gradient(135deg,#dc2626,#ef4444);
+            color: #fff;
+        }
+
+        .toast-warn {
+            background: linear-gradient(135deg,#d97706,#f59e0b);
+            color: #111827;
+        }
+
+        .toast-info {
+            background: linear-gradient(135deg,#0ea5e9,#38bdf8);
+            color: #fff;
+        }
+
+        .toast-flash .btn-close {
+            filter: invert(1);
+            opacity: .8;
+        }
+
+        .toast-warn .btn-close {
+            filter: none;
+        }
+        /* Tránh đè navbar: top ~72px */
+        #flashToasts {
+            top: 72px;
+            right: 12px;
+            z-index: 1080;
+        }
+    </style>
+
+    <div id="flashToasts"
+         aria-live="polite" aria-atomic="true"
+         class="position-fixed p-3 top-0 end-0">
+        @if (success != null)
+        {
+            <div class="toast toast-flash toast-success shadow-lg border-0 mb-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+                <div class="toast-body d-flex align-items-start gap-2">
+                    <span class="iconify" data-icon="mdi:check-circle-outline"></span>
+                    <div class="flex-grow-1">
+                        <div class="title">Thành công</div>
+                        <div class="msg">@success</div>
+                    </div>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+        @if (error != null)
+        {
+            <div class="toast toast-flash toast-error shadow-lg border-0 mb-2" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="7000">
+                <div class="toast-body d-flex align-items-start gap-2">
+                    <span class="iconify" data-icon="mdi:alert-circle-outline"></span>
+                    <div class="flex-grow-1">
+                        <div class="title">Thao tác thất bại</div>
+                        <div class="msg">@error</div>
+                    </div>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+        @if (warn != null)
+        {
+            <div class="toast toast-flash toast-warn shadow-lg border-0 mb-2" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="6000">
+                <div class="toast-body d-flex align-items-start gap-2">
+                    <span class="iconify" data-icon="mdi:alert-outline"></span>
+                    <div class="flex-grow-1">
+                        <div class="title">Cảnh báo</div>
+                        <div class="msg">@warn</div>
+                    </div>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+        @if (info != null)
+        {
+            <div class="toast toast-flash toast-info shadow-lg border-0" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="5000">
+                <div class="toast-body d-flex align-items-start gap-2">
+                    <span class="iconify" data-icon="mdi:information-outline"></span>
+                    <div class="flex-grow-1">
+                        <div class="title">Thông tin</div>
+                        <div class="msg">@info</div>
+                    </div>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script>
+        (function () {
+            document.querySelectorAll('#flashToasts .toast').forEach(function (el) {
+                var t = bootstrap.Toast.getOrCreateInstance(el);
+                t.show();
+            });
+        })();
+    </script>
+}

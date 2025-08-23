@@ -1,0 +1,9 @@
+﻿@model TL4_SHOP.Data.TechNews
+@{
+    ViewData["Title"] = "Sửa bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="TechNewsId" />
+    @Html.Partial("_Form", Model)
+</form>

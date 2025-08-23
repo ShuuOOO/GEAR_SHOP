@@ -1,0 +1,707 @@
+﻿@model TL4_SHOP.Data.DonHang
+
+@{
+    Layout = "~/Views/Shared/_Layout_4TL.cshtml";
+}
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="css/style.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --app-font: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+
+    .checkout, .order-summary, .payment, .card, .form-control, .custom-select, .btn {
+        font-family: var(--app-font) !important;
+    }
+</style>
+<!-- Thanh chat ngang -->
+<div id="chatBar" class="chat-bar">
+    💬 Chat tư vấn - Giải đáp mọi thắc mắc
+</div>
+
+<!-- Khung chat -->
+<div id="chatBox" class="chat-box">
+    <div class="chat-header" style="font-family: Tahoma;">
+        Hỗ trợ trực tuyến
+        <button id="minimizeButton" class="minimize-btn">−</button>
+    </div>
+    <div id="messagesList" class="chat-messages"></div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" style="font-family: Tahoma;" placeholder="Nhập tin nhắn..." />
+        <button id="sendButton" style="font-family: Tahoma;">Gửi</button>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    .minimize-btn {
+        float: right;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+        .minimize-btn:hover {
+            color: #ccc;
+        }
+
+    .chat-bar {
+        position: fixed;
+        bottom: 0;
+        left: 1219px;
+        width: 20%;
+        background-color: #D19C97;
+        color: white;
+        text-align: center;
+        padding: 1px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background-color 0.3s;
+        border-radius: 10px 10px 0px 0px;
+        font-family: Tahoma;
+        font-size: 80%
+    }
+
+        .chat-bar:hover {
+            background-color: #D19C97;
+        }
+
+    .chat-box {
+        position: fixed;
+        bottom: 30px;
+        right: 75px;
+        width: 300px;
+        /* height: 400px; */
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        animation: slideUp 0.3s ease-out;
+    }
+
+
+    .chat-header {
+        background-color: #D19C97;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        font-weight: bold;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        font-size: 0.9em;
+    }
+
+    .chat-input {
+        display: flex;
+        border-top: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+        .chat-input input {
+            flex: 1;
+            /* border: none; */
+            padding: 10px;
+            outline: none;
+            border-radius: 10px
+        }
+
+        .chat-input button {
+            background-color: #D19C97;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    /* === [ADD] Sửa lỗi label MM/YY bị lấn ô nhập === */
+    .checkout .input-group {
+        /* Bootstrap 4 để flex-wrap: wrap => có thể gây tràn/nhảy dòng.
+           Ép nowrap để nhãn "MM/YY" không chen lấn các ô select */
+        flex-wrap: nowrap;
+    }
+
+        /* Nhãn MM/YY: đảm bảo có bề rộng cố định, không xuống dòng */
+        .checkout .input-group .input-group-text {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 .75rem;
+            min-width: 72px; /* giữ ổn định bề ngang */
+        }
+
+    /* [Tối ưu hiển thị] Hai ô chọn tháng/năm có kích thước hợp lý */
+    #expiryMonth {
+        width: 92px;
+    }
+
+    #expiryYear {
+        width: 104px;
+    }
+
+    /* === [ADD] Làm đẹp khu "Tổng đơn hàng" (chỉ bổ sung style, không đổi cấu trúc) === */
+    .order-summary .card-header {
+        background: #f3f6ff !important;
+        border-bottom: 1px solid #e6ecff !important;
+    }
+
+    .order-summary .table thead th {
+        background: #f9fbff;
+        border-top: 0;
+        font-weight: 600;
+    }
+
+    .order-summary .table td,
+    .order-summary .table th {
+        padding: .75rem 1rem;
+        vertical-align: middle;
+    }
+
+    .order-summary .table tbody tr:not(:last-child) td {
+        border-bottom: 1px dashed #edf1f7; /* gạch nhẹ giữa các dòng */
+    }
+
+    .order-summary .table tbody tr.total-row {
+        background: #f6f9ff;
+        font-weight: 700;
+    }
+
+        .order-summary .table tbody tr.total-row td:last-child {
+            color: #2a5bd7;
+        }
+
+    .order-summary .table .text-right {
+        text-align: right;
+    }
+    /* [ADD] Footer của tổng đơn hàng rõ ràng hơn */
+    .order-summary .card-footer {
+        background: #f6f9ff;
+        border-top: 1px solid #e6ecff !important;
+        padding: 1rem 1.25rem;
+    }
+
+    /* [ADD] Dòng Tổng cộng */
+    .order-summary .total-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: .2px; /* tránh cảm giác dính */
+    }
+
+        .order-summary .total-line .label {
+            margin-right: 12px;
+        }
+
+        .order-summary .total-line .amount {
+            color: #2a5bd7;
+            margin-left: 12px;
+            white-space: nowrap; /* số tiền không xuống dòng */
+        }
+    /* [ADD] Không cho hàng MM/YY wrap và chừa rộng cho select năm */
+    .checkout .form-row .input-group {
+        flex-wrap: nowrap;
+    }
+
+    #expiryYear {
+        min-width: 104px;
+    }
+    
+    /* giữ ổn định để không cắt chữ 2025 */
+    /* [ADD] Chống wrap & set size gọn cho MM/YY (không dùng input-group nữa) */
+    .checkout .no-wrap {
+        flex-wrap: nowrap;
+    }
+
+    .checkout #expiryMonth,
+    .checkout #expiryYear {
+        max-width: 96px;
+    }
+    /* [ADD] Nhìn gọn như form thẻ phổ biến */
+    #visa-container .form-control,
+    #visa-container .custom-select {
+        height: 42px;
+    }
+
+    #visa-container select.form-control.w-auto {
+        min-width: 88px;
+    }
+    /* MM, YY */
+    #cardNumber {
+        letter-spacing: .5px;
+        padding-right: 2.75rem;
+    }
+    /* chừa chỗ logo thẻ */
+
+    #visa-container label {
+        font-weight: 600;
+        color: #5b6a8a;
+    }
+
+    #visa-container .form-group {
+        margin-bottom: .85rem;
+    }
+
+    #visa-container .no-wrap {
+        flex-wrap: nowrap;
+    }
+
+</style>
+
+<!-- SignalR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        const msg = document.createElement("div");
+        msg.textContent = `${user}: ${message}`;
+        document.getElementById("messagesList").appendChild(msg);
+        document.getElementById("messagesList").scrollTop = document.getElementById("messagesList").scrollHeight;
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    document.getElementById("sendButton").addEventListener("click", function () {
+        const message = document.getElementById("messageInput").value.trim();
+        if (message) {
+            connection.invoke("SendMessage", "Khách", message);
+            document.getElementById("messageInput").value = "";
+        }
+    });
+
+        document.getElementById("chatBar").addEventListener("click", function () {
+        const chatBox = document.getElementById("chatBox");
+        const chatBar = document.getElementById("chatBar");
+
+        chatBox.style.display = "flex";
+        chatBar.style.display = "none"; // Ẩn thanh chat khi mở khung chat
+    });
+
+        document.getElementById("minimizeButton").addEventListener("click", function () {
+        document.getElementById("chatBox").style.display = "none";
+        document.getElementById("chatBar").style.display = "block"; // Hiện lại thanh chat khi thu nhỏ khung chat
+    });
+</script>
+
+@using TL4_SHOP.Extensions
+@{
+    ViewData["Title"] = "Thanh toán";
+    var cart = Context.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new();
+    var tongTien = cart.Sum(x => x.ThanhTien);
+    var phiVanChuyen = 15000;
+    var tongCong = tongTien + phiVanChuyen;
+}
+
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Thanh toán</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Checkout</p>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+<!-- Checkout Start -->
+<form asp-action="Checkout" method="post" class="checkout">
+    @Html.AntiForgeryToken()
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+    <input type="hidden" name="phiVanChuyen" value="@phiVanChuyen" />
+    <input type="hidden" name="tongTien" value="@tongTien" />
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4" style="font-family: Tahoma;">Địa chỉ thanh toán</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Tên khách hàng</label>
+                            <input class="form-control" type="text" name="tenKhachHang" placeholder="Nguyễn Văn A" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Số điện thoại</label>
+                            <input class="form-control" type="text" name="soDienThoai" placeholder="0987654321" required />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Địa chỉ giao hàng</label>
+                            <input class="form-control" type="text" name="diaChiGiaoHang" placeholder="123 Đường ABC, Phường XYZ, TP.HCM" required />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>Ghi chú (nếu có)</label>
+                            <input class="form-control" type="text" name="ghiChu" placeholder="Giao giờ hành chính" />
+                        </div>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="col-md-12 form-group">
+                                <label for="emailKhach">Email nhận đơn hàng</label>
+                                <input class="form-control" type="email" name="emailKhach" placeholder="example@email.com" required />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5 order-summary">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Tổng đơn hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="font-weight-medium mb-3">Sản phẩm</h5>
+
+                        @foreach (var item in cart)
+                        {
+                            <div class="d-flex justify-content-between">
+                                <p>@item.TenSanPham</p>
+                                <p>@item.ThanhTien.ToString("N0")đ</p>
+                            </div>
+                        }
+
+                        <hr class="mt-0" />
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            <h6 class="font-weight-medium">Tổng tiền</h6>
+                            <h6 class="font-weight-medium">@tongTien.ToString("N0")đ</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Phí vận chuyển</h6>
+                            <h6 class="font-weight-medium">@phiVanChuyen.ToString("N0")đ</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="total-line mt-2">
+                            <span class="label">Tổng cộng:</span>
+                            <span class="amount">@tongCong.ToString("N0")đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Phương thức thanh toán</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_cod" value="TienMat" checked />
+                            <label class="form-check-label" for="pttt_cod">Thanh toán khi nhận hàng (COD)</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_bank" value="ChuyenKhoan" />
+                            <label class="form-check-label" for="pttt_bank">Chuyển khoản ngân hàng</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_momo" value="Momo" />
+                            <label class="form-check-label" for="pttt_momo">Momo</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="phuongThucThanhToan" id="pttt_visa" value="Visa" />
+                            <label class="form-check-label" for="pttt_visa">Visa / MasterCard</label>
+                        </div>
+
+                        <!-- QR chuyển khoản -->
+                        <div id="qr-container" class="border rounded p-3 mt-3" style="display: none;">
+                            <p><strong>Quét mã QR để thanh toán:</strong></p>
+                            <img id="qr-image" src="" alt="QR Thanh toán" width="250" />
+                            <p class="mt-2 mb-0">
+                                💬 <strong>Nội dung chuyển khoản:</strong>
+                                <span id="ma-don-tu-sinh" data-ma-don="@(TempData["MaDonHang"] ?? "")">Đang tạo...</span>
+                            </p>
+                            <p class="text-muted" style="font-size: 0.9em;">* Vui lòng ghi đúng nội dung để xác nhận đơn hàng.</p>
+                        </div>
+
+                        <!-- FORM THẺ VISA GIẢ LẬP -->
+                        <div id="visa-container" class="border rounded p-3 mt-3" style="display: none;">
+                            <h6 class="mb-3"><strong>Nhập thông tin thẻ</strong></h6>
+                            <div class="form-group">
+                                <label>Số thẻ</label>
+                                <div style="position: relative;">
+                                    <input id="cardNumber" class="form-control pr-5" placeholder="1234 5678 9012 3456" />
+                                    <img id="cardLogo" src="" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); height:24px; display:none;" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label>Ngày hết hạn</label>
+                                    <div class="d-flex align-items-center no-wrap">
+                                        <select id="expiryMonth" class="form-control w-auto mr-2" aria-label="Tháng hết hạn">
+                                            <option value="">MM</option>
+                                            @for (int m = 1; m <= 12; m++)
+                                            {
+                                                <option value="@m.ToString("D2")">@m.ToString("D2")</option>
+                                            }
+                                        </select>
+                                        <select id="expiryYear" class="form-control w-auto" aria-label="Năm hết hạn">
+                                            <option value="">YY</option>
+                                            @for (int y = DateTime.Now.Year; y <= DateTime.Now.Year + 10; y++)
+                                            {
+                                                <option value="@y.ToString().Substring(2)">@y.ToString().Substring(2)</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="visaExpiry" id="visaExpiryHidden" />
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label>Mã CVV</label>
+                                    <input name="visaCVV" class="form-control" placeholder="123" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Tên chủ thẻ</label>
+                                <input name="cardHolder" class="form-control" placeholder="NGUYEN VAN A" required />
+                            </div>
+                            <div class="text-right mt-3">
+                                <button type="button" class="btn btn-success" onclick="hienThongBaoVisa()">Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <button type="submit" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" style="font-family: Tahoma;">
+                            Đặt hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Checkout End -->
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radios = document.querySelectorAll('input[name="phuongThucThanhToan"]');
+            const qrContainer = document.getElementById('qr-container');
+            const visaContainer = document.getElementById('visa-container');
+            const qrImage = document.getElementById('qr-image');
+
+            const maDonElement = document.getElementById('ma-don-tu-sinh');
+
+            /* [SỬA] Khởi tạo mã đơn ngay khi load trang */
+            let maDon = maDonElement?.dataset.maDon;
+            if (!maDon || maDon.trim() === "") {
+                maDon = 'DH_' + Math.floor(100000 + Math.random() * 900000);
+                maDonElement.dataset.maDon = maDon;
+            }
+            maDonElement.innerText = maDon;
+
+            const visaFields = Array.from(
+                document.querySelectorAll('#visa-container input, #visa-container select')
+            );
+
+            function setVisaEnabled(enabled) {
+                visaFields.forEach(el => {
+                    el.disabled = !enabled;
+                    if (['cardNumber','visaCVV','cardHolder'].includes(el.id) || ['visaCVV','cardHolder'].includes(el.name)) {
+                        el.required = !!enabled;
+                    } else {
+                        el.required = false;
+                    }
+                });
+            }
+
+            function showQR(src) {
+                qrContainer.style.display = 'block';
+                visaContainer.style.display = 'none';
+                setVisaEnabled(false);
+                qrImage.src = src;
+            }
+
+            function hideAllPayUIs() {
+                qrContainer.style.display = 'none';
+                visaContainer.style.display = 'none';
+                setVisaEnabled(false);
+            }
+
+            // Áp dụng trạng thái ban đầu
+            const checked = document.querySelector('input[name="phuongThucThanhToan"]:checked');
+            if (checked) {
+                if (checked.value === 'Visa') {
+                    visaContainer.style.display = 'block';
+                    setVisaEnabled(true);
+                } else if (checked.value === 'ChuyenKhoan') {
+                    showQR('https://api.qrserver.com/v1/create-qr-code/?data=' +
+                      encodeURIComponent('Chuyen khoan don hang ' + maDon) + '&size=250x250');
+                } else if (checked.value === 'Momo') {
+                    showQR('/images/payment/qr-momo.png');
+                } else {
+                    hideAllPayUIs();
+                }
+            }
+
+            // Khi đổi phương thức
+            radios.forEach(r => r.addEventListener('change', function () {
+                switch (this.value) {
+                    case 'ChuyenKhoan':
+                        showQR('https://api.qrserver.com/v1/create-qr-code/?data=' +
+                          encodeURIComponent('Chuyen khoan don hang ' + maDon) + '&size=250x250');
+                        break;
+                    case 'Momo':
+                        showQR('/images/payment/qr-momo.png');
+                        break;
+                    case 'Visa':
+                        qrContainer.style.display = 'none';
+                        visaContainer.style.display = 'block';
+                        setVisaEnabled(true);
+                        break;
+                    default:
+                        hideAllPayUIs();
+                        break;
+                }
+            }));
+
+            // Trước khi submit form
+            const monthSelect = document.getElementById('expiryMonth');
+            const yearSelect  = document.getElementById('expiryYear');
+            const hiddenExpiry= document.getElementById('visaExpiryHidden');
+            function updateHidden(){
+                const mm = monthSelect.value, yy = yearSelect.value;
+                hiddenExpiry.value = (mm && yy) ? `${mm}/${yy}` : '';
+            }
+            [monthSelect, yearSelect].forEach(el => el && el.addEventListener('change', updateHidden));
+            document.querySelector('form.checkout')?.addEventListener('submit', updateHidden);
+        });
+    </script>
+
+    <script>
+        function isValidExpiryDate(expiry) {
+            const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!regex.test(expiry)) return false;
+
+            const [month, year] = expiry.split('/').map(Number);
+            const now = new Date();
+            const currentMonth = now.getMonth() + 1;
+            const currentYear = now.getFullYear() % 100;
+
+            return (year > currentYear) || (year === currentYear && month >= currentMonth);
+        }
+
+        function isValidCVV(cvv) {
+            return /^[0-9]{3,4}$/.test(cvv);
+        }
+
+        function isValidCardNumber(number) {
+            return /^[0-9]{13,19}$/.test(number.replace(/\s/g, ""));
+        }
+
+        function isValidCardHolder(name) {
+            return /^[A-Z ]+$/.test(name.toUpperCase());
+        }
+
+        function hienThongBaoVisa() {
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const expiry = document.querySelector('[name="visaExpiry"]').value.trim();
+            const cvv = document.querySelector('[name="visaCVV"]').value.trim();
+            const holder = document.querySelector('[name="cardHolder"]').value.trim();
+
+            if (!cardNumber || !expiry || !cvv || !holder) {
+                Swal.fire({ icon: 'warning', title: 'Thiếu thông tin', text: 'Vui lòng điền đầy đủ thông tin thẻ.' });
+                return;
+            }
+
+            if (!isValidCardNumber(cardNumber)) {
+                Swal.fire({ icon: 'error', title: 'Số thẻ không hợp lệ', text: 'Số thẻ phải gồm 13-19 chữ số.' });
+                return;
+            }
+
+            if (!isValidExpiryDate(expiry)) {
+                Swal.fire({ icon: 'error', title: 'Sai định dạng ngày', text: 'Ngày hết hạn không hợp lệ. Ví dụ: 08/26' });
+                return;
+            }
+
+            if (!isValidCVV(cvv)) {
+                Swal.fire({ icon: 'error', title: 'Sai CVV', text: 'CVV phải gồm 3 hoặc 4 chữ số.' });
+                return;
+            }
+
+            if (!isValidCardHolder(holder)) {
+                Swal.fire({ icon: 'error', title: 'Tên chủ thẻ không hợp lệ', text: 'Tên không được chứa số hoặc ký tự đặc biệt.' });
+                return;
+            }
+
+            // Nếu mọi thứ đều hợp lệ
+            Swal.fire({
+                icon: 'success',
+                title: 'Giao dịch thành công!',
+                text: 'LOVE YOU ♥♥♥',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = '/';
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+                // [REPLACE START] Chỉ đồng bộ từ 2 select → hidden
+        document.addEventListener("DOMContentLoaded", function () {
+            const monthSelect = document.getElementById("expiryMonth");
+            const yearSelect  = document.getElementById("expiryYear");
+            const hidden      = document.getElementById("visaExpiryHidden");
+
+            function updateHidden() {
+                const mm = monthSelect.value;
+                const yy = yearSelect.value;
+                hidden.value = (mm && yy) ? `${mm}/${yy}` : "";
+            }
+
+            monthSelect.addEventListener("change", updateHidden);
+            yearSelect .addEventListener("change", updateHidden);
+
+            // chốt lại trước khi submit
+            const form = document.querySelector('form.checkout');
+            if (form) form.addEventListener("submit", updateHidden);
+        });
+        /* [REPLACE END] */
+    </script>
+    <script>
+        // [ADD] format số thẻ & giới hạn CVV
+        document.addEventListener('DOMContentLoaded', function () {
+          const cardInput = document.getElementById("cardNumber");
+          const cvvInput  = document.querySelector('[name="visaCVV"]');
+
+          if (cardInput){
+            cardInput.setAttribute('inputmode','numeric');
+            cardInput.addEventListener('input', function(){
+              let v = cardInput.value.replace(/\D/g,'').slice(0,19);
+              cardInput.value = v.replace(/(.{4})/g,'$1 ').trim();
+            });
+          }
+          if (cvvInput){
+            cvvInput.setAttribute('inputmode','numeric');
+            cvvInput.addEventListener('input', function(){
+              cvvInput.value = cvvInput.value.replace(/\D/g,'').slice(0,4);
+            });
+          }
+        });
+    </script>
+}

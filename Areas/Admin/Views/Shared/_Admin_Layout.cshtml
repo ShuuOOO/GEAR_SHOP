@@ -1,0 +1,470 @@
+﻿@{
+    Layout = null;
+    var title = ViewData["Title"] as string ?? "Admin";
+}
+
+<!DOCTYPE html>
+<html lang="vi" class="light-style layout-menu-fixed" data-assets-path="/admin/assets/" data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@title - 4TL</title>
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/fonts/boxicons.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/fonts/iconify-icons.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/css/core.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/css/theme-default.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/css/demo.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/node-waves/node-waves.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/assets/vendor/libs/apex-charts/apex-charts.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+
+    <style>
+        .breadcrumb {
+            --bs-breadcrumb-divider: "›";
+        }
+
+            .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+                color: #9aa0a6;
+            }
+
+            .breadcrumb .bx {
+                font-size: 1.05rem;
+                line-height: 1;
+            }
+
+        .navbar .btn i {
+            margin-right: .35rem;
+        }
+    </style>
+
+
+    <style>
+        /* THÊM MỚI: vài util nho nhỏ cho bảng hình ảnh */
+        .table-admin img {
+            width: auto !important;
+            height: auto !important;
+            max-width: none !important;
+        }
+
+        .table-admin .thumb {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            display: block;
+        }
+
+        .clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+    <script src="~/admin/assets/vendor/js/helpers.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/js/config.js" asp-append-version="true"></script>
+    @* Nếu cần bật customizer:
+<script src="~/admin/assets/js/template-customizer.js" asp-append-version="true"></script>
+*@
+</head>
+<body>
+    <!-- THÊM MỚI: Khung Sneat tối giản -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Sidebar -->
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo px-3">
+                    <a href="/" class="app-brand-link">
+                        
+                        <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json"
+                                   trigger="hover"
+                                   colors="primary:#121331,secondary:#08a88a"
+                                   style="width:32px;height:32px;margin-right:8px">
+                        </lord-icon>
+                       
+
+                        <span class="app-brand-text demo">4TL</span>
+                    </a>
+                </div>
+                <ul class="menu-inner py-1">
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                            
+                            <lord-icon src="https://cdn.lordicon.com/btfbysou.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
+                            
+
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Bán hàng</li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="QuanLySanPham" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
+                            <lord-icon src="https://cdn.lordicon.com/abgykmtd.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
+                            <div>Sản phẩm</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DanhMucs" ? "active" : "")">
+                        @* Nếu controller của bạn là DanhMucSanPhamsController → đổi asp-controller="DanhMucSanPhams"
+       Nếu bạn đặt tên DanhMucController → đổi asp-controller="DanhMuc"
+       Ở đây mình giả định "DanhMucsController" *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">
+                            <lord-icon src="https://cdn.lordicon.com/dutqakce.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
+                            <div>Danh mục</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DonHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="DonHangs" asp-action="Index">
+                            <lord-icon src="https://cdn.lordicon.com/nvtfowkn.json"
+                                       trigger="hover"
+                                       style="width:24px;height:24px;margin-right:8px"
+                                       class="menu-icon-lord">
+                            </lord-icon>
+                            <div>Đơn hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhapHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhapHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:import"></span>
+                            <div>Nhập hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhoHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:store"></span>
+                            <div>Kho</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhaCungCaps" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhaCungCaps" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:buildings"></span>
+                            <div>Nhà cung cấp</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Người dùng</li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhachHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="KhachHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:user"></span>
+                            <div>Khách hàng</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhanViens" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="NhanViens" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:id-card"></span>
+                            <div>Nhân viên</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaiKhoans" ? "active" : "")">
+                        @* Nếu controller quản lý tài khoản tên khác (AccountsController) → đổi asp-controller="Accounts" *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="TaiKhoans" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:lock-alt"></span>
+                            <div>Tài khoản</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Nội dung</li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TechNews" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="TechNews" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:news"></span>
+                            <div>Tin tức</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase">Báo cáo</li>
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="BaoCao" ? "active" : "")">
+                        @* Tên controller báo cáo của bạn là gì → đặt đúng ở đây *@
+                        <a class="menu-link" asp-area="Admin" asp-controller="BaoCao" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:bar-chart-alt-2"></span>
+                            <div>Doanh thu</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <!-- /Sidebar -->
+            <!-- Main -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme">
+                    <div class="navbar-nav-right d-flex align-items-center w-100 justify-content-between" id="navbar-collapse">
+                        <!-- Breadcrumb -->
+                        <ol class="breadcrumb mb-0 align-items-center">
+                            <li class="breadcrumb-item">
+                                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-body d-flex align-items-center">
+                                    <lord-icon src="https://cdn.lordicon.com/rrfthkgx.json"
+                                               trigger="hover"
+                                               style="width:20px;height:20px">
+                                    </lord-icon>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                        </ol>
+
+                        <!-- Nút chức năng -->
+                        <div class="d-flex align-items-center gap-2">
+                            <!-- Thông báo (DROPDOWN MINI) -->
+                            <div class="dropdown">
+                                <button id="btnNotif" class="btn btn-sm btn-warning d-flex align-items-center gap-1 dropdown-toggle"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <lord-icon src="https://cdn.lordicon.com/ahxaipjb.json" trigger="hover" style="width:20px;height:20px"></lord-icon>
+                                    <span class="d-none d-sm-inline">Thông báo</span>
+                                    <span id="notifBadge" class="badge bg-danger ms-1 d-none">●</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end shadow p-0" style="min-width: 340px;">
+                                    <div class="p-2 fw-semibold border-bottom">Thông báo gần đây</div>
+                                    <ul id="notifList" class="list-group list-group-flush m-0" style="max-height: 300px; overflow:auto;">
+                                        <li class="px-3 py-2 text-muted" id="notifEmpty">Chưa có thông báo mới</li>
+                                    </ul>
+                                    <div class="p-2 border-top text-end">
+                                        <a class="small" href="/Admin/DonHangs">Xem tất cả đơn</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Về website -->
+                            <a href="/" class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1">
+                                <lord-icon src="https://cdn.lordicon.com/axroojxh.json"
+                                           trigger="hover"
+                                           style="width:20px;height:20px">
+                                </lord-icon>
+                                <span class="d-none d-sm-inline">Về website</span>
+                            </a>
+
+                            <!-- Tài liệu -->
+                            <a href="/admin/tailieu" target="_blank" class="btn btn-sm btn-primary d-flex align-items-center gap-1">
+                                <lord-icon src="https://cdn.lordicon.com/cfkiwvcc.json"
+                                           trigger="hover"
+                                           style="width:20px;height:20px">
+                                </lord-icon>
+                                <span class="d-none d-sm-inline">Tài liệu</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <!-- Content -->
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        @RenderBody()
+                    </div>
+
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div class="container-xxl d-flex justify-content-between py-2">
+                            <div>© @DateTime.Now.Year 4TL_SHOP</div>
+                            <div class="me-3">v1.0</div>
+                        </div>
+                    </footer>
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- /Content -->
+            </div>
+            <!-- /Main -->
+        </div>
+    </div>
+
+    <script src="~/admin/assets/vendor/libs/jquery/jquery.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/popper/popper.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/js/bootstrap.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/vendor/libs/node-waves/node-waves.js" asp-append-version="true"></script>
+
+    <script src="~/admin/assets/vendor/libs/apex-charts/apexcharts.js" asp-append-version="true"></script>
+
+    <script src="~/admin/assets/vendor/js/menu.js" asp-append-version="true"></script>
+    <script src="~/admin/assets/js/main.js" asp-append-version="true"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    
+    @await Html.PartialAsync("_ConfirmModal")
+    <script>
+        (function(){
+          // Giữ form đang chờ xác nhận
+          let formToSubmit = null;
+
+          // Lắng nghe mọi form có class .js-confirm (hoặc data-confirm)
+          document.addEventListener('submit', function(e){
+            const form = e.target;
+            if (!form.matches('form.js-confirm, form[data-confirm]')) return;
+
+            e.preventDefault(); // chặn submit mặc định
+
+            // Lấy thông điệp
+            const msg = form.getAttribute('data-confirm') || 'Bạn có chắc chắn muốn xoá?';
+            document.getElementById('confirmModalMessage').textContent = msg;
+
+            formToSubmit = form;
+
+            // Mở modal bootstrap
+            const modalEl = document.getElementById('confirmModal');
+            const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+            modal.show();
+          });
+
+          // Khi bấm Đồng ý -> submit form thật sự
+          document.getElementById('confirmModalOk').addEventListener('click', function(){
+            if (formToSubmit) {
+              const modalEl = document.getElementById('confirmModal');
+              const modal = bootstrap.Modal.getInstance(modalEl);
+              modal.hide();
+              // Submit lại (không trigger lại listener vì không e.preventDefault)
+              formToSubmit.removeAttribute('data-confirmed'); // phòng loop
+              formToSubmit.submit();
+              formToSubmit = null;
+            }
+          });
+        })();
+    </script>
+    <script src="~/js/money-format.js"></script>
+    @await Html.PartialAsync("_Flash")
+
+    <!-- THÊM: SignalR client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const list  = document.getElementById('notifList');
+          const badge = document.getElementById('notifBadge');
+          let unreadOnly = false;
+
+          // ICON LORDICON
+          function iconFor(type, sev){
+            const size = 22;
+            const map = {
+              OrderCreated: 'https://cdn.lordicon.com/qhviklyi.json',
+              OrderStatusChanged: (sev==='success'
+                  ? 'https://cdn.lordicon.com/egiwmiit.json'
+                  : sev==='warn' ? 'https://cdn.lordicon.com/kfzfxczd.json'
+                  : 'https://cdn.lordicon.com/otkqkdbd.json'),
+              DataChanged: 'https://cdn.lordicon.com/sbiheqdr.json'
+            };
+            const url = map[type] || 'https://cdn.lordicon.com/psnhyobz.json';
+            const color = (sev==='success' ? '#22c55e'
+                         : sev==='warn'    ? '#f59e0b'
+                         : sev==='error'   ? '#ef4444'
+                         : '#3b82f6');
+            return `<lord-icon src="${url}" trigger="hover"
+                      colors="primary:${color},secondary:${color}"
+                      style="width:${size}px;height:${size}px;margin-top:2px"></lord-icon>`;
+          }
+
+          function render(items){
+            list.innerHTML = '';
+            let unread = 0;
+
+            if(!items || items.length === 0){
+              list.innerHTML = '<li class="px-3 py-2 text-muted">Chưa có thông báo</li>';
+              badge.classList.add('d-none');
+              return;
+            }
+
+            items.forEach(it=>{
+              // hỗ trợ camelCase & PascalCase
+              const id        = it.notificationId ?? it.NotificationId;
+              const type      = it.type ?? it.Type ?? 'info';
+              const title     = it.title ?? it.Title ?? '(không có tiêu đề)';
+              const body      = it.body ?? it.Body ?? '';
+              const severity  = it.severity ?? it.Severity ?? 'info';
+              const createdAt = it.createdAt ?? it.CreatedAt ?? '';
+              const isReadRaw = it.isRead ?? it.IsRead ?? false;
+              const isRead    = (isReadRaw === true || isReadRaw === 1 || isReadRaw === '1');
+
+              if(!isRead) unread++;
+
+              const li = document.createElement('li');
+              li.className = 'list-group-item px-3 py-2';
+              li.innerHTML = `
+                <div class="d-flex align-items-start gap-2">
+                  ${iconFor(type, severity)}
+                  <div class="flex-grow-1">
+                    <div class="fw-semibold">${title}</div>
+                    ${body ? `<div class="small text-muted">${body}</div>` : ''}
+                    <div class="small text-secondary">${createdAt}</div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-light mark-read" data-id="${id}">✓</button>
+                </div>`;
+              list.appendChild(li);
+            });
+
+            if(unread > 0){ badge.textContent = unread; badge.classList.remove('d-none'); }
+            else badge.classList.add('d-none');
+          }
+
+          async function load(){
+            try{
+              const res = await fetch('/Admin/Notification/Latest?take=20&unreadOnly='+unreadOnly, { credentials: 'same-origin' });
+              if(!res.ok) throw new Error('HTTP '+res.status);
+              render(await res.json());
+            }catch(err){
+              console.error('Notification load failed:', err);
+              list.innerHTML = '<li class="px-3 py-2 text-danger">Không tải được thông báo</li>';
+            }
+          }
+
+          // mark-as-read
+          list.addEventListener('click', async (e)=>{
+            const btn = e.target.closest('.mark-read');
+            if(!btn) return;
+            await fetch('/Admin/Notification/MarkRead', {
+              method: 'POST',
+              headers: {'Content-Type':'application/x-www-form-urlencoded'},
+              body: 'id='+btn.dataset.id
+            });
+            load();
+          });
+
+          // mở dropdown: nạp danh sách + ẩn badge
+          document.getElementById('btnNotif')?.addEventListener('show.bs.dropdown', () => {
+            badge.classList.add('d-none');
+            load();
+          });
+
+          // SignalR + fallback polling
+          const connection = new signalR.HubConnectionBuilder()
+            .withUrl('/notifyHub')
+            .withAutomaticReconnect()
+            .build();
+
+          connection.on('notifyNew', load);
+
+          connection.start()
+            .then(load)
+            .catch(err => {
+              console.warn('SignalR start failed, fallback to polling:', err);
+              load();
+              setInterval(load, 15000); // 15s nạp 1 lần nếu hub lỗi
+            });
+
+        }); // <-- đóng DOMContentLoaded
+    </script>
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

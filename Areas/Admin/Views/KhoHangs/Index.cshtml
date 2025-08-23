@@ -1,0 +1,51 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Kho";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+    var filter = ViewBag.Filter;
+    int total = (int)ViewBag.Total;
+    int page = (int)ViewBag.Page;
+    int pageSize = (int)ViewBag.PageSize;
+    int pageCount = (int)Math.Ceiling(total / (double)pageSize);
+    string q = (string)filter.GetType().GetProperty("q").GetValue(filter, null);
+}
+<div class="d-flex align-items-center justify-content-between mb-3"><h4 class="mb-0">Tồn kho</h4></div>
+
+<form class="row g-2 mb-3">
+    <div class="col-md-4"><input type="text" name="q" value="@q" class="form-control" placeholder="Tìm theo tên sản phẩm..." /></div>
+    <div class="col-auto"><button class="btn btn-outline-secondary" type="submit">Tìm</button></div>
+</form>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead><tr><th style="width:120px">Mã SP</th><th>Tên sản phẩm</th><th class="text-end">Tồn</th><th></th></tr></thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.SanPhamId</td>
+                        <td>@item.TenSanPham</td>
+                        <td class="text-end">@item.SoLuongTon</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-primary"
+                               asp-action="Edit" asp-route-id="@item.SanPhamId">Điều chỉnh</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (pageCount > 1)
+{
+    <nav class="mt-3">
+        <ul class="pagination">
+            @for (int i = 1; i <= pageCount; i++)
+            {
+                <li class="page-item @(i==page?"active":"")"><a class="page-link" href="?page=@i&pageSize=@pageSize&q=@q">@i</a></li>
+            }
+        </ul>
+    </nav>
+}

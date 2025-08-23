@@ -1,0 +1,109 @@
+﻿@model TL4_SHOP.Data.TechNews
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-xl-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Tiêu đề *</label>
+                        <input asp-for="Title" class="form-control" id="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Slug *</label>
+                        <div class="input-group">
+                            <input asp-for="Slug" class="form-control" id="Slug" />
+                            <button type="button" id="btnSlug" class="btn btn-outline-secondary" onclick="makeSlugFromTitle(); return false;">Tạo từ tiêu đề</button>
+                        </div>
+                        <span asp-validation-for="Slug" class="text-danger"></span>
+                    </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tóm tắt</label>
+                    <textarea asp-for="Summary" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nội dung (HTML) *</label>
+                    <textarea asp-for="ContentHtml" rows="10" class="form-control" spellcheck="false"></textarea>
+                    <span asp-validation-for="ContentHtml" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Ảnh bìa</label>
+                    <input type="file" name="CoverImageFile" class="form-control" />
+                    @if (!string.IsNullOrEmpty(Model.CoverImage))
+                    {
+                        <img src="~/@Model.CoverImage" class="mt-2 rounded" style="width:100%;max-height:200px;object-fit:cover;border:1px solid #eee" />
+                    }
+                </div>
+                <div class="mb-3"><label class="form-label">Tác giả</label><input asp-for="Author" class="form-control" /></div>
+                <div class="mb-3"><label class="form-label">Tags (phân tách bởi dấu phẩy)</label><input asp-for="Tags" class="form-control" /></div>
+                <div class="mb-3"><label class="form-label">Ngày đăng</label><input asp-for="PublishedAt" type="datetime-local" class="form-control" value="@Model.PublishedAt.ToLocalTime().ToString("yyyy-MM-ddTHH:mm")" /></div>
+                <div class="form-check form-switch mb-3">
+                    <input asp-for="IsFeatured" class="form-check-input" />
+                    <label class="form-check-label" for="IsFeatured">Nổi bật</label>
+                </div>
+                <button class="btn btn-primary" type="submit"><i class="bx bx-save me-1"></i>Lưu</button>
+                <a class="btn btn-outline-secondary" asp-action="Index">Huỷ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
+<script>
+    // => BỎ DẤU + tạo slug
+    window.toSlug = function (s) {
+      if (!s) return '';
+      return s.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')   // bỏ dấu
+        .replace(/[^a-z0-9\s-]/g, '')                      // chỉ giữ a-z 0-9, space, -
+        .trim().replace(/\s+/g, '-').replace(/-+/g, '-');  // space -> '-', gộp '-'
+    };
+
+    // => Lấy input theo nhiều khả năng (id, name có/không prefix)
+    function pickTitleInput() {
+      return document.querySelector('#Title, #titleInput, input[name="Title"], input[name$=".Title"]');
+    }
+    function pickSlugInput() {
+      return document.querySelector('#Slug, #slugInput, input[name="Slug"], input[name$=".Slug"]');
+    }
+
+    // => HÀM GỌI KHI BẤM NÚT
+    window.makeSlugFromTitle = function () {
+      var t = pickTitleInput();
+      var s = pickSlugInput();
+      if (!t || !s) {
+        // gõ nhanh vào console để biết vì sao không chạy
+        console.warn('Không tìm thấy input Title hoặc Slug');
+        return;
+      }
+      s.value = window.toSlug(t.value || '');
+    };
+
+    // => TỰ SINH SLUG KHI RỜI Ô TIÊU ĐỀ / GÕ
+    document.addEventListener('DOMContentLoaded', function () {
+      var t = pickTitleInput();
+      var s = pickSlugInput();
+      var btn = document.getElementById('btnSlug');
+
+      if (btn) btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.makeSlugFromTitle();
+      });
+
+      if (t) {
+        t.addEventListener('blur',  function () { if (s && !s.value) window.makeSlugFromTitle(); });
+        t.addEventListener('input', function () { if (s && !s.value) window.makeSlugFromTitle(); });
+      }
+    });
+</script>
