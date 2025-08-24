@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -61,8 +65,21 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Wishlist\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
+              "RelativeToolTip": "Views\\Wishlist\\Index.cshtml",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAlwAIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-24T09:25:29.435Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -73,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TL4_SHOP",
+              "DocumentIndex": 1,
+              "Title": "TL4_SHOP.csproj",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.csproj",
               "RelativeDocumentMoniker": "TL4_SHOP.csproj",
               "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.csproj",
               "RelativeToolTip": "TL4_SHOP.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-08-23T07:25:52.034Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Microsoft.NET.Sdk.DefaultItems.Shared.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
@@ -94,12 +111,11 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
               "ViewState": "AgIAALAAAAAAAAAAAAAswL0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-08-23T07:21:44.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T07:21:44.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HangHoasControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\HangHoasControllerTests.cs",
               "RelativeDocumentMoniker": "TL4_SHOP.Tests\\HangHoasControllerTests.cs",
@@ -107,12 +123,11 @@
               "RelativeToolTip": "TL4_SHOP.Tests\\HangHoasControllerTests.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAhwBAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T07:18:21.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T07:18:21.7Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MenuLoaiViewComponentTests.cs",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
               "RelativeDocumentMoniker": "TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
@@ -120,12 +135,11 @@
               "RelativeToolTip": "TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAlwCgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T07:18:08.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T07:18:08.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "contact.php",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\mail\\contact.php",
               "RelativeDocumentMoniker": "wwwroot\\mail\\contact.php",
@@ -133,12 +147,11 @@
               "RelativeToolTip": "wwwroot\\mail\\contact.php",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002338|",
-              "WhenOpened": "2025-07-31T07:45:51.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T07:45:51.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Contact.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Contact.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
@@ -150,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Checkout.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Checkout.cshtml",
@@ -162,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Shop.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Shop.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
@@ -174,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
@@ -186,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ShopDetail.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\ShopDetail.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\ShopDetail.cshtml",
@@ -198,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "_footer.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_footer.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_footer.cshtml",
@@ -210,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\css\\style.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\style.css",
@@ -222,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "_LayoutCustomer.cshtml",
               "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_LayoutCustomer.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LayoutCustomer.cshtml",
