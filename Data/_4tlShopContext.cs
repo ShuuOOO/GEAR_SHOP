@@ -66,11 +66,11 @@ public partial class _4tlShopContext : DbContext
             entity.HasKey(e => e.ChiTietId).HasName("PK__ChiTietD__B117E9EAF1299D72");
 
             entity.ToTable("ChiTietDonHang", tb =>
-                {
-                    tb.HasTrigger("trg_CTDH_InsertUpdate");
-                    tb.HasTrigger("trg_CapNhatSoLuongTon_ChiTietDonHang");
-                    tb.HasTrigger("trg_DonHang_UpdateTongTien");
-                });
+            {
+                tb.HasTrigger("trg_CTDH_InsertUpdate");
+                tb.HasTrigger("trg_CapNhatSoLuongTon_ChiTietDonHang");
+                tb.HasTrigger("trg_DonHang_UpdateTongTien");
+            });
 
             entity.Property(e => e.ChiTietId).HasColumnName("ChiTietID");
             entity.Property(e => e.DonGia).HasColumnType("decimal(18, 3)");
@@ -94,10 +94,10 @@ public partial class _4tlShopContext : DbContext
             entity.HasKey(e => e.ChiTietNhapHangId).HasName("PK__ChiTietN__D9FE8A90D5D8DB80");
 
             entity.ToTable("ChiTietNhapHang", tb =>
-                {
-                    tb.HasTrigger("trg_CapNhatSoLuongTonKhiNhap");
-                    tb.HasTrigger("trg_TinhTongTien");
-                });
+            {
+                tb.HasTrigger("trg_CapNhatSoLuongTonKhiNhap");
+                tb.HasTrigger("trg_TinhTongTien");
+            });
 
             entity.Property(e => e.ChiTietNhapHangId).HasColumnName("ChiTietNhapHangID");
             entity.Property(e => e.DonGiaNhap).HasColumnType("decimal(18, 3)");
@@ -170,10 +170,10 @@ public partial class _4tlShopContext : DbContext
             entity.HasKey(e => e.Ngay).HasName("PK__DoanhThu__6BCCE7B20FFD82FF");
 
             entity.ToTable("DoanhThuTheoNgay", tb =>
-                {
-                    tb.HasTrigger("trg_CapNhatDoanhThuTheoNam");
-                    tb.HasTrigger("trg_CapNhatDoanhThuTheoThang");
-                });
+            {
+                tb.HasTrigger("trg_CapNhatDoanhThuTheoNam");
+                tb.HasTrigger("trg_CapNhatDoanhThuTheoThang");
+            });
 
             entity.Property(e => e.LoiNhuan).HasColumnType("decimal(18, 3)");
             entity.Property(e => e.TongDoanhThu).HasColumnType("decimal(18, 3)");
@@ -348,11 +348,11 @@ public partial class _4tlShopContext : DbContext
             entity.HasKey(e => e.TaiKhoanId).HasName("PK__TaoTaiKh__9A124B658310C38B");
 
             entity.ToTable("TaoTaiKhoan", tb =>
-                {
-                    tb.HasTrigger("trg_InsertKhachHangFromTaiKhoan");
-                    tb.HasTrigger("trg_InsertNhanVienFromTaiKhoan");
-                    tb.HasTrigger("trg_UpdateIDs_AfterInsert");
-                });
+            {
+                tb.HasTrigger("trg_InsertKhachHangFromTaiKhoan");
+                tb.HasTrigger("trg_InsertNhanVienFromTaiKhoan");
+                tb.HasTrigger("trg_UpdateIDs_AfterInsert");
+            });
 
             entity.HasIndex(e => e.Phone, "UQ__TaoTaiKh__5C7E359EF074C186").IsUnique();
 
@@ -391,13 +391,17 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<Wishlist>(entity =>
         {
-            entity.HasKey(e => e.WishlistId).HasName("PK__Wishlist__233189EBE961249E");
+            entity.HasKey(e => e.WishlistId).HasName("PK__Wishlist__233189EBCDC7590A");
 
             entity.Property(e => e.SessionId).HasMaxLength(100);
 
-            entity.HasOne(d => d.KhachHang).WithMany(p => p.Wishlists)
-                .HasForeignKey(d => d.KhachHangId)
-                .HasConstraintName("FK__Wishlists__Khach__778AC167");
+            entity.HasOne(d => d.TaiKhoan).WithMany(p => p.Wishlists)
+                .HasForeignKey(d => d.TaiKhoanId)
+                .HasConstraintName("FK__Wishlists__Khach__0A9D95DB");
+
+            entity.HasOne(d => d.TaiKhoanNavigation).WithMany(p => p.Wishlists)
+                .HasForeignKey(d => d.TaiKhoanId)
+                .HasConstraintName("FK_Wishlists_TaoTaiKhoan");
         });
 
         modelBuilder.Entity<WishlistItem>(entity =>

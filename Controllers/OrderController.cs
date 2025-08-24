@@ -219,11 +219,11 @@ namespace TL4_SHOP.Controllers
             var taiKhoan = _context.TaoTaiKhoans
                 .FirstOrDefault(x => x.Email == email && x.LoaiTaiKhoan == "KhachHang");
 
-            if (taiKhoan == null || taiKhoan.KhachHangId == null)
+            if (taiKhoan == null || taiKhoan.TaiKhoanId == null)
                 return RedirectToAction("Login", "Account");
 
             var donHangs = _context.DonHangs
-                .Where(d => d.KhachHangId == taiKhoan.KhachHangId)
+                .Where(d => d.KhachHangId == taiKhoan.TaiKhoanId)
                 .OrderByDescending(d => d.NgayDatHang)
                 .Select(d => new DonHangDetailViewModel
                 {

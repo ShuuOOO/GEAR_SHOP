@@ -52,14 +52,14 @@ namespace TL4_SHOP.Controllers
     .Include(w => w.WishlistItems)
         .ThenInclude(i => i.SanPham)
     .FirstOrDefaultAsync(w =>
-        (khachHangId != null && w.KhachHangId == khachHangId)
-        || (khachHangId == null && w.KhachHangId == null && w.SessionId == sessionId));
+        (khachHangId != null && w.TaiKhoanId == khachHangId)
+        || (khachHangId == null && w.TaiKhoanId == null && w.SessionId == sessionId));
 
             if (wishlist == null)
             {
                 wishlist = new Wishlist
                 {
-                    KhachHangId = khachHangId,
+                    TaiKhoanId = khachHangId,
                     SessionId = khachHangId == null ? sessionId : null
                 };
                 _context.Wishlists.Add(wishlist);
@@ -69,7 +69,7 @@ namespace TL4_SHOP.Controllers
             // Nếu đang đăng nhập mà wishlist vẫn còn sessionId → chuyển đổi
             if (wishlist.SessionId != null && khachHangId != null)
             {
-                wishlist.KhachHangId = khachHangId;
+                wishlist.TaiKhoanId = khachHangId;
                 wishlist.SessionId = null;
                 await _context.SaveChangesAsync();
             }
@@ -130,7 +130,7 @@ namespace TL4_SHOP.Controllers
             // Lấy hoặc tạo wishlist
             var wishlist = await GetOrCreateWishlistAsync();
 
-            
+
             // Luôn load lại danh sách WishlistItems
             await _context.Entry(wishlist)
                 .Collection(w => w.WishlistItems)
@@ -174,9 +174,6 @@ namespace TL4_SHOP.Controllers
         }
 
 
-
-
-
         // XOÁ 
         [HttpPost]
         public async Task<IActionResult> RemoveFromWishlist(int itemId)
@@ -193,13 +190,13 @@ namespace TL4_SHOP.Controllers
         //  ĐẾM TRÁI TIM 
         public async Task<IActionResult> WishlistCount()
         {
-            var khachHangId = await GetKhachHangIdAsync();
+            var TaikhoanID = await GetKhachHangIdAsync();
             var sessionId = HttpContext.Session.Id;
 
             var count = await _context.WishlistItems
                 .Where(wi => _context.Wishlists
-                    .Where(w => (khachHangId != null && w.KhachHangId == khachHangId) ||
-                                (khachHangId == null && w.SessionId == sessionId))
+                    .Where(w => (TaikhoanID != null && w.TaiKhoanId == TaikhoanID) ||
+                                (TaikhoanID == null && w.SessionId == sessionId))
                     .Select(w => w.WishlistId)
                     .Contains(wi.WishlistId))
                 .CountAsync();

@@ -27,6 +27,8 @@ public partial class SanPham
 
     public decimal? GiaSauGiam { get; set; }
 
+    public string? ThongSoKyThuat { get; set; }
+
     public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; } = new List<ChiTietDonHang>();
 
     public virtual ICollection<ChiTietNhapHang> ChiTietNhapHangs { get; set; } = new List<ChiTietNhapHang>();
@@ -38,5 +40,4 @@ public partial class SanPham
     public virtual NhaCungCap NhaCungCap { get; set; } = null!;
 
     public virtual ICollection<WishlistItem> WishlistItems { get; set; } = new List<WishlistItem>();
-    public string? ThongSoKyThuat { get; set; } // NVARCHAR(MAX)
 }

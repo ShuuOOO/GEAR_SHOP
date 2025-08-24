@@ -28,4 +28,6 @@ public partial class TaoTaiKhoan
     public virtual NhanVien? NhanVien { get; set; }
 
     public virtual ICollection<PasswordResetToken> PasswordResetTokens { get; set; } = new List<PasswordResetToken>();
+
+    public virtual ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
 }

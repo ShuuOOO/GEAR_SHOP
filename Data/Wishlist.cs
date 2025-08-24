@@ -7,11 +7,13 @@ public partial class Wishlist
 {
     public int WishlistId { get; set; }
 
-    public int? KhachHangId { get; set; }
+    public int? TaiKhoanId { get; set; }
 
     public string? SessionId { get; set; }
 
-    public virtual KhachHang? KhachHang { get; set; }
+    public virtual KhachHang? TaiKhoan { get; set; }
+
+    public virtual TaoTaiKhoan? TaiKhoanNavigation { get; set; }
 
     public virtual ICollection<WishlistItem> WishlistItems { get; set; } = new List<WishlistItem>();
 }
