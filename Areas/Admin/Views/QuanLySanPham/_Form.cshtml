@@ -1,0 +1,299 @@
+﻿@model TL4_SHOP.Models.ViewModels.ProductFormVM
+<div class="card">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="TenSanPham" class="form-label"></label>
+                <input asp-for="TenSanPham" class="form-control" />
+                <span asp-validation-for="TenSanPham" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Gia" class="form-label"></label>
+                <input asp-for="Gia" class="form-control" data-money inputmode="numeric" autocomplete="off" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="GiaSauGiam" class="form-label"></label>
+                <input asp-for="GiaSauGiam" class="form-control" data-money inputmode="numeric" autocomplete="off" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="SoLuongTon" class="form-label"></label>
+                <input asp-for="SoLuongTon" class="form-control" readonly />
+                <small class="text-muted">
+                    Sửa tồn kho tại <a asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">Kho hàng</a>.
+                </small>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="DanhMucID" class="form-label"></label>
+                <select asp-for="DanhMucID" class="form-select"
+                        asp-items="@(new SelectList((IEnumerable<dynamic>)ViewBag.DanhMucs, "DanhMucId", "TenDanhMuc"))">
+                    <option value="">-- Chọn danh mục --</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="NhaCungCapID" class="form-label"></label>
+                <select asp-for="NhaCungCapID" class="form-select"
+                        asp-items="@(new SelectList((IEnumerable<dynamic>)ViewBag.NhaCungCaps, "NhaCungCapId", "TenNhaCungCap"))">
+                </select>
+                <span asp-validation-for="NhaCungCapID" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <div class="form-check mt-4">
+                    <input asp-for="LaNoiBat" class="form-check-input" />
+                    <label asp-for="LaNoiBat" class="form-check-label ms-1">Nổi bật</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="MoTa" class="form-label"></label>
+                <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="ChiTiet" class="form-label"></label>
+                <textarea asp-for="ChiTiet" class="form-control" rows="5"></textarea>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Thông số kỹ thuật</label>
+
+                <div class="border rounded p-2">
+                    <div class="row g-2 align-items-center mb-2">
+                        <div class="col-md-5">
+                            <input id="spec-name" class="form-control" placeholder="Thuộc tính (VD: CPU, RAM, Kết nối)" />
+                        </div>
+                        <div class="col-md-5">
+                            <input id="spec-value" class="form-control" placeholder="Giá trị (VD: Intel i5, 16GB, USB-C)" />
+                        </div>
+                        <div class="col-md-2 d-grid">
+                            <button type="button" id="add-spec" class="btn btn-outline-primary">+ Thêm dòng</button>
+                        </div>
+                    </div>
+
+                    <table id="spec-table" class="table table-sm mb-0">
+                        <thead>
+                            <tr>
+                                <th>Tính năng</th>
+                                <th>Thông số</th>
+                                <th style="width:80px"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- Trường thật lưu vào DB (HTML table) -->
+                <textarea asp-for="ThongSoKyThuat" class="d-none"></textarea>
+            </div>
+
+            <script>
+                (function () {
+                  const tbody = document.getElementById('spec-table').querySelector('tbody');
+                  const nameInput = document.getElementById('spec-name');
+                  const valueInput = document.getElementById('spec-value');
+                  const addBtn = document.getElementById('add-spec');
+                  const hidden = document.getElementById('@Html.IdFor(m => m.ThongSoKyThuat)');
+
+                  function escapeHtml(str) {
+                    return (str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+                  }
+
+                  function addRow(name, value) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                      <td><input class="form-control form-control-sm spec-name" value="${escapeHtml(name)}"></td>
+                      <td><input class="form-control form-control-sm spec-value" value="${escapeHtml(value)}"></td>
+                      <td class="text-end">
+                        <button type="button" class="btn btn-sm btn-outline-danger spec-del">Xóa</button>
+                      </td>`;
+                    tbody.appendChild(tr);
+                  }
+
+                  function serializeToHtml() {
+                  const rows = Array.from(tbody.querySelectorAll('tr')).map(tr => {
+                    const n = tr.querySelector('.spec-name').value.trim();
+                    const v = tr.querySelector('.spec-value').value.trim();
+                    return (n || v)
+                      ? `<tr><th>${escapeHtml(n)}</th><td>${escapeHtml(v)}</td></tr>`
+                      : '';
+                  }).filter(Boolean).join('');
+                  hidden.value = rows
+                    ? `<table class="table table-sm table-bordered"><tbody>${rows}</tbody></table>`
+                    : '';
+                }
+
+                  // + Thêm dòng
+                  addBtn.addEventListener('click', () => {
+                    if (nameInput.value.trim() || valueInput.value.trim()) {
+                      addRow(nameInput.value, valueInput.value);
+                      nameInput.value = ''; valueInput.value = '';
+                      nameInput.focus();
+                    }
+                  });
+
+                  // Nhấn Enter ở 2 ô input sẽ thêm dòng
+                    [nameInput, valueInput].forEach(el => el.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') { e.preventDefault(); addBtn.click(); }
+                    }));
+
+
+                  // Xóa dòng
+                  document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('spec-del')) {
+                      e.target.closest('tr')?.remove();
+                    }
+                  });
+
+                  // Nạp lại khi Edit: parse HTML đã lưu
+                                  try {
+                  if (hidden.value) {
+                    const div = document.createElement('div');
+                    div.innerHTML = hidden.value;
+                    div.querySelectorAll('tbody tr').forEach(tr => {
+                      const cells = tr.querySelectorAll('th,td');   // <-- ĐỔI ở đây
+                      addRow(
+                        cells[0]?.textContent?.trim() || '',
+                        cells[1]?.textContent?.trim() || ''
+                      );
+                    });
+                  }
+                } catch {}
+
+                  // Trước khi submit, đóng gói lại vào hidden
+                  (document.currentScript.closest('form') || document.forms[0])
+                    .addEventListener('submit', serializeToHtml);
+                })();
+            </script>
+
+            <div class="col-md-6">
+                <label class="form-label">Ảnh sản phẩm</label>
+                <input type="file" name="HinhAnhFile" class="form-control" />
+                @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                {
+                    <div class="mt-2">
+                        <img src="~/@Model.HinhAnh" alt="preview" style="height:80px;border-radius:8px;border:1px solid #eee" />
+                    </div>
+                }
+            </div>
+        </div>
+        <script>
+            (function () {
+              // Dùng group theo VN (1.234.567); nếu bạn thích dấu phẩy, đổi 'vi-VN' -> 'en-US'
+              const nf = new Intl.NumberFormat('vi-VN');
+
+              function onlyNumberChars(s) {
+                return (s || '').replace(/[^\d.,]/g, ''); // giữ số + , .
+              }
+
+              // Parse "1.234.567,89" hoặc "1,234,567.89" -> số (float)
+              function parseMoneyToNumber(viewStr) {
+                let s = onlyNumberChars(viewStr).trim();
+                if (!s) return null;
+
+                // nếu có cả . và , -> coi ký tự CUỐI CÙNG là phần thập phân
+                const lastDot = s.lastIndexOf('.');
+                const lastComma = s.lastIndexOf(',');
+
+                if (lastDot >= 0 && lastComma >= 0) {
+                  const decPos = Math.max(lastDot, lastComma);
+                  const intPart = s.slice(0, decPos).replace(/[.,]/g, '');
+                  const decPart = s.slice(decPos + 1).replace(/[^\d]/g, '');
+                  s = intPart + '.' + decPart; // chuẩn hóa về dấu chấm thập phân
+                } else {
+                  // chỉ có 1 loại dấu
+                  if (s.includes(',')) {
+                    // giả định , là thập phân nếu có duy nhất một , và sau đó <= 2 chữ số
+                    const parts = s.split(',');
+                    if (parts.length === 2 && parts[1].length <= 2) {
+                      s = parts[0].replace(/[.,]/g, '') + '.' + parts[1];
+                    } else {
+                      s = s.replace(/,/g, ''); // , chỉ là phân cách nghìn
+                    }
+                  } else if (s.includes('.')) {
+                    const parts = s.split('.');
+                    if (parts.length === 2 && parts[1].length <= 2) {
+                      s = parts[0].replace(/[.,]/g, '') + '.' + parts[1];
+                    } else {
+                      s = s.replace(/\./g, ''); // . là phân cách nghìn
+                    }
+                  }
+                }
+
+                const num = Number(s);
+                return Number.isFinite(num) ? num : null;
+              }
+
+              function formatMoneyView(num) {
+                if (num == null || num === '') return '';
+                const n = Number(num);
+                if (!Number.isFinite(n)) return '';
+                return nf.format(n);
+              }
+
+              // map: id view -> id hidden
+              const pairs = [
+                ['Gia_view', 'Gia'],
+                ['GiaSauGiam_view', 'GiaSauGiam']
+              ];
+
+              // Khởi tạo: copy hidden -> view (định dạng)
+              pairs.forEach(([viewId, hidId]) => {
+                const hid = document.getElementById(hidId);
+                const view = document.getElementById(viewId);
+                if (!hid || !view) return;
+
+                view.value = formatMoneyView(hid.value);
+
+                // Khi gõ: format theo thời gian thực, đồng thời cập nhật hidden = số sạch
+                view.addEventListener('input', () => {
+                  const caretToEnd = document.activeElement === view;
+                  const num = parseMoneyToNumber(view.value);
+                  hid.value = (num ?? '').toString();
+
+                  // Hiển thị lại dạng format (nhưng tránh nhảy con trỏ quá khó chịu)
+                  const start = view.selectionStart, end = view.selectionEnd;
+                  view.value = formatMoneyView(num);
+                  if (caretToEnd) {
+                    // đặt con trỏ về cuối để trải nghiệm mượt
+                    view.setSelectionRange(view.value.length, view.value.length);
+                  } else {
+                    // fallback
+                    try { view.setSelectionRange(start, end); } catch {}
+                  }
+                });
+
+                // Khi blur: chắc chắn hiển thị format
+                view.addEventListener('blur', () => {
+                  const num = parseMoneyToNumber(view.value);
+                  hid.value = (num ?? '').toString();
+                  view.value = formatMoneyView(num);
+                });
+              });
+
+              // Trước khi submit form: đảm bảo hidden là số, view chỉ để hiển thị
+              (document.currentScript.closest('form') || document.forms[0])
+                .addEventListener('submit', function () {
+                  pairs.forEach(([viewId, hidId]) => {
+                    const hid = document.getElementById(hidId);
+                    const view = document.getElementById(viewId);
+                    if (!hid || !view) return;
+                    const num = parseMoneyToNumber(view.value);
+                    hid.value = (num ?? '').toString();
+                  });
+                });
+            })();
+        </script>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </div>
+    </div>
+</div>

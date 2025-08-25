@@ -3,59 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\wishlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\_form.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:tl4_shop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\views\\nhanviens\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\nhanviens\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\tl4_shop.tests\\menuloaiviewcomponenttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:tl4_shop.tests\\menuloaiviewcomponenttests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\controllers\\quanlysanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\controllers\\quanlysanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\tl4_shop.tests\\hanghoascontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:tl4_shop.tests\\hanghoascontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\wwwroot\\mail\\contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\mail\\contact.php||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:areas\\admin\\views\\quanlysanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\home\\shopdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\home\\shopdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\views\\shared\\_layoutcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:views\\shared\\_layoutcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|c:\\users\\tanle\\documents\\zalo received files\\chien_luoc_thuong_mai_dien_tu\\gear(1)_shop\\gear_shop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9816B2-2BD2-49FA-AE06-83CD2A953BA2}|TL4_SHOP.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -65,19 +38,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Wishlist\\Index.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Wishlist\\Index.cshtml",
-              "RelativeToolTip": "Views\\Wishlist\\Index.cshtml",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAlwAIAAAAWAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\NhanViens\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\NhanViens\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\NhanViens\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\NhanViens\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-24T09:25:29.435Z",
+              "WhenOpened": "2025-08-25T08:21:07.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Form.cshtml",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml*",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\_Form.cshtml*",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T07:59:07.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuanLySanPhamController.cs",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\QuanLySanPhamController.cs",
+              "ViewState": "AgIAADoBAAAAAAAAAAAmwE8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T08:02:21.079Z",
               "EditorCaption": ""
             },
             {
@@ -90,160 +89,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TL4_SHOP.csproj",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.csproj",
-              "RelativeDocumentMoniker": "TL4_SHOP.csproj",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.csproj",
-              "RelativeToolTip": "TL4_SHOP.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-23T07:25:52.034Z",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T08:14:06.725Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
-              "ViewState": "AgIAALAAAAAAAAAAAAAswL0AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-08-23T07:21:44.695Z"
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-25T07:57:15.492Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HangHoasControllerTests.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\HangHoasControllerTests.cs",
-              "RelativeDocumentMoniker": "TL4_SHOP.Tests\\HangHoasControllerTests.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\HangHoasControllerTests.cs",
-              "RelativeToolTip": "TL4_SHOP.Tests\\HangHoasControllerTests.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAhwBAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T07:18:21.7Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MenuLoaiViewComponentTests.cs",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
-              "RelativeDocumentMoniker": "TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
-              "RelativeToolTip": "TL4_SHOP.Tests\\MenuLoaiViewComponentTests.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAlwCgAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T07:18:08.997Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "contact.php",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\mail\\contact.php",
-              "RelativeDocumentMoniker": "wwwroot\\mail\\contact.php",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\mail\\contact.php",
-              "RelativeToolTip": "wwwroot\\mail\\contact.php",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002338|",
-              "WhenOpened": "2025-07-31T07:45:51.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAB8AAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\QuanLySanPham\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T10:05:42.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Checkout.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Checkout.cshtml",
-              "RelativeToolTip": "Views\\Home\\Checkout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMwAAAB7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T09:41:24.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Shop.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Shop.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Shop.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Shop.cshtml",
-              "RelativeToolTip": "Views\\Home\\Shop.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoBAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T09:25:02.803Z"
+              "WhenOpened": "2025-08-25T07:56:48.805Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T10:59:23.441Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ShopDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\ShopDetail.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\ShopDetail.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Home\\ShopDetail.cshtml",
-              "RelativeToolTip": "Views\\Home\\ShopDetail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T08:29:37.875Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_footer.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_footer.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_footer.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_footer.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_footer.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-13T09:52:24.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\css\\style.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\style.css",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\wwwroot\\css\\style.css",
-              "RelativeToolTip": "wwwroot\\css\\style.css",
-              "ViewState": "AgIAAKolAAAAAAAAAAAqwL8lAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-15T12:53:27.262Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "_LayoutCustomer.cshtml",
-              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_LayoutCustomer.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutCustomer.cshtml",
-              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Views\\Shared\\_LayoutCustomer.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutCustomer.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAC4AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-13T09:30:32.814Z"
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\tanle\\Documents\\Zalo Received Files\\Chien_luoc_thuong_mai_dien_tu\\GEAR(1)_SHOP\\GEAR_SHOP\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAANQAAAAAAAAAAAAmwOEAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-24T10:23:39.294Z",
+              "EditorCaption": ""
             }
           ]
         }
