@@ -50,7 +50,7 @@ namespace TL4_SHOP.Controllers
                 return RedirectToAction("Checkout");
             }
 
-            int? khachHangId = null;
+            int? taiKhoanId = null;
             string email = "";
 
             if (User.Identity.IsAuthenticated)
@@ -59,7 +59,7 @@ namespace TL4_SHOP.Controllers
                 var taiKhoan = _context.TaoTaiKhoans.FirstOrDefault(x => x.Email == email);
                 if (taiKhoan != null)
                 {
-                    khachHangId = taiKhoan.KhachHangId;
+                    taiKhoanId= taiKhoan.TaiKhoanId;
                 }
             }
             else
@@ -79,7 +79,7 @@ namespace TL4_SHOP.Controllers
                 TrangThaiId = 1,
                 TrangThaiDonHangText = "Chờ xác nhận",
                 TongTien = tongTien,
-                KhachHangId = khachHangId,
+                TaiKhoanId = taiKhoanId,
                 EmailNguoiDat = email  // ➕ thêm cột này vào bảng DonHang
             };
 
@@ -223,7 +223,7 @@ namespace TL4_SHOP.Controllers
                 return RedirectToAction("Login", "Account");
 
             var donHangs = _context.DonHangs
-                .Where(d => d.KhachHangId == taiKhoan.TaiKhoanId)
+                .Where(d => d.TaiKhoanId == taiKhoan.TaiKhoanId)
                 .OrderByDescending(d => d.NgayDatHang)
                 .Select(d => new DonHangDetailViewModel
                 {

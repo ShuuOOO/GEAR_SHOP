@@ -165,6 +165,15 @@
                         </a>
                     </li>
 
+                    <li class="menu-header small text-uppercase">Chăm sóc khách hàng</li>
+
+                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "ChamSocKhachHangs" ? "active" : "")">
+                        <a class="menu-link" asp-area="Admin" asp-controller="ChamSocKhachHangs" asp-action="Index">
+                            <span class="menu-icon iconify" data-icon="bx:chat"></span>
+                            <div>Live Chat</div>
+                        </a>
+                    </li>
+
                     <li class="menu-header small text-uppercase">Người dùng</li>
 
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhachHangs" ? "active" : "")">
@@ -198,6 +207,7 @@
                     </li>
 
                     <li class="menu-header small text-uppercase">Báo cáo</li>
+
                     <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="BaoCao" ? "active" : "")">
                         @* Tên controller báo cáo của bạn là gì → đặt đúng ở đây *@
                         <a class="menu-link" asp-area="Admin" asp-controller="BaoCao" asp-action="Index">

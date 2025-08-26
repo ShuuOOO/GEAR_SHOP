@@ -244,6 +244,7 @@ wwwroot\images\products\64f2e53d3c64404dbae272f5bfd6dcee.webp
 wwwroot\images\products\6d096a59-db7a-45e0-904e-98c459733bf1.jpg
 wwwroot\images\products\867d5796-3ae4-47e4-9dde-5b42cb444d31.jpg
 wwwroot\images\products\8de4bfd55fb34ff4b6f5d9b9a3a6bf28.jpg
+wwwroot\images\products\abd4103a1f9c44238ebda1980fb9f55f.png
 wwwroot\images\products\ac1cf5c5-bb06-4763-a4d5-a01ed03fef90.png
 wwwroot\images\products\acer_aspire_lite_15.jpg
 wwwroot\images\products\acer_aspire_lite_15_1.jpg
