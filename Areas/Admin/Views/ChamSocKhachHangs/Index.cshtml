@@ -8,7 +8,7 @@
 
 <div class="chat-wrapper">
     <!-- Sidebar danh sách khách hàng -->
-    <div class="chat-sidebar">
+    @* <div class="chat-sidebar">
         <div class="chat-search">
             <input type="text" placeholder="Tìm khách hàng..." />
         </div>
@@ -21,7 +21,7 @@
                 </li>
             }
         </ul>
-    </div>
+    </div> *@
 
     <!-- Khung chat chính -->
     <div class="chat-main">
@@ -32,7 +32,6 @@
             <button id="sendButton"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
             <div id="emojiPicker" class="emoji-picker"></div>
         </div>
-
     </div>
 </div>
 
@@ -40,17 +39,61 @@
 <script>
     const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
+    let lastDate = ""; // lưu ngày của tin nhắn trước đó
+
+    function formatDateTime() {
+        const now = new Date();
+        const date = now.toLocaleDateString(); // dd/mm/yyyy
+        const time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // hh:mm
+        return { date, time };
+    }
+
     connection.on("ReceiveMessage", function (user, message) {
+        const msgWrapper = document.createElement("div");
+        msgWrapper.style.marginBottom = "10px";
+
+        const { date, time } = formatDateTime();
+
+        // Hiển thị ngày nếu khác ngày trước đó
+        if (date !== lastDate) {
+            const dateDiv = document.createElement("div");
+            dateDiv.textContent = date;
+            dateDiv.style.fontSize = "14px";
+            dateDiv.style.color = "#888";
+            dateDiv.style.textAlign = "center";
+            dateDiv.style.marginBottom = "5px";
+            msgWrapper.appendChild(dateDiv);
+            lastDate = date;
+        }
+
+        // Tạo div tin nhắn
         const msg = document.createElement("div");
         msg.className = user === "Admin" ? "message admin" : "message customer";
-        msg.innerHTML = `<div class="bubble"><strong>${user}</strong><br/>${message}</div>`;
-        document.getElementById("messagesList").appendChild(msg);
-        document.getElementById("messagesList").scrollTop = messagesList.scrollHeight;
+
+        // Bubble tin nhắn
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = `<strong>${user}</strong><br/>${message}`;
+
+        // Thời gian ở dưới góc phải bubble
+        const timeDiv = document.createElement("div");
+        timeDiv.textContent = time;
+        timeDiv.style.fontSize = "10px";
+        timeDiv.style.color = "#A0A0A0";
+        timeDiv.style.textAlign = "right";
+        bubble.appendChild(timeDiv);
+
+        msg.appendChild(bubble);
+        msgWrapper.appendChild(msg);
+
+        document.getElementById("messagesList").appendChild(msgWrapper);
+        const messagesList = document.getElementById("messagesList");
+        messagesList.scrollTop = messagesList.scrollHeight;
     });
 
     connection.start().catch(err => console.error(err));
 
-        const emojiButton = document.getElementById("emojiButton");
+    const emojiButton = document.getElementById("emojiButton");
     const emojiPicker = document.getElementById("emojiPicker");
     const messageInput = document.getElementById("messageInput");
 
@@ -70,21 +113,21 @@
         emojiPicker.style.display = emojiPicker.style.display === "flex" ? "none" : "flex";
     });
 
-    document.getElementById("sendButton").addEventListener("click", () => {
+    function sendMessage() {
         const message = messageInput.value.trim();
         if (message) {
             connection.invoke("SendMessage", "Admin", message).catch(err => console.error(err));
             messageInput.value = "";
         }
-    });
+    }
 
+    document.getElementById("sendButton").addEventListener("click", sendMessage);
 
-    document.getElementById("sendButton").addEventListener("click", function () {
-        const input = document.getElementById("messageInput");
-        const message = input.value.trim();
-        if (message) {
-            connection.invoke("SendMessage", "Admin", message);
-            input.value = "";
+    // Gửi tin nhắn khi nhấn Enter
+    messageInput.addEventListener("keydown", function(e) {
+        if(e.key === "Enter" && !e.shiftKey){
+            e.preventDefault();
+            sendMessage();
         }
     });
 </script>
@@ -184,6 +227,7 @@
     .message.admin {
         justify-content: flex-end;
         align-self: flex-end;
+        margin-left: auto;
     }
 
     .bubble {
@@ -192,6 +236,8 @@
         font-size: 14px;
         line-height: 1.4;
         box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        word-wrap: break-word; /* xuống hàng khi quá dài */
+        white-space: pre-wrap; /* giữ khoảng trắng và xuống hàng theo nội dung */
     }
 
     .message.customer .bubble {
@@ -201,7 +247,7 @@
     }
 
     .message.admin .bubble {
-        background-color: #0078d4;
+        background-color: #6666FFFF;
         color: #fff;
         border-top-right-radius: 4px;
     }
@@ -229,7 +275,7 @@
 
     .chat-input button {
         padding: 12px 18px;
-        background-color: #0078d4;
+        background-color: #6666FF;
         color: white;
         border: none;
         border-radius: 12px;
@@ -312,6 +358,4 @@
             .emoji-picker span:hover {
                 background: #f1f1f1;
             }
-
-
 </style>

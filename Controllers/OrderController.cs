@@ -217,7 +217,9 @@ namespace TL4_SHOP.Controllers
         {
             var email = User.FindFirstValue(ClaimTypes.Email);
             var taiKhoan = _context.TaoTaiKhoans
-                .FirstOrDefault(x => x.Email == email && x.LoaiTaiKhoan == "KhachHang");
+            .FirstOrDefault(x => x.Email == email
+                  && (x.LoaiTaiKhoan == "KhachHang" || x.LoaiTaiKhoan == "NhanVien"));
+
 
             if (taiKhoan == null || taiKhoan.TaiKhoanId == null)
                 return RedirectToAction("Login", "Account");

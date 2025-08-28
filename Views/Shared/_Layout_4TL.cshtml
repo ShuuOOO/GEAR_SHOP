@@ -15,10 +15,25 @@
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <!-- JS LIBRARIES -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    <!--Thanh chat-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="~/css/style.css" rel="stylesheet">
     <link href="~/css/shop.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/mega-menu.css" />
 
@@ -82,8 +97,209 @@
                 font-size: 13px;
                 color: #d00;
             }
+
+        .minimize-btn {
+            float: right;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+            .minimize-btn:hover {
+                color: #ccc;
+            }
+
+        .chat-bar {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 20%;
+            background-color: #D19C97;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s;
+            border-radius: 10px 10px 0px 0px;
+            font-family: Tahoma;
+            font-size: 80%
+        }
+
+            .chat-bar:hover {
+                background-color: #D19C97;
+            }
+
+        .chat-box {
+            position: fixed;
+            bottom: 30px;
+            right: 0;
+            width: 400px;
+            /* height: 400px; */
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideUp 0.3s ease-out;
+        }
+
+
+        .chat-header {
+            background-color: #D19C97;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 0.9em;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+            .chat-input input {
+                flex: 1;
+                /* border: none; */
+                padding: 10px;
+                outline: none;
+                border-radius: 10px
+            }
+
+            .chat-input button {
+                background-color: #D19C97;
+                color: white;
+                border-radius: 10px;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+
+        .chat-input-right {
+            position: relative;
+            display: flex;
+            justify-content: flex-end; /* căn phải */
+            padding: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-right input {
+            width: 300px; /* độ rộng input */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+            .chat-input-right input:focus {
+                border-color: #0078d4;
+                outline: none;
+            }
+
+        .chat-input-right button {
+            padding: 12px 18px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+            .chat-input-right button:hover {
+                background-color: #005fa3;
+            }
+
+        .message-wrapper {
+            display: flex;
+        }
+
+            .message-wrapper.admin {
+                justify-content: flex-start; /* Admin bên trái */
+                margin-bottom: 3px;
+            }
+
+            .message-wrapper.customer {
+                justify-content: flex-end; /* Khách bên phải */
+                margin-bottom: 3px;
+            }
+
+        .message-bubble {
+            padding: 6px 10px;
+            border-radius: 8px;
+            max-width: 70%;
+            word-wrap: break-word; /* xuống hàng khi quá dài */
+            white-space: pre-wrap; /* giữ khoảng trắng và xuống hàng theo nội dung */
+        }
+
+            .message-bubble.admin {
+                background-color: #e1ffc7;
+            }
+
+            .message-bubble.customer {
+                background-color: #c7d8ff;
+            }
+
+            .message-bubble .time {
+                font-size: 10px;
+                color: #666;
+                text-align: right;
+                margin-top: 4px;
+            }
+
+        /* Emoji picker */
+        .emoji-picker {
+            display: none;
+            position: absolute;
+            bottom: 50px;
+            right: 0; /* đặt bên phải */
+            width: 250px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+            flex-wrap: wrap;
+            gap: 5px;
+            z-index: 10;
+        }
+
+            .emoji-picker span {
+                cursor: pointer;
+                font-size: 20px;
+                padding: 5px;
+                border-radius: 4px;
+                transition: background 0.2s;
+            }
+
+                .emoji-picker span:hover {
+                    background: #f1f1f1;
+                }
     </style>
 </head>
+
+
 
 <body>
     <!-- TOPBAR -->
@@ -164,8 +380,6 @@
         </div>
     </div>
 
-
-
     <!-- NAVBAR -->
     <div class="container-fluid bg-light border-top px-xl-5">
         <div class="navbar navbar-expand-lg navbar-light py-3">
@@ -225,7 +439,6 @@
         </div>
     </div>
 
-
     <!-- MAIN CONTENT -->
     <div class="container-fluid">
         @RenderBody()
@@ -233,10 +446,131 @@
 
     @await Html.PartialAsync("_footer")
 
-    <!-- JS LIBRARIES -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/main.js"></script>
+    @if (ViewBag.HideChat == null || ViewBag.HideChat == false)
+    {
+        <!-- Thanh chat ngang -->
+        <div id="chatBar" class="chat-bar">
+            💬 Chat tư vấn - Giải đáp mọi thắc mắc
+        </div>
+    }
+    <!-- Khung chat -->
+    <div id="chatBox" class="chat-box">
+        <div class="chat-header" style="font-family: Tahoma;">
+            Hỗ trợ trực tuyến
+            <button id="minimizeButton" class="minimize-btn">−</button>
+        </div>
+        <div class="chat-main">
+            <div id="messagesList" class="chat-messages"></div>
+            <div id="inputArea" class="chat-input">
+                <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." />
+                <button id="emojiButton" class="emoji-btn">😀</button>
+                <button id="sendButton"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+                <div id="emojiPicker" class="emoji-picker"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        let lastDate = ""; // lưu ngày của tin nhắn trước đó
+
+        function formatDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString(); // dd/mm/yyyy
+            const time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // hh:mm
+            return { date, time };
+        }
+
+        connection.on("ReceiveMessage", function (user, message) {
+            const msgWrapper = document.createElement("div");
+           msgWrapper.className = `message-wrapper ${user === "Admin" ? "admin" : "customer"}`;
+
+            const { date, time } = formatDateTime();
+
+            // Chỉ hiển thị ngày nếu khác ngày trước đó
+        if (date !== lastDate) {
+            const dateDiv = document.createElement("div");
+            dateDiv.textContent = date;
+            dateDiv.style.fontSize = "12px";
+            dateDiv.style.color = "#888";
+            dateDiv.style.textAlign = "center";
+            dateDiv.style.margin = "10px 0"; // tạo khoảng cách trên và dưới
+            dateDiv.style.width = "100%"; // chiếm hết chiều rộng
+
+            document.getElementById("messagesList").appendChild(dateDiv); // thêm trực tiếp vào messagesList
+            lastDate = date;
+        }
+
+            const msgDiv = document.createElement("div");
+            msgDiv.className = `message-bubble ${user === "Admin" ? "admin" : "customer"}`;
+            msgDiv.innerHTML = `<strong>${user}</strong>: ${message}`;
+
+            const timeDiv = document.createElement("div");
+            timeDiv.className = "time";
+            timeDiv.textContent = time;
+
+            msgDiv.appendChild(timeDiv);
+            msgWrapper.appendChild(msgDiv);
+            document.getElementById("messagesList").appendChild(msgWrapper);
+
+            const messagesList = document.getElementById("messagesList");
+            messagesList.scrollTop = messagesList.scrollHeight;
+        });
+
+        connection.start().catch(err => console.error(err));
+
+        function sendMessage() {
+            const input = document.getElementById("messageInput");
+            const message = input.value.trim();
+            if (message) {
+                connection.invoke("SendMessage", "Khách", message).catch(err => console.error(err));
+                input.value = "";
+            }
+        }
+
+        document.getElementById("sendButton").addEventListener("click", sendMessage);
+        document.getElementById("messageInput").addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        const emojiButton = document.getElementById("emojiButton");
+        const emojiPicker = document.getElementById("emojiPicker");
+        const messageInput = document.getElementById("messageInput");
+        const emojis = ["😀","😂","😍","😎","😭","😡","👍","🙏","🎉","💖"];
+        emojis.forEach(e => {
+            const span = document.createElement("span");
+            span.textContent = e;
+            span.addEventListener("click", () => {
+                messageInput.value += e;
+                emojiPicker.style.display = "none";
+                messageInput.focus();
+            });
+            emojiPicker.appendChild(span);
+        });
+
+        emojiButton.addEventListener("click", () => {
+            emojiPicker.style.display = emojiPicker.style.display === "flex" ? "none" : "flex";
+        });
+
+        document.getElementById("chatBar").addEventListener("click", function () {
+            document.getElementById("chatBox").style.display = "flex";
+            document.getElementById("chatBar").style.display = "none";
+        });
+
+        document.getElementById("minimizeButton").addEventListener("click", function () {
+            document.getElementById("chatBox").style.display = "none";
+            document.getElementById("chatBar").style.display = "block";
+        });
+    </script>
+
 
     <!-- LIVE SEARCH SCRIPT -->
     <script>

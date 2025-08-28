@@ -12,6 +12,7 @@ public partial class NhapHang
     public DateTime NgayNhap { get; set; }
 
     public int? NhanVienId { get; set; }
+    public int? TaiKhoanId { get; set; }
 
     public virtual ICollection<ChiTietNhapHang> ChiTietNhapHangs { get; set; } = new List<ChiTietNhapHang>();
 
