@@ -17,7 +17,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
         {
             var vm = new BaoCaoDoanhThuVM { Mode = mode, From = from, To = to, Year = year };
 
-            // CHUẨN HÓA: chỉ đơn TT = 4. Doanh thu = TongTien + PhiVanChuyen (decimal KHÔNG nullable) → KHÔNG dùng ??
+            // Đơn hàng đã hoàn tất (TrangThaiId = 4)
             var orders = _context.DonHangs.AsNoTracking()
                 .Where(d => d.TrangThaiId == 4)
                 .Select(d => new
@@ -29,6 +29,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                     DoanhThu = d.TongTien + d.PhiVanChuyen
                 });
 
+            // ------------------- THEO NGÀY -------------------
             if (mode == "day")
             {
                 var f = from?.Date ?? DateTime.Today.AddDays(-29);
@@ -41,26 +42,46 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                     {
                         Key = g.Key,
                         Don = g.Select(x => x.DonHangId).Distinct().Count(),
-                        DoanhThu = g.Sum(x => x.DoanhThu)        // KHÔNG dùng ??
+                        DoanhThu = g.Sum(x => x.DoanhThu)
                     })
                     .OrderBy(x => x.Key)
                     .ToListAsync();
 
-                // KPI: tổng số lượng SP bán của các đơn TT=4 trong khoảng
+                // Tổng số lượng bán
                 var soLuongBan = await (from ct in _context.ChiTietDonHangs.AsNoTracking()
                                         join d in _context.DonHangs.AsNoTracking() on ct.DonHangId equals d.DonHangId
                                         where d.TrangThaiId == 4 && d.NgayDatHang >= f && d.NgayDatHang <= t
                                         select (int?)ct.SoLuong).SumAsync() ?? 0;
+
+                // Tính chi phí vốn theo giá nhập bình quân
+                var chiTietBans = await (from ct in _context.ChiTietDonHangs.AsNoTracking()
+                                         join d in _context.DonHangs.AsNoTracking() on ct.DonHangId equals d.DonHangId
+                                         where d.TrangThaiId == 4 && d.NgayDatHang >= f && d.NgayDatHang <= t
+                                         select new { ct.SanPhamId, ct.SoLuong }).ToListAsync();
+
+                decimal tongChiPhi = 0;
+                foreach (var item in chiTietBans)
+                {
+                    var queryNhap = _context.ChiTietNhapHangs.Where(n => n.SanPhamId == item.SanPhamId);
+                    var tongSL = await queryNhap.SumAsync(n => (int?)n.SoLuong) ?? 0;
+                    if (tongSL > 0)
+                    {
+                        var tongTienNhap = await queryNhap.SumAsync(n => (decimal?)n.SoLuong * n.DonGiaNhap) ?? 0;
+                        var giaNhapTb = tongTienNhap / tongSL;
+                        tongChiPhi += giaNhapTb * item.SoLuong;
+                    }
+                }
 
                 vm.Labels = series.Select(r => r.Key.ToString("dd/MM")).ToList();
                 vm.Values = series.Select(r => r.DoanhThu).ToList();
                 vm.TongSoDonHang = series.Sum(r => r.Don);
                 vm.TongSoLuong = soLuongBan;
                 vm.TongDoanhThu = series.Sum(r => r.DoanhThu);
-                vm.TongLoiNhuan = 0;
+                vm.TongLoiNhuan = vm.TongDoanhThu - tongChiPhi;
                 return View(vm);
             }
 
+            // ------------------- THEO THÁNG -------------------
             if (mode == "month")
             {
                 int y = year ?? DateTime.Today.Year;
@@ -72,7 +93,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                     {
                         Key = g.Key,
                         Don = g.Select(x => x.DonHangId).Distinct().Count(),
-                        DoanhThu = g.Sum(x => x.DoanhThu)        // KHÔNG dùng ??
+                        DoanhThu = g.Sum(x => x.DoanhThu)
                     })
                     .OrderBy(x => x.Key)
                     .ToListAsync();
@@ -82,16 +103,35 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                                         where d.TrangThaiId == 4 && d.NgayDatHang.Year == y
                                         select (int?)ct.SoLuong).SumAsync() ?? 0;
 
+                // Tính chi phí vốn
+                var chiTietBans = await (from ct in _context.ChiTietDonHangs.AsNoTracking()
+                                         join d in _context.DonHangs.AsNoTracking() on ct.DonHangId equals d.DonHangId
+                                         where d.TrangThaiId == 4 && d.NgayDatHang.Year == y
+                                         select new { ct.SanPhamId, ct.SoLuong }).ToListAsync();
+
+                decimal tongChiPhi = 0;
+                foreach (var item in chiTietBans)
+                {
+                    var queryNhap = _context.ChiTietNhapHangs.Where(n => n.SanPhamId == item.SanPhamId);
+                    var tongSL = await queryNhap.SumAsync(n => (int?)n.SoLuong) ?? 0;
+                    if (tongSL > 0)
+                    {
+                        var tongTienNhap = await queryNhap.SumAsync(n => (decimal?)n.SoLuong * n.DonGiaNhap) ?? 0;
+                        var giaNhapTb = tongTienNhap / tongSL;
+                        tongChiPhi += giaNhapTb * item.SoLuong;
+                    }
+                }
+
                 vm.Labels = series.Select(r => $"Thg {r.Key:00}").ToList();
                 vm.Values = series.Select(r => r.DoanhThu).ToList();
                 vm.TongSoDonHang = series.Sum(r => r.Don);
                 vm.TongSoLuong = soLuongBan;
                 vm.TongDoanhThu = series.Sum(r => r.DoanhThu);
-                vm.TongLoiNhuan = 0;
+                vm.TongLoiNhuan = vm.TongDoanhThu - tongChiPhi;
                 return View(vm);
             }
 
-            // year
+            // ------------------- THEO NĂM -------------------
             {
                 var series = await orders
                     .GroupBy(x => x.Year)
@@ -99,7 +139,7 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                     {
                         Key = g.Key,
                         Don = g.Select(x => x.DonHangId).Distinct().Count(),
-                        DoanhThu = g.Sum(x => x.DoanhThu)        // KHÔNG dùng ??
+                        DoanhThu = g.Sum(x => x.DoanhThu)
                     })
                     .OrderBy(x => x.Key)
                     .ToListAsync();
@@ -109,12 +149,31 @@ namespace TL4_SHOP.Areas.Admin.Controllers
                                         where d.TrangThaiId == 4
                                         select (int?)ct.SoLuong).SumAsync() ?? 0;
 
+                // Tính chi phí vốn
+                var chiTietBans = await (from ct in _context.ChiTietDonHangs.AsNoTracking()
+                                         join d in _context.DonHangs.AsNoTracking() on ct.DonHangId equals d.DonHangId
+                                         where d.TrangThaiId == 4
+                                         select new { ct.SanPhamId, ct.SoLuong }).ToListAsync();
+
+                decimal tongChiPhi = 0;
+                foreach (var item in chiTietBans)
+                {
+                    var queryNhap = _context.ChiTietNhapHangs.Where(n => n.SanPhamId == item.SanPhamId);
+                    var tongSL = await queryNhap.SumAsync(n => (int?)n.SoLuong) ?? 0;
+                    if (tongSL > 0)
+                    {
+                        var tongTienNhap = await queryNhap.SumAsync(n => (decimal?)n.SoLuong * n.DonGiaNhap) ?? 0;
+                        var giaNhapTb = tongTienNhap / tongSL;
+                        tongChiPhi += giaNhapTb * item.SoLuong;
+                    }
+                }
+
                 vm.Labels = series.Select(r => r.Key.ToString()).ToList();
                 vm.Values = series.Select(r => r.DoanhThu).ToList();
                 vm.TongSoDonHang = series.Sum(r => r.Don);
                 vm.TongSoLuong = soLuongBan;
                 vm.TongDoanhThu = series.Sum(r => r.DoanhThu);
-                vm.TongLoiNhuan = 0;
+                vm.TongLoiNhuan = vm.TongDoanhThu - tongChiPhi;
                 return View(vm);
             }
         }

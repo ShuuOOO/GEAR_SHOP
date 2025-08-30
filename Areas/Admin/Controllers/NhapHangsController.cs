@@ -89,7 +89,18 @@ namespace TL4_SHOP.Areas.Admin.Controllers
 
             try
             {
+                // cập nhật tồn kho cho từng sản phẩm
+                foreach (var ct in phieu.ChiTietNhapHangs)
+                {
+                    var sp = await _context.SanPhams.FindAsync(ct.SanPhamId);
+                    if (sp != null)
+                    {
+                        sp.SoLuongTon += ct.SoLuong;   // cộng thêm số lượng nhập
+                    }
+                }
+
                 _context.NhapHangs.Add(phieu);
+
                 await _context.SaveChangesAsync();   // EF tự bao trong 1 transaction nội bộ
 
                 TempData["ok"] = "Tạo phiếu nhập thành công.";
