@@ -396,10 +396,11 @@ public partial class _4tlShopContext : DbContext
 
             entity.Property(e => e.SessionId).HasMaxLength(100);
 
-            entity.HasOne(d => d.KhachHang).WithMany(p => p.Wishlists)
-                .HasForeignKey(d => d.KhachHangId)
-                .HasConstraintName("FK__Wishlists__Khach__778AC167");
+            entity.HasOne(d => d.TaoTaiKhoan).WithMany(p => p.Wishlists)
+                .HasForeignKey(d => d.TaiKhoanId)
+                .HasConstraintName("FK__Wishlists__TaiKhoan__778AC167");
         });
+
 
         modelBuilder.Entity<WishlistItem>(entity =>
         {
@@ -414,6 +415,11 @@ public partial class _4tlShopContext : DbContext
                 .HasForeignKey(d => d.WishlistId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__WishlistI__Wishl__76969D2E");
+            // Thêm mapping cho TaoTaiKhoan
+            entity.HasOne(d => d.TaoTaiKhoan)
+                 .WithMany(t => t.WishlistItems) // trùng với tên mới
+                 .HasForeignKey(d => d.TaiKhoanId)
+                 .HasConstraintName("FK_WishlistItem_TaoTaiKhoan");
         });
 
         modelBuilder.Entity<TechNews>(entity =>

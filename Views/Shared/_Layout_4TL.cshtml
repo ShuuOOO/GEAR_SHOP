@@ -297,6 +297,66 @@
                 .emoji-picker span:hover {
                     background: #f1f1f1;
                 }
+
+        /*Thông báo khi mà thêm yêu thích sẩn phẩm*/
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 350px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #888;
+        }
+
+            .close-btn:hover {
+                color: red;
+            }
+
+        .btn-custom-danger {
+            background-color: #ff4d4f;
+            border-color: #ff4d4f;
+            color: #fff;
+        }
+
+            .btn-custom-danger:hover {
+                background-color: #ff4d4f; /* Màu đậm hơn khi hover */
+                border-color: #ff4d4f;
+                color: #fff;
+            }
+
+        .btn-custom-outline-danger {
+            background-color: #fff;
+            border: 1px solid #ff4d4f;
+            color: #ff4d4f;
+        }
+
+            .btn-custom-outline-danger:hover {
+                background-color: #ff4d4f;
+                color: #fff;
+            }
+
     </style>
 </head>
 
@@ -465,6 +525,34 @@
                 <button id="emojiButton" class="emoji-btn">😀</button>
                 <button id="sendButton"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
                 <div id="emojiPicker" class="emoji-picker"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Thông báo khi đăng nhập khi thêm sản phẩm yêu thích-->
+    <div id="loginPopup1" class="popup-overlay" style="display:none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeLoginPopup('loginPopup1')">×</span>
+            <h3 class="text-danger">4TL</h3>
+            <img src="~/img/4TL.png" alt="4TL" style="width:100px; margin:10px auto; display:block;" />
+            <p>Vui lòng đăng nhập tài khoản để thêm sản phẩm vào danh sách yêu thích nhé.</p>
+            <div style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+                <a href="/Account/Register" class="btn btn-custom-outline-danger">Đăng ký</a>
+                <a href="/Account/Login" class="btn btn-custom-danger">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Thông báo khi đăng nhập khi thêm sản phẩm vào giỏ hàng-->
+    <div id="loginPopup2" class="popup-overlay" style="display:none;">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closeLoginPopup('loginPopup2')">×</span>
+            <h3 class="text-danger">4TL</h3>
+            <img src="~/img/4TL.png" alt="4TL" style="width:100px; margin:10px auto; display:block;" />
+            <p>Vui lòng đăng nhập tài khoản để thêm sản phẩm giỏ hàng nhé.</p>
+            <div style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+                <a href="/Account/Register" class="btn btn-custom-outline-danger">Đăng ký</a>
+                <a href="/Account/Login" class="btn btn-custom-danger">Đăng nhập</a>
             </div>
         </div>
     </div>
@@ -705,5 +793,112 @@
         })();
     </script>
     @RenderSection("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+
+            // 👉 Hàm thêm giỏ hàng
+            window.addToCart = function (productId) {
+                $.ajax({
+                    url: '/Cart/AddToCartAjax',
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        // 🔑 Trường hợp chưa đăng nhập
+                        if (response.requireLogin) {
+                            $("#loginPopup2").fadeIn();
+                            return;
+                        }
+
+                        if (response.success) {
+                            $('#cart-count').text(response.cartCount);
+
+                            Toastify({
+                                text: "🎉 " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#28a745", // xanh lá
+                                close: true,
+                                stopOnFocus: true
+                            }).showToast();
+                        } else {
+                            Toastify({
+                                text: "❌ " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#dc3545", // đỏ
+                                close: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            close: true
+                        }).showToast();
+                    }
+                });
+            };
+
+            // 👉 Hàm thêm yêu thích
+            window.addToWishlist = function (productId) {
+                $.ajax({
+                    url: '/Wishlist/AddToWishlistAjax',
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (response) {
+                        // 🔑 Trường hợp chưa đăng nhập
+                        if (response.requireLogin) {
+                            $("#loginPopup1").fadeIn();
+                            return;
+                        }
+
+                        if (response.success) {
+                            $('#wishlist-count').text(response.wishlistCount);
+                            Toastify({
+                                text: "💖 " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#ff4d4f",
+                                close: true,
+                                stopOnFocus: true
+                            }).showToast();
+                        } else {
+                            Toastify({
+                                text: "⚠️ " + response.message,
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "#ffc107",
+                                close: true
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        Toastify({
+                            text: "❌ Có lỗi xảy ra khi thêm vào yêu thích!",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#dc3545",
+                            close: true
+                        }).showToast();
+                    }
+                });
+            };
+
+            // 👉 Hàm đóng popup
+            window.closeLoginPopup = function(popupId) {
+                $("#" + popupId).fadeOut();
+            };
+        });
+    </script>
 </body>
 </html>

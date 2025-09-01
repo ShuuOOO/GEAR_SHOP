@@ -15,15 +15,15 @@ public class WishlistCountViewComponent : ViewComponent
     {
         int count = 0;
 
-        var khachHangId = HttpContext.Session.GetInt32("KhachHangId");
+        var taiKhoanId = HttpContext.Session.GetInt32("TaiKhoanId");
         var sessionId = HttpContext.Session.Id;
 
-        if (khachHangId != null)
+        if (taiKhoanId != null)
         {
             // Người dùng đã đăng nhập
             count = await _context.WishlistItems
                 .Include(x => x.Wishlist)
-                .CountAsync(x => x.Wishlist.KhachHangId == khachHangId);
+                .CountAsync(x => x.Wishlist.TaiKhoanId== taiKhoanId);
         }
         else
         {

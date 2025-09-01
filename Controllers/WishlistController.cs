@@ -13,171 +13,191 @@ namespace TL4_SHOP.Controllers
         {
             _context = context;
         }
-
-        //  TIỆN ÍCH CHUNG 
-        private async Task<int?> GetKhachHangIdAsync()
+        // Lấy TaiKhoanId từ session hoặc từ User.Identity
+        private async Task<int?> GetTaiKhoanIdAsync()
         {
+            int? taiKhoanId = HttpContext.Session.GetInt32("TaiKhoanId");
 
-            var _ = HttpContext.Session.Id;
-
-            int? khachHangId = HttpContext.Session.GetInt32("KhachHangId");
-
-            if (khachHangId == null && User.Identity.IsAuthenticated)
+            if (taiKhoanId == null && User.Identity.IsAuthenticated)
             {
                 var email = User.FindFirstValue(ClaimTypes.Email);
                 var taiKhoan = await _context.TaoTaiKhoans
                     .FirstOrDefaultAsync(x => x.Email == email);
 
-                if (taiKhoan == null)
-                {
-                    return null;  // không tìm thấy tài khoản → trả về null luôn
-                }
+                if (taiKhoan == null) return null;
 
-                khachHangId = taiKhoan.KhachHangId;
-                if (khachHangId.HasValue)
-                {
-                    HttpContext.Session.SetInt32("KhachHangId", khachHangId.Value);
-                }  // đã chắc chắn có giá trị
+                taiKhoanId = taiKhoan.TaiKhoanId;
+                HttpContext.Session.SetInt32("TaiKhoanId", taiKhoanId.Value);
             }
-
-            return khachHangId;
+            return taiKhoanId;
         }
 
+        // Lấy hoặc tạo wishlist (tích hợp luôn merge khi login)
         private async Task<Wishlist> GetOrCreateWishlistAsync()
         {
             var sessionId = HttpContext.Session.Id;
-            var khachHangId = await GetKhachHangIdAsync();
+            var taiKhoanId = await GetTaiKhoanIdAsync();
 
+            Wishlist wishlist = null;
+
+            if (taiKhoanId != null)
+            {
+                // Lấy wishlist theo tài khoản
+                wishlist = await _context.Wishlists
+                    .Include(w => w.WishlistItems)
+                    .ThenInclude(i => i.SanPham)
+                    .FirstOrDefaultAsync(w => w.TaiKhoanId == taiKhoanId);
+
+                // Merge từ session (nếu có)
+                var sessionWishlist = await _context.Wishlists
+                    .Include(w => w.WishlistItems)
+                    .FirstOrDefaultAsync(w => w.SessionId == sessionId && w.TaiKhoanId == null);
+
+                if (sessionWishlist != null)
+                {
+                    if (wishlist == null)
+                    {
+                        // Gắn session wishlist sang tài khoản
+                        sessionWishlist.TaiKhoanId = taiKhoanId;
+                        sessionWishlist.SessionId = null;
+                        wishlist = sessionWishlist;
+                    }
+                    else
+                    {
+                        // Merge sản phẩm
+                        foreach (var item in sessionWishlist.WishlistItems)
+                        {
+                            if (!wishlist.WishlistItems.Any(x => x.SanPhamId == item.SanPhamId))
+                            {
+                                wishlist.WishlistItems.Add(new WishlistItem
+                                {
+                                    SanPhamId = item.SanPhamId
+                                });
+                            }
+                        }
+                        _context.Wishlists.Remove(sessionWishlist);
+                    }
+                    await _context.SaveChangesAsync();
+                }
+            }
+            else
+            {
+                // Vãng lai -> theo session
+                wishlist = await _context.Wishlists
+                    .Include(w => w.WishlistItems)
+                    .ThenInclude(i => i.SanPham)
+                    .FirstOrDefaultAsync(w => w.SessionId == sessionId);
+
+                if (wishlist == null)
+                {
+                    wishlist = new Wishlist
+                    {
+                        SessionId = sessionId
+                    };
+                    _context.Wishlists.Add(wishlist);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return wishlist;
+        }
+
+        // Trang Index
+        public async Task<IActionResult> Index()
+        {
+            var wishlist = await GetOrCreateWishlistAsync();
+            var items = wishlist.WishlistItems?.Where(i => i.SanPham != null).ToList()
+                         ?? new List<WishlistItem>();
+            return View(items);
+        }
+
+        // Thêm sản phẩm
+        [HttpPost]
+        public async Task<IActionResult> AddToWishlist(int productId)
+        {
+            var taiKhoanId = HttpContext.Session.GetInt32("TaiKhoanId");
+            if (taiKhoanId == null)
+            {
+                // Nếu chưa đăng nhập thì báo lỗi
+                return Json(new { success = false, message = "Vui lòng đăng nhập để thêm vào danh sách yêu thích." });
+            }
+
+            // Lấy wishlist của tài khoản
             var wishlist = await _context.Wishlists
-    .Include(w => w.WishlistItems)
-        .ThenInclude(i => i.SanPham)
-    .FirstOrDefaultAsync(w =>
-        (khachHangId != null && w.KhachHangId == khachHangId)
-        || (khachHangId == null && w.KhachHangId == null && w.SessionId == sessionId));
+                .Include(w => w.WishlistItems)
+                .FirstOrDefaultAsync(w => w.TaiKhoanId == taiKhoanId);
 
             if (wishlist == null)
             {
                 wishlist = new Wishlist
                 {
-                    KhachHangId = khachHangId,
-                    SessionId = khachHangId == null ? sessionId : null
+                    TaiKhoanId = taiKhoanId.Value,
+                    WishlistItems = new List<WishlistItem>()
                 };
                 _context.Wishlists.Add(wishlist);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // save để có WishlistId
             }
 
-            // Nếu đang đăng nhập mà wishlist vẫn còn sessionId → chuyển đổi
-            if (wishlist.SessionId != null && khachHangId != null)
+            // Kiểm tra sản phẩm đã có chưa
+            if (!wishlist.WishlistItems.Any(x => x.SanPhamId == productId))
             {
-                wishlist.KhachHangId = khachHangId;
-                wishlist.SessionId = null;
-                await _context.SaveChangesAsync();
-            }
-
-            return wishlist;
-        }
-
-        //  INDEX 
-        public async Task<IActionResult> Index()
-        {
-            var wishlist = await GetOrCreateWishlistAsync();
-
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(i => i.SanPham)
-                .LoadAsync();
-
-            var items = wishlist.WishlistItems?.Where(i => i.SanPham != null).ToList()
-                         ?? new List<WishlistItem>();
-
-            return View(items);  // @model List<WishlistItem>
-        }
-
-
-        //  THÊM YÊU THÍCH 
-        [HttpPost]
-        public async Task<IActionResult> AddToWishlist(int productId)
-        {
-            var wishlist = await GetOrCreateWishlistAsync();
-
-            wishlist.WishlistItems ??= new List<WishlistItem>();
-            // Kiểm tra nếu sản phẩm đã có trong danh sách yêu thích
-            if (!wishlist.WishlistItems.Any(i => i.SanPhamId == productId))
-            {
-                var item = new WishlistItem
+                wishlist.WishlistItems.Add(new WishlistItem
                 {
                     SanPhamId = productId,
-                    WishlistId = wishlist.WishlistId
-                };
-
-                _context.WishlistItems.Add(item);
-                await _context.SaveChangesAsync();
+                    TaiKhoanId = taiKhoanId.Value,   //  thêm tài khoản vào
+                    WishlistId = wishlist.WishlistId //  gán luôn wishlist id
+                });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Sản phẩm đã có trong danh sách yêu thích." });
             }
 
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(wi => wi.SanPham)
-                .LoadAsync();
-            return RedirectToAction("Index");
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, message = "Đã thêm vào yêu thích." });
         }
 
-        //  AJAX THÊM YÊU THÍCH 
+        // Thêm AJAX
         [HttpPost]
         public async Task<IActionResult> AddToWishlistAjax(int productId)
         {
-            // Lấy hoặc tạo wishlist
-            var wishlist = await GetOrCreateWishlistAsync();
-
-            
-            // Luôn load lại danh sách WishlistItems
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(i => i.SanPham)
-                .LoadAsync();
-
-            // Đảm bảo không null
-            wishlist.WishlistItems ??= new List<WishlistItem>();
-
-            // Kiểm tra sản phẩm đã tồn tại chưa
-            bool exists = wishlist.WishlistItems.Any(i => i.SanPhamId == productId);
-
-            if (!exists)
+            var taiKhoanId = HttpContext.Session.GetInt32("TaiKhoanId");
+            if (taiKhoanId == null)
             {
-                var newItem = new WishlistItem
-                {
-                    SanPhamId = productId,
-                    WishlistId = wishlist.WishlistId // BẮT BUỘC GÁN LẠI
-                };
-
-                _context.WishlistItems.Add(newItem);
-                await _context.SaveChangesAsync();
+                return Json(new { success = false, requireLogin = true, message = "Vui lòng đăng nhập để thêm sản phẩm yêu thích." });
             }
 
-            // Load lại kèm sản phẩm
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(i => i.SanPham)
-                .LoadAsync();
+            var wishlist = await _context.Wishlists
+                .Include(w => w.WishlistItems)
+                .FirstOrDefaultAsync(w => w.TaiKhoanId == taiKhoanId);
+
+            if (wishlist == null)
+            {
+                wishlist = new Wishlist
+                {
+                    TaiKhoanId = taiKhoanId.Value,
+                    WishlistItems = new List<WishlistItem>()
+                };
+                _context.Wishlists.Add(wishlist);
+            }
+
+            //  Kiểm tra sản phẩm đã có chưa
+            if (wishlist.WishlistItems.Any(i => i.SanPhamId == productId))
+            {
+                int countExist = wishlist.WishlistItems.Count;
+                return Json(new { success = false, message = "Sản phẩm đã có trong danh sách yêu thích!", wishlistCount = countExist });
+            }
+
+            // Nếu chưa có thì thêm
+            wishlist.WishlistItems.Add(new WishlistItem { SanPhamId = productId });
+            await _context.SaveChangesAsync();
 
             int count = wishlist.WishlistItems.Count;
-
-            return Json(new
-            {
-                success = true,
-                message = "Đã thêm vào danh sách yêu thích!",
-                wishlistCount = count
-            });
+            return Json(new { success = true, message = "Đã thêm vào yêu thích!", wishlistCount = count });
         }
 
 
-
-
-
-        // XOÁ 
+        // Xoá
         [HttpPost]
         public async Task<IActionResult> RemoveFromWishlist(int itemId)
         {
@@ -190,20 +210,11 @@ namespace TL4_SHOP.Controllers
             return RedirectToAction("Index");
         }
 
-        //  ĐẾM TRÁI TIM 
+        // Đếm trái tim
         public async Task<IActionResult> WishlistCount()
         {
-            var khachHangId = await GetKhachHangIdAsync();
-            var sessionId = HttpContext.Session.Id;
-
-            var count = await _context.WishlistItems
-                .Where(wi => _context.Wishlists
-                    .Where(w => (khachHangId != null && w.KhachHangId == khachHangId) ||
-                                (khachHangId == null && w.SessionId == sessionId))
-                    .Select(w => w.WishlistId)
-                    .Contains(wi.WishlistId))
-                .CountAsync();
-
+            var wishlist = await GetOrCreateWishlistAsync();
+            int count = wishlist.WishlistItems.Count;
             return Json(new { count });
         }
     }

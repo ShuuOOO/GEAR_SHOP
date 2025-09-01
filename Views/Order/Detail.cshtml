@@ -1,6 +1,7 @@
 ﻿@model TL4_SHOP.Models.ViewModels.DonHangDetailViewModel
 
 @{
+    ViewData["Title"] = "Hóa đơn";
     Layout = "~/Views/Shared/_Layout_4TL.cshtml";
 }
 <!-- Font Awesome -->
@@ -15,7 +16,7 @@
         @TempData["Message"]
     </div>
 }
-<h2>Chi tiết đơn hàng #@Model.DonHangId</h2>
+<h2 style="font-family: Tahoma;">Chi tiết đơn hàng #@Model.DonHangId</h2>
 <p><strong>Khách hàng:</strong> @Model.TenKhachHang</p>
 <p><strong>SDT:</strong> @Model.SoDienThoai</p>
 <p><strong>Địa chỉ giao hàng:</strong> @Model.DiaChiGiaoHang</p>
@@ -23,7 +24,7 @@
 <p><strong>Trạng thái:</strong> @Model.TrangThai</p>
 <p><strong>Tổng tiền:</strong> @Model.TongTien.ToString("N0") đ</p>
 
-<h4>Chi tiết sản phẩm:</h4>
+<h4 style="font-family: Tahoma;">Chi tiết sản phẩm:</h4>
 <table class="table">
     <thead>
         <tr>

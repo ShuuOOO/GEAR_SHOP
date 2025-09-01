@@ -26,6 +26,7 @@ public partial class TaoTaiKhoan
     public virtual KhachHang? KhachHang { get; set; }
 
     public virtual NhanVien? NhanVien { get; set; }
-
+    public virtual ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
+    public virtual ICollection<WishlistItem> WishlistItems { get; set; } = new List<WishlistItem>();
     public virtual ICollection<PasswordResetToken> PasswordResetTokens { get; set; } = new List<PasswordResetToken>();
 }
