@@ -3,7 +3,6 @@ using TL4_SHOP.Data;
 using TL4_SHOP.Models;
 using TL4_SHOP.Extensions;
 
-
 namespace TL4_SHOP.Controllers
 {
     public class CartController : BaseController
@@ -28,14 +27,20 @@ namespace TL4_SHOP.Controllers
             return cart;
         }
 
+        // Lưu giỏ hàng vào Session
+        private void SaveCart(List<CartItem> cart)
+        {
+            HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
+        }
+
         // Hiển thị giỏ hàng
         public IActionResult Index()
         {
             var cart = GetCart();
-            return View("ShoppingCart", cart);  // ← dùng đúng tên file .cshtml bạn đã tạo
+            return View("ShoppingCart", cart);
         }
 
-        // Thêm sản phẩm vào giỏ
+        // Thêm sản phẩm vào giỏ (redirect về Index)
         public IActionResult AddToCart(int id)
         {
             var product = _context.SanPhams.FirstOrDefault(p => p.SanPhamId == id);
@@ -60,46 +65,33 @@ namespace TL4_SHOP.Controllers
                 item.SoLuong++;
             }
 
-            HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
+            SaveCart(cart);
             return RedirectToAction("Index");
         }
 
-        // Xóa 1 sản phẩm khỏi giỏ
-        public IActionResult Remove(int id)
+        // Thêm sản phẩm vào giỏ bằng Ajax
+        [HttpPost]
+        public JsonResult AddToCartAjax(int productId, int quantity = 1)
         {
-            var cart = GetCart();
-            var item = cart.FirstOrDefault(i => i.SanPhamId == id);
-            if (item != null)
+            // 🔑 Kiểm tra đăng nhập
+            if (!User.Identity.IsAuthenticated)
             {
-                cart.Remove(item);
-                HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
+                return Json(new
+                {
+                    success = false,
+                    requireLogin = true,
+                    message = "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng."
+                });
             }
-            return RedirectToAction("Index");
-        }
 
-        // Cập nhật số lượng
-        [HttpPost]
-        public IActionResult UpdateQuantity(int id, int quantity)
-        {
-            var cart = GetCart();
-            var item = cart.FirstOrDefault(i => i.SanPhamId == id);
-            if (item != null)
-            {
-                item.SoLuong = quantity;
-                HttpContext.Session.SetObjectAsJson(CART_KEY, cart);
-            }
-            return RedirectToAction("Index", "Cart");
-        }
-        [HttpPost]
-        [Route("Cart/AddToCartAjax")]
-        public JsonResult AddToCart(int productId, int quantity = 1)
-        {
             var product = _context.SanPhams.FirstOrDefault(p => p.SanPhamId == productId);
             if (product == null)
-                return Json(new { success = false, message = "Sản phẩm không tồn tại" });
+                return Json(new { success = false, message = "❌ Sản phẩm không tồn tại." });
 
             var cart = GetCart();
             var item = cart.FirstOrDefault(i => i.SanPhamId == productId);
+
+            string message;
 
             if (item == null)
             {
@@ -111,29 +103,66 @@ namespace TL4_SHOP.Controllers
                     SoLuong = quantity,
                     HinhAnh = product.HinhAnh ?? ""
                 });
+
+                message = $"✅ Đã thêm \"{product.TenSanPham}\" vào giỏ hàng.";
             }
             else
             {
                 item.SoLuong += quantity;
+                message = $"🔄 Đã cập nhật số lượng \"{product.TenSanPham}\" trong giỏ hàng.";
             }
 
-            HttpContext.Session.SetObjectAsJson("GioHang", cart);
+            SaveCart(cart);
 
-            return Json(new { success = true, cartCount = cart.Sum(i => i.SoLuong) });
+            return Json(new
+            {
+                success = true,
+                message = message,
+                cartCount = cart.Sum(i => i.SoLuong)
+            });
         }
 
 
+        // Xóa 1 sản phẩm khỏi giỏ
+        public IActionResult Remove(int id)
+        {
+            var cart = GetCart();
+            var item = cart.FirstOrDefault(i => i.SanPhamId == id);
+            if (item != null)
+            {
+                cart.Remove(item);
+                SaveCart(cart);
+            }
+            return RedirectToAction("Index");
+        }
+
+        // Cập nhật số lượng
+        [HttpPost]
+        public IActionResult UpdateQuantity(int id, int quantity)
+        {
+            var cart = GetCart();
+            var item = cart.FirstOrDefault(i => i.SanPhamId == id);
+            if (item != null && quantity > 0)
+            {
+                item.SoLuong = quantity;
+                SaveCart(cart);
+            }
+            return RedirectToAction("Index");
+        }
+
+        // Trả về số lượng sản phẩm trong giỏ
         [HttpGet]
         public IActionResult CartCount()
         {
-            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang");
-            int count = cart?.Sum(x => x.SoLuong) ?? 0;
+            var cart = GetCart();
+            int count = cart.Sum(x => x.SoLuong);
             return Json(new { count });
         }
 
+        // Mini Cart (hiển thị nhỏ ở header)
         public IActionResult MiniCart()
         {
-            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("GioHang") ?? new();
+            var cart = GetCart();
             return PartialView("_MiniCart", cart);
         }
     }

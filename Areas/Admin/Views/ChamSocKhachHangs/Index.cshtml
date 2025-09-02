@@ -1,0 +1,361 @@
+﻿@{
+    ViewData["Title"] = "Chăm sóc khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin_Layout.cshtml";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<h4 class="chat-title"><i class="fa-solid fa-comments"></i> Chat với khách hàng</h4>
+
+<div class="chat-wrapper">
+    <!-- Sidebar danh sách khách hàng -->
+    @* <div class="chat-sidebar">
+        <div class="chat-search">
+            <input type="text" placeholder="Tìm khách hàng..." />
+        </div>
+        <ul class="chat-users" id="userList">
+           @foreach (var user in Model.Users)
+            {
+                <li data-id="@user.TaiKhoanId">
+                    <i class="fa-solid fa-user"></i>
+                    <span>@user.HoTen</span>
+                </li>
+            }
+        </ul>
+    </div> *@
+
+    <!-- Khung chat chính -->
+    <div class="chat-main">
+        <div id="messagesList" class="chat-messages"></div>
+        <div id="inputArea" class="chat-input">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." />
+            <button id="emojiButton" class="emoji-btn">😀</button>
+            <button id="sendButton"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+            <div id="emojiPicker" class="emoji-picker"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+
+    let lastDate = ""; // lưu ngày của tin nhắn trước đó
+
+    function formatDateTime() {
+        const now = new Date();
+        const date = now.toLocaleDateString(); // dd/mm/yyyy
+        const time = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // hh:mm
+        return { date, time };
+    }
+
+    connection.on("ReceiveMessage", function (user, message) {
+        const msgWrapper = document.createElement("div");
+        msgWrapper.style.marginBottom = "10px";
+
+        const { date, time } = formatDateTime();
+
+        // Hiển thị ngày nếu khác ngày trước đó
+        if (date !== lastDate) {
+            const dateDiv = document.createElement("div");
+            dateDiv.textContent = date;
+            dateDiv.style.fontSize = "14px";
+            dateDiv.style.color = "#888";
+            dateDiv.style.textAlign = "center";
+            dateDiv.style.marginBottom = "5px";
+            msgWrapper.appendChild(dateDiv);
+            lastDate = date;
+        }
+
+        // Tạo div tin nhắn
+        const msg = document.createElement("div");
+        msg.className = user === "Admin" ? "message admin" : "message customer";
+
+        // Bubble tin nhắn
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = `<strong>${user}</strong><br/>${message}`;
+
+        // Thời gian ở dưới góc phải bubble
+        const timeDiv = document.createElement("div");
+        timeDiv.textContent = time;
+        timeDiv.style.fontSize = "10px";
+        timeDiv.style.color = "#A0A0A0";
+        timeDiv.style.textAlign = "right";
+        bubble.appendChild(timeDiv);
+
+        msg.appendChild(bubble);
+        msgWrapper.appendChild(msg);
+
+        document.getElementById("messagesList").appendChild(msgWrapper);
+        const messagesList = document.getElementById("messagesList");
+        messagesList.scrollTop = messagesList.scrollHeight;
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    const emojiButton = document.getElementById("emojiButton");
+    const emojiPicker = document.getElementById("emojiPicker");
+    const messageInput = document.getElementById("messageInput");
+
+    const emojis = ["😀","😂","😍","😎","😭","😡","👍","🙏","🎉","💖"];
+    emojis.forEach(e => {
+        const span = document.createElement("span");
+        span.textContent = e;
+        span.addEventListener("click", () => {
+            messageInput.value += e;
+            emojiPicker.style.display = "none";
+            messageInput.focus();
+        });
+        emojiPicker.appendChild(span);
+    });
+
+    emojiButton.addEventListener("click", () => {
+        emojiPicker.style.display = emojiPicker.style.display === "flex" ? "none" : "flex";
+    });
+
+    function sendMessage() {
+        const message = messageInput.value.trim();
+        if (message) {
+            connection.invoke("SendMessage", "Admin", message).catch(err => console.error(err));
+            messageInput.value = "";
+        }
+    }
+
+    document.getElementById("sendButton").addEventListener("click", sendMessage);
+
+    // Gửi tin nhắn khi nhấn Enter
+    messageInput.addEventListener("keydown", function(e) {
+        if(e.key === "Enter" && !e.shiftKey){
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+</script>
+
+<style>
+    .chat-title {
+        text-align: center;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .chat-wrapper {
+        display: flex;
+        height: 600px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+        background: #fff;
+    }
+
+    /* Sidebar */
+    .chat-sidebar {
+        width: 250px;
+        border-right: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        background: #f8f9fa;
+    }
+
+    .chat-search {
+        padding: 10px;
+    }
+
+    .chat-search input {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .chat-users {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .chat-users li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s;
+    }
+
+    .chat-users li:hover,
+    .chat-users li.active {
+        background: #e9f3ff;
+    }
+
+    .chat-users img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* Main Chat */
+    .chat-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .message {
+        display: flex;
+        max-width: 70%;
+    }
+
+    .message.customer {
+        justify-content: flex-start;
+    }
+
+    .message.admin {
+        justify-content: flex-end;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+    .bubble {
+        padding: 10px 14px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.4;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        word-wrap: break-word; /* xuống hàng khi quá dài */
+        white-space: pre-wrap; /* giữ khoảng trắng và xuống hàng theo nội dung */
+    }
+
+    .message.customer .bubble {
+        background-color: #f1f3f5;
+        color: #333;
+        border-top-left-radius: 4px;
+    }
+
+    .message.admin .bubble {
+        background-color: #6666FFFF;
+        color: #fff;
+        border-top-right-radius: 4px;
+    }
+
+    /* Input */
+    .chat-input {
+        display: flex;
+        gap: 10px;
+        padding: 12px;
+        border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+
+    .chat-input input:focus {
+        border-color: #0078d4;
+        outline: none;
+    }
+
+    .chat-input button {
+        padding: 12px 18px;
+        background-color: #6666FF;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+
+    .chat-input button:hover {
+        background-color: #005fa3;
+    }
+
+    .chat-input-right {
+        position: relative;
+        display: flex;
+        justify-content: flex-end; /* căn phải */
+        padding: 12px;
+        border-top: 1px solid #eee;
+    }
+
+    .input-wrapper {
+        display: flex;
+        gap: 10px;
+    }
+
+    .chat-input-right input {
+        width: 300px; /* độ rộng input */
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+
+        .chat-input-right input:focus {
+            border-color: #0078d4;
+            outline: none;
+        }
+
+    .chat-input-right button {
+        padding: 12px 18px;
+        background-color: #0078d4;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+
+        .chat-input-right button:hover {
+            background-color: #005fa3;
+        }
+
+    /* Emoji picker */
+    .emoji-picker {
+        display: none;
+        position: absolute;
+        bottom: 50px;
+        right: 0; /* đặt bên phải */
+        width: 250px;
+        max-height: 200px;
+        overflow-y: auto;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 5px;
+        flex-wrap: wrap;
+        gap: 5px;
+        z-index: 10;
+    }
+
+        .emoji-picker span {
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+            .emoji-picker span:hover {
+                background: #f1f1f1;
+            }
+</style>

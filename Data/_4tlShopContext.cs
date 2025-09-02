@@ -54,6 +54,7 @@ public partial class _4tlShopContext : DbContext
     public virtual DbSet<WishlistItem> WishlistItems { get; set; }
 
     public virtual DbSet<TechNews> TechNews { get; set; } = null!;
+    public virtual DbSet<ChatMessage> ChatMessages { get; set; } = null!;
 
     //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -199,7 +200,7 @@ public partial class _4tlShopContext : DbContext
             entity.Property(e => e.DiaChiGiaoHang).HasMaxLength(255);
             entity.Property(e => e.DiaChiId).HasColumnName("DiaChiID");
             entity.Property(e => e.EmailNguoiDat).HasMaxLength(255);
-            entity.Property(e => e.KhachHangId).HasColumnName("KhachHangID");
+            entity.Property(e => e.TaiKhoanId).HasColumnName("KhachHangID");
             entity.Property(e => e.NgayDatHang).HasColumnType("datetime");
             entity.Property(e => e.PhiVanChuyen).HasColumnType("decimal(18, 3)");
             entity.Property(e => e.PhuongThucThanhToan).HasMaxLength(100);
@@ -214,7 +215,7 @@ public partial class _4tlShopContext : DbContext
                 .HasConstraintName("FK__DonHang__DiaChiI__6B24EA82");
 
             entity.HasOne(d => d.KhachHang).WithMany(p => p.DonHangs)
-                .HasForeignKey(d => d.KhachHangId)
+                .HasForeignKey(d => d.TaiKhoanId)
                 .HasConstraintName("FK__DonHang__KhachHa__6C190EBB");
 
             entity.HasOne(d => d.TrangThai).WithMany(p => p.DonHangs)
@@ -395,6 +396,7 @@ public partial class _4tlShopContext : DbContext
 
             entity.Property(e => e.SessionId).HasMaxLength(100);
 
+<<<<<<< HEAD
             entity.HasOne(d => d.TaiKhoan).WithMany(p => p.Wishlists)
                 .HasForeignKey(d => d.TaiKhoanId)
                 .HasConstraintName("FK__Wishlists__Khach__0A9D95DB");
@@ -402,7 +404,13 @@ public partial class _4tlShopContext : DbContext
             entity.HasOne(d => d.TaiKhoanNavigation).WithMany(p => p.Wishlists)
                 .HasForeignKey(d => d.TaiKhoanId)
                 .HasConstraintName("FK_Wishlists_TaoTaiKhoan");
+=======
+            entity.HasOne(d => d.TaoTaiKhoan).WithMany(p => p.Wishlists)
+                .HasForeignKey(d => d.TaiKhoanId)
+                .HasConstraintName("FK__Wishlists__TaiKhoan__778AC167");
+>>>>>>> aa1cdc1
         });
+
 
         modelBuilder.Entity<WishlistItem>(entity =>
         {
@@ -417,6 +425,11 @@ public partial class _4tlShopContext : DbContext
                 .HasForeignKey(d => d.WishlistId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__WishlistI__Wishl__76969D2E");
+            // Thêm mapping cho TaoTaiKhoan
+            entity.HasOne(d => d.TaoTaiKhoan)
+                 .WithMany(t => t.WishlistItems) // trùng với tên mới
+                 .HasForeignKey(d => d.TaiKhoanId)
+                 .HasConstraintName("FK_WishlistItem_TaoTaiKhoan");
         });
 
         modelBuilder.Entity<TechNews>(entity =>
@@ -433,6 +446,33 @@ public partial class _4tlShopContext : DbContext
             entity.HasIndex(e => e.PublishedAt);
             entity.HasIndex(e => new { e.IsFeatured, e.PublishedAt });
         });
+
+        modelBuilder.Entity<ChatMessage>(entity =>
+        {
+            entity.ToTable("ChatMessages"); // tên bảng trong database
+
+            entity.HasKey(e => e.Id); // khóa chính
+
+            entity.Property(e => e.SenderId)
+                .IsRequired(); // Id người gửi
+
+            entity.Property(e => e.ReceiverId)
+                .IsRequired(); // Id người nhận (TaoTaiKhoan.TaiKhoanId)
+
+            entity.Property(e => e.SenderName)
+                .IsRequired()
+                .HasMaxLength(50); // "Admin" hoặc tên khách
+
+            entity.Property(e => e.Content)
+                .IsRequired()
+                .HasMaxLength(1000); // Nội dung tin nhắn
+
+            entity.Property(e => e.Timestamp)
+                .IsRequired()
+                .HasDefaultValueSql("GETDATE()"); // ngày giờ gửi
+        });
+
+
 
         // [THÊM] trong OnModelCreating
         modelBuilder.Entity<DanhMucSanPham>()

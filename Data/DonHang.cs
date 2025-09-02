@@ -6,8 +6,8 @@ namespace TL4_SHOP.Data;
 public partial class DonHang
 {
     public int DonHangId { get; set; }
-
-    public int? KhachHangId { get; set; }
+    public int? TaiKhoanId { get; set; }
+    //public int? KhachHangId{ get; set; }
 
     public DateTime NgayDatHang { get; set; }
 
