@@ -392,23 +392,13 @@ public partial class _4tlShopContext : DbContext
 
         modelBuilder.Entity<Wishlist>(entity =>
         {
-            entity.HasKey(e => e.WishlistId).HasName("PK__Wishlist__233189EBCDC7590A");
+            entity.HasKey(e => e.WishlistId).HasName("PK__Wishlist__233189EBE961249E");
 
             entity.Property(e => e.SessionId).HasMaxLength(100);
 
-<<<<<<< HEAD
-            entity.HasOne(d => d.TaiKhoan).WithMany(p => p.Wishlists)
-                .HasForeignKey(d => d.TaiKhoanId)
-                .HasConstraintName("FK__Wishlists__Khach__0A9D95DB");
-
-            entity.HasOne(d => d.TaiKhoanNavigation).WithMany(p => p.Wishlists)
-                .HasForeignKey(d => d.TaiKhoanId)
-                .HasConstraintName("FK_Wishlists_TaoTaiKhoan");
-=======
             entity.HasOne(d => d.TaoTaiKhoan).WithMany(p => p.Wishlists)
                 .HasForeignKey(d => d.TaiKhoanId)
                 .HasConstraintName("FK__Wishlists__TaiKhoan__778AC167");
->>>>>>> aa1cdc1
         });
 
 

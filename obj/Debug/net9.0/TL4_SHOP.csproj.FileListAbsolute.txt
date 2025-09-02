@@ -1,373 +1,19 @@
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\appsettings.Development.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\appsettings.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.runtime.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.endpoints.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.exe
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.deps.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.runtimeconfig.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\TL4_SHOP.pdb
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Azure.Core.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Azure.Identity.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Humanizer.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Data.SqlClient.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Identity.Client.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Mono.TextTemplating.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.ClientModel.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.CodeDom.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Composition.Convention.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Composition.Hosting.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Composition.Runtime.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Composition.TypedParts.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Memory.Data.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Runtime.Caching.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.AssemblyReference.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.GeneratedMSBuildEditorConfig.editorconfig
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.AssemblyInfoInputs.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.AssemblyInfo.cs
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.CoreCompileInputs.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.MvcApplicationPartsAssemblyInfo.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cs
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.sourcelink.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\scopedcss\bundle\TL4_SHOP.styles.css
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\scopedcss\projectbundle\TL4_SHOP.bundle.scp.css
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\928900q75p-61n19gt1b8.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\punls648x6-c2jlpeoesf.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\8c1jcn1iuo-aexeepp0ev.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\29p20n23ky-ausgxo2sd3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\vflo4sj7mo-cosvhxvwiu.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\eq3smxyrlt-fvhpjtyr6v.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\ozrp9l07bu-fsbi9cje9m.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\ntz74u6yxh-ee0r1s7dh0.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\ocoyeye8pw-jd9uben2k1.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\50sh3fyts3-r4e9w2rdcm.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\nvgqio8llq-c2oey78nd0.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\3qx4cbybck-j5mq2jizvt.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\hicxs06puh-nvvlpmu67g.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\c61ygunkdk-pj5nd1wqec.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\6efo2u7lfy-v0zj4ognzu.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\psh2mn5pp4-hrwsygsryq.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\47jvev8jl5-ft3s53vfgj.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\2brd7nvvx4-6pdc2jztkx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\yonw99bvcl-iovd86k7lj.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\b28iebkav6-kbrnm935zg.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\xry3ygtgn1-y7v9cxd14o.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\5rg4kl64gx-h1s4sie4z3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\7g8s0ho961-0j3bgjxly4.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\tq50yr6bx6-356vix0kms.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\njrgkyibgu-83jwlth58m.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\rbppji6m4x-mrlpezrjn3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\8455gv2jsk-x0q3zqp4vz.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\86l22qgii8-ttgo8qnofa.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\o2zfionqq3-87fc7y1x7t.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\roly7l611f-mlv21k5csn.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\awyl47c1h6-fdrqd87pvp.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\8ydfc877ki-fdrqd87pvp.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\staticwebassets.build.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\staticwebassets.build.json.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\staticwebassets.development.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.Up2Date
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\refint\TL4_SHOP.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.pdb
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\TL4_SHOP.genruntimeconfig.cache
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\ref\TL4_SHOP.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Build.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.Build.Framework.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Features.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Elfie.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Features.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Razor.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.CodeAnalysis.Scripting.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.DiaSymReader.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.DotNet.Scaffolding.Shared.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.NET.StringTools.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\dotnet-aspnet-codegenerator-design.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\Newtonsoft.Json.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Common.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Configuration.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.DependencyResolver.Core.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Frameworks.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.LibraryModel.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Packaging.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.ProjectModel.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Protocol.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\NuGet.Versioning.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\System.Reflection.MetadataLoadContext.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\af\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ar\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\az\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\bg\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\da\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\el\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fa\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\he\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\hr\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\hu\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\hy\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\id\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\is\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ku\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\lv\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\mt\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\nb\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\nl\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ro\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\sk\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\sl\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\sr\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\sv\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\uk\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\vi\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\p6mvu4chwn-b9sayid5wm.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\8lg5kgq950-xtxxf3hu2r.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\h1u6ppx6hz-fk6k5jtkhn.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\t8ovdvplde-v6x1626h9p.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\dn2gjwcusp-m721qf1kv9.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\bkd58uina8-cy34iqcttu.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\f5dw8zb9k1-u1qnq4oq0g.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\4xddi8bwq2-v1scq0wgo3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\hr7n70pk2g-s1z0o21rrk.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\oarvrtj88u-0osv6zxoff.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\9mqg26mi5a-m7fznzp2nq.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\sikl4q7syp-8ho8weanaw.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\2qupiohrsi-9dp9gal4ep.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\mitvagfhe2-s1z0o21rrk.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\qdmod7vh1m-m7fznzp2nq.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\rpswa.dswa.cache.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\rjimswa.dswa.cache.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\oqftlcrlrm-kgr6hqw5na.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\nbi3trh103-k77gmuhv91.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\91a8jroccn-tolfu9ombn.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\b2ee2k4t48-vb205osfee.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\a27tz2pqau-q46ry7au64.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\kx7tzo3dzz-uyqknvf41h.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\q55jiovjx9-tzmoj7fmxh.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\3ox6yo2dts-mzg0i66ppt.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\jjohvmp3bc-462rccmaov.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\s4w0ndgv18-ve6wjaoj24.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\6drdxnyahp-b5bvho7hiv.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\0vq7zmig2j-xhbu0o0ue3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\jj84qqywb2-vktdx42l5d.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\rzesx9rhbv-g84lq3vjje.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\2h7fhiqr28-tolfu9ombn.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\tyqtymvvkq-t1cqhe9u97.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\k2ehebq6hb-sejl45xvog.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\40egi992ki-xvp3kq03qx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\42tp4cqxhw-22vffe00uq.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\syewhthmjz-qesaa3a1fm.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\nnklr4ovme-tmc1g35s3z.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\fzhuh95j47-rxsg74s51o.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\v3g8zclr5b-q9ht133ko3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\7wem0ig342-gye83jo8yx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\3fiiw2j6dm-wl58j5mj3v.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\4he77bwajj-d4r6k3f320.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\952dbgaihm-keugtjm085.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\6l5wiqsh6h-zub09dkrxp.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\fduix37qbh-43atpzeawx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\gsajjo8f12-ynyaa8k90p.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\m6yo5wviug-c63t5i9ira.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\h6rsayncm4-4094rpi4f9.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\9ecmeujehw-hd3gran6i8.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\jfphmznuu4-ltid2c489k.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\zrbv9ir7ad-8vyfqsqgz1.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\1j9od88nkf-u9q1upor1n.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\cu30772f9g-4d85u1mtcx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\omnx18vf3z-vb205osfee.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\3s35sb09pw-03hjc8e09r.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\4kgzwbahu6-48y08845bh.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\9vk4xvk034-worgj0nhwm.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\bn0j0cuisl-gk0pw8i4co.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\mbikbsu2fg-d6nrnj6jjx.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\vnp6ez10o3-m9qm4tazc0.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\n5h0aoa4ee-jjsuc0puko.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\ae89ilfgru-9vr69e8ynj.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\obe86qrk86-q46ry7au64.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\t6spyo296z-uyqknvf41h.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\enuq6as89j-tzmoj7fmxh.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\863ba0sgc1-mzg0i66ppt.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\xrf39xlljp-462rccmaov.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\t9qsb4idc9-ve6wjaoj24.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\bcxlhbjw0n-b5bvho7hiv.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\qbe4nspgcx-xhbu0o0ue3.gz
-D:\Nhung_bai_hoc_ve_MVC\TL4_SHOP\obj\Debug\net9.0\compressed\hfkrt9fvza-vktdx42l5d.gz
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.AssemblyReference.cache
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.CoreCompileInputs.cache
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cache
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cs
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.sourcelink.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\testhost.dll
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\xunit.abstractions.dll
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\testhost.exe
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\appsettings.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.runtime.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.endpoints.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\xunit.runner.visualstudio.testadapter.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\Lato-Black.ttf
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\Lato-BlackItalic.ttf
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\Lato-Bold.ttf
@@ -387,11 +33,6 @@ C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\Lato-Thin.ttf
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\Lato-ThinItalic.ttf
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\LatoFont\OFL.txt
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\testhost.exe
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\appsettings.json
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.runtime.json
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.staticwebassets.endpoints.json
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\xunit.runner.visualstudio.testadapter.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.exe
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.deps.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\TL4_SHOP.runtimeconfig.json
@@ -773,16 +414,6 @@ C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\runtimes\win-x86\native\qpdf.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.AssemblyReference.cache
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.AssemblyInfoInputs.cache
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.AssemblyInfo.cs
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.CoreCompileInputs.cache
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cache
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.RazorAssemblyInfo.cs
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.sourcelink.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -927,10 +558,10 @@ C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.csproj.Up2Date
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\refint\TL4_SHOP.dll
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.pdb
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\TL4_SHOP.genruntimeconfig.cache
 C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\ref\TL4_SHOP.dll
-C:\Users\tanle\Documents\Zalo Received Files\Chien_luoc_thuong_mai_dien_tu\GEAR(1)_SHOP\GEAR_SHOP\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

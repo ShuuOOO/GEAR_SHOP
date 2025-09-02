@@ -123,11 +123,6 @@ namespace TL4_SHOP.Controllers
 
             // Lấy wishlist của tài khoản
             var wishlist = await _context.Wishlists
-    .Include(w => w.WishlistItems)
-        .ThenInclude(i => i.SanPham)
-    .FirstOrDefaultAsync(w =>
-        (khachHangId != null && w.TaiKhoanId == khachHangId)
-        || (khachHangId == null && w.TaiKhoanId == null && w.SessionId == sessionId));
                 .Include(w => w.WishlistItems)
                 .FirstOrDefaultAsync(w => w.TaiKhoanId == taiKhoanId);
 
@@ -135,8 +130,6 @@ namespace TL4_SHOP.Controllers
             {
                 wishlist = new Wishlist
                 {
-                    TaiKhoanId = khachHangId,
-                    SessionId = khachHangId == null ? sessionId : null
                     TaiKhoanId = taiKhoanId.Value,
                     WishlistItems = new List<WishlistItem>()
                 };
@@ -147,43 +140,6 @@ namespace TL4_SHOP.Controllers
             // Kiểm tra sản phẩm đã có chưa
             if (!wishlist.WishlistItems.Any(x => x.SanPhamId == productId))
             {
-                wishlist.TaiKhoanId = khachHangId;
-                wishlist.SessionId = null;
-                await _context.SaveChangesAsync();
-            }
-
-            return wishlist;
-        }
-
-        //  INDEX 
-        public async Task<IActionResult> Index()
-        {
-            var wishlist = await GetOrCreateWishlistAsync();
-
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(i => i.SanPham)
-                .LoadAsync();
-
-            var items = wishlist.WishlistItems?.Where(i => i.SanPham != null).ToList()
-                         ?? new List<WishlistItem>();
-
-            return View(items);  // @model List<WishlistItem>
-        }
-
-
-        //  THÊM YÊU THÍCH 
-        [HttpPost]
-        public async Task<IActionResult> AddToWishlist(int productId)
-        {
-            var wishlist = await GetOrCreateWishlistAsync();
-
-            wishlist.WishlistItems ??= new List<WishlistItem>();
-            // Kiểm tra nếu sản phẩm đã có trong danh sách yêu thích
-            if (!wishlist.WishlistItems.Any(i => i.SanPhamId == productId))
-            {
-                var item = new WishlistItem
                 wishlist.WishlistItems.Add(new WishlistItem
                 {
                     SanPhamId = productId,
@@ -205,24 +161,6 @@ namespace TL4_SHOP.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToWishlistAjax(int productId)
         {
-            // Lấy hoặc tạo wishlist
-            var wishlist = await GetOrCreateWishlistAsync();
-
-
-            // Luôn load lại danh sách WishlistItems
-            await _context.Entry(wishlist)
-                .Collection(w => w.WishlistItems)
-                .Query()
-                .Include(i => i.SanPham)
-                .LoadAsync();
-
-            // Đảm bảo không null
-            wishlist.WishlistItems ??= new List<WishlistItem>();
-
-            // Kiểm tra sản phẩm đã tồn tại chưa
-            bool exists = wishlist.WishlistItems.Any(i => i.SanPhamId == productId);
-
-            if (!exists)
             var taiKhoanId = HttpContext.Session.GetInt32("TaiKhoanId");
             if (taiKhoanId == null)
             {
@@ -259,7 +197,6 @@ namespace TL4_SHOP.Controllers
         }
 
 
-        // XOÁ 
         // Xoá
         [HttpPost]
         public async Task<IActionResult> RemoveFromWishlist(int itemId)
@@ -276,17 +213,6 @@ namespace TL4_SHOP.Controllers
         // Đếm trái tim
         public async Task<IActionResult> WishlistCount()
         {
-            var TaikhoanID = await GetKhachHangIdAsync();
-            var sessionId = HttpContext.Session.Id;
-
-            var count = await _context.WishlistItems
-                .Where(wi => _context.Wishlists
-                    .Where(w => (TaikhoanID != null && w.TaiKhoanId == TaikhoanID) ||
-                                (TaikhoanID == null && w.SessionId == sessionId))
-                    .Select(w => w.WishlistId)
-                    .Contains(wi.WishlistId))
-                .CountAsync();
-
             var wishlist = await GetOrCreateWishlistAsync();
             int count = wishlist.WishlistItems.Count;
             return Json(new { count });
