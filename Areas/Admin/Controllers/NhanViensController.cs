@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 namespace TL4_SHOP.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminOrHRManager")]
     public class NhanViensController : Controller
     {
         private readonly _4tlShopContext _context;

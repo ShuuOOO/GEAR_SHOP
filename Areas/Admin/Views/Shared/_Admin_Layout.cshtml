@@ -82,144 +82,161 @@
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo px-3">
                     <a href="/" class="app-brand-link">
-                        
                         <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json"
                                    trigger="hover"
                                    colors="primary:#121331,secondary:#08a88a"
                                    style="width:32px;height:32px;margin-right:8px">
                         </lord-icon>
-                       
-
                         <span class="app-brand-text demo">4TL</span>
                     </a>
                 </div>
                 <ul class="menu-inner py-1">
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
-                            
-                            <lord-icon src="https://cdn.lordicon.com/btfbysou.json"
-                                       trigger="hover"
-                                       style="width:24px;height:24px;margin-right:8px"
-                                       class="menu-icon-lord">
-                            </lord-icon>
-                            
+                    @{
+                        var isAdmin = User.IsInRole("Admin");
+                        var isPM = User.IsInRole("ProductManager");
+                        var isOM = User.IsInRole("OrderManager");
+                        var isHR = User.IsInRole("HRManager");
+                        var isCS = User.IsInRole("CustomerCare");
+                    }
 
-                            <div>Dashboard</div>
-                        </a>
-                    </li>
+                    <!-- Dashboard: mọi staff -->
+                    @if (isAdmin || isPM || isOM || isHR || isCS)
+                    {
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="Dashboard" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                <lord-icon src="https://cdn.lordicon.com/btfbysou.json" trigger="hover" style="width:24px;height:24px;margin-right:8px" class="menu-icon-lord"></lord-icon>
+                                <div>Dashboard</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-header small text-uppercase">Bán hàng</li>
+                    <!-- BÁN HÀNG: chỉ Admin + ProductManager -->
+                    @if (isAdmin || isPM)
+                    {
+                        <li class="menu-header small text-uppercase">Bán hàng</li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="QuanLySanPham" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
-                            <lord-icon src="https://cdn.lordicon.com/abgykmtd.json"
-                                       trigger="hover"
-                                       style="width:24px;height:24px;margin-right:8px"
-                                       class="menu-icon-lord">
-                            </lord-icon>
-                            <div>Sản phẩm</div>
-                        </a>
-                    </li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="QuanLySanPham" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="QuanLySanPham" asp-action="Index">
+                                <lord-icon src="https://cdn.lordicon.com/abgykmtd.json" trigger="hover" style="width:24px;height:24px;margin-right:8px" class="menu-icon-lord"></lord-icon>
+                                <div>Sản phẩm</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DanhMucs" ? "active" : "")">
-                        @* Nếu controller của bạn là DanhMucSanPhamsController → đổi asp-controller="DanhMucSanPhams"
-       Nếu bạn đặt tên DanhMucController → đổi asp-controller="DanhMuc"
-       Ở đây mình giả định "DanhMucsController" *@
-                        <a class="menu-link" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">
-                            <lord-icon src="https://cdn.lordicon.com/dutqakce.json"
-                                       trigger="hover"
-                                       style="width:24px;height:24px;margin-right:8px"
-                                       class="menu-icon-lord">
-                            </lord-icon>
-                            <div>Danh mục</div>
-                        </a>
-                    </li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DanhMucs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="DanhMucs" asp-action="Index">
+                                <lord-icon src="https://cdn.lordicon.com/dutqakce.json" trigger="hover" style="width:24px;height:24px;margin-right:8px" class="menu-icon-lord"></lord-icon>
+                                <div>Danh mục</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DonHangs" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="DonHangs" asp-action="Index">
-                            <lord-icon src="https://cdn.lordicon.com/nvtfowkn.json"
-                                       trigger="hover"
-                                       style="width:24px;height:24px;margin-right:8px"
-                                       class="menu-icon-lord">
-                            </lord-icon>
-                            <div>Đơn hàng</div>
-                        </a>
-                    </li>
+                        <!-- Nếu bạn muốn PM thấy cả nhập hàng/kho/nhà cung cấp thì giữ 3 mục dưới;
+                             Còn nếu PM chỉ quản lý sản phẩm + danh mục, hãy đổi điều kiện 3 mục này
+                             thành (isAdmin) để CHỈ Admin thấy. -->
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhapHangs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="NhapHangs" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:import"></span>
+                                <div>Nhập hàng</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhapHangs" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="NhapHangs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:import"></span>
-                            <div>Nhập hàng</div>
-                        </a>
-                    </li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhoHangs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:store"></span>
+                                <div>Kho</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhoHangs" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="KhoHangs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:store"></span>
-                            <div>Kho</div>
-                        </a>
-                    </li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhaCungCaps" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="NhaCungCaps" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:buildings"></span>
+                                <div>Nhà cung cấp</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhaCungCaps" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="NhaCungCaps" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:buildings"></span>
-                            <div>Nhà cung cấp</div>
-                        </a>
-                    </li>
+                    <!-- ĐƠN HÀNG: chỉ Admin + OrderManager -->
+                    @if (isAdmin || isOM)
+                    {
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="DonHangs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="DonHangs" asp-action="Index">
+                                <lord-icon src="https://cdn.lordicon.com/nvtfowkn.json" trigger="hover" style="width:24px;height:24px;margin-right:8px" class="menu-icon-lord"></lord-icon>
+                                <div>Đơn hàng</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-header small text-uppercase">Chăm sóc khách hàng</li>
+                    <!-- CHĂM SÓC KH: Admin + CustomerCare -->
+                    @if (isAdmin || isCS)
+                    {
+                        <li class="menu-header small text-uppercase">Chăm sóc khách hàng</li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="ChamSocKhachHangs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="ChamSocKhachHangs" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:chat"></span>
+                                <div>Live Chat</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "ChamSocKhachHangs" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="ChamSocKhachHangs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:chat"></span>
-                            <div>Live Chat</div>
-                        </a>
-                    </li>
+                    <!-- NGƯỜI DÙNG -->
+                    @* Khách hàng: gợi ý CHỈ Admin + CustomerCare (bỏ OrderManager để tránh “thấy dư” như bạn phản ánh) *@
+                    @if (isAdmin || isCS)
+                    {
+                        <li class="menu-header small text-uppercase">Người dùng</li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhachHangs" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="KhachHangs" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:user"></span>
+                                <div>Khách hàng</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-header small text-uppercase">Người dùng</li>
+                    @* Nhân viên: Admin + HR *@
+                    @if (isAdmin || isHR)
+                    {
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhanViens" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="NhanViens" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:id-card"></span>
+                                <div>Nhân viên</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="KhachHangs" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="KhachHangs" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:user"></span>
-                            <div>Khách hàng</div>
-                        </a>
-                    </li>
+                    @* Tài khoản: Admin *@
+                    @if (isAdmin)
+                    {
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaiKhoans" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="TaiKhoans" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:lock-alt"></span>
+                                <div>Tài khoản</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="NhanViens" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="NhanViens" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:id-card"></span>
-                            <div>Nhân viên</div>
-                        </a>
-                    </li>
+                    <!-- NỘI DUNG: mọi staff -->
+                    @if (isAdmin || isPM || isOM || isHR || isCS)
+                    {
+                        <li class="menu-header small text-uppercase">Nội dung</li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TechNews" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="TechNews" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:news"></span>
+                                <div>Tin tức</div>
+                            </a>
+                        </li>
+                    }
 
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TaiKhoans" ? "active" : "")">
-                        @* Nếu controller quản lý tài khoản tên khác (AccountsController) → đổi asp-controller="Accounts" *@
-                        <a class="menu-link" asp-area="Admin" asp-controller="TaiKhoans" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:lock-alt"></span>
-                            <div>Tài khoản</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-header small text-uppercase">Nội dung</li>
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="TechNews" ? "active" : "")">
-                        <a class="menu-link" asp-area="Admin" asp-controller="TechNews" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:news"></span>
-                            <div>Tin tức</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-header small text-uppercase">Báo cáo</li>
-
-                    <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="BaoCao" ? "active" : "")">
-                        @* Tên controller báo cáo của bạn là gì → đặt đúng ở đây *@
-                        <a class="menu-link" asp-area="Admin" asp-controller="BaoCao" asp-action="Index">
-                            <span class="menu-icon iconify" data-icon="bx:bar-chart-alt-2"></span>
-                            <div>Doanh thu</div>
-                        </a>
-                    </li>
+                    <!-- BÁO CÁO: Admin -->
+                    @if (isAdmin)
+                    {
+                        <li class="menu-header small text-uppercase">Báo cáo</li>
+                        <li class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString()=="BaoCao" ? "active" : "")">
+                            <a class="menu-link" asp-area="Admin" asp-controller="BaoCao" asp-action="Index">
+                                <span class="menu-icon iconify" data-icon="bx:bar-chart-alt-2"></span>
+                                <div>Doanh thu</div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </aside>
-            <!-- /Sidebar -->
             <!-- Main -->
             <div class="layout-page">
                 <!-- Navbar -->

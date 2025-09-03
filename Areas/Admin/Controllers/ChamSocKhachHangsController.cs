@@ -7,7 +7,7 @@ using TL4_SHOP.Models.ViewModels;
 namespace TL4_SHOP.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminOrCustomerCare")]
     public class ChamSocKhachHangsController : Controller
     {
         private readonly _4tlShopContext _context;

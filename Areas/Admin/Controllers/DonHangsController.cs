@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 namespace TL4_SHOP.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminOrOrderManager")]
     public class DonHangsController : Controller
     {
         private readonly _4tlShopContext _context;

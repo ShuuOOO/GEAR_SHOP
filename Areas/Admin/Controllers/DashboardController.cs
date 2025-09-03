@@ -7,7 +7,7 @@ using TL4_SHOP.Data;
 namespace GEAR_SHOP.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AnyStaff")]
     public class DashboardController : Controller
     {
         private readonly _4tlShopContext _context;
